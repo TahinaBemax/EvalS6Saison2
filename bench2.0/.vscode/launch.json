@@ -1,0 +1,23 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Remote Debug Frappe (All files)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/apps/erpnext",  // Remplacer par le répertoire de ton app
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/apps/erpnext:${workspaceFolder}/frappe"
+            },
+            "debugOptions": [
+                "RedirectOutput"
+            ],
+            "port": 5678,  // Le port pour debugpy
+            "host": "localhost",
+            "justMyCode": false,  // Permet de déboguer tout le code, y compris celui des dépendances
+            "cwd": "${workspaceFolder}/apps/erpnext"
+        }
+    ]
+}

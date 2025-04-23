@@ -41,7 +41,7 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 				<form id="csv-import-form">
 					<div class="form-group mb-2">
 						<label for="delimiter">Delimitor</label>
-						<select class="form-control" id="delimiter" required>
+						<select class="form-control" name='delimiter' id="delimiter" required>
 							<option value=",">Virgule (,)</option>
 							<option value=";">Point-virgule (;)</option>
 							<option value="|">Barre verticale (|)</option>
@@ -49,7 +49,7 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 					</div>
 					<div class="form-group mb-2">
 						<label for="csv-file">Csv file</label>
-						<input type="file" class="form-control" id="csv-file" accept=".csv" required>
+						<input type="file" class="form-control" name='file' id="csv-file" accept=".csv" required>
 					</div>
 					<button type="submit" class="btn btn-primary">Import</button>
 				</form>
@@ -72,22 +72,52 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 		formData.append("file", file_input.files[0]);
 		formData.append("delimiter", delimiter);
 
-		frappe.call({
-			method: "chemin.vers.ton.module.import_csv",
-			args: {},
-			freeze: true,
-			freeze_message: "Importation en cours...",
-			async: true,
-			callback: function (r) {
-				frappe.msgprint("Importation terminée !");
-			},
+		$.ajax({
+			url: "/api/method/erpnext.dataconfig.page.data_configuration.data_configuration.import_csv",
+			type: "POST",
+			data: formData,
+			processData: false,
+			contentType: false,
 			headers: {
 				'X-Frappe-CSRF-Token': frappe.csrf_token
 			},
-			type: 'POST',
-			contentType: false,
-			processData: false,
-			data: formData
+			success: function (response) {
+				// La vraie réponse est dans response.message car Frappe "wrappe" les retours
+				const res = response.message;
+		
+				if (res.success) {
+					frappe.msgprint({
+						title: "Data imported",
+						message: res.message,
+						indicator: "green"
+					});
+				} else {
+					frappe.msgprint({
+						title: "Importation failed",
+						message: res.message + "<br><br>" + (res.errors || []).join("<br>"),
+						indicator: "orange"
+					});
+				}
+			},
+			error: function (xhr) {
+				let errMsg = "Unknown error.";
+				try {
+					const res = JSON.parse(xhr.responseText);
+					errMsg = res._server_messages
+						? JSON.parse(res._server_messages)[0]
+						: res.message || xhr.responseText;
+				} catch (e) {
+					errMsg = xhr.responseText;
+				}
+		
+				frappe.msgprint({
+					title: "Server Error",
+					message: errMsg,
+					indicator: "red"
+				});
+			}
 		});
+		
+		
 	});
 };
