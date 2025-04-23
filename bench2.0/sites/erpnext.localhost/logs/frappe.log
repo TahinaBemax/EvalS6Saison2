@@ -1,0 +1,126 @@
+2025-04-23 11:05:18,340 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'public': '0', 'new_widgets': '{}', 'blocks': '[{"id":"n_yPe4H6Kl","type":"header","data":{"text":"<span class=\\"h4\\">Data Config</span>","col":12}}]', 'cmd': 'frappe.desk.doctype.workspace.workspace.save_page'}
+2025-04-23 11:18:41,130 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Page","name":"new-page-sejwnqclyh","__islocal":1,"__unsaved":1,"owner":"Administrator","system_page":0,"standard":"Yes","roles":[],"page_name":"dataConfiguration","title":"Data config","module":"dataconfig"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-04-23 11:18:43,730 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 11:18:43,946 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 11:23:22,538 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'public': '0', 'new_widgets': '{}', 'blocks': '[{"id":"setE1D5SYx","type":"header","data":{"text":"<span class=\\"h4\\">Data Config</span>","col":12}}]', 'cmd': 'frappe.desk.doctype.workspace.workspace.save_page'}
+2025-04-23 11:29:38,935 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 11:29:39,214 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 11:31:48,751 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Page","name":"new-page-muasdjtgxa","__islocal":1,"__unsaved":1,"owner":"Administrator","system_page":0,"standard":"Yes","roles":[],"page_name":"dataConfiguration","title":"Data Configuration","module":"dataconfig"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-04-23 11:38:45,828 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'docs': '{"name":"Customize Form","owner":"Administrator","docstatus":0,"idx":0,"grid_page_length":0,"istable":0,"is_calendar_and_gantt":0,"editable_grid":0,"quick_entry":1,"track_changes":0,"track_views":0,"allow_auto_repeat":0,"allow_import":0,"queue_in_background":0,"naming_rule":"","max_attachments":0,"allow_copy":0,"make_attachments_public":0,"protect_attached_files":0,"show_title_field_in_link":0,"translated_doctype":0,"force_re_route_to_default_view":0,"show_preview_popup":0,"email_append_to":0,"sort_order":"ASC","doctype":"Customize Form","actions":[],"links":[],"states":[],"fields":[],"__last_sync_on":"2025-04-23T08:38:38.528Z","doc_type":"Page"}', 'method': 'fetch_to_customize', 'cmd': 'run_doc_method'}
+2025-04-23 11:40:27,569 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 11:40:27,829 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 11:41:08,994 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 11:41:09,299 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 12:00:05,055 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 12:00:05,374 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 12:01:37,289 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 12:01:37,556 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 12:07:10,746 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 12:07:11,021 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 12:07:29,495 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 12:07:29,789 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 12:07:53,404 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'report_name': 'Profit and Loss Statement', 'filters': '{"filter_based_on":"Fiscal Year","period_start_date":"2020-04-01","period_end_date":"2021-03-31","periodicity":"Yearly","include_default_book_entries":1,"company":"BICI (Demo)","from_fiscal_year":"","to_fiscal_year":""}', 'ignore_prepared_report': '1', 'cmd': 'frappe.desk.query_report.run'}
+2025-04-23 13:53:12,309 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 13:53:12,665 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 14:33:07,963 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 14:33:08,709 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 14:36:10,831 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'cmd': 'erpnext.dataconfig.page.data_configuration.data_configuration.py'}
+2025-04-23 14:55:14,586 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 14:55:14,840 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 14:55:50,814 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'cmd': 'dataconfig.page.data_configuration.data_configuration.py'}
+2025-04-23 15:09:27,165 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 15:09:27,412 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 15:12:04,278 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'cmd': 'erpnext.dataconfig.page.data_configuration.data_configuration.delete_all_data'}
+2025-04-23 15:13:40,193 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 15:13:40,440 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 15:13:46,687 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'cmd': 'erpnext.erpnext.dataconfig.page.data_configuration.data_configuration.delete_all_data'}
+2025-04-23 15:16:18,786 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 15:16:19,076 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 15:19:45,909 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 15:19:46,213 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 15:25:52,225 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 15:25:53,708 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'report_name': 'Sales Order Trends', 'filters': '{"period":"Monthly","based_on":"Item","company":"BICI (Demo)","fiscal_year":""}', 'ignore_prepared_report': '1', 'cmd': 'frappe.desk.query_report.run'}

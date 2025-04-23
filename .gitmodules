@@ -1,0 +1,6 @@
+[submodule "bench2.0/apps/erpnext"]
+	path = bench2.0/apps/erpnext
+	url = https://github.com/TahinaBemax/EvalS6Saison2.git
+[submodule "bench2.0/apps/frappe"]
+	path = bench2.0/apps/frappe
+	url = https://github.com/TahinaBemax/EvalS6Saison2.git
