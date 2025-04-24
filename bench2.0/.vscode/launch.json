@@ -1,23 +1,24 @@
 {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
-    "configurations": [
-        
+    "configurations": 
+    [
         {
-            "name": "Remote Debug Frappe (All files)",
+            "name": "Debug ERPNext Frappe",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/apps/erpnext",  // Remplacer par le répertoire de ton app
+            "program": "${workspaceFolder}/bench2.0/apps/erpnext/erpnext/__init__.py",  // Point d'entrée pour ERPNext
             "console": "integratedTerminal",
             "env": {
-                "PYTHONPATH": "${workspaceFolder}/apps/erpnext:${workspaceFolder}/frappe"
+                "PYTHONPATH": "${workspaceFolder}/bench2.0/apps"
             },
-            "debugOptions": [
-                "RedirectOutput"
+            "args": [
+                "serve",  // Utilise cette option pour démarrer le serveur ERPNext
+                "--port", "8001"
             ],
-            "port": 5678,  // Le port pour debugpy
-            "host": "localhost",
-            "justMyCode": false,  // Permet de déboguer tout le code, y compris celui des dépendances
-            "cwd": "${workspaceFolder}/apps/erpnext"
+            "pythonPath": "${workspaceFolder}/bench2.0/env/bin/python"  // Assurez-vous que c'est le chemin correct pour Python dans WSL
         }
     ]
 }

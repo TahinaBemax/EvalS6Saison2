@@ -574,3 +574,27 @@ Form Dict: {'delimiter': ',', 'cmd': 'erpnext.dataconfig.page.data_configuration
 2025-04-23 21:39:15,911 ERROR frappe New Exception collected in error log
 Site: erpnext.localhost
 Form Dict: {'date': '2025-04-23', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-23 21:39:19,485 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'report_name': 'Sales Order Trends', 'filters': '{"period":"Monthly","based_on":"Item","company":"BICI (Demo)","fiscal_year":""}', 'ignore_prepared_report': '1', 'cmd': 'frappe.desk.query_report.run'}
+2025-04-24 10:35:31,035 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-24', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-24 10:35:31,398 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-24', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-24 10:35:53,530 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-24', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-24 10:36:01,536 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'report_name': 'Sales Order Trends', 'filters': '{"period":"Monthly","based_on":"Item","company":"BICI (Demo)","fiscal_year":""}', 'ignore_prepared_report': '1', 'cmd': 'frappe.desk.query_report.run'}
+2025-04-24 10:55:59,020 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-24', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-24 10:55:59,420 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-24', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-04-24 11:12:38,887 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-04-24', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}

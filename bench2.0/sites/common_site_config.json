@@ -1,4 +1,5 @@
 {
+ "debug": 1,
  "developer_mode": 1,
  "background_workers": 1,
  "default_site": "erpnext.localhost",

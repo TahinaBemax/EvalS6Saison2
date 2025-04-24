@@ -2,7 +2,7 @@ from typing import List
 import frappe
 import csv
 import io
-from .csvModels import CustomerCSVModel, ImportCSVResponse
+from erpnext.dataconfig.page.data_configuration.csvModels import CustomerCSVModel, ImportCSVResponse
 from pydantic import ValidationError
 
 @frappe.whitelist()
