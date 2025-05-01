@@ -1,10 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/head :: head}">
+    <title>Choose A Supplier</title>
 </head>
 <body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
 
+<main>
+    <div class="container">
+        <section class=" row h-100 align-items-center justify-content-center">
+            <div class="col-4">
+                <form method="post" action="/suppliers/memories_supplier">
+                    <div class="col bg-white p-3 rounded">
+                        <label for="supplier" class="form-label">Suppliers</label>
+                        <select class="form-select" name="supplier" aria-label="supplier" id="supplier">
+                            <option value="">Choose a supplier...</option>
+                            <option th:each="s : ${suppliers}" th:value="${s.getName()}" th:text="${s.getSupplier_name()}"></option>
+                        </select>
+
+                        <div th:if="${valueError != null}"  class="my-2 alert alert-danger" th:text="${valueError}"></div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Next</button>
+                </form>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
 </body>
 </html>

@@ -2,14 +2,12 @@ package itu.mg.erpnext.controller;
 
 import itu.mg.erpnext.models.login.LoginRequest;
 import itu.mg.erpnext.services.LoginService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class LoginController extends MainController{
@@ -33,7 +31,7 @@ public class LoginController extends MainController{
             }
 
             if(loginService.login(request.getUsr(), request.getPwd())){
-                return "redirect:/";
+                return "redirect:/suppliers";
             }
         } catch (UsernameNotFoundException e) {
             model.addAttribute("error", e.getMessage());
@@ -41,5 +39,10 @@ public class LoginController extends MainController{
         }
 
         return "login/login";
+    }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "redirect:/login";
     }
 }
