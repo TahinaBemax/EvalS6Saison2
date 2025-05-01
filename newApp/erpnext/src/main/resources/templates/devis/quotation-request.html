@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/head :: head}">
+  <title>Choose A Supplier</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main>
+  <div class="container-fluid">
+    <h3 class="text-center p-3 bg-white my-3">Quotation Requests</h3>
+
+    <section class="my-2 row align-items-center justify-content-center">
+      <div class="col-12 bg-white py-3 px-2 shadow">
+        <table class="table" id="table">
+          <thead>
+          <tr class="text-center">
+            <th scope="col">Name</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Transaction Date</th>
+            <th scope="col">Company</th>
+            <th scope="col">Order Type</th>
+            <th scope="col">Total Quantity</th>
+            <th scope="col">Base Total</th>
+            <th scope="col">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td class="text-center">Otto</td>
+            <td>@mdo</td>
+            <td class="text-center">@mdo</td>
+            <td class="text-right">@mdo</td>
+            <td>@mdo</td>
+            <td class="text-center">
+              <a href="#"><i class="bi bi-pencil-square"></i></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready( function () {
+    $('#table').DataTable(); // Applique DataTables au tableau
+  });
+</script>
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

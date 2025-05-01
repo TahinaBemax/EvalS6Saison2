@@ -40,5 +40,10 @@ public class SupplierController extends MainController{
         return String.format("redirect:/suppliers/%s/quote-requests", UriUtils.encodePath(supplier, StandardCharsets.UTF_8));
     }
 
+    @GetMapping("/{name}/quote-requests")
+    public String getSupplierQuoteRequests(@PathVariable String name, Model model){
+        return "devis/quotation-request";
+    }
+
 
 }
