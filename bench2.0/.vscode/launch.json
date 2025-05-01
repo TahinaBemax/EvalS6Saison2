@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": 
+    [
+        {
+            "name": "Debug ERPNext Frappe",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/bench2.0/apps/erpnext/erpnext/__init__.py",  // Point d'entrée pour ERPNext
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/bench2.0/apps"
+            },
+            "args": [
+                "serve",  // Utilise cette option pour démarrer le serveur ERPNext
+                "--port", "8001"
+            ],
+            "pythonPath": "${workspaceFolder}/bench2.0/env/bin/python"  // Assurez-vous que c'est le chemin correct pour Python dans WSL
+        }
+    ]
+}
