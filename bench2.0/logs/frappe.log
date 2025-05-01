@@ -601,3 +601,30 @@ Form Dict: {'date': '2025-04-24', 'raise_on_missing': 'true', 'cmd': 'erpnext.ac
 2025-04-24 11:12:46,904 ERROR frappe New Exception collected in error log
 Site: erpnext.localhost
 Form Dict: {'report_name': 'Sales Order Trends', 'filters': '{"period":"Monthly","based_on":"Item","company":"BICI (Demo)","fiscal_year":""}', 'ignore_prepared_report': '1', 'cmd': 'frappe.desk.query_report.run'}
+2025-05-01 09:17:53,797 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-01 09:17:54,274 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-01 09:36:54,672 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-01 09:36:55,214 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-01 09:37:16,183 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-01 09:37:17,348 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-01 09:37:54,602 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'report_name': 'Profit and Loss Statement', 'filters': '{"filter_based_on":"Fiscal Year","period_start_date":"2020-04-01","period_end_date":"2021-03-31","periodicity":"Yearly","include_default_book_entries":1,"company":"BICI (Demo)","from_fiscal_year":"","to_fiscal_year":""}', 'ignore_prepared_report': '1', 'cmd': 'frappe.desk.query_report.run'}
+2025-05-01 09:46:01,351 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-01 09:46:09,482 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'report_name': 'Sales Order Trends', 'filters': '{"period":"Monthly","based_on":"Item","company":"BICI (Demo)","fiscal_year":""}', 'ignore_prepared_report': '1', 'cmd': 'frappe.desk.query_report.run'}
