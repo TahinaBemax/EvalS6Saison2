@@ -1,5 +1,7 @@
 package itu.mg.erpnext.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -9,7 +11,7 @@ import java.io.IOException;
 
 @ControllerAdvice
 public class ControllerAdvise {
-
+    public static final Logger logger = LoggerFactory.getLogger(ControllerAdvise.class);
     @ExceptionHandler(IOException.class)
     public ResponseEntity<?> exceptionHandler(IOException e){
         IOException ioException = new IOException("Une erreur s'est produite lors de la lecture du fichier: " + e.getMessage());
@@ -17,8 +19,8 @@ public class ControllerAdvise {
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<?> exceptionHandler(Exception e){
-        Exception Exception = new Exception("Une erreur interne s'est produite! \n" + e.getMessage());
-        return new ResponseEntity<>(Exception, HttpStatus.INTERNAL_SERVER_ERROR);
+    public String exceptionHandler(Exception e){
+        logger.error(e.getMessage());
+        return "error/500";
     }
 }
