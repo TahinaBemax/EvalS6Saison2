@@ -1,0 +1,51 @@
+/* Page de l'erreur 403 */
+.error-card {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Personnalisation des boutons */
+.btn-primary {
+    background-color: #0066cc;
+    border-color: #0066cc;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #005bb5;
+    border-color: #005bb5;
+}
+
+/* Mise en forme de la police */
+h1 {
+    font-size: 6rem;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #555;
+}
+
+/* Mise en forme générale */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Card Shadow */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centrer le contenu sur toute la hauteur */
+.min-vh-100 {
+    min-height: 100vh;
+}

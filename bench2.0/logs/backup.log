@@ -16,3 +16,9 @@ Backup Summary for erpnext.localhost at 2025-04-23 18:01:35.364052
 Config  : /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/erpnext.localhost/private/backups/20250423_180119-erpnext_localhost-site_config_backup.json 149.0B
 Database: /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/erpnext.localhost/private/backups/20250423_180119-erpnext_localhost-database.sql.gz 1.6MiB
 Backup for Site erpnext.localhost has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=_cdbf2f4f83d3314f --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _cdbf2f4f83d3314f | /usr/bin/gzip >> ./erpnext.localhost/private/backups/20250501_120026-erpnext_localhost-database.sql.gz
+
+Backup Summary for erpnext.localhost at 2025-05-01 12:00:44.644249
+Config  : /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/erpnext.localhost/private/backups/20250501_120026-erpnext_localhost-site_config_backup.json 185.0B
+Database: /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/erpnext.localhost/private/backups/20250501_120026-erpnext_localhost-database.sql.gz 1.7MiB
+Backup for Site erpnext.localhost has been successfully completed
