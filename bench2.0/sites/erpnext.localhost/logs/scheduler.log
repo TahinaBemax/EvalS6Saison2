@@ -528,3 +528,4 @@
 2025-05-02 15:04:01,579 ERROR scheduler Skipped queueing frappe.website.doctype.personal_data_deletion_request.personal_data_deletion_request.process_data_deletion_request because it was found in queue for erpnext.localhost
 2025-05-02 15:04:01,617 ERROR scheduler Skipped queueing frappe.email.doctype.notification.notification.trigger_offset_alerts because it was found in queue for erpnext.localhost
 2025-05-02 15:04:01,837 ERROR scheduler Skipped queueing frappe.email.doctype.newsletter.newsletter.send_scheduled_email because it was found in queue for erpnext.localhost
+2025-05-02 16:04:00,705 ERROR scheduler Skipped queueing frappe.email.doctype.email_account.email_account.notify_unreplied because it was found in queue for erpnext.localhost

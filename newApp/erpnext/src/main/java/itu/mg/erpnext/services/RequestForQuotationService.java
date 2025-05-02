@@ -6,16 +6,14 @@ import itu.mg.erpnext.components.SessionManager;
 import itu.mg.erpnext.controller.ControllerAdvise;
 import itu.mg.erpnext.dto.SupplierQuotationResponse;
 import itu.mg.erpnext.dto.RequestForQuotationResponse;
+import itu.mg.erpnext.exceptions.AmountInvalidExcpetion;
 import itu.mg.erpnext.exceptions.RequestForQuotationException;
 import itu.mg.erpnext.models.RequestForQuotation;
 import itu.mg.erpnext.models.SupplierQuotation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.util.UriUtils;
@@ -23,9 +21,7 @@ import org.springframework.web.util.UriUtils;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class RequestForQuotationService extends MainService{
@@ -35,26 +31,40 @@ public class RequestForQuotationService extends MainService{
     }
 
 
-    public SupplierQuotationResponse updateSupplierQuotationPrice(String name, double newPrice) {
+    public boolean updateSupplierQuotationPrice(String itemId, double newPrice) {
+        // Préparation des en-têtes avec cookie de session
+        if (newPrice < 0){
+            throw new AmountInvalidExcpetion(newPrice);
+        }
+
         HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie());
-        HttpEntity<Void> entity = new HttpEntity<>(headers);
 
-        // 1. Obtenir les parents depuis la table enfant
-        String childUrl = String.format("%s/api/resource/Supplier Quotation",
-                this.getErpNextUrl());
+        // Corps de la requête avec le nouveau prix
+        Map<String, Object> body = new HashMap<>();
+        body.put("rate", newPrice);
 
-        ResponseEntity<SupplierQuotationResponse> childResponse = this.getRestTemplate().exchange(
-                childUrl,
+        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(body, headers);
+
+        // Construction de l’URL du document ERPNext à modifier (basé sur son "name")
+        String updateUrl = String.format("%s/api/resource/Supplier Quotation Item/%s", this.getErpNextUrl(), itemId);
+
+        // Exécution de la requête PUT
+        ResponseEntity<Map> response = this.getRestTemplate().exchange(
+                updateUrl,
                 HttpMethod.PUT,
                 entity,
-                SupplierQuotationResponse.class
+                Map.class
         );
 
-
-        return childResponse.getBody(); // vide
-
+        if (response.getStatusCode().is2xxSuccessful()) {
+            return true;
+        } else {
+            throw new RuntimeException("An error occured wheh updating supplier quotation price");
+        }
     }
+
     public List<SupplierQuotation> getSupplierQuotation(String supplierName) {
         try {
             //String finalUrl = String.format("%s/api/method/custom_app.api_rest.api.get_rfq_by_supplier?supplier_name=%s", this.getErpNextUrl(), supplierName);
