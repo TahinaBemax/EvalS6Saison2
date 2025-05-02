@@ -2,23 +2,26 @@ package itu.mg.erpnext.models;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 @Data
-public class Supplier {
-    @NotEmpty
+public class Quotation {
     @NotBlank
     private String name;
-
-    private String owner;
-
-    private String naming_series;
-
-    @NotEmpty
+    @NotNull
+    private LocalDateTime transaction_date;
     @NotBlank
-    private String supplier_name;
-
-    private String country;
-    private String supplier_group;
-    private String supplier_type;
+    private String company;
+    @NotBlank
+    private String customer_name;
+    @NotBlank
+    private String order_type;
+    @NotNull
+    private BigDecimal total_quantity;
+    @NotNull
+    private BigDecimal base_total;
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:insert="~{fragments/head :: head}">
-    <title>Choose A Supplier</title>
+    <title>New price</title>
 </head>
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
@@ -10,18 +10,17 @@
     <div class="container">
         <section class=" row h-100 align-items-center justify-content-center">
             <div class="col-4">
+                <h4 class="text-center">Update Price</h4>
                 <form method="post" action="/suppliers/memories_supplier">
+                    <input type="hidden" name="id" th:value="${id}">
+
                     <div class="col bg-white p-3 rounded">
-                        <label for="supplier" class="form-label">Suppliers</label>
-                        <select class="form-select" name="supplier" aria-label="supplier" id="supplier">
-                            <option value="">Choose a supplier...</option>
-                            <option th:each="s : ${suppliers}" th:value="${s.getName()}" th:text="${s.getSupplier_name()}"></option>
-                        </select>
+                        <label for="price" class="form-label">New price</label>
+                        <input type="number" step="any" name="price" id="price" th:value="${pastPrice}">
 
                         <div th:if="${valueError != null}"  class="my-2 alert alert-danger" th:text="${valueError}"></div>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Next</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
         </section>

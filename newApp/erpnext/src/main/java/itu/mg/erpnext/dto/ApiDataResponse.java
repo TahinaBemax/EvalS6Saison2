@@ -6,6 +6,6 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class SupplierResponse {
-    List<Supplier> data;
+public class ApiDataResponse<T> {
+    List<T> data;
 }

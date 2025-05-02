@@ -17,5 +17,15 @@
         "required": [],
         "idx": 2,
         "version": "16.0.0-dev"
+    },
+    "custom_app": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "2bc0fdf076f42b41ef53bfdd1eadee5c6e137c8d",
+            "branch": "metier-quotation"
+        },
+        "required": [],
+        "idx": 3,
+        "version": "0.0.1"
     }
 }

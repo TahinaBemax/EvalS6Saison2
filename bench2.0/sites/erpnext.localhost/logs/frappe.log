@@ -640,3 +640,60 @@ Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.ac
 2025-05-01 10:27:10,184 ERROR frappe New Exception collected in error log
 Site: erpnext.localhost
 Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-01 19:37:19,616 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-01 19:37:20,477 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-01', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-01 20:06:54,509 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["Request for Quotation Supplier.supplier","=","MA Inc."]]', 'fields': ['*'], 'limit_page_length': 20}
+2025-05-01 20:09:18,630 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["Request for Quotation Supplier.supplier","=","MA Inc."]]', 'fields': ['*'], 'limit_page_length': 20}
+2025-05-01 20:39:57,949 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","Zuckerman Security Ltd."]]', 'fields': ['*'], 'limit_page_length': 20}
+2025-05-01 20:42:08,493 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","Zuckerman Security Ltd."]]', 'fields': ['*'], 'limit_page_length': 20}
+2025-05-01 20:46:28,382 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","Zuckerman Security Ltd."]]', 'fields': ['*'], 'limit_page_length': 20}
+2025-05-01 20:46:50,430 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': ['*'], 'limit_page_length': 20}
+2025-05-01 21:08:50,183 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'amount': 12, 'expenseId': 1, 'limit_page_length': 20}
+2025-05-01 21:47:00,280 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'amount': 12, 'expenseId': 1, 'cmd': 'custom_app.api_rest.api.get_rfq_by_supplier'}
+2025-05-01 21:48:46,458 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'amount': 12, 'expenseId': 1, 'cmd': 'custom_app.api_rest.api.get_rfq_by_supplier'}
+2025-05-01 21:56:58,489 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'amount': 12, 'expenseId': 1, 'cmd': 'custom_app.api_rest.api.get_rfq_by_supplier'}
+2025-05-01 21:57:14,207 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'amount': 12, 'expenseId': 1, 'cmd': 'custom_app.api_rest.api.get_rfq_by_supplier'}
+2025-05-01 21:58:36,080 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'amount': 12, 'expenseId': 1, 'cmd': 'custom_app.api_rest.api.get_rfq_by_supplier'}
+2025-05-02 08:06:04,695 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-02', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-02 08:06:04,986 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-02', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-02 08:57:21,935 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-02', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-02 08:57:22,503 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'date': '2025-05-02', 'raise_on_missing': 'true', 'cmd': 'erpnext.accounts.utils.get_fiscal_year'}
+2025-05-02 08:57:54,530 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'report_name': 'Profit and Loss Statement', 'filters': '{"filter_based_on":"Fiscal Year","period_start_date":"2020-04-01","period_end_date":"2021-03-31","periodicity":"Yearly","include_default_book_entries":1,"company":"BICI (Demo)","from_fiscal_year":"","to_fiscal_year":""}', 'ignore_prepared_report': '1', 'cmd': 'frappe.desk.query_report.run'}

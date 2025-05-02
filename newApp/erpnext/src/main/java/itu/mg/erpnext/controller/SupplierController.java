@@ -1,6 +1,9 @@
 package itu.mg.erpnext.controller;
 
+import itu.mg.erpnext.dto.RequestForQuotationResponse;
 import itu.mg.erpnext.dto.SupplierResponse;
+import itu.mg.erpnext.models.RequestForQuotation;
+import itu.mg.erpnext.services.RequestForQuotationService;
 import itu.mg.erpnext.services.SupplierService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +14,18 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriUtils;
 
 import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 @Controller
 @RequestMapping("/suppliers")
 public class SupplierController extends MainController{
     private final SupplierService supplierService;
+    private final RequestForQuotationService RFQService;
 
     @Autowired
-    public SupplierController(SupplierService supplierService) {
+    public SupplierController(SupplierService supplierService,RequestForQuotationService RFQService) {
         this.supplierService = supplierService;
+        this.RFQService = RFQService;
     }
 
     @GetMapping
@@ -37,13 +43,18 @@ public class SupplierController extends MainController{
         }
 
         session.setAttribute("supplier", supplier);
-        return String.format("redirect:/suppliers/%s/quote-requests", UriUtils.encodePath(supplier, StandardCharsets.UTF_8));
+        return String.format("redirect:/suppliers/%s/requests-for-quotation", UriUtils.encodePath(supplier, StandardCharsets.UTF_8));
+        //return getSupplierQuoteRequests(supplier, model);
     }
 
-    @GetMapping("/{name}/quote-requests")
+    @GetMapping("/{name}/requests-for-quotation")
     public String getSupplierQuoteRequests(@PathVariable String name, Model model){
+        List<RequestForQuotation> supplierQuotations = this.RFQService.getSupplierQuotation(name);
+        model.addAttribute("quotations", supplierQuotations);
         return "devis/quotation-request";
     }
+
+
 
 
 }

@@ -20,7 +20,7 @@ public class ControllerAdvise {
 
     @ExceptionHandler(Exception.class)
     public String exceptionHandler(Exception e){
-        logger.error(e.getMessage());
+        logger.error(e.getLocalizedMessage());
         return "error/500";
     }
 }
