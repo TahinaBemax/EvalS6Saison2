@@ -11,7 +11,7 @@
     <h3 class="text-center p-3 bg-white my-3">Purchase orders</h3>
 
     <section class="my-2 p-3 row align-items-center justify-content-center">
-      <div class="filtre">
+<!--      <div class="filtre">
           <form method="post" action="/suppliers/memories_supplier">
             <div class="col bg-white p-3 rounded">
               <label for="supplier" class="form-label">Status</label>
@@ -25,7 +25,8 @@
 
             <button type="submit" class="btn btn-primary">Next</button>
           </form>
-      </div>
+      </div>-->
+
       <div class="col-12 bg-white py-3 px-2 shadow">
         <table class="table" id="table">
           <thead>
@@ -36,28 +37,22 @@
             <th scope="col">Qty</th>
             <th scope="col">Rate</th>
             <th scope="col">Total Amount</th>
-            <th scope="col">Action</th>
+            <th scope="col">Status</th>
           </tr>
           </thead>
           <tbody>
-            <tr th:if="${quotations.size() > 0}" th:each="item : ${quotations}">
-              <td th:text="${item.getCompany()}"></td>
-              <td th:text="${item.getSupplier_name()}"></td>
-              <td class="text-center" th:text="${item.getTransaction_date()}"></td>
-              <td class="text-left" th:text="${item.getItem_name()}"></td>
-              <td class="text-center" th:text="${item.getQty()}"></td>
-              <td class="text-center" th:text="${item.getRate()}"></td>
-              <td class="text-center" th:text="${item.getAmount()}"></td>
-
-              <td class="text-center" th:with="name=${item.getName()}">
-                <a th:href="@{/supplier-quotations/{id}/update-price(id=${item.name}, pastPrice=${item.getRate()})}">
-                  <i class="bi bi-pencil-square"></i>
-                </a>
-              </td>
+            <tr th:if="${orders.size() > 0}" th:each="order : ${orders}">
+              <td th:text="${order.getCompany()}"></td>
+              <td class="text-center" th:text="${order.getTransaction_date()}"></td>
+              <td class="text-center" th:text="${order.getItem_name()}"></td>
+              <td class="text-center" th:text="${order.getQty()}"></td>
+              <td class="text-center" th:text="${order.getRate()}"></td>
+              <td class="text-center" th:text="${order.getAmount()}"></td>
+              <td class="text-center" th:style="${'color:' + order.getColor()}" th:text="${order.getStatus()}"></td>
             </tr>
 
-          <tr th:unless="${quotations.size() > 0}">
-            <td colspan="5" class="text-center">No data</td>
+          <tr th:unless="${orders.size() > 0}">
+            <td colspan="7" class="text-center">No data</td>
           </tr>
           </tbody>
         </table>
