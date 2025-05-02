@@ -8,9 +8,9 @@
 
 <main>
   <div class="container-fluid">
-    <h3 class="text-center p-3 bg-white my-3">Purchase orders</h3>
+    <h4 class="text-center p-3 bg-white my-3">Purchase orders</h4>
 
-    <section class="my-2 p-3 row align-items-center justify-content-center">
+    <section class="px-3 row align-items-center justify-content-center">
 <!--      <div class="filtre">
           <form method="post" action="/suppliers/memories_supplier">
             <div class="col bg-white p-3 rounded">
@@ -27,32 +27,34 @@
           </form>
       </div>-->
 
-      <div class="col-12 bg-white py-3 px-2 shadow">
-        <table class="table" id="table">
+      <div class="col-12 bg-white py-3">
+        <p class="text-secondary mb-2">List of purchase orders</p>
+
+        <table class="table my-4" id="table">
           <thead>
-          <tr class="text-center">
+          <tr>
             <th scope="col">Company</th>
             <th scope="col">Transaction Date</th>
             <th scope="col">Item</th>
             <th scope="col">Qty</th>
-            <th scope="col">Rate</th>
-            <th scope="col">Total Amount</th>
+            <th scope="col" class="text-end">Rate</th>
+            <th scope="col" class="text-end">Total Amount</th>
             <th scope="col">Status</th>
           </tr>
           </thead>
           <tbody>
             <tr th:if="${orders.size() > 0}" th:each="order : ${orders}">
               <td th:text="${order.getCompany()}"></td>
-              <td class="text-center" th:text="${order.getTransaction_date()}"></td>
-              <td class="text-center" th:text="${order.getItem_name()}"></td>
-              <td class="text-center" th:text="${order.getQty()}"></td>
-              <td class="text-center" th:text="${order.getRate()}"></td>
-              <td class="text-center" th:text="${order.getAmount()}"></td>
-              <td class="text-center" th:style="${'color:' + order.getColor()}" th:text="${order.getStatus()}"></td>
+              <td th:text="${order.getTransaction_date()}"></td>
+              <td th:text="${order.getItem_name()}"></td>
+              <td th:text="${order.getQty()}"></td>
+              <td class="text-end" th:text="${#numbers.formatCurrency(order.getRate())}"></td>
+              <td class="text-end" th:text="${#numbers.formatCurrency(order.getAmount())}"></td>
+              <td th:style="${'color:' + order.getColor()}" th:text="${order.getStatus()}"></td>
             </tr>
 
           <tr th:unless="${orders.size() > 0}">
-            <td colspan="7" class="text-center">No data</td>
+            <td colspan="7" class="text-center">No Data</td>
           </tr>
           </tbody>
         </table>

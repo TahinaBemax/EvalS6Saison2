@@ -1,5 +1,6 @@
 package itu.mg.erpnext.controller;
 
+import itu.mg.erpnext.components.SessionManager;
 import itu.mg.erpnext.dto.SupplierResponse;
 import itu.mg.erpnext.models.SupplierQuotation;
 import itu.mg.erpnext.services.RequestForQuotationService;
@@ -21,13 +22,18 @@ public class SupplierController extends MainController{
     private final RequestForQuotationService RFQService;
 
     @Autowired
-    public SupplierController(SupplierService supplierService,RequestForQuotationService RFQService) {
+    public SupplierController(SessionManager sessionManager, SupplierService supplierService,RequestForQuotationService RFQService) {
+        super(sessionManager);
         this.supplierService = supplierService;
         this.RFQService = RFQService;
     }
 
     @GetMapping
     public String chooseSupplierPage(Model model){
+        if (this.getSessionManager().getSessionCookie() == null){
+            return "redirect:/login";
+        }
+
         SupplierResponse supplierResponse = supplierService.getSuppliers();
         model.addAttribute("suppliers", supplierResponse.getData());
         return "fournisseur/choose-fournisseur";
@@ -35,24 +41,17 @@ public class SupplierController extends MainController{
 
     @PostMapping("memories_supplier")
     public String memoriesSupplier(@RequestParam("supplier") String supplier, HttpSession session, Model model){
+        if (this.getSessionManager().getSessionCookie() == null){
+            return "redirect:/login";
+        }
+
         if (supplier == null || supplier.trim().isBlank()){
             model.addAttribute("valueError", "Please, chose a supplier!");
             return this.chooseSupplierPage(model);
         }
 
         session.setAttribute("supplier", supplier);
-        return String.format("redirect:/suppliers/%s/requests-for-quotation", UriUtils.encodePath(supplier, StandardCharsets.UTF_8));
-        //return getSupplierQuoteRequests(supplier, model);
+        return "redirect:/supplier-quotations";
     }
-
-    @GetMapping("/{name}/requests-for-quotation")
-    public String getSupplierQuoteRequests(@PathVariable String name, Model model){
-        List<SupplierQuotation> supplierQuotations = this.RFQService.getSupplierQuotation(name);
-        model.addAttribute("quotations", supplierQuotations);
-        return "devis/quotation-request";
-    }
-
-
-
 
 }

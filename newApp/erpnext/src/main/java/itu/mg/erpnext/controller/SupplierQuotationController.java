@@ -1,8 +1,10 @@
 package itu.mg.erpnext.controller;
 
+import itu.mg.erpnext.components.SessionManager;
 import itu.mg.erpnext.dto.UpdateSupQuotaItemPriceFormData;
+import itu.mg.erpnext.exceptions.ActionNotAllowedExcpetion;
 import itu.mg.erpnext.exceptions.AmountInvalidExcpetion;
-import itu.mg.erpnext.models.RequestForQuotation;
+import itu.mg.erpnext.models.SupplierQuotation;
 import itu.mg.erpnext.models.SupplierQuotationItem;
 import itu.mg.erpnext.services.RequestForQuotationService;
 import itu.mg.erpnext.services.SupplierQuotationService;
@@ -20,13 +22,12 @@ import java.util.List;
 
 @Controller()
 @RequestMapping("/supplier-quotations")
-public class SupplierQuotationController {
-    private final SupplierService supplierService;
+public class SupplierQuotationController extends MainController{
     private final RequestForQuotationService RFQService;
     private final SupplierQuotationService supplierQuotationService;
     @Autowired
-    public SupplierQuotationController(SupplierService supplierService,RequestForQuotationService RFQService, SupplierQuotationService supplierQuotationService) {
-        this.supplierService = supplierService;
+    public SupplierQuotationController(SessionManager sessionManager, RequestForQuotationService RFQService, SupplierQuotationService supplierQuotationService) {
+        super(sessionManager);
         this.RFQService = RFQService;
         this.supplierQuotationService = supplierQuotationService;
     }
@@ -63,16 +64,31 @@ public class SupplierQuotationController {
             }
 
             if(RFQService.updateSupplierQuotationPrice(data.getId(), data.getNewPrice())){
-                String selectedSupplier = (String) session.getAttribute("supplier");
                 redirectAttributes.addFlashAttribute("priceUpdatedAlert", "Price updated successfuly");
-                return String.format("redirect:/suppliers/%s/requests-for-quotation", selectedSupplier );
+                return "redirect:/supplier-quotations";
             }
-        } catch (AmountInvalidExcpetion e) {
+        } catch (AmountInvalidExcpetion | ActionNotAllowedExcpetion e) {
             model.addAttribute("error", e.getMessage());
             return getSupplierQuoteRequests(data.getId(), model, session);
         }
 
         return "devis/update-price";
+    }
+
+    @GetMapping()
+    public String getSupplierQuoteRequests(Model model, HttpSession session){
+        if (this.getSessionManager().getSessionCookie() == null){
+            return "redirect:/login";
+        }
+
+        String selectedSupplier = (String) session.getAttribute("supplier");
+        if (selectedSupplier == null){
+            return "redirect:/suppliers";
+        }
+
+        List<SupplierQuotation> supplierQuotations = this.RFQService.getSupplierQuotation(selectedSupplier);
+        model.addAttribute("quotations", supplierQuotations);
+        return "devis/quotation-request";
     }
 
 

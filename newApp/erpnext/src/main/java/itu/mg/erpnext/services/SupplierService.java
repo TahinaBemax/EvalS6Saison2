@@ -19,7 +19,7 @@ public class SupplierService extends MainService{
         String url = this.getErpNextUrl() + "/api/resource/Supplier?fields=[\"name\", \"supplier_name\"]";
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie()); // Utilise le cookie de session
+        headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie());
 
         HttpEntity<Void> entity = new HttpEntity<>(headers);
 

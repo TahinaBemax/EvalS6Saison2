@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/head :: head}">
+  <title>Choose A Supplier</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main>
+  <div class="container-fluid">
+    <h4 class="text-center p-3 bg-white my-3">Purchase Invoice</h4>
+
+    <section class="row px-3 align-items-center justify-content-center">
+
+      <div class="col-12 bg-white py-3">
+        <p class="text-secondary mb-2">List of purchase invoice</p>
+
+        <table class="table my-3" id="table">
+          <thead>
+          <tr>
+            <th scope="col">Company</th>
+            <th scope="col">Date</th>
+            <th scope="col">Total</th>
+            <th scope="col">Status</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr th:if="${factures.size() > 0}" th:each="facture : ${factures}">
+              <td th:text="${facture.getCompany()}"></td>
+              <td th:text="${facture.getBill_date()}"></td>
+              <td th:text="${facture.getGrand_total()}"></td>
+              <td th:style="${'color:' + facture.getColor()}" th:text="${facture.getStatus()}"></td>
+            </tr>
+
+          <tr th:unless="${factures.size() > 0}">
+            <td colspan="7" class="text-center">No data</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready( function () {
+    $('#table').DataTable(); // Applique DataTables au tableau
+  });
+</script>
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

@@ -2,6 +2,7 @@ package itu.mg.erpnext.controller;
 
 import itu.mg.erpnext.models.login.LoginRequest;
 import itu.mg.erpnext.services.LoginService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class LoginController extends MainController{
+public class LoginController{
     private final LoginService loginService;
 
     public LoginController(LoginService loginService) {
@@ -42,7 +43,9 @@ public class LoginController extends MainController{
     }
 
     @GetMapping("/logout")
-    public String logout() {
+    public String logout(HttpSession session) {
+        session.invalidate();
+        loginService.getSessionManager().setSessionCookie(null);
         return "redirect:/login";
     }
 }

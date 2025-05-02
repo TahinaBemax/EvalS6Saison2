@@ -1,5 +1,6 @@
 package itu.mg.erpnext.controller;
 
+import itu.mg.erpnext.components.SessionManager;
 import itu.mg.erpnext.dto.UpdateSupQuotaItemPriceFormData;
 import itu.mg.erpnext.exceptions.AmountInvalidExcpetion;
 import itu.mg.erpnext.models.PurchaseOrder;
@@ -21,20 +22,25 @@ import java.util.List;
 
 @Controller()
 @RequestMapping("/purchase-orders")
-public class PurchaseOrderController {
+public class PurchaseOrderController extends MainController{
     private final PurchaseOrderService purchaseOrderService;
     @Autowired
-    public PurchaseOrderController(PurchaseOrderService purchaseOrderService) {
+    public PurchaseOrderController(SessionManager sessionManager, PurchaseOrderService purchaseOrderService) {
+        super(sessionManager);
         this.purchaseOrderService = purchaseOrderService;
     }
 
     @GetMapping()
     public String getSupplierQuoteRequests(@RequestParam(name = "status", required = false) String status, Model model, HttpSession session){
+        if (this.getSessionManager().getSessionCookie() == null){
+            return "redirect:/login";
+        }
+
         String selectedSupplier = (String) session.getAttribute("supplier");
         status = "Received";
 
         if (selectedSupplier == null){
-            return "redirect:/suppliers";
+            return "redirect:/supplier-quotations";
         }
 
         List<PurchaseOrder> orders =  purchaseOrderService.getSupplierPurchaseOrders(selectedSupplier);

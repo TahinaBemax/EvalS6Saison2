@@ -7,12 +7,13 @@
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <main>
-    <div class="container">
-        <section class=" row h-100 align-items-center justify-content-center">
-            <div class="col-4">
+    <div class="container" style="height: 76vh">
+        <section class="row h-100 align-items-center justify-content-center">
+            <div class="col-5 bg-white p-3">
                 <form method="post" action="/suppliers/memories_supplier">
-                    <div class="col bg-white p-3 rounded">
-                        <label for="supplier" class="form-label">Suppliers</label>
+                    <div class="col rounded my-3">
+                        <p for="supplier" class="form-label text-center mb-2 h5">Suppliers</p>
+
                         <select class="form-select" name="supplier" aria-label="supplier" id="supplier">
                             <option value="">Choose a supplier...</option>
                             <option th:each="s : ${suppliers}" th:value="${s.getName()}" th:text="${s.getSupplier_name()}"></option>
@@ -21,7 +22,7 @@
                         <div th:if="${valueError != null}"  class="my-2 alert alert-danger" th:text="${valueError}"></div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Next</button>
+                    <button type="submit" class="btn btn-primary w-100">Choose</button>
                 </form>
             </div>
         </section>

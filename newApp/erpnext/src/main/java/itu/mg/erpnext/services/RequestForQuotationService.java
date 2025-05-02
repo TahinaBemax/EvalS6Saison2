@@ -6,6 +6,7 @@ import itu.mg.erpnext.components.SessionManager;
 import itu.mg.erpnext.controller.ControllerAdvise;
 import itu.mg.erpnext.dto.SupplierQuotationResponse;
 import itu.mg.erpnext.dto.RequestForQuotationResponse;
+import itu.mg.erpnext.exceptions.ActionNotAllowedExcpetion;
 import itu.mg.erpnext.exceptions.AmountInvalidExcpetion;
 import itu.mg.erpnext.exceptions.RequestForQuotationException;
 import itu.mg.erpnext.models.RequestForQuotation;
@@ -13,6 +14,7 @@ import itu.mg.erpnext.models.SupplierQuotation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.dao.PermissionDeniedDataAccessException;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
@@ -60,6 +62,8 @@ public class RequestForQuotationService extends MainService{
 
         if (response.getStatusCode().is2xxSuccessful()) {
             return true;
+        } else if (response.getStatusCode().isSameCodeAs(HttpStatusCode.valueOf(417))) {
+            throw new ActionNotAllowedExcpetion();
         } else {
             throw new RuntimeException("An error occured wheh updating supplier quotation price");
         }
