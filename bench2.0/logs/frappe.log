@@ -697,3 +697,48 @@ Form Dict: {'date': '2025-05-02', 'raise_on_missing': 'true', 'cmd': 'erpnext.ac
 2025-05-02 08:57:54,530 ERROR frappe New Exception collected in error log
 Site: erpnext.localhost
 Form Dict: {'report_name': 'Profit and Loss Statement', 'filters': '{"filter_based_on":"Fiscal Year","period_start_date":"2020-04-01","period_end_date":"2021-03-31","periodicity":"Yearly","include_default_book_entries":1,"company":"BICI (Demo)","from_fiscal_year":"","to_fiscal_year":""}', 'ignore_prepared_report': '1', 'cmd': 'frappe.desk.query_report.run'}
+2025-05-02 11:58:37,848 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","Zuckerman%20Security%20Ltd."]]', 'fields': ['*'], 'limit_page_length': 20}
+2025-05-02 12:02:09,371 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","Zuckerman%20Security%20Ltd."]]', 'fields': ['*'], 'limit_page_length': 20}
+2025-05-02 13:26:59,772 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': ['*', 'items[*]'], 'limit_page_length': 20}
+2025-05-02 13:39:37,493 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '[[Ljava.lang.String;@5080a69c,"items[[Ljava.lang.String;@54bf2854]"]'}
+2025-05-02 13:44:56,209 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '[name,transaction_date,company,supplier,supplier_name,total_qty,"items[name,item_code,item_name,qty,rate,amount]"]'}
+2025-05-02 13:47:14,417 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '[name","transaction_date","company","supplier","supplier_name","total_qty,"items[name","item_code","item_name","qty","rate","amount]"]'}
+2025-05-02 13:48:50,074 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '[name","transaction_date","company","supplier","supplier_name","total_qty,"items[name","item_code","item_name","qty","rate","amount]"]'}
+2025-05-02 13:49:57,643 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '["name","transaction_date","company","supplier","supplier_name","total_qty,"items[name","item_code","item_name","qty","rate","amount]"]'}
+2025-05-02 13:51:13,322 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '["name","transaction_date","company","supplier","supplier_name","total_qty,"items[name","item_code","item_name","qty","rate","amount"]"]'}
+2025-05-02 13:55:20,542 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '["name","transaction_date","company","supplier","supplier_name","total_qty,"items[name","item_code","item_name","qty","rate","amount"]"]'}
+2025-05-02 13:56:25,172 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '["name","transaction_date","company","supplier","supplier_name","total_qty","items["name","item_code","item_name","qty","rate","amount"]"]'}
+2025-05-02 13:58:55,353 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '["name","transaction_date","company","supplier","supplier_name","total_qty","items["name","item_code","item_name","qty","rate","amount"]"]'}
+2025-05-02 13:59:06,817 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '["name","transaction_date","company","supplier","supplier_name","total_qty","items["name","item_code","item_name","qty","rate","amount"]"]'}
+2025-05-02 14:08:08,970 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': '["name,transaction_date,company,supplier,supplier_name,total_qty","items[name,item_code,item_name,qty,rate,amount"]"]'}
+2025-05-02 14:34:17,709 ERROR frappe New Exception collected in error log
+Site: erpnext.localhost
+Form Dict: {'filters': '[["supplier","=","MA Inc."]]', 'fields': ['name', 'transaction_date', 'company', 'supplier', 'supplier_name', 'total_qty', 'items.name,items.item_code,items.item_name,items.qty,items.rate,items.amount'], 'limit_page_length': 20}

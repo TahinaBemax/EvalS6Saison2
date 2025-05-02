@@ -1,13 +1,11 @@
 package itu.mg.erpnext.controller;
 
-import itu.mg.erpnext.dto.RequestForQuotationResponse;
 import itu.mg.erpnext.dto.SupplierResponse;
-import itu.mg.erpnext.models.RequestForQuotation;
+import itu.mg.erpnext.models.SupplierQuotation;
 import itu.mg.erpnext.services.RequestForQuotationService;
 import itu.mg.erpnext.services.SupplierService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +47,7 @@ public class SupplierController extends MainController{
 
     @GetMapping("/{name}/requests-for-quotation")
     public String getSupplierQuoteRequests(@PathVariable String name, Model model){
-        List<RequestForQuotation> supplierQuotations = this.RFQService.getSupplierQuotation(name);
+        List<SupplierQuotation> supplierQuotations = this.RFQService.getSupplierQuotation(name);
         model.addAttribute("quotations", supplierQuotations);
         return "devis/quotation-request";
     }
