@@ -41,7 +41,7 @@ public class PurchaseInvoiceController extends MainController{
             return "redirect:/supplier-quotations";
         }*/
 
-        List<PurchaseInvoice> orders =  purchaseInvoiceService.getSupplierPurchaseInvoice(selectedSupplier);
+        List<PurchaseInvoice> orders =  purchaseInvoiceService.getSupplierPurchaseInvoice();
         model.addAttribute("factures", orders);
         return "facture/list";
     }

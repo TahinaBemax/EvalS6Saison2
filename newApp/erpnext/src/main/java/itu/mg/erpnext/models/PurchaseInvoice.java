@@ -21,7 +21,6 @@ public class PurchaseInvoice {
     private String status;
     @NotNull
     private BigDecimal grand_total;
-
     private String credit_to;
     private String outstanding_amount;
 
@@ -33,6 +32,9 @@ public class PurchaseInvoice {
                 }
                 case "Paid" -> {
                     return "#167d4f";
+                }
+                case "Unpaid" -> {
+                    return "#bd3d0b";
                 }
             }
         }

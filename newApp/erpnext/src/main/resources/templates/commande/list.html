@@ -11,21 +11,29 @@
     <h4 class="text-center p-3 bg-white my-3">Purchase orders</h4>
 
     <section class="px-3 row align-items-center justify-content-center">
-<!--      <div class="filtre">
-          <form method="post" action="/suppliers/memories_supplier">
-            <div class="col bg-white p-3 rounded">
+      <div class="filtre bg-white row mt-4 py-3">
+        <div class="col-4">
+          <p class="text-secondary">Filtre</p>
+
+          <form method="get" action="/purchase-orders">
+            <div class="col rounded">
               <label for="supplier" class="form-label">Status</label>
-              <select class="form-select" name="supplier" aria-label="supplier" id="supplier">
-                <option value="">Choose a status...</option>
-                <option th:each="s : ${status}" th:value="${}" th:text="${}"></option>
+              <select class="form-select" name="status" aria-label="supplier" id="supplier" multiple="true">
+                <option value="">All</option>
+                <option th:each="s : ${status}"
+                        th:value="${s}"
+                        th:text="${s}"
+                        th:selected="${selectedStatus != null} ? ${selectedStatus.contains(s)} : false"
+                        ></option>
               </select>
 
               <div th:if="${valueError != null}"  class="my-2 alert alert-danger" th:text="${valueError}"></div>
+              <button type="submit" class="btn btn-primary w-100 my-3">Filter</button>
             </div>
 
-            <button type="submit" class="btn btn-primary">Next</button>
           </form>
-      </div>-->
+        </div>
+      </div>
 
       <div class="col-12 bg-white py-3">
         <p class="text-secondary mb-2">List of purchase orders</p>
@@ -36,10 +44,10 @@
             <th scope="col">Company</th>
             <th scope="col">Transaction Date</th>
             <th scope="col">Item</th>
-            <th scope="col">Qty</th>
+            <th scope="col" class="text-end">Qty</th>
             <th scope="col" class="text-end">Rate</th>
             <th scope="col" class="text-end">Total Amount</th>
-            <th scope="col">Status</th>
+            <th scope="col" class="text-center">Status</th>
           </tr>
           </thead>
           <tbody>
@@ -47,10 +55,10 @@
               <td th:text="${order.getCompany()}"></td>
               <td th:text="${order.getTransaction_date()}"></td>
               <td th:text="${order.getItem_name()}"></td>
-              <td th:text="${order.getQty()}"></td>
+              <td class="text-end" th:text="${order.getQty()}"></td>
               <td class="text-end" th:text="${#numbers.formatCurrency(order.getRate())}"></td>
               <td class="text-end" th:text="${#numbers.formatCurrency(order.getAmount())}"></td>
-              <td th:style="${'color:' + order.getColor()}" th:text="${order.getStatus()}"></td>
+              <td class="text-center"th:style="${'color:' + order.getColor()}" th:text="${order.getStatus()}"></td>
             </tr>
 
           <tr th:unless="${orders.size() > 0}">

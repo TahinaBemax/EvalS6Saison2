@@ -10,7 +10,7 @@
   <div class="container-fluid">
     <h4 class="text-center p-3 bg-white my-3">Purchase Invoice</h4>
 
-    <div style="position:fixed;bottom:0; right:0; width: auto"
+    <div style="position:fixed;top:0; right:0; width: auto"
          class="alert-success alert text-end" th:if="${billSuccess != null}" th:text="${billSuccess}"></div>
 
     <div style="position:fixed;bottom:0; right:0; width: auto"
@@ -28,9 +28,10 @@
             <th scope="col">Supplier</th>
             <th scope="col">Company</th>
             <th scope="col">Date</th>
-            <th scope="col">Total</th>
-            <th scope="col">Status</th>
-            <th scope="col">Action</th>
+            <th scope="col" class="text-end">Total</th>
+            <th scope="col" class="text-end">Outstanding Amount</th>
+            <th scope="col" class="text-center">Status</th>
+            <th scope="col" class="text-center">Action</th>
           </tr>
           </thead>
           <tbody>
@@ -38,10 +39,11 @@
               <td th:text="${facture.getSupplier()}"></td>
               <td th:text="${facture.getCompany()}"></td>
               <td th:text="${facture.getBill_date()}"></td>
-              <td th:text="${facture.getGrand_total()}"></td>
-              <td th:style="${'color:' + facture.getColor()}" th:text="${facture.getStatus()}"></td>
+              <td class="text-end" th:text="${#numbers.formatCurrency(facture.getGrand_total())}"></td>
+              <td class="text-end" th:text="${#numbers.formatCurrency(facture.getOutstanding_amount())}"></td>
+              <td class="text-center" th:style="${'color:' + facture.getColor()}" th:text="${facture.getStatus()}"></td>
               <td class="text-center">
-                <a th:unless="${facture.getStatus() == 'Paid'}" th:href="@{/purchase-invoices/{name}/bill(name=${facture.getName()})}">Bill</a>
+                <a class="btn btn-primary w-100" th:unless="${facture.getStatus() == 'Paid'}" th:href="@{/purchase-invoices/{name}/bill(name=${facture.getName()})}">Bill</a>
               </td>
             </tr>
 

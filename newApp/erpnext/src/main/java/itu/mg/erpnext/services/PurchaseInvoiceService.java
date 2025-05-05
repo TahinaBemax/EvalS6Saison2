@@ -26,14 +26,14 @@ import java.util.Map;
 public class PurchaseInvoiceService extends MainService{
     public static final Logger logger = LoggerFactory.getLogger(PurchaseInvoiceService.class);
     private static final String[] fields = {
-            "name","bill_date", "status","company","grand_total","supplier", "credit_to"
+            "name","bill_date", "status","company","grand_total","supplier", "credit_to", "outstanding_amount"
     };
 
     public PurchaseInvoiceService(RestTemplateBuilder builder, SessionManager sessionManager) {
         super(builder, sessionManager);
     }
 
-    public List<PurchaseInvoice> getSupplierPurchaseInvoice(String supplier_name) {
+    public List<PurchaseInvoice> getSupplierPurchaseInvoice() {
         try {
 
             String[] status = {"Paid"};
@@ -95,7 +95,136 @@ public class PurchaseInvoiceService extends MainService{
         }
         return null;
     }
-/*
+    public String paySupplierPurchaseInvoice(String invoiceName, BigDecimal amount) throws AccountCompanyNotFoundExcpetion {
+        try {
+            String url = String.format("%s/api/resource/Payment Entry", this.getErpNextUrl());
+
+            // 1. On récupère les infos de la facture
+            PurchaseInvoice invoice = getPurchaseInvoiceDetails(invoiceName);
+            if (invoice == null) {
+                throw new RuntimeException("Invoice not found: " + invoiceName);
+            }
+
+            Account account = getCompanyPaymentAccount(invoice.getCompany());
+            if (account == null) {
+                throw new AccountCompanyNotFoundExcpetion(invoice.getCompany());
+            }
+
+            Map<String, Object> data = this.prepareData(invoiceName,invoice, account, amount);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie());
+
+            HttpEntity<Map<String, Object>> entity = new HttpEntity<>(data, headers);
+
+            ResponseEntity<String> response = this.getRestTemplate().exchange(
+                    url,
+                    HttpMethod.POST,
+                    entity,
+                    String.class
+            );
+
+            if (response.getStatusCode().is2xxSuccessful()) {
+                return "Payment successfully created: " + response.getBody();
+            }
+
+        } catch (RestClientException e) {
+            logger.error(e.getLocalizedMessage());
+            throw new RuntimeException("Error paying invoice: " + e.getMessage(), e);
+        } catch (Exception e) {
+            logger.error(e.getLocalizedMessage());
+            throw new RuntimeException(e);
+        }
+
+        throw new RuntimeException("Failed to create Payment Entry");
+    }
+
+    private Map<String, Object>  prepareData(String invoiceName, PurchaseInvoice invoice, Account account, BigDecimal amount){
+        Map<String, Object> data = new HashMap<>();
+        data.put("doctype", "Payment Entry");
+        data.put("payment_type", "Pay");
+        data.put("party_type", "Supplier");
+        data.put("party", invoice.getSupplier());
+        data.put("company", invoice.getCompany());
+        data.put("posting_date", java.time.LocalDate.now().toString());
+        data.put("mode_of_payment", "Cash");
+        data.put("paid_from", account.getName());
+        data.put("paid_from_account_currency", account.getAccount_currency());
+        data.put("paid_to", invoice.getCredit_to()); // Tu peux ajuster si tu as un compte "Cash" ou "Bank"
+        data.put("source_exchange_rate", 1);
+        data.put("paid_amount", amount);
+        data.put("received_amount", amount);
+        data.put("submit_after_save", true);
+
+        // ✅ Partie manquante : ajout de la section "references"
+        List<Map<String, Object>> references = new ArrayList<>();
+        Map<String, Object> reference = new HashMap<>();
+        reference.put("reference_doctype", "Purchase Invoice");
+        reference.put("reference_name", invoiceName);
+        reference.put("total_amount", invoice.getGrand_total()); // À adapter selon ton modèle
+        reference.put("outstanding_amount", invoice.getOutstanding_amount()); // À adapter aussi
+        reference.put("allocated_amount", amount); // Ce que tu paies ici
+
+        references.add(reference);
+        data.put("references", references);
+
+        return data;
+    }
+
+    public Account getCompanyPaymentAccount(String company) {
+        try {
+            String resource = "Account";
+            String[] fields = { "name", "account_type", "company", "account_currency" };
+
+            String filters = String.format(
+                    "[[\"company\", \"=\", \"%s\"], [\"account_type\", \"=\", \"Cash\"], [\"is_group\", \"=\", 0]]",
+                    company
+            );
+
+            String url = String.format("%s/api/resource/%s?filters=%s&fields=%s",
+                    this.getErpNextUrl(),
+                    resource,
+                    filters,
+                    new ObjectMapper().writeValueAsString(fields));
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie());
+
+            HttpEntity<Void> entity = new HttpEntity<>(headers);
+
+            ResponseEntity<AccountListResponse> response = this.getRestTemplate().exchange(
+                    url,
+                    HttpMethod.GET,
+                    entity,
+                    AccountListResponse.class
+            );
+
+            if (response.getStatusCode().is2xxSuccessful()) {
+                List<Account> accounts = response.getBody().getData();
+                if (!accounts.isEmpty()) {
+                    // Retourne le premier compte valide
+                    return accounts.get(0);
+                } else {
+                    throw new RuntimeException("No cash/bank account found for company: " + company);
+                }
+            }
+
+        } catch (Exception e) {
+            logger.error("Error fetching payment account: " + e.getMessage());
+            throw new RuntimeException(e);
+        }
+
+        throw new RuntimeException("Could not retrieve payment account");
+    }
+
+    private double resteAPayer(double total, double amount){
+        if (total < amount)
+            return 0;
+        return total - amount;
+    }
+
+    /*
     public String paySupplierPurchaseInvoice(String invoiceName, BigDecimal amount) throws AccountCompanyNotFoundExcpetion {
         try {
             String url = String.format("%s/api/resource/Payment Entry", this.getErpNextUrl());
@@ -158,129 +287,4 @@ public class PurchaseInvoiceService extends MainService{
         throw new RuntimeException("Failed to create Payment Entry");
     }
 */
-
-    public String paySupplierPurchaseInvoice(String invoiceName, BigDecimal amount) throws AccountCompanyNotFoundExcpetion {
-        try {
-            String url = String.format("%s/api/resource/Payment Entry", this.getErpNextUrl());
-
-            // 1. On récupère les infos de la facture
-            PurchaseInvoice invoice = getPurchaseInvoiceDetails(invoiceName);
-            if (invoice == null) {
-                throw new RuntimeException("Invoice not found: " + invoiceName);
-            }
-
-            Account account = getCompanyPaymentAccount(invoice.getCompany());
-            if (account == null) {
-                throw new AccountCompanyNotFoundExcpetion(invoice.getCompany());
-            }
-
-            // 2. Création du corps de la requête
-            Map<String, Object> data = new HashMap<>();
-            data.put("doctype", "Payment Entry");
-            data.put("payment_type", "Pay");
-            data.put("party_type", "Supplier");
-            data.put("party", invoice.getSupplier());
-            data.put("company", invoice.getCompany());
-            data.put("posting_date", java.time.LocalDate.now().toString());
-            data.put("mode_of_payment", "Cash");
-            data.put("paid_from", account.getName());
-            data.put("paid_from_account_currency", account.getAccount_currency());
-            data.put("paid_to", invoice.getCredit_to()); // Tu peux ajuster si tu as un compte "Cash" ou "Bank"
-            data.put("source_exchange_rate", 1);
-            data.put("paid_amount", amount);
-            data.put("received_amount", amount);
-            data.put("submit_after_save", true);
-
-            // ✅ Partie manquante : ajout de la section "references"
-            List<Map<String, Object>> references = new ArrayList<>();
-            Map<String, Object> reference = new HashMap<>();
-            reference.put("reference_doctype", "Purchase Invoice");
-            reference.put("reference_name", invoiceName);
-            reference.put("total_amount", invoice.getGrand_total()); // À adapter selon ton modèle
-            reference.put("outstanding_amount", invoice.getOutstanding_amount()); // À adapter aussi
-            reference.put("allocated_amount", amount); // Ce que tu paies ici
-
-            references.add(reference);
-            data.put("references", references);
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie());
-
-            HttpEntity<Map<String, Object>> entity = new HttpEntity<>(data, headers);
-
-            ResponseEntity<String> response = this.getRestTemplate().exchange(
-                    url,
-                    HttpMethod.POST,
-                    entity,
-                    String.class
-            );
-
-            if (response.getStatusCode().is2xxSuccessful()) {
-                return "Payment successfully created: " + response.getBody();
-            }
-
-        } catch (RestClientException e) {
-            logger.error(e.getLocalizedMessage());
-            throw new RuntimeException("Error paying invoice: " + e.getMessage(), e);
-        } catch (Exception e) {
-            logger.error(e.getLocalizedMessage());
-            throw new RuntimeException(e);
-        }
-
-        throw new RuntimeException("Failed to create Payment Entry");
-    }
-
-    public Account getCompanyPaymentAccount(String company) {
-        try {
-            String resource = "Account";
-            String[] fields = { "name", "account_type", "company", "account_currency" };
-
-            String filters = String.format(
-                    "[[\"company\", \"=\", \"%s\"], [\"account_type\", \"=\", \"Cash\"], [\"is_group\", \"=\", 0]]",
-                    company
-            );
-
-            String url = String.format("%s/api/resource/%s?filters=%s&fields=%s",
-                    this.getErpNextUrl(),
-                    resource,
-                    filters,
-                    new ObjectMapper().writeValueAsString(fields));
-
-            HttpHeaders headers = new HttpHeaders();
-            headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie());
-
-            HttpEntity<Void> entity = new HttpEntity<>(headers);
-
-            ResponseEntity<AccountListResponse> response = this.getRestTemplate().exchange(
-                    url,
-                    HttpMethod.GET,
-                    entity,
-                    AccountListResponse.class
-            );
-
-            if (response.getStatusCode().is2xxSuccessful()) {
-                List<Account> accounts = response.getBody().getData();
-                if (!accounts.isEmpty()) {
-                    // Retourne le premier compte valide
-                    return accounts.get(0);
-                } else {
-                    throw new RuntimeException("No cash/bank account found for company: " + company);
-                }
-            }
-
-        } catch (Exception e) {
-            logger.error("Error fetching payment account: " + e.getMessage());
-            throw new RuntimeException(e);
-        }
-
-        throw new RuntimeException("Could not retrieve payment account");
-    }
-
-    private double resteAPayer(double total, double amount){
-        if (total < amount)
-            return 0;
-        return total - amount;
-    }
-
 }

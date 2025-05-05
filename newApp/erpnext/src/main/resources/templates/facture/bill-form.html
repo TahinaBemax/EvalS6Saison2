@@ -21,7 +21,7 @@
                         <input type="hidden" name="name" th:value="${invoice.name}">
                         <div class="col p-3 rounded">
                             <label for="price" class="form-label">Price</label>
-                            <input type="number" class="form-control" step="any" name="amount" id="price" th:value="${invoice.grand_total}">
+                            <input type="number" class="form-control" step="any" name="amount" id="price" th:value="${invoice.outstanding_amount}">
 
                             <div class="alert alert-danger" th:if="${ErrorAmount}" th:text="${ErrorAmount}"></div>
                         </div>
