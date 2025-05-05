@@ -11,7 +11,7 @@
 
 <main>
   <div class="container-fluid">
-    <h4 class="text-center p-3 bg-white my-3">Quotation Requests</h4>
+    <h5 class="text-center p-3 bg-white my-3">Quotation Requests</h5>
 
     <section class="row px-3 align-items-center justify-content-center">
       <div class="col-12 bg-white py-3">
@@ -22,28 +22,30 @@
           <tr class="">
             <th scope="col">Company</th>
             <th scope="col">Supplier</th>
-            <th scope="col">Transaction Date</th>
+            <th scope="col" class="text-center">Transaction Date</th>
             <th scope="col">Item</th>
-            <th scope="col">Qty</th>
+            <th scope="col" class="text-end">Qty</th>
             <th scope="col" class="text-end">Rate</th>
             <th scope="col" class="text-end">Total Amount</th>
-            <th scope="col">Action</th>
+            <th scope="col" class="text-center">Action</th>
           </tr>
           </thead>
           <tbody>
             <tr th:if="${quotations.size() > 0}" th:each="item : ${quotations}">
               <td th:text="${item.getCompany()}"></td>
               <td th:text="${item.getSupplier_name()}"></td>
-              <td th:text="${item.getTransaction_date()}"></td>
+              <td class="text-center" th:text="${item.getTransaction_date()}"></td>
               <td th:text="${item.getItem_name()}"></td>
-              <td th:text="${item.getQty()}"></td>
+              <td class="text-end" th:text="${item.getQty()}"></td>
               <td class="text-end" th:text="${#numbers.formatCurrency(item.getRate())}"></td>
               <td class="text-end" th:text="${#numbers.formatCurrency(item.getAmount())}"></td>
 
               <td class="text-center" th:with="name=${item.getName()}">
-                <a th:href="@{/supplier-quotations/{id}/update-price(id=${item.name})}">
+                <a th:if="${!item.isSubmited()}"
+                        th:href="@{/supplier-quotations/{id}/update-price(id=${item.name})}">
                   <i class="bi bi-pencil-square"></i>
                 </a>
+                <span th:unless="${!item.isSubmited()}" style="color:#005bb5;"> Submited </span>
               </td>
             </tr>
 

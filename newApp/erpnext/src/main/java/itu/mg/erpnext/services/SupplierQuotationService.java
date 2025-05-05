@@ -23,36 +23,6 @@ public class SupplierQuotationService extends MainService{
         super(builder, sessionManager);
     }
 
-    public boolean updateSupplierQuotationPrice(String itemId, double newPrice) {
-        // Préparation des en-têtes avec cookie de session
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie());
-
-        // Corps de la requête avec le nouveau prix
-        Map<String, Object> body = new HashMap<>();
-        body.put("rate", newPrice);
-
-        HttpEntity<Map<String, Object>> entity = new HttpEntity<>(body, headers);
-
-        // Construction de l’URL du document ERPNext à modifier (basé sur son "name")
-        String updateUrl = String.format("%s/api/resource/Supplier Quotation Item/%s", this.getErpNextUrl(), itemId);
-
-        // Exécution de la requête PUT
-        ResponseEntity<String> response = this.getRestTemplate().exchange(
-                updateUrl,
-                HttpMethod.PUT,
-                entity,
-                String.class
-        );
-
-        if (response.getStatusCode().is2xxSuccessful()) {
-            return true;
-        } else {
-            throw new RuntimeException("An error occured wheh updating supplier quotation price");
-        }
-    }
-
     public SupplierQuotationItem getSupplierQuotationItem(String name) {
         try {
             String[] itemFields = {

@@ -13,22 +13,17 @@ import java.util.List;
 public class SupplierQuotation {
     @NotBlank
     private String name;
-
     @NotNull
     private LocalDate transaction_date;
-
+    private int docstatus;
     @NotBlank
     private String company;
-
     @NotBlank
     private String supplier;
-
     @NotBlank
     private String supplier_name;
-
     @NotBlank
     private double total_qty;
-
     @NotBlank
     private String item_code;
     @NotBlank
@@ -40,4 +35,7 @@ public class SupplierQuotation {
     @NotNull
     private BigDecimal amount;
 
+    public boolean isSubmited(){
+        return docstatus == 1;
+    }
 }

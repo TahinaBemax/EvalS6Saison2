@@ -2,3 +2,28 @@ body {
     background: #e6f1fd;
 }
 
+table thead {
+    background: #f2f1f1;
+}
+table tr td,
+table tr th
+{
+    color: #515050;
+}
+
+table tbody tr td {
+    border-color: #dfdfdf;
+}
+
+/* --- Datatable css ---- */
+table.dataTable tbody td {
+    padding:5px 10px;
+}
+table.dataTable.no-footer {
+    border-bottom:0px solid #111;
+}
+.dataTables_wrapper .dataTables_length{
+    margin-bottom: 10px;
+}
+/* --- Datatable css ---- */
+

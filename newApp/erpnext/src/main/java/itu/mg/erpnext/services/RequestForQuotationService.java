@@ -3,45 +3,45 @@ package itu.mg.erpnext.services;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import itu.mg.erpnext.components.SessionManager;
-import itu.mg.erpnext.controller.ControllerAdvise;
 import itu.mg.erpnext.dto.SupplierQuotationResponse;
-import itu.mg.erpnext.dto.RequestForQuotationResponse;
 import itu.mg.erpnext.exceptions.ActionNotAllowedExcpetion;
 import itu.mg.erpnext.exceptions.AmountInvalidExcpetion;
 import itu.mg.erpnext.exceptions.RequestForQuotationException;
-import itu.mg.erpnext.models.RequestForQuotation;
 import itu.mg.erpnext.models.SupplierQuotation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.dao.PermissionDeniedDataAccessException;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
-import org.springframework.web.util.UriUtils;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @Service
-public class RequestForQuotationService extends MainService{
+public class RequestForQuotationService extends MainService {
     public static final Logger logger = LoggerFactory.getLogger(RequestForQuotationService.class);
+    private final String[] sqFields;
+    private final String[] itemFields;
+
     public RequestForQuotationService(RestTemplateBuilder builder, SessionManager sessionManager) {
         super(builder, sessionManager);
+        this.sqFields = new String[] {
+            "transaction_date", "company", "supplier", "supplier_name", "total_qty", "docstatus"
+        };
+        this.itemFields = new String[] {
+                "items.name","items.item_code", "items.item_name", "items.qty", "items.rate", "items.amount"
+        };
     }
 
 
     public boolean updateSupplierQuotationPrice(String itemId, double newPrice) {
-        // Préparation des en-têtes avec cookie de session
         if (newPrice < 0){
             throw new AmountInvalidExcpetion(newPrice);
         }
 
-        HttpHeaders headers = new HttpHeaders();
+        // Preparation headers with session cookie
+        HttpHeaders headers = this.getHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie());
 
         // Corps de la requête avec le nouveau prix
         Map<String, Object> body = new HashMap<>();
@@ -71,17 +71,8 @@ public class RequestForQuotationService extends MainService{
 
     public List<SupplierQuotation> getSupplierQuotation(String supplierName) {
         try {
-            //String finalUrl = String.format("%s/api/method/custom_app.api_rest.api.get_rfq_by_supplier?supplier_name=%s", this.getErpNextUrl(), supplierName);
-
-            // Champs principaux de Supplier Quotation
-            String[] sqFields = {
-                    "transaction_date", "company", "supplier", "supplier_name", "total_qty"
-            };
-
-            // Champs des items à inclure (notation imbriquée pour table field)
-            String[] itemFields = {
-                    "items.name","items.item_code", "items.item_name", "items.qty", "items.rate", "items.amount"
-            };
+            if (supplierName == null)
+                throw new RuntimeException("Supplier name is null");
 
             // Fusion des deux ensembles
             List<String> allFields = new ArrayList<>();
@@ -92,9 +83,7 @@ public class RequestForQuotationService extends MainService{
             String finalUrl = String.format("%s/api/resource/%s?filters=[[\"supplier\",\"=\",\"%s\"]]&fields=%s",
                     this.getErpNextUrl(), resource, supplierName, new ObjectMapper().writeValueAsString(allFields));
 
-            HttpHeaders headers = new HttpHeaders();
-            headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie()); // Utilise le cookie de session
-
+            HttpHeaders headers = this.getHeaders(); // Utilise le cookie de session
             HttpEntity<Void> entity = new HttpEntity<>(headers);
 
             ResponseEntity<SupplierQuotationResponse> response = this.getRestTemplate().exchange(
@@ -117,3 +106,5 @@ public class RequestForQuotationService extends MainService{
         throw new RequestForQuotationException("An error occured when fetching Request for quotations");
     }
 }
+//String finalUrl = String.format("%s/api/method/custom_app.api_rest.api.get_rfq_by_supplier?supplier_name=%s", this.getErpNextUrl(), supplierName);
+

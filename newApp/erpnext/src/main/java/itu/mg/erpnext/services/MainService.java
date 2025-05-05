@@ -2,9 +2,9 @@ package itu.mg.erpnext.services;
 
 import itu.mg.erpnext.components.SessionManager;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -16,9 +16,14 @@ public class MainService {
     private final RestTemplate restTemplate;
     private final SessionManager sessionManager;
 
-    @Autowired
-    public MainService(RestTemplateBuilder builder, SessionManager sessionManager) {
-        this.restTemplate = builder.build();
+    public MainService(RestTemplateBuilder restTemplate, SessionManager sessionManager) {
         this.sessionManager = sessionManager;
+        this.restTemplate = restTemplate.build();
+    }
+
+    public HttpHeaders getHeaders(){
+        HttpHeaders headers = new HttpHeaders();
+        headers.set(HttpHeaders.COOKIE, this.sessionManager.getSessionCookie()); // Utilise le cookie de session
+        return  headers;
     }
 }
