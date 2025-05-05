@@ -10,6 +10,10 @@ import java.time.LocalDate;
 @Data
 public class PurchaseInvoice {
     @NotNull
+    private String name;
+    @NotNull
+    private String supplier;
+    @NotNull
     private LocalDate bill_date;
     @NotBlank
     private String company;
@@ -18,10 +22,13 @@ public class PurchaseInvoice {
     @NotNull
     private BigDecimal grand_total;
 
+    private String credit_to;
+    private String outstanding_amount;
+
     public String getColor(){
         if (this.status != null){
             switch (this.status) {
-                case "Unpaid" -> {
+                case "Overdue" -> {
                     return "#bd3e0c";
                 }
                 case "Paid" -> {

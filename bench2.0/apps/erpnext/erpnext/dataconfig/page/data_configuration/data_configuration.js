@@ -48,9 +48,14 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 						</select>
 					</div>
 					<div class="form-group mb-2">
-						<label for="csv-file">Csv file</label>
-						<input type="file" class="form-control" name='file' id="csv-file" accept=".csv" required>
+						<label for="mat_req_file">Material Request</label>
+						<input type="file" class="form-control" name='mat_req_file' id="mat_req_file" accept=".csv" required>
 					</div>
+					<div class="form-group mb-2">
+						<label for="req_for_quota_file">Request for Quotation</label>
+						<input type="file" class="form-control" name='req_for_quota_file' id="req_for_quota_file" accept=".csv" required>
+					</div>
+					
 					<button type="submit" class="btn btn-primary">Import</button>
 				</form>
 			</div>
@@ -60,16 +65,18 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 
 	$('#csv-import-form').on('submit', function (e) {
 		e.preventDefault();
-		const file_input = $('#csv-file')[0];
+		const mat_req_file = $('#mat_req_file')[0];
+		const req_for_quota_file = $('#req_for_quota_file')[0];
 		const delimiter = $('#delimiter').val();
 
-		if (file_input.files.length === 0) {
+		if (mat_req_file.files.length === 0) {
 			frappe.msgprint("Please, select a CSV file.");
 			return;
 		}
 
 		const formData = new FormData();
-		formData.append("file", file_input.files[0]);
+		formData.append("mat_req_file", mat_req_file.files[0]);
+		formData.append("req_for_quota_file", req_for_quota_file.files[0]);
 		formData.append("delimiter", delimiter);
 
 		$.ajax({
