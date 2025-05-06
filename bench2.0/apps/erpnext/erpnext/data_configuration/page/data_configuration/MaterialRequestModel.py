@@ -20,7 +20,7 @@ class MaterialRequestModel(BaseModel):
     supplier: str = ""
     company: str = "IT University"
     stocks_uom: str = "Nos"
-    uom: str = "Ambapere"
+    uom: str = "Abampere"
     uom_conversion_factor: str = 1
 
     @field_validator("item_name", "item_groupe", "required_by", "quantity", "purpose", "target_warehouse", "ref", mode="before")
@@ -68,13 +68,8 @@ class MaterialRequestModel(BaseModel):
     @classmethod
     def get_uom(clv, v):
         valid_uoms = [
-            "Ambapere", "Acre", "Acre (US)", "Ampere", "Ampere-Hour", "Ampere-Minute",
+            "Abampere", "Acre", "Acre (US)", "Ampere", "Ampere-Hour", "Ampere-Minute",
             "Ampere-Second", "Are", "Area", "Arshin"
         ]
-        return valid_uoms[random.randint(0, len(valid_uoms))]
-    
-    def set_supplier(references:List[ReferenceModel]):
-        for r in references:
-            if r.ref_request_quotation == ref:
-                supplier = r
-                return  
+        #return valid_uoms[random.randint(0, len(valid_uoms))]
+        return "Abampere"

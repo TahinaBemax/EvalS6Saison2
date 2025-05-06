@@ -143,3 +143,27 @@ pydantic_core._pydantic_core.ValidationError: 1 validation error for ImportCSVRe
 message
   Input should be a valid string [type=string_type, input_value=1 validation error for It...antic.dev/2.10/v/missing, input_type=ValidationError]
     For further information visit https://errors.pydantic.dev/2.10/v/string_type
+2025-05-06 20:27:31,904 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:27:31,904 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:27:31,904 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:27:31,904 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:27:35,622 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Group Import on 2025-05-06 19:10:37.078648', 'import_file': '/private/files/item_groups_extracted2b83d3.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:27:35,622 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Group Import on 2025-05-06 19:10:37.078648', 'import_file': '/private/files/item_groups_extracted2b83d3.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:28:56,773 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:28:56,773 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}

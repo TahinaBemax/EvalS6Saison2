@@ -2,7 +2,7 @@
 from pydantic import BaseModel, field_validator
 
 
-class ItemGroupModel(BaseModel):
+class WarehouseModel(BaseModel):
     warehouse_name: str
     company: str = "IT University"
 

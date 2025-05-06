@@ -30,3 +30,8 @@
 2025-05-06 18:04:00,975 ERROR scheduler Skipped queueing frappe.automation.doctype.reminder.reminder.send_reminders because it was found in queue for itu.erpnext
 2025-05-06 18:08:01,117 ERROR scheduler Skipped queueing frappe.email.queue.flush because it was found in queue for itu.erpnext
 2025-05-06 18:08:01,407 ERROR scheduler Skipped queueing frappe.email.doctype.notification.notification.trigger_offset_alerts because it was found in queue for itu.erpnext
+2025-05-06 21:04:00,446 ERROR scheduler Skipped queueing frappe.automation.doctype.reminder.reminder.send_reminders because it was found in queue for itu.erpnext
+2025-05-06 21:04:00,689 ERROR scheduler Skipped queueing frappe.deferred_insert.save_to_db because it was found in queue for itu.erpnext
+2025-05-06 22:04:01,249 ERROR scheduler Skipped queueing frappe.desk.form.document_follow.send_hourly_updates because it was found in queue for itu.erpnext
+2025-05-06 22:04:01,312 ERROR scheduler Skipped queueing frappe.website.doctype.web_page.web_page.check_publish_status because it was found in queue for itu.erpnext
+2025-05-06 22:04:01,373 ERROR scheduler Skipped queueing frappe.automation.doctype.reminder.reminder.send_reminders because it was found in queue for itu.erpnext

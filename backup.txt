@@ -1,0 +1,21 @@
+    frappe.db.sql("DELETE FROM `tabMaterial Request`")
+    frappe.db.sql("DELETE FROM `tabMaterial Request Item`")
+
+    #Demande de devis
+    frappe.db.sql("DELETE FROM `tabRequest for Quotation`")
+    frappe.db.sql("DELETE FROM `tabRequest for Quotation Item`")
+    frappe.db.sql("DELETE FROM `tabRequest for Quotation Supplier`")
+
+    #Devis Fournisseur
+    frappe.db.sql("DELETE FROM `tabSupplier`")
+    frappe.db.sql("DELETE FROM `tabSupplier Quotation`")
+    frappe.db.sql("DELETE FROM `tabSupplier Quotation Item`")
+
+    #Commandes
+    frappe.db.sql("DELETE FROM `tabPurchase Order`")
+    frappe.db.sql("DELETE FROM `tabPurchase Order Item`")
+
+    #Factures
+    frappe.db.sql("DELETE FROM `tabPurchase Invoice`")
+    frappe.db.sql("DELETE FROM `tabPurchase Invoice Item`")
+    frappe.db.sql("DELETE FROM `tabPurchase Invoice Advance`")

@@ -6,7 +6,7 @@ class ItemModel(BaseModel):
     item_group: str
     item_name: str
     item_code: Optional[str]
-    default_unit_of_mesure: Optional[str] = "Ambapere"
+    default_unit_of_mesure: Optional[str] = "Nos"
 
     @field_validator("item_group", "item_name", mode="before")
     @classmethod

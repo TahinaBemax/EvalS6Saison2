@@ -11,6 +11,7 @@ from erpnext.data_configuration.page.data_configuration.MaterialRequestModel imp
 from erpnext.data_configuration.page.data_configuration.ReferenceModel import ReferenceModel
 from erpnext.data_configuration.page.data_configuration.ItemGroupModel import ItemGroupModel
 from erpnext.data_configuration.page.data_configuration.ItemModel import ItemModel
+from erpnext.data_configuration.page.data_configuration.WarehouseModel import WarehouseModel
 from pydantic import ValidationError
 
 
@@ -19,6 +20,8 @@ output_dir = "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/si
 item_group_filename = "item_groups_extracted.csv"
 items_filename = "items_extracted.csv"
 suppliers_filename = "suppliers_extracted.csv"
+req_mat_filename = "req_mat_extracted.csv"
+warehouse_filename = "warehouse_extracted.csv"
 
 
 @frappe.whitelist()
@@ -26,27 +29,15 @@ def delete_all_data():
     #frappe.db.sql("DELETE FROM `tabItem`")
 
     #Demande de besoin
-    frappe.db.sql("DELETE FROM `tabMaterial Request`")
-    frappe.db.sql("DELETE FROM `tabMaterial Request Item`")
-
-    #Demande de devis
-    frappe.db.sql("DELETE FROM `tabRequest for Quotation`")
-    frappe.db.sql("DELETE FROM `tabRequest for Quotation Item`")
-    frappe.db.sql("DELETE FROM `tabRequest for Quotation Supplier`")
-
-    #Devis Fournisseur
-    frappe.db.sql("DELETE FROM `tabSupplier`")
-    frappe.db.sql("DELETE FROM `tabSupplier Quotation`")
-    frappe.db.sql("DELETE FROM `tabSupplier Quotation Item`")
-
-    #Commandes
-    frappe.db.sql("DELETE FROM `tabPurchase Order`")
-    frappe.db.sql("DELETE FROM `tabPurchase Order Item`")
-
-    #Factures
-    frappe.db.sql("DELETE FROM `tabPurchase Invoice`")
-    frappe.db.sql("DELETE FROM `tabPurchase Invoice Item`")
-    frappe.db.sql("DELETE FROM `tabPurchase Invoice Advance`")
+    table_names = [ "tabItem", "tabItem Group", "tabSupplier", "tabData Import"
+                #     "tabMaterial Request", "tabMaterial Request Item", "tabRequest for Quotation", 
+                #    "tabRequest for Quotation Item", "tabRequest for Quotation Supplier",
+                #     "tabSupplier Quotation", "tabSupplier Quotation Item",
+                #     "tabPurchase Order", "tabPurchase Order Item", "tabPurchase Invoice",
+                #     "tabPurchase Invoice", "tabPurchase Invoice Item", "tabPurchase Invoice Advance"
+                    ]
+    for table in table_names:
+        frappe.db.sql(f"DELETE FROM `{table}`")
 
     frappe.db.commit()
     return "OK"
@@ -77,25 +68,11 @@ def import_csv():
 
             item_groups = extract_item_groups(Materials)
             items = extract_items(Materials)
+            Warehouses = extract_warehouses(Materials)
 
-            print(f"Item Groups:{item_groups}")
-            print(f"Items:{items}")
-
-            if item_groups and len(item_groups) > 0:
-                print(f"Export Item Group data to csv...")
-                exported = export_item_groups_to_csv(item_groups, output_dir + item_group_filename)
-                print(f"Finished: {exported}")
-
-            if items and len(items) > 0:
-                print(f"Export Items data to csv...")
-                exported = export_items_to_csv(items, output_dir + items_filename)
-                print(f"Finished: {exported}")
-
-            if suppliers and len(suppliers) > 0:
-                print(f"Export Suppliers data to csv...")
-                exported = export_suppliers_to_csv(suppliers, output_dir + suppliers_filename)
-                print(f"Finished: {exported}")
-                #automated_csv_import(filename, 'Supplier')
+            if export_all_to_csv(Warehouses, item_groups, items, suppliers, Materials):
+                responses = start_import()
+                print(f"{responses}")
 
         except ValidationError as ve:
                 print(f"{ve}")
@@ -119,7 +96,7 @@ def import_csv():
 
         return ImportCSVResponse(
             success=True,
-            message=f"Csv_rows: 0, imported_rows:${0}.",
+            message=f"Importation Finished with success!",
             imported_count=0,
             errors=None
         ).model_dump()
@@ -132,6 +109,59 @@ def import_csv():
             imported_count=0,
             errors= [str(e)]
         ).model_dump()
+
+
+
+def export_all_to_csv(Warehouses, item_groups, items, suppliers, Materials):
+    #____Warehouse____
+    if Warehouses and len(Warehouses) > 0:
+        print(f"Export Warehouses data to csv...")
+        exported = export_warehouse_to_csv(Warehouses, output_dir + warehouse_filename)
+        print(f"Finished: {exported}")
+
+    #____Items Group____
+    if item_groups and len(item_groups) > 0:
+        print(f"Export Item Group data to csv...")
+        exported = export_item_groups_to_csv(item_groups, output_dir + item_group_filename)
+        print(f"Finished: {exported}")
+
+            #____Items____
+    if items and len(items) > 0:
+        print(f"Export Items data to csv...")
+        exported = export_items_to_csv(items, output_dir + items_filename)
+        print(f"Finished: {exported}")
+
+    #____Suppliers____
+    if suppliers and len(suppliers) > 0:
+        print(f"Export Suppliers data to csv...")
+        exported = export_suppliers_to_csv(suppliers, output_dir + suppliers_filename)
+        print(f"Finished: {exported}")
+        #automated_csv_import(filename, 'Supplier')
+
+    #____Materials____
+    if Materials and len(Materials) > 0:
+        print(f"Export Material Request data to csv...")
+        exported = export_mat_requests_to_csv(Materials, items, output_dir + req_mat_filename)
+        print(f"Finished: {exported}")
+
+    return True
+
+def start_import():
+    print("Start Importing...")
+    try:
+        automated_csv_import(output_dir + suppliers_filename, 'Supplier')
+        automated_csv_import(output_dir + warehouse_filename, 'Warehouse')
+        automated_csv_import(output_dir + item_group_filename, 'Item Group')
+        automated_csv_import(output_dir + items_filename, 'Item')
+        automated_csv_import(output_dir + req_mat_filename, 'Material Request')
+
+        frappe.db.commit()
+        print("Finished and committed.")
+
+    except Exception as e:
+        frappe.db.rollback()
+        frappe.log_error(f"Global import error: {str(e)}", "start_import")
+        print(f"❌ Import failed, rollback executed: {e}")
 
 
 #======== Read csv files =============
@@ -227,15 +257,29 @@ def extract_items(materials: List[MaterialRequestModel]):
 
         items_list.append(material.item_name);    
         items.append(ItemModel(
-            default_unit_of_mesure= material.uom,
+            #default_unit_of_mesure= material.uom,
             item_code="", 
             item_group=material.item_groupe,
             item_name=material.item_name)
         )
 
     return items
+
+def extract_warehouses(materials: List[MaterialRequestModel]):
+    warehouses: List[WarehouseModel] = []
+
+    if materials is None:
+        raise ValueError("Warehouses is null")
+    
+    for material in materials:
+        if any(w.warehouse_name == material.target_warehouse for w in warehouses):
+            pass
+        warehouses.append(WarehouseModel(warehouse_name= material.target_warehouse))
+
+    return warehouses
 #============ XXXXXX ===================
 
+#======== Export to csv =============
 def export_item_groups_to_csv(item_groups: List[ItemGroupModel], filename: str):
     # Crée le dossier si besoin
     Path(filename).parent.mkdir(parents=True, exist_ok=True)
@@ -253,6 +297,24 @@ def export_item_groups_to_csv(item_groups: List[ItemGroupModel], filename: str):
             writer.writerow([item_group.item_group_name])
         
         print(f"Creation Item-Group terminé...")
+
+def export_warehouse_to_csv(warehouses: List[WarehouseModel], filename: str):
+    # Crée le dossier si besoin
+    Path(filename).parent.mkdir(parents=True, exist_ok=True)
+
+    # Ouvre le fichier en écriture
+    with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+
+        print(f"Creation warehouses csv...")
+        # En-têtes CSV
+        writer.writerow(['warehouse_name', 'company'])
+
+        # Données
+        for w in warehouses:
+            writer.writerow([w.warehouse_name, w.company])
+        
+        print(f"Creation warehouses terminé...")
 
 def export_items_to_csv(items: List[ItemModel], filename: str):
     # Crée le dossier si besoin
@@ -290,6 +352,31 @@ def export_suppliers_to_csv(suppliers: List[SupplierModel], filename: str):
         
         print(f"Lancement terminé...")
 
+def export_mat_requests_to_csv(materials: List[MaterialRequestModel], items: List[ItemModel], filename: str):
+    # Crée le dossier si besoin
+    Path(filename).parent.mkdir(parents=True, exist_ok=True)
+
+    # Ouvre le fichier en écriture
+    with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+
+        print(f"Lancement creation csv...")
+        # En-têtes CSV
+        writer.writerow(['Series', 'Purpose', 'Company', 'Transaction Date', 'Item Code (Items)', 'Quantity (Items)', 'Required By (Items)', 'Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)', 'Item Group (Items)', 'Item Name (Items)', 'Target Warehouse (Items)'])
+
+        # Données
+        for m in materials:
+            writer.writerow([ "MAT-MR-.YYYY.-", m.purpose, m.company, m.date, get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor, m.item_groupe, m.item_name, m.target_warehouse])
+        
+        print(f"Lancement terminé...")
+#============ XXXXXX ===================
+
+def get_item_code(items: List[ItemModel], material: MaterialRequestModel):
+    for i in items:
+        if i.item_group == material.item_groupe and i.item_name == material.item_name:
+            return i.item_code
+    
+    raise ValueError(f"Item:{material.item_name} don't have a Item Code")
 
 def automated_csv_import(file_path, doctype_name):
     try:
@@ -304,12 +391,10 @@ def automated_csv_import(file_path, doctype_name):
             "submit_after_import": 1,
             "overwrite": 0
         })
-        
         # Save first to get a name assigned
         data_import.insert()
-        frappe.db.commit()
-        print(f"Created Data Import with name: {data_import.name}")
-        
+        #frappe.db.commit()
+
         # Now create and attach the file with the correct attached_to_name
         with open(file_path, 'rb') as f:
             file_content = f.read()
@@ -325,22 +410,89 @@ def automated_csv_import(file_path, doctype_name):
             "attached_to_field": "import_file"
         })
         file_doc.insert()
-        frappe.db.commit()
+        #frappe.db.commit()
         print(f"File created with name: {file_doc.name} and URL: {file_doc.file_url}")
         
         # Update the Data Import with the file reference
         data_import.import_file = file_doc.file_url
         data_import.save()
-        frappe.db.commit()
+        #frappe.db.commit()
         
         print("Starting the import process")
         data_import.start_import()
-        frappe.db.commit()
+        #frappe.db.commit()
         print("Import started in background.")
         
-        return data_import.name
+        return {
+            "status": "success",
+            "message": "Import started successfully",
+            "data_import_name": data_import.name
+        }
     except Exception as e:
-        print(f"Error during import: {str(e)}")
-        frappe.log_error(f"CSV import error: {str(e)}")
-        raise Exception(f"An error occurred: {str(e)}")
+        frappe.log_error(f"CSV import error: {str(e)}", "automated_csv_import")
+        return {
+            "status": "error",
+            "message": f"An error occurred during CSV import: {str(e)}"
+        }
+
+
+
+# def automated_csv_import(file_path, doctype_name):
+#     try:
+#         file_name = os.path.basename(file_path)
+#         print(f"file_name: {file_name}")
+        
+#         # Create Data Import document first
+#         data_import = frappe.get_doc({
+#             "doctype": "Data Import",
+#             "reference_doctype": doctype_name,
+#             "import_type": "Insert New Records",
+#             "submit_after_import": 1,
+#             "overwrite": 0
+#         })
+        
+#         # Save first to get a name assigned
+#         data_import.insert()
+#         frappe.db.commit()
+#         print(f"Created Data Import with name: {data_import.name}")
+        
+#         # Now create and attach the file with the correct attached_to_name
+#         with open(file_path, 'rb') as f:
+#             file_content = f.read()
+            
+#         # Create the file document with attached_to_name already set
+#         file_doc = frappe.get_doc({
+#             "doctype": "File",
+#             "file_name": file_name,
+#             "is_private": 1,
+#             "content": file_content,
+#             "attached_to_doctype": "Data Import",
+#             "attached_to_name": data_import.name,  # Set this immediately and correctly
+#             "attached_to_field": "import_file"
+#         })
+#         file_doc.insert()
+#         frappe.db.commit()
+#         print(f"File created with name: {file_doc.name} and URL: {file_doc.file_url}")
+        
+#         # Update the Data Import with the file reference
+#         data_import.import_file = file_doc.file_url
+#         data_import.save()
+#         frappe.db.commit()
+        
+#         print("Starting the import process")
+#         data_import.start_import()
+#         frappe.db.commit()
+#         print("Import started in background.")
+        
+#         return {
+#             "status": "success",
+#             "message": "Import started successfully",
+#             "data_import_name": data_import.name
+#         }
+#     except Exception as e:
+#         frappe.log_error(f"CSV import error: {str(e)}", "automated_csv_import")
+#         return {
+#             "status": "error",
+#             "message": f"An error occurred during CSV import: {str(e)}"
+#         }
 
