@@ -150,7 +150,7 @@ def start_import():
     print("Start Importing...")
     try:
         automated_csv_import(output_dir + suppliers_filename, 'Supplier')
-        automated_csv_import(output_dir + warehouse_filename, 'Warehouse')
+        #automated_csv_import(output_dir + warehouse_filename, 'Warehouse')
         automated_csv_import(output_dir + item_group_filename, 'Item Group')
         automated_csv_import(output_dir + items_filename, 'Item')
         automated_csv_import(output_dir + req_mat_filename, 'Material Request')
@@ -231,50 +231,52 @@ def prepare_reference(reference_file, delimiter):
 
 #======== Extract Other Data From Files =============
 def extract_item_groups(materials: List[MaterialRequestModel]):
-    groupes: List[ItemGroupModel] = []
-
     if materials is None:
         raise ValueError("Request Material is null")
     
+    groupes: List[ItemGroupModel] = []
+    added_names = set()
+    
     for material in materials:
-        if any(grp.item_group_name == material.item_groupe for grp in groupes):
-            pass
-
-        groupes.append(ItemGroupModel(item_group_name= material.item_groupe))
+        groupe_name = material.item_groupe.strip()
+        if groupe_name and groupe_name not in added_names:
+            groupes.append(ItemGroupModel(item_group_name= groupe_name))
+            added_names.add(groupe_name)
 
     return groupes
 
 def extract_items(materials: List[MaterialRequestModel]):
-    items: List[ItemModel] = []
-    items_list = []
-
     if materials is None:
         raise ValueError("Request Material is null")
     
+    items: List[ItemModel] = []
+    items_list = set()
+    
     for material in materials:
-        if any(item == material.item_name for item in items_list):
-            pass
-
-        items_list.append(material.item_name);    
-        items.append(ItemModel(
-            #default_unit_of_mesure= material.uom,
-            item_code="", 
-            item_group=material.item_groupe,
-            item_name=material.item_name)
-        )
+        item_name = material.item_name.strip()
+        if item_name and item_name not in items_list:
+            items_list.add(material.item_name);    
+            items.append(ItemModel(
+                #default_unit_of_mesure= material.uom,
+                item_code="", 
+                item_group=material.item_groupe,
+                item_name=material.item_name)
+            )
 
     return items
 
 def extract_warehouses(materials: List[MaterialRequestModel]):
-    warehouses: List[WarehouseModel] = []
-
     if materials is None:
         raise ValueError("Warehouses is null")
-    
+
+    warehouses: List[WarehouseModel] = []
+    added_names = set()  # Pour suivre les noms déjà ajoutés
+
     for material in materials:
-        if any(w.warehouse_name == material.target_warehouse for w in warehouses):
-            pass
-        warehouses.append(WarehouseModel(warehouse_name= material.target_warehouse))
+        warehouse_name = material.target_warehouse.strip()
+        if warehouse_name and warehouse_name not in added_names:
+            warehouses.append(WarehouseModel(warehouse_name=warehouse_name))
+            added_names.add(warehouse_name)
 
     return warehouses
 #============ XXXXXX ===================
@@ -308,11 +310,11 @@ def export_warehouse_to_csv(warehouses: List[WarehouseModel], filename: str):
 
         print(f"Creation warehouses csv...")
         # En-têtes CSV
-        writer.writerow(['warehouse_name', 'company'])
+        writer.writerow(['warehouse_name', 'company', 'Parent Warehouse', 'Is Group'])
 
         # Données
         for w in warehouses:
-            writer.writerow([w.warehouse_name, w.company])
+            writer.writerow([w.warehouse_name, w.company, "All Warehouses - ITU", 0])
         
         print(f"Creation warehouses terminé...")
 
