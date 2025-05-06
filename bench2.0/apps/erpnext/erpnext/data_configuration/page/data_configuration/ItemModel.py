@@ -1,15 +1,12 @@
-import csv
-from typing import List
-from pathlib import Path
-from pydantic import BaseModel, field_validator
+from typing import Optional
+from pydantic import BaseModel, PrivateAttr, field_validator
 
-
+item_counter = 0
 class ItemModel(BaseModel):
-    _item_counter = 0
-
     item_group: str
     item_name: str
-    items_code: str
+    item_code: Optional[str]
+    default_unit_of_mesure: Optional[str] = "Ambapere"
 
     @field_validator("item_group", "item_name", mode="before")
     @classmethod
@@ -18,22 +15,10 @@ class ItemModel(BaseModel):
             raise ValueError("Field is mandatory")
         return v
 
-    @field_validator("type", mode="before")
-    @classmethod
-    def validate_supplier_type(cls, v):
-        valid_supplier_type = ["Company", "Individual", "Partnership"]
-        if not str(v).strip():
-            raise ValueError("Supplier type is required")
-        if v not in valid_supplier_type:
-            raise ValueError(f"Invalid Supplier Type: {v}. Must be one of: {', '.join(valid_supplier_type)}")
-        return v
-    
-
     @field_validator("item_code", mode="before")
     @classmethod
     def set_item_code(cls, v):
-        # Incrémentation du compteur
-        cls._item_counter += 1
-        # Formatage du code avec 5 chiffres
-        return f"ITEM-{cls._item_counter:05d}"
+        global item_counter
+        item_counter += 1
+        return f"ITEM-{item_counter:05d}"
 

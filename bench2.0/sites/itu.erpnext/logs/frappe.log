@@ -101,3 +101,45 @@ Traceback (most recent call last):
   File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/erpnext/erpnext/data_configuration/page/data_configuration/data_configuration.py", line 95, in import_csv
     message=f"Material Request: csv_rows:${len(suppliers)}, imported_rows:${0}.",
 NameError: name 'suppliers' is not defined
+2025-05-06 16:52:19,327 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 16:59:32,231 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:06:02,939 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:12:19,064 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:17:20,128 ERROR frappe local variable 'groupes' referenced before assignment
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:32:36,959 ERROR frappe BaseModel.__init__() takes 1 positional argument but 2 were given
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:41:52,312 ERROR frappe 'function' object has no attribute 'info'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:46:38,798 ERROR frappe 1 validation error for ItemModel
+item_code
+  Field required [type=missing, input_value={'item_group': 'piece', 'item_name': 'boulon'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:46:38,840 ERROR frappe An error occured during importation 1 validation error for ImportCSVResponse
+message
+  Input should be a valid string [type=string_type, input_value=1 validation error for It...antic.dev/2.10/v/missing, input_type=ValidationError]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/erpnext/erpnext/data_configuration/page/data_configuration/data_configuration.py", line 86, in import_csv
+    return ImportCSVResponse(
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ImportCSVResponse
+message
+  Input should be a valid string [type=string_type, input_value=1 validation error for It...antic.dev/2.10/v/missing, input_type=ValidationError]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type

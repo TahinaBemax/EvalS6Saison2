@@ -19,3 +19,8 @@
 2025-05-06 16:04:02,217 ERROR scheduler Skipped queueing frappe.integrations.doctype.google_calendar.google_calendar.sync because it was found in queue for itu.erpnext
 2025-05-06 16:04:02,352 ERROR scheduler Skipped queueing frappe.monitor.flush because it was found in queue for itu.erpnext
 2025-05-06 16:04:02,826 ERROR scheduler Skipped queueing frappe.email.doctype.notification.notification.trigger_offset_alerts because it was found in queue for itu.erpnext
+2025-05-06 16:52:00,875 ERROR scheduler Skipped queueing frappe.email.doctype.email_account.email_account.pull because it was found in queue for itu.erpnext
+2025-05-06 17:12:01,197 ERROR scheduler Skipped queueing frappe.email.doctype.notification.notification.trigger_offset_alerts because it was found in queue for itu.erpnext
+2025-05-06 18:04:00,975 ERROR scheduler Skipped queueing frappe.automation.doctype.reminder.reminder.send_reminders because it was found in queue for itu.erpnext
+2025-05-06 18:08:01,117 ERROR scheduler Skipped queueing frappe.email.queue.flush because it was found in queue for itu.erpnext
+2025-05-06 18:08:01,407 ERROR scheduler Skipped queueing frappe.email.doctype.notification.notification.trigger_offset_alerts because it was found in queue for itu.erpnext

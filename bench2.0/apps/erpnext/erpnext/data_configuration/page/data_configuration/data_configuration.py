@@ -13,6 +13,13 @@ from erpnext.data_configuration.page.data_configuration.ItemGroupModel import It
 from erpnext.data_configuration.page.data_configuration.ItemModel import ItemModel
 from pydantic import ValidationError
 
+
+#base dir
+output_dir = "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/files/"
+item_group_filename = "item_groups_extracted.csv"
+items_filename = "items_extracted.csv"
+
+
 @frappe.whitelist()
 def delete_all_data():
     #frappe.db.sql("DELETE FROM `tabItem`")
@@ -64,10 +71,24 @@ def import_csv():
 
         try:
             #suppliers = prepare_supplier(supplier_file, delimiter)
-
             Materials = prepare_material_request(material_request_file, delimiter)
-            references = prepare_reference(ref_file, delimiter)
+            #references = prepare_reference(ref_file, delimiter)
 
+            item_groups = extract_item_groups(Materials)
+            items = extract_items(Materials)
+
+            print(f"Item Groups:{item_groups}")
+            print(f"Items:{items}")
+
+            if item_groups and len(item_groups) > 0:
+                print(f"Export Item Group data to csv...")
+                exported = export_item_groups_to_csv(item_groups, output_dir + item_group_filename)
+                print(f"Finished: {exported}")
+
+            if items and len(items) > 0:
+                print(f"Export Items data to csv...")
+                exported = export_items_to_csv(items, output_dir + items_filename)
+                print(f"Finished: {exported}")
 
             #if suppliers and len(suppliers) > 0:
              #   filename= "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/files/supplier_extracted.csv"
@@ -75,17 +96,17 @@ def import_csv():
                 #automated_csv_import(filename, 'Supplier')
 
         except ValidationError as ve:
-                frappe.logger().error(ve)
+                print(f"{ve}")
 
                 return ImportCSVResponse(
                     success=False,
-                    message=ve,
+                    message=str(ve),
                     imported_count=0,
                     errors= [error['msg'] for error in ve.errors()]
                 ).model_dump()
             
         except Exception as e:
-                frappe.logger().error(e)
+                print(f"{e}")
 
                 return ImportCSVResponse(
                     success=False,
@@ -96,13 +117,13 @@ def import_csv():
 
         return ImportCSVResponse(
             success=True,
-            message=f"Material Request: csv_rows:${len(references)}, imported_rows:${0}.",
-            imported_count=len(references),
+            message=f"Csv_rows: 0, imported_rows:${0}.",
+            imported_count=0,
             errors=None
         ).model_dump()
 
     except Exception as e:
-        frappe.logger().exception(f"An error occured during importation {e}")
+        print(f"An error occured during importation {e}")
         return ImportCSVResponse(
             success=False,
             message="Server error during importation",
@@ -124,11 +145,11 @@ def prepare_supplier(supplier_file, delimiter):
             suppliers.append(supplier) 
 
         except ValidationError as ve:
-            frappe.logger.error(f"Supplier - There is an invalid data at line {idx} : {ve}")
+            print(f"Supplier - There is an invalid data at line {idx} : {ve}")
             raise ValidationError(f"Supplier - There is an invalid data at line {idx}!")
             
         except Exception as ve:
-            frappe.logger.error(f"Supplier - There is an error at line {idx} : {ve}")
+            print(f"Supplier - There is an error at line {idx} : {ve}")
             raise ValidationError(f"Supplier - There is an error at line {idx}!")
 
     return suppliers
@@ -144,11 +165,11 @@ def prepare_material_request(material_request_file, delimiter):
             material_requests.append(material) 
 
         except ValidationError as ve:
-            frappe.logger.error(f"Material - There is an invalid data at line {idx} : {ve}")
+            print(f"Material - There is an invalid data at line {idx} : {ve}")
             raise ValueError(f"Material - There is an invalid data at line {idx}")
             
         except Exception as ve:
-            frappe.logger.error(f"Material - Unexpected error at line {idx} : {ve}")
+            print(f"Material - Unexpected error at line {idx} : {ve}")
             raise ValueError(f"Material - Unexpected error at line {idx}")
 
     return material_requests
@@ -164,44 +185,90 @@ def prepare_reference(reference_file, delimiter):
             references.append(material) 
 
         except ValidationError as ve:
-            frappe.logger.error(f"file_name:{reference_file} - There is an invalid data at line {idx} : {ve}")
+            print(f"file_name:{reference_file} - There is an invalid data at line {idx} : {ve}")
             raise ValueError(f"file_name:{reference_file} - There is an invalid data at line {idx}")
             
         except Exception as ve:
-            frappe.logger.error(f"file_name:{reference_file} - Unexpected error at line {idx} : {ve}")
+            print(f"file_name:{reference_file} - Unexpected error at line {idx} : {ve}")
             raise ValueError(f"file_name:{reference_file} - Unexpected error at line {idx}")
 
     return references
 #============ XXXXXX ===================
 
-#======== Extract Other Data From Files =============
 
+
+#======== Extract Other Data From Files =============
 def extract_item_groups(materials: List[MaterialRequestModel]):
-    groupes: List[ItemGroupModel]
+    groupes: List[ItemGroupModel] = []
 
     if materials is None:
         raise ValueError("Request Material is null")
     
     for material in materials:
-        any(grp.item_group_name == material.item_groupe for grp in groupes)
-        if material.item_groupe not in groupes:
-            groupes.append(ItemGroupModel(material.item_groupe))
+        if any(grp.item_group_name == material.item_groupe for grp in groupes):
+            pass
+
+        groupes.append(ItemGroupModel(item_group_name= material.item_groupe))
 
     return groupes
 
 def extract_items(materials: List[MaterialRequestModel]):
-    items: List[ItemModel]
+    items: List[ItemModel] = []
+    items_list = []
 
     if materials is None:
         raise ValueError("Request Material is null")
     
     for material in materials:
-        any(grp.item_group_name == material.item_groupe for grp in items)
-        if material.item_groupe not in items:
-            items.append(ItemGroupModel(material.item_groupe))
+        if any(item == material.item_name for item in items_list):
+            pass
+
+        items_list.append(material.item_name);    
+        items.append(ItemModel(
+            default_unit_of_mesure= material.uom,
+            item_code="", 
+            item_group=material.item_groupe,
+            item_name=material.item_name)
+        )
 
     return items
 #============ XXXXXX ===================
+
+def export_item_groups_to_csv(item_groups: List[ItemGroupModel], filename: str):
+    # Crée le dossier si besoin
+    Path(filename).parent.mkdir(parents=True, exist_ok=True)
+
+    # Ouvre le fichier en écriture
+    with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+
+        print(f"Creation Item_groupe csv...")
+        # En-têtes CSV
+        writer.writerow(['Item Group Name'])
+
+        # Données
+        for item_group in item_groups:
+            writer.writerow([item_group.item_group_name])
+        
+        print(f"Creation Item-Group terminé...")
+
+def export_items_to_csv(items: List[ItemModel], filename: str):
+    # Crée le dossier si besoin
+    Path(filename).parent.mkdir(parents=True, exist_ok=True)
+
+    # Ouvre le fichier en écriture
+    with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+
+        print(f"Creation Item_groupe csv...")
+        # En-têtes CSV
+        writer.writerow(['Item Code', 'Item Group', 'Item Name', 'Default Unit of Measure'])
+
+        # Données
+        for item in items:
+            writer.writerow([item.item_code, item.item_group, item.item_name, item.default_unit_of_mesure])
+        
+        print(f"Creation Item-Group terminé...")
 
 def export_suppliers_to_csv(suppliers: List[SupplierModel], filename: str):
     # Crée le dossier si besoin
@@ -220,7 +287,8 @@ def export_suppliers_to_csv(suppliers: List[SupplierModel], filename: str):
             writer.writerow([supplier.supplier_name, supplier.country, supplier.type])
         
         print(f"Lancement terminé...")
-        
+
+
 def automated_csv_import(file_path, doctype_name):
     try:
         file_name = os.path.basename(file_path)
