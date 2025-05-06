@@ -8,6 +8,12 @@ def get_data():
 			"icon": "fa fa-star",
 			"items": [
 				{
+                    "type": "page",
+                    "name": "data-configuration",
+                    "label": _("Importation"),
+                    "icon": "octicon octicon-database",
+                },
+				{
 					"type": "doctype",
 					"name": "Project",
 					"description": _("Project master."),

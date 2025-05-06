@@ -832,3 +832,15 @@ Form Dict: {'references': [{'reference_name': 'ACC-PINV-2025-00001', 'reference_
 2025-05-05 10:56:45,392 ERROR frappe New Exception collected in error log
 Site: erpnext.localhost
 Form Dict: {'references': [{'reference_name': 'ACC-PINV-2025-00001', 'reference_doctype': 'Purchase Invoice', 'total_amount': 39000.0, 'allocated_amount': 39000.0, 'outstanding_amount': '39000.0'}], 'party_type': 'Supplier', 'received_amount': 39000.0, 'doctype': 'Payment Entry', 'payment_type': 'Pay', 'paid_from_account_currency': 'USD', 'submit_after_save': True, 'paid_to': '1100 - Cash In Hand - BICID', 'paid_amount': 39000.0, 'company': 'BICI (Demo)', 'mode_of_payment': 'Cash', 'posting_date': '2025-05-05', 'paid_from': '2110 - Creditors - BICID', 'source_exchange_rate': 1, 'party': 'Zuckerman Security Ltd.'}
+2025-05-06 12:52:51,367 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 12:54:15,458 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': 'data-configuration', 'cmd': 'frappe.desk.desk_page.getpage'}
+2025-05-06 13:09:04,835 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': 'data-configuration', 'cmd': 'frappe.desk.desk_page.getpage'}
+2025-05-06 13:12:08,420 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
