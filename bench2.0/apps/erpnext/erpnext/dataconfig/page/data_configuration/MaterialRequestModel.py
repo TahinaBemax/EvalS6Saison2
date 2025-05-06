@@ -4,20 +4,20 @@ from typing import List
 from typing_extensions import Annotated
 
 class MaterialRequestModel(BaseModel):
-    series: str = "MAT-MR-.YYYY.-"
-    transaction_date: date
+    date: date
+    item_name: str
+    item_groupe: str
+    required_by: date
+    quantity: float
+    purpose: str
+    target_warehouse: str
+    ref: str
+
     supplier: str
     company: str
-    purpose: str
-
-    items: List[str]
-    items_code: List[str]
-    qty: List[float]
-    required_by: date = date.today()
     stocks_uom: str = "Nos"
-    uom: List[str]
-    uom_conversion_factor: List[str]
-    target_warehouse: str = "Test warehouse - BICID"
+    uom: str = "Ambapere"
+    uom_conversion_factor: str = 1
 
     @field_validator("company", "series", "purpose", mode="before")
     @classmethod

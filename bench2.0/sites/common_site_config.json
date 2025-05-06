@@ -2,7 +2,7 @@
  "debug": 1,
  "developer_mode": 1,
  "background_workers": 1,
- "default_site": "erpnext.localhost",
+ "default_site": "itu.erpnext",
  "file_watcher_port": 6788,
  "frappe_user": "tahina",
  "gunicorn_workers": 9,
