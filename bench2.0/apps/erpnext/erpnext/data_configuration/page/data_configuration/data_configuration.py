@@ -382,11 +382,11 @@ def export_mat_requests_to_csv(materials: List[MaterialRequestModel], items: Lis
 
         print(f"Lancement creation csv...")
         # En-têtes CSV
-        writer.writerow(['Series', 'Purpose', 'Company', 'Transaction Date', 'Item Code (Items)', 'Quantity (Items)', 'Required By (Items)', 'Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)', 'Item Group (Items)', 'Item Name (Items)'])
+        writer.writerow(['Series', 'Purpose', 'Company', 'Transaction Date', 'Item Code (Items)', 'Quantity (Items)', 'Required By (Items)', 'Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)', 'Item Group (Items)', 'Item Name (Items)', 'Warehouse (Items)'])
 
         # Données
         for m in materials:
-            writer.writerow([ "MAT-MR-.YYYY.-", m.purpose, m.company, m.date, get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor, m.item_groupe, m.item_name])
+            writer.writerow([ "MAT-MR-.YYYY.-", m.purpose, m.company, m.date, get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor, m.item_groupe, m.item_name, 'All Warehouses - ITU'])
         
         print(f"Lancement terminé...")
 
@@ -400,11 +400,11 @@ def export_request_for_quoatation_to_csv(materials: List[MaterialRequestModel], 
 
         print(f"Lancement creation csv...")
         # En-têtes CSV
-        writer.writerow(['Series', 'Company','Date', 'Status', 'Message for Supplier','Supplier (Suppliers)', 'Item Code (Items)', 'Quantity (Items)', 'Required Date (Items)', 'Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)'])
+        writer.writerow(['Series', 'Company','Date', 'Status', 'Message for Supplier','Supplier (Suppliers)', 'Item Code (Items)', 'Quantity (Items)', 'Required Date (Items)', 'Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)', 'Warehouse (Items)'])
 
         # Données
         for m in materials:
-            writer.writerow([ "PUR-RFQ-.YYYY.-", m.company, m.date, "Submitted", "Bonjour", get_supplier_by_ref(refs, m.ref), get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor])
+            writer.writerow([ "PUR-RFQ-.YYYY.-", m.company, m.date, "Submitted", "Bonjour", get_supplier_by_ref(refs, m.ref), get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor, 'Stores - ITU'])
         
         print(f"Lancement terminé...")
 
@@ -446,8 +446,7 @@ def get_supplier_by_ref(refs: List[ReferenceModel], ref: str):
 def automated_csv_import(file_path, doctype_name, submit=True):
     try:
         file_name = os.path.basename(file_path)
-        print(f"file_name: {file_name}")
-        
+
         # Create Data Import document first
         data_import = frappe.get_doc({
             "doctype": "Data Import",
@@ -494,11 +493,8 @@ def automated_csv_import(file_path, doctype_name, submit=True):
             "data_import_name": data_import.name
         }
     except Exception as e:
-        frappe.log_error(f"CSV import error: {str(e)}", "automated_csv_import")
-        return {
-            "status": "error",
-            "message": f"An error occurred during CSV import: {str(e)}"
-        }
+        print(f"CSV import error: {str(e)}", "automated_csv_import")
+        raise Exception(f"An error occurred during CSV final import")
 
 
 

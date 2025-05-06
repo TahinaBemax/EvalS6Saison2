@@ -1,0 +1,3 @@
+Series,Company,Date,Status,Message for Supplier,Supplier (Suppliers),Item Code (Items),Quantity (Items),Required Date (Items),Stock UOM (Items),UOM (Items),UOM Conversion Factor (Items),Warehouse (Items)
+PUR-RFQ-.YYYY.-,IT University,2025-05-02,Submitted,Bonjour,Sanifer,ITEM-00003,13.0,2025-06-02,Nos,Abampere,1,Stores - ITU
+PUR-RFQ-.YYYY.-,IT University,2025-05-02,Submitted,Bonjour,Sanifer,ITEM-00004,5.0,2025-06-02,Nos,Abampere,1,Stores - ITU
