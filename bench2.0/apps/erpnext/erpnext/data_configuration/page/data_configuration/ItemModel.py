@@ -4,12 +4,14 @@ from pathlib import Path
 from pydantic import BaseModel, field_validator
 
 
-class ItemGroupModel(BaseModel):
-    item_groupe: str
+class ItemModel(BaseModel):
+    _item_counter = 0
+
+    item_group: str
     item_name: str
     items_code: str
 
-    @field_validator("item_groupe", "item_name", mode="before")
+    @field_validator("item_group", "item_name", mode="before")
     @classmethod
     def not_empty(cls, v):
         if not str(v).strip():
@@ -25,4 +27,13 @@ class ItemGroupModel(BaseModel):
         if v not in valid_supplier_type:
             raise ValueError(f"Invalid Supplier Type: {v}. Must be one of: {', '.join(valid_supplier_type)}")
         return v
+    
+
+    @field_validator("item_code", mode="before")
+    @classmethod
+    def set_item_code(cls, v):
+        # Incrémentation du compteur
+        cls._item_counter += 1
+        # Formatage du code avec 5 chiffres
+        return f"ITEM-{cls._item_counter:05d}"
 

@@ -1,9 +1,10 @@
-from datetime import date
+from datetime import date, datetime
+import random
 from pydantic import BaseModel, field_validator
-from typing import List
 from typing_extensions import Annotated
 
 class MaterialRequestModel(BaseModel):
+    #given fields
     date: date
     item_name: str
     item_groupe: str
@@ -12,48 +13,60 @@ class MaterialRequestModel(BaseModel):
     purpose: str
     target_warehouse: str
     ref: str
+    
+    # #required fields
+    # supplier: str = ""
+    # company: str = "IT University"
+    # stocks_uom: str = "Nos"
+    # uom: str = "Ambapere"
+    # uom_conversion_factor: str = 1
 
-    supplier: str
-    company: str
-    stocks_uom: str = "Nos"
-    uom: str = "Ambapere"
-    uom_conversion_factor: str = 1
-
-    @field_validator("company", "series", "purpose", mode="before")
+    @field_validator("item_name", "item_groupe", "required_by", "quantity", "purpose", "target_warehouse", "ref", mode="before")
     @classmethod
     def not_empty(cls, v):
         if not str(v).strip():
             raise ValueError("Field is mandatory")
         return v
 
-    @field_validator("items_code", mode="before")
-    @classmethod
-    def split_items_code(cls, v):
-        if not v.strip():
-            raise ValueError("Item_code is mandatory")
-        return [x.strip() for x in v.split(",")]
 
-    @field_validator("qty", mode="before")
+    @field_validator("date", "required_by", mode="before")
     @classmethod
-    def split_qty(cls, v):
-        if not v.strip():
-            raise ValueError("Qty is mandatory")
-        qty_list = [float(x) for x in v.split(",")]
-        if any(q <= 0 for q in qty_list):
-            raise ValueError("Each quantity must be greater than 0")
-        return qty_list
+    def check_date(cls, v):
+        if not str(v).strip():
+            raise ValueError("Date is mandatory")
 
-    @field_validator("uom", mode="before")
+        date_str = str(v).strip()
+        accepted_formats = [
+            "%Y-%m-%d",  # ISO
+            "%Y/%m/%d",  # ISO with slashes
+            "%d-%m-%Y",  # French with dashes
+            "%d/%m/%Y"   # French with slashes
+        ]
+
+        for fmt in accepted_formats:
+            try:
+                parsed_date = datetime.strptime(date_str, fmt)
+                return parsed_date.date()  # ou return date_str si tu veux garder la chaîne d’origine
+            except ValueError:
+                continue
+
+        raise ValueError(f"Invalid date format: '{date_str}'. Accepted formats: YYYY-MM-DD, YYYY/MM/DD, DD-MM-YYYY, DD/MM/YYYY")
+
+
+    @field_validator("quantity", mode="before")
     @classmethod
-    def validate_uom(cls, v):
+    def check_qty(cls, v):
+        if not str(v).strip():
+            raise ValueError("Quantity is mandatory")
+        if float(v) <= 0:
+            raise ValueError("Quantity must be greater than 0")
+        return v
+
+    #@field_validator("uom", mode="before")
+    #@classmethod
+    def get_uom():
         valid_uoms = [
             "Ambapere", "Acre", "Acre (US)", "Ampere", "Ampere-Hour", "Ampere-Minute",
             "Ampere-Second", "Are", "Area", "Arshin"
         ]
-        if not v.strip():
-            raise ValueError("UOM is mandatory")
-        uom_list = [x.strip() for x in v.split(",")]
-        for u in uom_list:
-            if u not in valid_uoms:
-                raise ValueError(f"Invalid UOM: {u}. Must be one of: {', '.join(valid_uoms)}")
-        return uom_list
+        return valid_uoms[random.randint(0, len(valid_uoms))]

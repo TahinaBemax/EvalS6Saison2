@@ -7,6 +7,10 @@ import csv
 import io
 from erpnext.data_configuration.page.data_configuration.csvModels import ImportCSVResponse
 from erpnext.data_configuration.page.data_configuration.SupplierModel import SupplierModel
+from erpnext.data_configuration.page.data_configuration.MaterialRequestModel import MaterialRequestModel
+from erpnext.data_configuration.page.data_configuration.ReferenceModel import ReferenceModel
+from erpnext.data_configuration.page.data_configuration.ItemGroupModel import ItemGroupModel
+from erpnext.data_configuration.page.data_configuration.ItemModel import ItemModel
 from pydantic import ValidationError
 
 @frappe.whitelist()
@@ -39,51 +43,36 @@ def delete_all_data():
     frappe.db.commit()
     return "OK"
 
-
-def export_suppliers_to_csv(suppliers: List[SupplierModel], filename: str):
-    # Crée le dossier si besoin
-    Path(filename).parent.mkdir(parents=True, exist_ok=True)
-
-    # Ouvre le fichier en écriture
-    with open(filename, mode='w', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
-
-        print(f"Lancement creation csv...")
-        # En-têtes CSV
-        writer.writerow(['supplier_name', 'country', 'supplier_type'])
-
-        # Données
-        for supplier in suppliers:
-            writer.writerow([supplier.supplier_name, supplier.country, supplier.type])
-        
-        print(f"Lancement terminé...")
-        
-
-
 @frappe.whitelist()
 def import_csv():
     try:
         supplier_file = frappe.request.files.get('supplier_file')
+        material_request_file = frappe.request.files.get('material_request_file')
+        ref_file = frappe.request.files.get('ref_file')
 
         delimiter = frappe.form_dict.get('delimiter')
 
-        if not supplier_file:
+        #if not supplier_file or not material_request_file or not ref_file:
+        if not material_request_file or not ref_file:
             return ImportCSVResponse(
                 success=False,
-                message="No file received",
+                message="Supplier, Material Request and Reference files are required!",
                 imported_count=0,
-                errors=["No file uploaded."]
+                errors=["File uploaded is not enough!"]
             ).model_dump()
 
 
         try:
-            suppliers = prepare_supplier(supplier_file, delimiter)
-            print(f"suppliers:{suppliers}")
+            #suppliers = prepare_supplier(supplier_file, delimiter)
 
-            if suppliers and len(suppliers) > 0:
-                filename= "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/files/supplier_extracted.csv"
-                export_suppliers_to_csv(suppliers, filename)
-                print(f"returned: {automated_csv_import(filename, 'Supplier')}")
+            Materials = prepare_material_request(material_request_file, delimiter)
+            references = prepare_reference(ref_file, delimiter)
+
+
+            #if suppliers and len(suppliers) > 0:
+             #   filename= "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/files/supplier_extracted.csv"
+                #export_suppliers_to_csv(suppliers, filename)
+                #automated_csv_import(filename, 'Supplier')
 
         except ValidationError as ve:
                 frappe.logger().error(ve)
@@ -107,8 +96,8 @@ def import_csv():
 
         return ImportCSVResponse(
             success=True,
-            message=f"Material Request: csv_rows:${len(suppliers)}, imported_rows:${0}.",
-            imported_count=len(suppliers),
+            message=f"Material Request: csv_rows:${len(references)}, imported_rows:${0}.",
+            imported_count=len(references),
             errors=None
         ).model_dump()
 
@@ -121,6 +110,8 @@ def import_csv():
             errors= [str(e)]
         ).model_dump()
 
+
+#======== Read csv files =============
 def prepare_supplier(supplier_file, delimiter):
     # Lecture du contenu
     content = supplier_file.read().decode('utf-8')
@@ -133,13 +124,103 @@ def prepare_supplier(supplier_file, delimiter):
             suppliers.append(supplier) 
 
         except ValidationError as ve:
-            raise ValidationError(f"Supplier - There is an invalid data at line {idx} : {ve}")
+            frappe.logger.error(f"Supplier - There is an invalid data at line {idx} : {ve}")
+            raise ValidationError(f"Supplier - There is an invalid data at line {idx}!")
             
         except Exception as ve:
-            raise ValidationError(f"Supplier - There is an error at line {idx} : {ve}")
+            frappe.logger.error(f"Supplier - There is an error at line {idx} : {ve}")
+            raise ValidationError(f"Supplier - There is an error at line {idx}!")
 
     return suppliers
 
+def prepare_material_request(material_request_file, delimiter):
+    content = material_request_file.read().decode('utf-8')
+    reader = csv.DictReader(io.StringIO(content), delimiter=delimiter)
+    material_requests = []
+
+    for idx, row in enumerate(reader, start=2):
+        try:
+            material = MaterialRequestModel(**row)
+            material_requests.append(material) 
+
+        except ValidationError as ve:
+            frappe.logger.error(f"Material - There is an invalid data at line {idx} : {ve}")
+            raise ValueError(f"Material - There is an invalid data at line {idx}")
+            
+        except Exception as ve:
+            frappe.logger.error(f"Material - Unexpected error at line {idx} : {ve}")
+            raise ValueError(f"Material - Unexpected error at line {idx}")
+
+    return material_requests
+
+def prepare_reference(reference_file, delimiter):
+    content = reference_file.read().decode('utf-8')
+    reader = csv.DictReader(io.StringIO(content), delimiter=delimiter)
+    references = []
+
+    for idx, row in enumerate(reader, start=2):
+        try:
+            material = ReferenceModel(**row)
+            references.append(material) 
+
+        except ValidationError as ve:
+            frappe.logger.error(f"file_name:{reference_file} - There is an invalid data at line {idx} : {ve}")
+            raise ValueError(f"file_name:{reference_file} - There is an invalid data at line {idx}")
+            
+        except Exception as ve:
+            frappe.logger.error(f"file_name:{reference_file} - Unexpected error at line {idx} : {ve}")
+            raise ValueError(f"file_name:{reference_file} - Unexpected error at line {idx}")
+
+    return references
+#============ XXXXXX ===================
+
+#======== Extract Other Data From Files =============
+
+def extract_item_groups(materials: List[MaterialRequestModel]):
+    groupes: List[ItemGroupModel]
+
+    if materials is None:
+        raise ValueError("Request Material is null")
+    
+    for material in materials:
+        any(grp.item_group_name == material.item_groupe for grp in groupes)
+        if material.item_groupe not in groupes:
+            groupes.append(ItemGroupModel(material.item_groupe))
+
+    return groupes
+
+def extract_items(materials: List[MaterialRequestModel]):
+    items: List[ItemModel]
+
+    if materials is None:
+        raise ValueError("Request Material is null")
+    
+    for material in materials:
+        any(grp.item_group_name == material.item_groupe for grp in items)
+        if material.item_groupe not in items:
+            items.append(ItemGroupModel(material.item_groupe))
+
+    return items
+#============ XXXXXX ===================
+
+def export_suppliers_to_csv(suppliers: List[SupplierModel], filename: str):
+    # Crée le dossier si besoin
+    Path(filename).parent.mkdir(parents=True, exist_ok=True)
+
+    # Ouvre le fichier en écriture
+    with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+
+        print(f"Lancement creation csv...")
+        # En-têtes CSV
+        writer.writerow(['supplier_name', 'country', 'supplier_type'])
+
+        # Données
+        for supplier in suppliers:
+            writer.writerow([supplier.supplier_name, supplier.country, supplier.type])
+        
+        print(f"Lancement terminé...")
+        
 def automated_csv_import(file_path, doctype_name):
     try:
         file_name = os.path.basename(file_path)
@@ -193,131 +274,3 @@ def automated_csv_import(file_path, doctype_name):
         frappe.log_error(f"CSV import error: {str(e)}")
         raise Exception(f"An error occurred: {str(e)}")
 
-
-# def automated_csv_import(file_path, doctype_name):
-#     try:
-#         file_name = os.path.basename(file_path)
-#         print(f"file_name: {file_name}")
-        
-#         with open(file_path, 'rb') as f:
-#             file_doc = frappe.get_doc({
-#                 "doctype": "File",
-#                 "file_name": file_name,
-#                 "is_private": 1,
-#                 "content": f.read()
-#             }).insert()
-
-#         frappe.db.commit()
-#         print(f"file_doc url: {file_doc.file_url}")
-
-#         # Optional: Force exact file URL match
-#         file_url = f"/private/files/{file_name}"
-
-#         data_import = frappe.get_doc({
-#             "doctype": "Data Import",
-#             "reference_doctype": doctype_name,
-#             "import_type": "Insert New Records",
-#             "file_url": file_url,
-#             "submit_after_import": 1,
-#             "overwrite": 0
-#         })
-
-#         data_import.save()
-#         frappe.db.commit()
-
-#         print("Debut de l'importation")
-#         data_import.start_import()
-#         frappe.db.commit()
-#         print("Import started in background.")
-#     except Exception as e:
-#         raise Exception(f"An error: {e}")
-
-
-
-# def save_material_request(mat_requests: list[MaterialRequestModel]):
-#     imported_count = 0
-
-#     for idx, row in enumerate(mat_requests):
-#         try:
-#             # Construire la liste des items
-#             items = []
-#             for i in range(len(row.items_code)):
-#                 items.append({
-#                     "item_code": row.items_code[i],
-#                     "item_name": row.items[i] if len(row.items) > i else "",
-#                     "qty": float(row.qty[i]),
-#                     "required_by": row.required_by,
-#                     "stock_uom": row.stocks_uom,
-#                     "uom": row.uom[i],
-#                     "conversion_factor": float(row.uom_conversion_factor[i]),
-#                     "warehouse": row.target_warehouse
-#                 })
-
-#             doc = frappe.get_doc({
-#                 "doctype": "Material Request",
-#                 "series": row.series,
-#                 "transaction_date": row.transaction_date,
-#                 "supplier": row.supplier,
-#                 "company": row.company,
-#                 "purpose": row.purpose,
-#                 "schedule_date": row.required_by,
-#                 "items": items
-#             })
-
-#             doc.insert(ignore_permissions=True)
-#             imported_count += 1
-
-#         except ValidationError as ve:
-#             raise ValidationError(ve)
-
-#         except Exception as e:
-#             raise ValidationError(e)
-#     return [imported_count, mat_requests.count()]
-
-# @frappe.whitelist(allow_guest=True)
-# def import_csv():
-#     uploaded_file = frappe.request.files.get('file')
-#     delimiter = frappe.form_dict.get('delimiter')
-
-#     if not uploaded_file:
-#         frappe.throw("Aucun fichier reçu.")
-
-#     # Lecture du contenu
-#     content = uploaded_file.read().decode('utf-8')
-#     reader = csv.DictReader(io.StringIO(content), delimiter=delimiter)
-
-#     imported_count = 0
-#     errors = []
-
-#     for idx, row in enumerate(reader, start=2):  # Ligne 2 = première après l'en-tête
-#         try:
-#             # Validation avec Pydantic
-#             customer = CustomerCSVModel(**row)
-
-#             # Insertion dans la base de données
-#             # frappe.get_doc({
-#             #     "doctype": "Customer",
-#             #     "first_name": customer.first_name,
-#             #     "last_name": customer.last_name,
-#             #     "email": customer.email,
-#             #     "phone": customer.phone
-#             # }).insert(ignore_permissions=True)
-
-#             imported_count += 1
-#             print(f"Customer name: {customer.customer_name} \n Customer type: {customer.customer_type} \n")
-
-#         except ValidationError as e:
-#             error_msg = f"Erreur à la ligne {idx} : {e}"
-#             frappe.logger().error(error_msg)
-#             errors.append(error_msg)
-#             raise ValueError(error_msg)
-
-#         except Exception as ex:
-#             frappe.logger().error(f"Erreur Frappe à la ligne {idx} : {ex}")
-#             errors.append(f"Ligne {idx} : {ex}")
-#             raise ex
-
-#     #frappe.db.commit()
-#     frappe.msgprint(f"{imported_count} clients importés avec succès.")
-
-#     return "Importation terminée"

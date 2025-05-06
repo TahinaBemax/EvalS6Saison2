@@ -859,3 +859,70 @@ Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_confi
 2025-05-06 14:10:22,044 ERROR frappe An error occurred: Attached To Name must be a string or an integer
 Site: itu.erpnext
 Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:00:32,524 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'Warehouse', 'name': 'Test - ITU', 'cmd': 'frappe.client.delete'}
+2025-05-06 15:12:12,886 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csvs'}
+2025-05-06 15:13:57,295 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:18:15,445 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:25:09,604 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:25:31,242 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:32:11,623 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:42:47,403 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:49:07,865 ERROR frappe Material - There is an invalid data at line 2 : 8 validation errors for MaterialRequestModel
+date
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+item_name
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+item_groupe
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+required_by
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+quantity
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+purpose
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+target_warehouse
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+ref
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:54:50,423 ERROR frappe Material - There is an invalid data at line 2 : 2 validation errors for MaterialRequestModel
+date
+  Value error, Date must be in format YYYY-MM-DD: time data '02/05/2025' does not match format '%d-%m-%Y' [type=value_error, input_value='02/05/2025', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/value_error
+required_by
+  Value error, Date must be in format YYYY-MM-DD: time data '02/06/2025' does not match format '%d-%m-%Y' [type=value_error, input_value='02/06/2025', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/value_error
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 16:05:00,574 ERROR frappe An error occured during importation name 'suppliers' is not defined
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/erpnext/erpnext/data_configuration/page/data_configuration/data_configuration.py", line 95, in import_csv
+    message=f"Material Request: csv_rows:${len(suppliers)}, imported_rows:${0}.",
+NameError: name 'suppliers' is not defined
