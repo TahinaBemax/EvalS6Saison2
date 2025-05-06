@@ -48,12 +48,16 @@ def export_suppliers_to_csv(suppliers: List[SupplierModel], filename: str):
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
 
+        print(f"Lancement creation csv...")
         # En-têtes CSV
         writer.writerow(['supplier_name', 'country', 'supplier_type'])
 
         # Données
         for supplier in suppliers:
             writer.writerow([supplier.supplier_name, supplier.country, supplier.type])
+        
+        print(f"Lancement terminé...")
+        
 
 
 @frappe.whitelist()
@@ -62,7 +66,6 @@ def import_csv():
         supplier_file = frappe.request.files.get('supplier_file')
 
         delimiter = frappe.form_dict.get('delimiter')
-        print(f"DELIMITER {delimiter}, - file {supplier_file}")
 
         if not supplier_file:
             return ImportCSVResponse(
@@ -75,11 +78,12 @@ def import_csv():
 
         try:
             suppliers = prepare_supplier(supplier_file, delimiter)
+            print(f"suppliers:{suppliers}")
 
-            if suppliers and suppliers.count() > 0:
-                filename= "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/erpnext.localhost/private/files/supplier_extracted.csv"
+            if suppliers and len(suppliers) > 0:
+                filename= "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/files/supplier_extracted.csv"
                 export_suppliers_to_csv(suppliers, filename)
-                automated_csv_import(filename, "Supplier")
+                print(f"returned: {automated_csv_import(filename, 'Supplier')}")
 
         except ValidationError as ve:
                 frappe.logger().error(ve)
@@ -103,8 +107,8 @@ def import_csv():
 
         return ImportCSVResponse(
             success=True,
-            message=f"Material Request: csv_rows:${suppliers}, imported_rows:${0}.",
-            imported_count=suppliers.count(),
+            message=f"Material Request: csv_rows:${len(suppliers)}, imported_rows:${0}.",
+            imported_count=len(suppliers),
             errors=None
         ).model_dump()
 
@@ -116,27 +120,6 @@ def import_csv():
             imported_count=0,
             errors= [str(e)]
         ).model_dump()
-
-
-# def prepare_material_request(material_req_file, delimiter):
-#     # Lecture du contenu
-#     content = material_req_file.read().decode('utf-8')
-#     reader = csv.DictReader(io.StringIO(content), delimiter=delimiter)
-#     mat_requests = []
-
-#     for idx, row in enumerate(reader, start=2):
-#         try:
-#             mat_request = MaterialRequestModel(**row)
-#             mat_requests.append(mat_request) 
-
-#         except ValidationError as ve:
-#             raise ValidationError(f"Doctype:Material Request - There is an invalid data at line {idx} : {ve}")
-            
-#         except Exception as ve:
-#             raise ValidationError(f"Doctype:Material Request - There is an error at line {idx} : {ve}")
-
-#     return mat_requests
-
 
 def prepare_supplier(supplier_file, delimiter):
     # Lecture du contenu
@@ -162,37 +145,93 @@ def automated_csv_import(file_path, doctype_name):
         file_name = os.path.basename(file_path)
         print(f"file_name: {file_name}")
         
-        with open(file_path, 'rb') as f:
-            file_doc = frappe.get_doc({
-                "doctype": "File",
-                "file_name": file_name,
-                "is_private": 1,
-                "content": f.read()
-            }).insert()
-
-        frappe.db.commit()
-        print(f"file_doc url: {file_doc.file_url}")
-
-        # Optional: Force exact file URL match
-        file_url = f"/private/files/{file_name}"
-
+        # Create Data Import document first
         data_import = frappe.get_doc({
             "doctype": "Data Import",
             "reference_doctype": doctype_name,
             "import_type": "Insert New Records",
-            "file_url": file_url,
             "submit_after_import": 1,
             "overwrite": 0
         })
-
+        
+        # Save first to get a name assigned
+        data_import.insert()
+        frappe.db.commit()
+        print(f"Created Data Import with name: {data_import.name}")
+        
+        # Now create and attach the file with the correct attached_to_name
+        with open(file_path, 'rb') as f:
+            file_content = f.read()
+            
+        # Create the file document with attached_to_name already set
+        file_doc = frappe.get_doc({
+            "doctype": "File",
+            "file_name": file_name,
+            "is_private": 1,
+            "content": file_content,
+            "attached_to_doctype": "Data Import",
+            "attached_to_name": data_import.name,  # Set this immediately and correctly
+            "attached_to_field": "import_file"
+        })
+        file_doc.insert()
+        frappe.db.commit()
+        print(f"File created with name: {file_doc.name} and URL: {file_doc.file_url}")
+        
+        # Update the Data Import with the file reference
+        data_import.import_file = file_doc.file_url
         data_import.save()
         frappe.db.commit()
-
+        
+        print("Starting the import process")
         data_import.start_import()
         frappe.db.commit()
-        frappe.msgprint("Import started in background.")
+        print("Import started in background.")
+        
+        return data_import.name
     except Exception as e:
-        raise Exception(f"An error: {e}")
+        print(f"Error during import: {str(e)}")
+        frappe.log_error(f"CSV import error: {str(e)}")
+        raise Exception(f"An error occurred: {str(e)}")
+
+
+# def automated_csv_import(file_path, doctype_name):
+#     try:
+#         file_name = os.path.basename(file_path)
+#         print(f"file_name: {file_name}")
+        
+#         with open(file_path, 'rb') as f:
+#             file_doc = frappe.get_doc({
+#                 "doctype": "File",
+#                 "file_name": file_name,
+#                 "is_private": 1,
+#                 "content": f.read()
+#             }).insert()
+
+#         frappe.db.commit()
+#         print(f"file_doc url: {file_doc.file_url}")
+
+#         # Optional: Force exact file URL match
+#         file_url = f"/private/files/{file_name}"
+
+#         data_import = frappe.get_doc({
+#             "doctype": "Data Import",
+#             "reference_doctype": doctype_name,
+#             "import_type": "Insert New Records",
+#             "file_url": file_url,
+#             "submit_after_import": 1,
+#             "overwrite": 0
+#         })
+
+#         data_import.save()
+#         frappe.db.commit()
+
+#         print("Debut de l'importation")
+#         data_import.start_import()
+#         frappe.db.commit()
+#         print("Import started in background.")
+#     except Exception as e:
+#         raise Exception(f"An error: {e}")
+
 
 
 # def save_material_request(mat_requests: list[MaterialRequestModel]):

@@ -844,3 +844,18 @@ Form Dict: {'name': 'data-configuration', 'cmd': 'frappe.desk.desk_page.getpage'
 2025-05-06 13:12:08,420 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:19:52,204 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:35:05,720 ERROR frappe list.count() takes exactly one argument (0 given)
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:35:05,728 ERROR frappe list.count() takes exactly one argument (0 given)
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:35:45,900 ERROR frappe list.count() takes exactly one argument (0 given)
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 14:10:22,044 ERROR frappe An error occurred: Attached To Name must be a string or an integer
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}

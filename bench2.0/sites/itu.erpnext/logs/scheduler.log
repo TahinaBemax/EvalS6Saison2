@@ -1,0 +1,6 @@
+2025-05-06 14:16:00,959 ERROR scheduler Skipped queueing frappe.deferred_insert.save_to_db because it was found in queue for itu.erpnext
+2025-05-06 14:16:16,723 ERROR scheduler Skipped queueing frappe.email.doctype.notification.notification.trigger_offset_alerts because it was found in queue for itu.erpnext
+2025-05-06 14:16:16,753 ERROR scheduler Skipped queueing frappe.oauth.delete_oauth2_data because it was found in queue for itu.erpnext
+2025-05-06 14:16:16,795 ERROR scheduler Skipped queueing frappe.utils.global_search.sync_global_search because it was found in queue for itu.erpnext
+2025-05-06 14:16:16,837 ERROR scheduler Skipped queueing frappe.email.doctype.email_account.email_account.notify_unreplied because it was found in queue for itu.erpnext
+2025-05-06 14:16:01,374 ERROR scheduler Skipped queueing frappe.website.doctype.web_page.web_page.check_publish_status because it was found in queue for itu.erpnext
