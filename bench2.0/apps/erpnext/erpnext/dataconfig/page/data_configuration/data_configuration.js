@@ -5,6 +5,39 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 		single_column: true
 	});
 
+	$("#head").append(`
+		<style>
+			.loading-overlay {
+				display: none;
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(255, 255, 255, 0.95);
+				z-index: 9999;
+			}
+
+			.loading-spinner {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				border: 4px solid #f3f3f3;
+				border-top: 4px solid #3498db;
+				border-radius: 50%;
+				width: 40px;
+				height: 40px;
+				animation: spin 1s linear infinite;
+			}
+
+			@keyframes spin {
+				0% { transform: rotate(0deg); }
+				100% { transform: rotate(360deg); }
+			}
+		</style>
+		`)
+
 	// SECTION 1: Suppression des données
 	const delete_section = $(`
 		<div class="card mb-4">
@@ -16,22 +49,6 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 		</div>
 	`);
 	$(page.body).append(delete_section);
-
-	$('#delete-data-btn').on('click', function () {
-		frappe.confirm(
-			"Are you sure to delete all Data ?",
-			() => {
-				frappe.call({
-					method: 'erpnext.dataconfig.page.data_configuration.data_configuration.delete_all_data',
-					callback: function(response) {
-						if (!response.exc) {
-							frappe.msgprint("Deleted with success !");
-						}
-					}
-				});
-			}
-		);
-	});
 
 	// SECTION 2: Importation CSV
 	const import_section = $(`
@@ -48,12 +65,8 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 						</select>
 					</div>
 					<div class="form-group mb-2">
-						<label for="mat_req_file">Material Request</label>
-						<input type="file" class="form-control" name='mat_req_file' id="mat_req_file" accept=".csv" required>
-					</div>
-					<div class="form-group mb-2">
-						<label for="req_for_quota_file">Request for Quotation</label>
-						<input type="file" class="form-control" name='req_for_quota_file' id="req_for_quota_file" accept=".csv" required>
+						<label for="supplierfile">Supplier file</label>
+						<input type="file" class="form-control" name='supplierfile' id="supplierfile" accept=".csv" required>
 					</div>
 					
 					<button type="submit" class="btn btn-primary">Import</button>
@@ -63,22 +76,59 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 	`);
 	$(page.body).append(import_section);
 
+	$(page.body).append(`
+		<div class="loading-overlay">
+    		<div class="loading-spinner"></div>
+		</div>`
+	)
+
+	// Add this variable at the top of your script
+	const $loadingOverlay = $('.loading-overlay');
+
+	// Modify your delete button click handler
+	$('#delete-data-btn').on('click', function () {
+		frappe.confirm(
+			"Are you sure to delete all Data ?",
+			() => {
+				// Show loader
+				$loadingOverlay.show();
+				
+				frappe.call({
+					method: 'erpnext.dataconfig.page.data_configuration.data_configuration.delete_all_data',
+					callback: function(response) {
+						if (!response.exc) {
+							frappe.msgprint("Deleted with success !");
+						}
+						// Hide loader
+						$loadingOverlay.hide();
+					}
+				});
+			}
+		);
+	});
+
+	// Modify your import form submission
 	$('#csv-import-form').on('submit', function (e) {
 		e.preventDefault();
+		
+		// Show loader
+		$loadingOverlay.show();
+		
 		const mat_req_file = $('#mat_req_file')[0];
 		const req_for_quota_file = $('#req_for_quota_file')[0];
 		const delimiter = $('#delimiter').val();
-
+		
 		if (mat_req_file.files.length === 0) {
 			frappe.msgprint("Please, select a CSV file.");
+			$loadingOverlay.hide(); // Hide loader on error
 			return;
 		}
-
+		
 		const formData = new FormData();
 		formData.append("mat_req_file", mat_req_file.files[0]);
 		formData.append("req_for_quota_file", req_for_quota_file.files[0]);
 		formData.append("delimiter", delimiter);
-
+		
 		$.ajax({
 			url: "/api/method/erpnext.dataconfig.page.data_configuration.data_configuration.import_csv",
 			type: "POST",
@@ -89,9 +139,7 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 				'X-Frappe-CSRF-Token': frappe.csrf_token
 			},
 			success: function (response) {
-				// La vraie réponse est dans response.message car Frappe "wrappe" les retours
 				const res = response.message;
-		
 				if (res.success) {
 					frappe.msgprint({
 						title: "Data imported",
@@ -105,6 +153,7 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 						indicator: "orange"
 					});
 				}
+				$loadingOverlay.hide(); // Hide loader on completion
 			},
 			error: function (xhr) {
 				let errMsg = "Unknown error.";
@@ -116,15 +165,13 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 				} catch (e) {
 					errMsg = xhr.responseText;
 				}
-		
 				frappe.msgprint({
 					title: "Server Error",
 					message: errMsg,
 					indicator: "red"
 				});
+				$loadingOverlay.hide(); // Hide loader on error
 			}
 		});
-		
-		
 	});
 };

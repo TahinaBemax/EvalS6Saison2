@@ -1,3 +1,4 @@
+import os
 from typing import List
 
 import frappe
@@ -6,10 +7,6 @@ import io
 from erpnext.dataconfig.page.data_configuration.csvModels import ImportCSVResponse
 from erpnext.dataconfig.page.data_configuration.MaterialRequestModel import MaterialRequestModel
 from pydantic import ValidationError
-import debugpy
-debugpy.listen(("0.0.0.0", 8001))
-print("⏳ Waiting for debugger attach...")
-debugpy.wait_for_client()
 
 @frappe.whitelist()
 def delete_all_data():
@@ -121,6 +118,43 @@ def prepare_material_request(material_req_file, delimiter):
             raise ValidationError(f"Doctype:Material Request - There is an error at line {idx} : {ve}")
 
     return mat_requests
+
+def automated_csv_import(file_path, doctype_name):
+    try:
+        file_name = os.path.basename(file_path)
+        print(f"file_name: {file_name}")
+        
+        with open(file_path, 'rb') as f:
+            file_doc = frappe.get_doc({
+                "doctype": "File",
+                "file_name": file_name,
+                "is_private": 1,
+                "content": f.read()
+            }).insert()
+
+        frappe.db.commit()
+        print(f"file_doc url: {file_doc.file_url}")
+
+        # Optional: Force exact file URL match
+        file_url = f"/private/files/{file_name}"
+
+        data_import = frappe.get_doc({
+            "doctype": "Data Import",
+            "reference_doctype": doctype_name,
+            "import_type": "Insert New Records",
+            "file_url": file_url,
+            "submit_after_import": 1,
+            "overwrite": 0
+        })
+
+        data_import.save()
+        frappe.db.commit()
+
+        data_import.start_import()
+        frappe.db.commit()
+        frappe.msgprint("Import started in background.")
+    except Exception as e:
+        raise Exception(f"An error: {e}")
 
 
 def save_material_request(mat_requests: list[MaterialRequestModel]):
