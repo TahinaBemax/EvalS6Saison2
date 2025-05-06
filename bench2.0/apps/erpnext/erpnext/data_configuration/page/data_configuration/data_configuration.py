@@ -18,6 +18,7 @@ from pydantic import ValidationError
 output_dir = "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/files/"
 item_group_filename = "item_groups_extracted.csv"
 items_filename = "items_extracted.csv"
+suppliers_filename = "suppliers_extracted.csv"
 
 
 @frappe.whitelist()
@@ -70,9 +71,9 @@ def import_csv():
 
 
         try:
-            #suppliers = prepare_supplier(supplier_file, delimiter)
+            suppliers = prepare_supplier(supplier_file, delimiter)
             Materials = prepare_material_request(material_request_file, delimiter)
-            #references = prepare_reference(ref_file, delimiter)
+            references = prepare_reference(ref_file, delimiter)
 
             item_groups = extract_item_groups(Materials)
             items = extract_items(Materials)
@@ -90,9 +91,10 @@ def import_csv():
                 exported = export_items_to_csv(items, output_dir + items_filename)
                 print(f"Finished: {exported}")
 
-            #if suppliers and len(suppliers) > 0:
-             #   filename= "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/files/supplier_extracted.csv"
-                #export_suppliers_to_csv(suppliers, filename)
+            if suppliers and len(suppliers) > 0:
+                print(f"Export Suppliers data to csv...")
+                exported = export_suppliers_to_csv(suppliers, output_dir + suppliers_filename)
+                print(f"Finished: {exported}")
                 #automated_csv_import(filename, 'Supplier')
 
         except ValidationError as ve:
