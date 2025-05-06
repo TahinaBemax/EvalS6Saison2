@@ -1,11 +1,12 @@
 import os
+from pathlib import Path
 from typing import List
 
 import frappe
 import csv
 import io
 from erpnext.dataconfig.page.data_configuration.csvModels import ImportCSVResponse
-from erpnext.dataconfig.page.data_configuration.MaterialRequestModel import MaterialRequestModel
+from erpnext.dataconfig.page.data_configuration.SupplierModel import SupplierModel
 from pydantic import ValidationError
 
 @frappe.whitelist()
@@ -39,29 +40,46 @@ def delete_all_data():
     return "OK"
 
 
+def export_suppliers_to_csv(suppliers: List[SupplierModel], filename: str):
+    # Crée le dossier si besoin
+    Path(filename).parent.mkdir(parents=True, exist_ok=True)
+
+    # Ouvre le fichier en écriture
+    with open(filename, mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+
+        # En-têtes CSV
+        writer.writerow(['supplier_name', 'country', 'supplier_type'])
+
+        # Données
+        for supplier in suppliers:
+            writer.writerow([supplier.supplier_name, supplier.country, supplier.type])
+
+
 @frappe.whitelist(allow_guest=True)
 def import_csv():
     try:
-        req_for_quota_file = frappe.request.files.get('req_for_quota_file')
-        material_req_file = frappe.request.files.get('mat_req_file')
+        supplier_file = frappe.request.files.get('supplier_file')
 
         delimiter = frappe.form_dict.get('delimiter')
-        print(f"DELIMITER {delimiter}, - file {material_req_file}")
+        print(f"DELIMITER {delimiter}, - file {supplier_file}")
 
-        if not material_req_file:
+        if not supplier_file:
             return ImportCSVResponse(
                 success=False,
                 message="No file received",
                 imported_count=0,
                 errors=["No file uploaded."]
-            ).dict()
+            ).model_dump()
 
-        mat_reqs_imported_rows = 0
-        mat_reqs_csv_rows = 0
-        mat_requests = prepare_material_request(material_req_file, delimiter)
 
         try:
-            mat_reqs_imported_rows, mat_reqs_csv_rows = save_material_request(mat_requests) 
+            suppliers = prepare_supplier(supplier_file, delimiter)
+
+            if suppliers and suppliers.count() > 0:
+                filename= "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/erpnext.localhost/private/files/supplier_extracted.csv"
+                export_suppliers_to_csv(suppliers, filename)
+                automated_csv_import(filename, "Supplier")
 
         except ValidationError as ve:
                 frappe.logger().error(ve)
@@ -71,53 +89,73 @@ def import_csv():
                     message=ve,
                     imported_count=0,
                     errors= [error['msg'] for error in ve.errors()]
-                ).dict()
+                ).model_dump()
             
-        except Exception as ve:
-                frappe.logger().error(ve)
+        except Exception as e:
+                frappe.logger().error(e)
 
                 return ImportCSVResponse(
                     success=False,
-                    message=ve,
+                    message= str(e),
                     imported_count=0,
-                    errors= [error['msg'] for error in ve.errors()]
-                ).dict()
+                    errors= [str(e)]
+                ).model_dump()
 
         return ImportCSVResponse(
             success=True,
-            message=f"Material Request: csv_rows:${mat_reqs_csv_rows}, imported_rows:${mat_reqs_imported_rows}.",
-            imported_count=mat_reqs_imported_rows,
+            message=f"Material Request: csv_rows:${mat_requests}, imported_rows:${0}.",
+            imported_count=mat_requests.count(),
             errors=None
-        ).dict()
+        ).model_dump()
 
     except Exception as e:
-        frappe.logger().exception("An error occured during importation")
+        frappe.logger().exception(f"An error occured during importation {e}")
         return ImportCSVResponse(
             success=False,
             message="Server error during importation",
             imported_count=0,
-            errors= e.errors
-        ).dict()
+            errors= [str(e)]
+        ).model_dump()
 
 
-def prepare_material_request(material_req_file, delimiter):
+# def prepare_material_request(material_req_file, delimiter):
+#     # Lecture du contenu
+#     content = material_req_file.read().decode('utf-8')
+#     reader = csv.DictReader(io.StringIO(content), delimiter=delimiter)
+#     mat_requests = []
+
+#     for idx, row in enumerate(reader, start=2):
+#         try:
+#             mat_request = MaterialRequestModel(**row)
+#             mat_requests.append(mat_request) 
+
+#         except ValidationError as ve:
+#             raise ValidationError(f"Doctype:Material Request - There is an invalid data at line {idx} : {ve}")
+            
+#         except Exception as ve:
+#             raise ValidationError(f"Doctype:Material Request - There is an error at line {idx} : {ve}")
+
+#     return mat_requests
+
+
+def prepare_supplier(supplier_file, delimiter):
     # Lecture du contenu
-    content = material_req_file.read().decode('utf-8')
+    content = supplier_file.read().decode('utf-8')
     reader = csv.DictReader(io.StringIO(content), delimiter=delimiter)
-    mat_requests = []
+    suppliers = []
 
     for idx, row in enumerate(reader, start=2):
         try:
-            mat_request = MaterialRequestModel(**row)
-            mat_requests.append(mat_request) 
+            supplier = SupplierModel(**row)
+            suppliers.append(supplier) 
 
         except ValidationError as ve:
-            raise ValidationError(f"Doctype:Material Request - There is an invalid data at line {idx} : {ve}")
+            raise ValidationError(f"Supplier - There is an invalid data at line {idx} : {ve}")
             
         except Exception as ve:
-            raise ValidationError(f"Doctype:Material Request - There is an error at line {idx} : {ve}")
+            raise ValidationError(f"Supplier - There is an error at line {idx} : {ve}")
 
-    return mat_requests
+    return suppliers
 
 def automated_csv_import(file_path, doctype_name):
     try:
@@ -157,45 +195,45 @@ def automated_csv_import(file_path, doctype_name):
         raise Exception(f"An error: {e}")
 
 
-def save_material_request(mat_requests: list[MaterialRequestModel]):
-    imported_count = 0
+# def save_material_request(mat_requests: list[MaterialRequestModel]):
+#     imported_count = 0
 
-    for idx, row in enumerate(mat_requests):
-        try:
-            # Construire la liste des items
-            items = []
-            for i in range(len(row.items_code)):
-                items.append({
-                    "item_code": row.items_code[i],
-                    "item_name": row.items[i] if len(row.items) > i else "",
-                    "qty": float(row.qty[i]),
-                    "required_by": row.required_by,
-                    "stock_uom": row.stocks_uom,
-                    "uom": row.uom[i],
-                    "conversion_factor": float(row.uom_conversion_factor[i]),
-                    "warehouse": row.target_warehouse
-                })
+#     for idx, row in enumerate(mat_requests):
+#         try:
+#             # Construire la liste des items
+#             items = []
+#             for i in range(len(row.items_code)):
+#                 items.append({
+#                     "item_code": row.items_code[i],
+#                     "item_name": row.items[i] if len(row.items) > i else "",
+#                     "qty": float(row.qty[i]),
+#                     "required_by": row.required_by,
+#                     "stock_uom": row.stocks_uom,
+#                     "uom": row.uom[i],
+#                     "conversion_factor": float(row.uom_conversion_factor[i]),
+#                     "warehouse": row.target_warehouse
+#                 })
 
-            doc = frappe.get_doc({
-                "doctype": "Material Request",
-                "series": row.series,
-                "transaction_date": row.transaction_date,
-                "supplier": row.supplier,
-                "company": row.company,
-                "purpose": row.purpose,
-                "schedule_date": row.required_by,
-                "items": items
-            })
+#             doc = frappe.get_doc({
+#                 "doctype": "Material Request",
+#                 "series": row.series,
+#                 "transaction_date": row.transaction_date,
+#                 "supplier": row.supplier,
+#                 "company": row.company,
+#                 "purpose": row.purpose,
+#                 "schedule_date": row.required_by,
+#                 "items": items
+#             })
 
-            doc.insert(ignore_permissions=True)
-            imported_count += 1
+#             doc.insert(ignore_permissions=True)
+#             imported_count += 1
 
-        except ValidationError as ve:
-            raise ValidationError(ve)
+#         except ValidationError as ve:
+#             raise ValidationError(ve)
 
-        except Exception as e:
-            raise ValidationError(e)
-    return [imported_count, mat_requests.count()]
+#         except Exception as e:
+#             raise ValidationError(e)
+#     return [imported_count, mat_requests.count()]
 
 # @frappe.whitelist(allow_guest=True)
 # def import_csv():

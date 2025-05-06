@@ -66,7 +66,7 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 					</div>
 					<div class="form-group mb-2">
 						<label for="supplierfile">Supplier file</label>
-						<input type="file" class="form-control" name='supplierfile' id="supplierfile" accept=".csv" required>
+						<input type="file" class="form-control" name='supplier_file' id="supplierfile" accept=".csv" required>
 					</div>
 					
 					<button type="submit" class="btn btn-primary">Import</button>
@@ -114,19 +114,17 @@ frappe.pages['data-configuration'].on_page_load = function(wrapper) {
 		// Show loader
 		$loadingOverlay.show();
 		
-		const mat_req_file = $('#mat_req_file')[0];
-		const req_for_quota_file = $('#req_for_quota_file')[0];
+		const supplier_file = $('#supplier_file')[0];
 		const delimiter = $('#delimiter').val();
 		
-		if (mat_req_file.files.length === 0) {
+		if (supplier_file.files.length === 0) {
 			frappe.msgprint("Please, select a CSV file.");
 			$loadingOverlay.hide(); // Hide loader on error
 			return;
 		}
 		
 		const formData = new FormData();
-		formData.append("mat_req_file", mat_req_file.files[0]);
-		formData.append("req_for_quota_file", req_for_quota_file.files[0]);
+		formData.append("supplier_file", supplier_file.files[0]);
 		formData.append("delimiter", delimiter);
 		
 		$.ajax({
