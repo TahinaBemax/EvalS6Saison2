@@ -167,3 +167,9 @@ Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_
 2025-05-06 20:28:56,773 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 23:47:22,141 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'party': 'Sanifer', 'party_type': 'Supplier', 'cmd': 'erpnext.accounts.party.get_party_details'}
+2025-05-07 00:09:58,275 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.delete_all_data'}

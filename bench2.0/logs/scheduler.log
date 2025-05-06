@@ -29,3 +29,9 @@
 2025-05-06 22:04:01,249 ERROR scheduler Skipped queueing frappe.desk.form.document_follow.send_hourly_updates because it was found in queue for itu.erpnext
 2025-05-06 22:04:01,312 ERROR scheduler Skipped queueing frappe.website.doctype.web_page.web_page.check_publish_status because it was found in queue for itu.erpnext
 2025-05-06 22:04:01,373 ERROR scheduler Skipped queueing frappe.automation.doctype.reminder.reminder.send_reminders because it was found in queue for itu.erpnext
+2025-05-07 00:04:01,217 ERROR scheduler Skipped queueing frappe.integrations.doctype.google_calendar.google_calendar.sync because it was found in queue for itu.erpnext
+2025-05-07 00:04:01,295 ERROR scheduler Skipped queueing frappe.social.doctype.energy_point_settings.energy_point_settings.allocate_review_points because it was found in queue for itu.erpnext
+2025-05-07 00:04:01,353 ERROR scheduler Skipped queueing frappe.email.queue.flush because it was found in queue for itu.erpnext
+2025-05-07 00:04:01,420 ERROR scheduler Skipped queueing frappe.model.utils.user_settings.sync_user_settings because it was found in queue for itu.erpnext
+2025-05-07 00:04:01,912 ERROR scheduler Skipped queueing frappe.utils.global_search.sync_global_search because it was found in queue for itu.erpnext
+2025-05-07 00:04:01,960 ERROR scheduler Skipped queueing frappe.model.utils.link_count.update_link_count because it was found in queue for itu.erpnext
