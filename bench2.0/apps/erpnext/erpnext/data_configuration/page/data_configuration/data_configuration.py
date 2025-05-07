@@ -126,8 +126,7 @@ def export_all_to_csv(Warehouses, item_groups, items, suppliers, Materials, refe
             print(f"Export Item Group data to csv...")
             export_item_groups_to_csv(item_groups, output_dir + item_group_filename)
 
-                #____Items____
-        
+        #____Items____
         if items and len(items) > 0:
             print(f"Export Items data to csv...")
             export_items_to_csv(items, output_dir + items_filename)
@@ -136,16 +135,16 @@ def export_all_to_csv(Warehouses, item_groups, items, suppliers, Materials, refe
         if suppliers and len(suppliers) > 0:
             print(f"Export Suppliers data to csv...")
             export_suppliers_to_csv(suppliers, output_dir + suppliers_filename)
-            #automated_csv_import(filename, 'Supplier')
-
-        #----- PUSH ----------
-        start_first_import()
 
         #____Materials____
         if Materials and len(Materials) > 0:
             print(f"Export Material Request data to csv...")
             export_mat_requests_to_csv(Materials, items, output_dir + req_mat_filename)
         
+
+        #----- PUSH ----------
+        start_first_import()
+
         #____Request For Quotation____
         if Materials and len(Materials) > 0:
             print(f"Export Request For Quotation data to csv...")
@@ -170,7 +169,7 @@ def start_first_import():
     print("Start Importing...")
     try:
         automated_csv_import(output_dir + suppliers_filename, 'Supplier')
-        #automated_csv_import(output_dir + warehouse_filename, 'Warehouse')
+        automated_csv_import(output_dir + warehouse_filename, 'Warehouse')
         automated_csv_import(output_dir + item_group_filename, 'Item Group')
         automated_csv_import(output_dir + items_filename, 'Item')
         automated_csv_import(output_dir + req_mat_filename, 'Material Request')
@@ -188,7 +187,7 @@ def start_first_import():
         raise e
 
 def start_second_import():
-    print("Start Seond Importation...")
+    print("Start Second Importation...")
     try:
         automated_csv_import(output_dir + req_for_quotation_filename, 'Request For Quotation')
         frappe.db.commit()
@@ -349,15 +348,17 @@ def export_warehouse_to_csv(warehouses: List[WarehouseModel], filename: str):
     # Crée le dossier si besoin
     Path(filename).parent.mkdir(parents=True, exist_ok=True)
 
+    #existing_warehouse = get_warehouse_list()
     # Ouvre le fichier en écriture
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
 
         # En-têtes CSV
-        writer.writerow(['warehouse_name', 'company', 'Parent Warehouse', 'Is Group'])
+        writer.writerow(['warehouse_name', 'company', 'Parent Warehouse', 'Is Group Warehouse'])
 
         # Données
         for w in warehouses:
+            #if w.warehouse_name.strip() not in existing_warehouse:
             writer.writerow([w.warehouse_name, w.company, "All Warehouses - ITU", 0])
 
 def export_items_to_csv(items: List[ItemModel], filename: str):
@@ -417,8 +418,12 @@ def export_request_for_quoatation_to_csv(materials: List[MaterialRequestModel], 
         writer.writerow(['Series', 'Company','Date', 'Status', 'Message for Supplier','ID (Suppliers)','Supplier (Suppliers)', 'ID (Items)', 'Item Code (Items)', 'Quantity (Items)', 'Required Date (Items)', 'Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)', 'Warehouse (Items)'])
 
         # Données
-        for m in materials:
-            writer.writerow([ "PUR-RFQ-.YYYY.-", m.company, m.date, "Submitted", "Bonjour", get_supplier_id_by_ref(refs, m.ref), get_supplier_by_ref(refs, m.ref), get_itemId(m.item_name) ,get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor, 'Stores - ITU'])
+        for ref in refs:
+            for m in materials:
+                if m.ref.strip() == ref.ref_request_quotation.strip():
+                    #writer.writerow([ "PUR-RFQ-.YYYY.-", m.company, m.date, "Submitted", "Bonjour", get_supplier_id_by_ref(ref.supplier), ref.supplier, get_itemId(m.item_name) ,get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor, 'Stores - ITU'])
+                    writer.writerow([ "PUR-RFQ-.YYYY.-", m.company, m.date, "Submitted", "Bonjour", "", ref.supplier, get_itemId(m.item_name) ,get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor, 'Stores - ITU'])
+                    break
 
 def export_supplier_quoatation_to_csv(materials: List[MaterialRequestModel], items: List[ItemModel], refs: List[ReferenceModel],filename: str):
     # Crée le dossier si besoin
@@ -432,9 +437,12 @@ def export_supplier_quoatation_to_csv(materials: List[MaterialRequestModel], ite
         writer.writerow(['Series', 'Supplier','Company','Status','Date', 'Currency', 'Exchange Rate', 'ID (Items)', 'Amount (Company Currency) (Items)', 'Item Code (Items)','Quantity (Items)','Rate (Company Currency) (Items)','Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)'])
 
         # Données
-        for m in materials:
-            writer.writerow([ "PUR-SQTN-.YYYY.-", get_supplier_by_ref(refs, m.ref), m.company, "Draft", m.date, "EUR", 0, get_itemId(m.item_name), get_item_Amount(m.item_name), get_item_code(items, m), m.quantity, 0, m.stocks_uom, m.uom, m.uom_conversion_factor])
-        
+        for ref in refs:
+            for m in materials:
+                if m.ref.strip() == ref.ref_request_quotation.strip():
+                    writer.writerow([ "PUR-SQTN-.YYYY.-", ref.supplier, m.company, "Draft", m.date, "EUR", 0, get_itemId(m.item_name), get_item_Amount(m.item_name), get_item_code(items, m), m.quantity, 0, m.stocks_uom, m.uom, m.uom_conversion_factor])
+                    break
+
 #============ XXXXXX ===================
 
 def automated_csv_import(file_path, doctype_name, submit=True):
@@ -506,8 +514,7 @@ def get_supplier_by_ref(refs: List[ReferenceModel], ref: str):
     
     raise ValueError(f"Ref:{ref} don't match to a req_quotation reference")
 
-def get_supplier_id_by_ref(refs: List[ReferenceModel], ref: str):
-    supplier_name = get_supplier_by_ref(refs, ref)
+def get_supplier_id_by_ref(supplier_name: str):
     if not supplier_name:
         raise ValueError("Supplier name cannot be empty")
         
@@ -545,7 +552,6 @@ def get_itemId(item_name: str):
     if not item_name:
         raise ValueError("Item name cannot be empty")
     item = get_item_by_name(item_name)
-    print(f"+++Item:{item}++++")
 
     if item :
         return item
@@ -569,7 +575,25 @@ def get_item_Amount(item_name: str):
         frappe.log_error(f"Error getting Item Amount: {str(e)}")
         return None
     
-
+def get_warehouse_list():
+    """
+    Get list of all warehouses in the system.
+    
+    Returns:
+        list: List of tuples containing warehouse names
+    """
+    try:
+        # Using get_list for retrieving multiple records efficiently
+        warehouses = frappe.db.get_list(
+            'Warehouse',
+            fields=['warehouse_name']
+        )
+        
+        # Return list of warehouse names
+        return [w.warehouse_name for w in warehouses]
+    except Exception as e:
+        frappe.log_error(f"Error getting warehouse list: {str(e)}")
+        return []
 
 # def automated_csv_import(file_path, doctype_name):
 #     try:

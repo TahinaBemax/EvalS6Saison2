@@ -1,3 +1,4 @@
 Series,Company,Date,Status,Message for Supplier,ID (Suppliers),Supplier (Suppliers),ID (Items),Item Code (Items),Quantity (Items),Required Date (Items),Stock UOM (Items),UOM (Items),UOM Conversion Factor (Items),Warehouse (Items)
 PUR-RFQ-.YYYY.-,IT University,2025-05-02,Submitted,Bonjour,Sanifer,Sanifer,ITEM-00001,ITEM-00001,13.0,2025-06-02,Nos,Abampere,1,Stores - ITU
+PUR-RFQ-.YYYY.-,IT University,2025-05-02,Submitted,Bonjour,Exxon,Exxon,ITEM-00001,ITEM-00001,13.0,2025-06-02,Nos,Abampere,1,Stores - ITU
 PUR-RFQ-.YYYY.-,IT University,2025-05-02,Submitted,Bonjour,Sanifer,Sanifer,ITEM-00002,ITEM-00002,5.0,2025-06-02,Nos,Abampere,1,Stores - ITU
