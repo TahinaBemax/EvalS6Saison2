@@ -35,3 +35,4 @@
 2025-05-07 00:04:01,420 ERROR scheduler Skipped queueing frappe.model.utils.user_settings.sync_user_settings because it was found in queue for itu.erpnext
 2025-05-07 00:04:01,912 ERROR scheduler Skipped queueing frappe.utils.global_search.sync_global_search because it was found in queue for itu.erpnext
 2025-05-07 00:04:01,960 ERROR scheduler Skipped queueing frappe.model.utils.link_count.update_link_count because it was found in queue for itu.erpnext
+2025-05-07 06:04:01,319 ERROR scheduler Skipped queueing frappe.integrations.doctype.google_calendar.google_calendar.sync because it was found in queue for itu.erpnext

@@ -6,7 +6,7 @@ frappe.pages['data_configuration'].on_page_load = function (wrapper) {
 	});
 
 	// Inject CSS
-	$(page.head).append(`
+	$('head').append(`
 		<style>
 			.loading-overlay {
 				display: none;
@@ -56,7 +56,7 @@ frappe.pages['data_configuration'].on_page_load = function (wrapper) {
 			</div>
 		</div>
 	`);
-	$(page.body).append(loader);
+	$('body').append(loader);
 
 	const showLoader = () => $('.loading-overlay').fadeIn(200);
 	const hideLoader = () => $('.loading-overlay').fadeOut(200);

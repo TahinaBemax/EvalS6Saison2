@@ -33,10 +33,11 @@ def delete_all_data():
     #Demande de besoin
     table_names = [ "tabItem", "tabItem Group", "tabSupplier", "tabData Import",
                      "tabMaterial Request", "tabMaterial Request Item", "tabRequest for Quotation", 
-                #    "tabRequest for Quotation Item", "tabRequest for Quotation Supplier",
-                #     "tabSupplier Quotation", "tabSupplier Quotation Item",
-                #     "tabPurchase Order", "tabPurchase Order Item", "tabPurchase Invoice",
-                #     "tabPurchase Invoice", "tabPurchase Invoice Item", "tabPurchase Invoice Advance"
+                    "tabRequest for Quotation Item", "tabRequest for Quotation Supplier",
+                     "tabSupplier Quotation", "tabSupplier Quotation Item",
+                     "tabPurchase Order", "tabPurchase Order Item", "tabPurchase Invoice",
+                     "tabPurchase Invoice", "tabPurchase Invoice Item", "tabPurchase Invoice Advance",
+                     "tabPayment Entry"
                     ]
     for table in table_names:
         frappe.db.sql(f"DELETE FROM `{table}`")
@@ -50,11 +51,9 @@ def import_csv():
         supplier_file = frappe.request.files.get('supplier_file')
         material_request_file = frappe.request.files.get('material_request_file')
         ref_file = frappe.request.files.get('ref_file')
-
         delimiter = frappe.form_dict.get('delimiter')
 
-        #if not supplier_file or not material_request_file or not ref_file:
-        if not material_request_file or not ref_file:
+        if not material_request_file or not ref_file or not supplier_file:
             return ImportCSVResponse(
                 success=False,
                 message="Supplier, Material Request and Reference files are required!",
@@ -64,16 +63,19 @@ def import_csv():
 
 
         try:
+            #Extrac csv data 
             suppliers = prepare_supplier(supplier_file, delimiter)
             Materials = prepare_material_request(material_request_file, delimiter)
             references = prepare_reference(ref_file, delimiter)
 
+            #Extract Other Doctype data from the extracted data
             item_groups = extract_item_groups(Materials)
             items = extract_items(Materials)
             Warehouses = extract_warehouses(Materials)
 
+            #Export data to erpnext's data import template
             if export_all_to_csv(Warehouses, item_groups, items, suppliers, Materials, references):
-                responses = start_import()
+                responses = start_second_import()
                 print(f"{responses}")
 
         except ValidationError as ve:
@@ -112,56 +114,59 @@ def import_csv():
             errors= [str(e)]
         ).model_dump()
 
-
-
 def export_all_to_csv(Warehouses, item_groups, items, suppliers, Materials, references):
-    #____Warehouse____
-    if Warehouses and len(Warehouses) > 0:
-        print(f"Export Warehouses data to csv...")
-        exported = export_warehouse_to_csv(Warehouses, output_dir + warehouse_filename)
-        print(f"Finished: {exported}")
+    try:
+        #____Warehouse____
+        if Warehouses and len(Warehouses) > 0:
+            print(f"Export Warehouses data to csv...")
+            export_warehouse_to_csv(Warehouses, output_dir + warehouse_filename)
 
-    #____Items Group____
-    if item_groups and len(item_groups) > 0:
-        print(f"Export Item Group data to csv...")
-        exported = export_item_groups_to_csv(item_groups, output_dir + item_group_filename)
-        print(f"Finished: {exported}")
+        #____Items Group____
+        if item_groups and len(item_groups) > 0:
+            print(f"Export Item Group data to csv...")
+            export_item_groups_to_csv(item_groups, output_dir + item_group_filename)
 
-            #____Items____
-    
-    if items and len(items) > 0:
-        print(f"Export Items data to csv...")
-        exported = export_items_to_csv(items, output_dir + items_filename)
-        print(f"Finished: {exported}")
+                #____Items____
+        
+        if items and len(items) > 0:
+            print(f"Export Items data to csv...")
+            export_items_to_csv(items, output_dir + items_filename)
 
-    #____Suppliers____
-    if suppliers and len(suppliers) > 0:
-        print(f"Export Suppliers data to csv...")
-        exported = export_suppliers_to_csv(suppliers, output_dir + suppliers_filename)
-        print(f"Finished: {exported}")
-        #automated_csv_import(filename, 'Supplier')
+        #____Suppliers____
+        if suppliers and len(suppliers) > 0:
+            print(f"Export Suppliers data to csv...")
+            export_suppliers_to_csv(suppliers, output_dir + suppliers_filename)
+            #automated_csv_import(filename, 'Supplier')
 
-    #____Materials____
-    if Materials and len(Materials) > 0:
-        print(f"Export Material Request data to csv...")
-        exported = export_mat_requests_to_csv(Materials, items, output_dir + req_mat_filename)
-        print(f"Finished: {exported}")
-    
-    #____Request For Quotation____
-    if Materials and len(Materials) > 0:
-        print(f"Export Request For Quotation data to csv...")
-        exported = export_request_for_quoatation_to_csv(Materials, items, references, output_dir + req_for_quotation_filename)
-        print(f"Finished: {exported}")
-    
-    #____Supplier Quotation____
-    if Materials and len(Materials) > 0:
-        print(f"Export upplier Quotation data to csv...")
-        exported = export_supplier_quoatation_to_csv(Materials, items, references, output_dir + supplier_quotation_filename)
-        print(f"Finished: {exported}")
+        #----- PUSH ----------
+        start_first_import()
 
+        #____Materials____
+        if Materials and len(Materials) > 0:
+            print(f"Export Material Request data to csv...")
+            export_mat_requests_to_csv(Materials, items, output_dir + req_mat_filename)
+        
+        #____Request For Quotation____
+        if Materials and len(Materials) > 0:
+            print(f"Export Request For Quotation data to csv...")
+            export_request_for_quoatation_to_csv(Materials, items, references, output_dir + req_for_quotation_filename)
+        
+        #____Supplier Quotation____
+        if Materials and len(Materials) > 0:
+            print(f"Export Supplier Quotation data to csv...")
+            export_supplier_quoatation_to_csv(Materials, items, references, output_dir + supplier_quotation_filename)
+    except Exception as e:
+        print(f"❌ Import failed, rollback executed: {e}")
+        try:
+            delete_all_data()
+        except Exception as ex:
+            frappe.log_error(f"Global import error: {str(ex)}", "start_import")
+            print(f"❌ Import failed, rollback executed: {ex}")
+        raise e
+        
     return True
 
-def start_import():
+def start_first_import():
     print("Start Importing...")
     try:
         automated_csv_import(output_dir + suppliers_filename, 'Supplier')
@@ -169,17 +174,41 @@ def start_import():
         automated_csv_import(output_dir + item_group_filename, 'Item Group')
         automated_csv_import(output_dir + items_filename, 'Item')
         automated_csv_import(output_dir + req_mat_filename, 'Material Request')
+        frappe.db.commit()
+
+        return True
+    except Exception as e:
+        frappe.db.rollback()
+        print(f"❌ Import failed, rollback executed: {e}")
+        try:
+            delete_all_data()
+        except Exception as ex:
+            frappe.log_error(f"Global import error: {str(ex)}", "start_import")
+            print(f"❌ Import failed, rollback executed: {ex}")
+        raise e
+
+def start_second_import():
+    print("Start Seond Importation...")
+    try:
         automated_csv_import(output_dir + req_for_quotation_filename, 'Request For Quotation')
+        frappe.db.commit()
+
         automated_csv_import(output_dir + supplier_quotation_filename, 'Supplier Quotation', False)
-
-
         frappe.db.commit()
         print("Finished and committed.")
 
+        return True
     except Exception as e:
         frappe.db.rollback()
-        frappe.log_error(f"Global import error: {str(e)}", "start_import")
         print(f"❌ Import failed, rollback executed: {e}")
+        try:
+            delete_all_data()
+        except Exception as ex:
+            frappe.log_error(f"Global import error: {str(ex)}", "start_import")
+            print(f"❌ Import failed, rollback executed: {ex}")
+        raise e
+
+
 
 
 #======== Read csv files =============
@@ -299,6 +328,7 @@ def extract_warehouses(materials: List[MaterialRequestModel]):
     return warehouses
 #============ XXXXXX ===================
 
+
 #======== Export to csv =============
 def export_item_groups_to_csv(item_groups: List[ItemGroupModel], filename: str):
     # Crée le dossier si besoin
@@ -308,15 +338,12 @@ def export_item_groups_to_csv(item_groups: List[ItemGroupModel], filename: str):
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
 
-        print(f"Creation Item_groupe csv...")
         # En-têtes CSV
         writer.writerow(['Item Group Name'])
 
         # Données
         for item_group in item_groups:
             writer.writerow([item_group.item_group_name])
-        
-        print(f"Creation Item-Group terminé...")
 
 def export_warehouse_to_csv(warehouses: List[WarehouseModel], filename: str):
     # Crée le dossier si besoin
@@ -326,15 +353,12 @@ def export_warehouse_to_csv(warehouses: List[WarehouseModel], filename: str):
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
 
-        print(f"Creation warehouses csv...")
         # En-têtes CSV
         writer.writerow(['warehouse_name', 'company', 'Parent Warehouse', 'Is Group'])
 
         # Données
         for w in warehouses:
             writer.writerow([w.warehouse_name, w.company, "All Warehouses - ITU", 0])
-        
-        print(f"Creation warehouses terminé...")
 
 def export_items_to_csv(items: List[ItemModel], filename: str):
     # Crée le dossier si besoin
@@ -344,7 +368,6 @@ def export_items_to_csv(items: List[ItemModel], filename: str):
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
 
-        print(f"Creation Item_groupe csv...")
         # En-têtes CSV
         writer.writerow(['Item Code', 'Item Group', 'Item Name', 'Default Unit of Measure'])
 
@@ -352,8 +375,6 @@ def export_items_to_csv(items: List[ItemModel], filename: str):
         for item in items:
             writer.writerow([item.item_code, item.item_group, item.item_name, item.default_unit_of_mesure])
         
-        print(f"Creation Item-Group terminé...")
-
 def export_suppliers_to_csv(suppliers: List[SupplierModel], filename: str):
     # Crée le dossier si besoin
     Path(filename).parent.mkdir(parents=True, exist_ok=True)
@@ -362,15 +383,12 @@ def export_suppliers_to_csv(suppliers: List[SupplierModel], filename: str):
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
 
-        print(f"Lancement creation csv...")
         # En-têtes CSV
         writer.writerow(['supplier_name', 'country', 'supplier_type'])
 
         # Données
         for supplier in suppliers:
             writer.writerow([supplier.supplier_name, supplier.country, supplier.type])
-        
-        print(f"Lancement terminé...")
 
 def export_mat_requests_to_csv(materials: List[MaterialRequestModel], items: List[ItemModel], filename: str):
     # Crée le dossier si besoin
@@ -380,7 +398,6 @@ def export_mat_requests_to_csv(materials: List[MaterialRequestModel], items: Lis
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
 
-        print(f"Lancement creation csv...")
         # En-têtes CSV
         writer.writerow(['Series', 'Purpose', 'Company', 'Transaction Date', 'Item Code (Items)', 'Quantity (Items)', 'Required By (Items)', 'Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)', 'Item Group (Items)', 'Item Name (Items)', 'Warehouse (Items)'])
 
@@ -388,8 +405,6 @@ def export_mat_requests_to_csv(materials: List[MaterialRequestModel], items: Lis
         for m in materials:
             writer.writerow([ "MAT-MR-.YYYY.-", m.purpose, m.company, m.date, get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor, m.item_groupe, m.item_name, 'All Warehouses - ITU'])
         
-        print(f"Lancement terminé...")
-
 def export_request_for_quoatation_to_csv(materials: List[MaterialRequestModel], items: List[ItemModel], refs: List[ReferenceModel],filename: str):
     # Crée le dossier si besoin
     Path(filename).parent.mkdir(parents=True, exist_ok=True)
@@ -398,15 +413,12 @@ def export_request_for_quoatation_to_csv(materials: List[MaterialRequestModel], 
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
 
-        print(f"Lancement creation csv...")
         # En-têtes CSV
-        writer.writerow(['Series', 'Company','Date', 'Status', 'Message for Supplier','Supplier (Suppliers)', 'Item Code (Items)', 'Quantity (Items)', 'Required Date (Items)', 'Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)', 'Warehouse (Items)'])
+        writer.writerow(['Series', 'Company','Date', 'Status', 'Message for Supplier','ID (Suppliers)','Supplier (Suppliers)', 'ID (Items)', 'Item Code (Items)', 'Quantity (Items)', 'Required Date (Items)', 'Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)', 'Warehouse (Items)'])
 
         # Données
         for m in materials:
-            writer.writerow([ "PUR-RFQ-.YYYY.-", m.company, m.date, "Submitted", "Bonjour", get_supplier_by_ref(refs, m.ref), get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor, 'Stores - ITU'])
-        
-        print(f"Lancement terminé...")
+            writer.writerow([ "PUR-RFQ-.YYYY.-", m.company, m.date, "Submitted", "Bonjour", get_supplier_id_by_ref(refs, m.ref), get_supplier_by_ref(refs, m.ref), get_itemId(m.item_name) ,get_item_code(items, m), m.quantity, m.required_by, m.stocks_uom, m.uom, m.uom_conversion_factor, 'Stores - ITU'])
 
 def export_supplier_quoatation_to_csv(materials: List[MaterialRequestModel], items: List[ItemModel], refs: List[ReferenceModel],filename: str):
     # Crée le dossier si besoin
@@ -416,32 +428,14 @@ def export_supplier_quoatation_to_csv(materials: List[MaterialRequestModel], ite
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
 
-        print(f"Lancement creation csv...")
         # En-têtes CSV
-        writer.writerow(['Series', 'Supplier','Company','Status','Date', 'Currency', 'Exchange Rate', 'Amount (Company Currency) (Items)', 'Item Code (Items)','Quantity (Items)','Rate (Company Currency) (Items)','Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)'])
+        writer.writerow(['Series', 'Supplier','Company','Status','Date', 'Currency', 'Exchange Rate', 'ID (Items)', 'Amount (Company Currency) (Items)', 'Item Code (Items)','Quantity (Items)','Rate (Company Currency) (Items)','Stock UOM (Items)', 'UOM (Items)', 'UOM Conversion Factor (Items)'])
 
         # Données
         for m in materials:
-            writer.writerow([ "PUR-SQTN-.YYYY.-", get_supplier_by_ref(refs, m.ref), m.company, "Draft", m.date, "EUR", 0, 0, get_item_code(items, m), m.quantity, 0, m.stocks_uom, m.uom, m.uom_conversion_factor])
+            writer.writerow([ "PUR-SQTN-.YYYY.-", get_supplier_by_ref(refs, m.ref), m.company, "Draft", m.date, "EUR", 0, get_itemId(m.item_name), get_item_Amount(m.item_name), get_item_code(items, m), m.quantity, 0, m.stocks_uom, m.uom, m.uom_conversion_factor])
         
-        print(f"Lancement terminé...")
-
 #============ XXXXXX ===================
-
-def get_item_code(items: List[ItemModel], material: MaterialRequestModel):
-    for i in items:
-        if i.item_group == material.item_groupe and i.item_name == material.item_name:
-            return i.item_code
-    
-    raise ValueError(f"Item:{material.item_name} don't have a Item Code")
-
-def get_supplier_by_ref(refs: List[ReferenceModel], ref: str):
-    for i in refs:
-        if i.ref_request_quotation == ref:
-            return i.supplier
-    
-    raise ValueError(f"Ref:{ref} don't match to a req_quotation reference")
-
 
 def automated_csv_import(file_path, doctype_name, submit=True):
     try:
@@ -496,6 +490,85 @@ def automated_csv_import(file_path, doctype_name, submit=True):
         print(f"CSV import error: {str(e)}", "automated_csv_import")
         raise Exception(f"An error occurred during CSV final import")
 
+
+
+def get_item_code(items: List[ItemModel], material: MaterialRequestModel):
+    for i in items:
+        if i.item_group == material.item_groupe and i.item_name == material.item_name:
+            return i.item_code
+    
+    raise ValueError(f"Item:{material.item_name} don't have a Item Code")
+
+def get_supplier_by_ref(refs: List[ReferenceModel], ref: str):
+    for i in refs:
+        if i.ref_request_quotation == ref:
+            return i.supplier
+    
+    raise ValueError(f"Ref:{ref} don't match to a req_quotation reference")
+
+def get_supplier_id_by_ref(refs: List[ReferenceModel], ref: str):
+    supplier_name = get_supplier_by_ref(refs, ref)
+    if not supplier_name:
+        raise ValueError("Supplier name cannot be empty")
+        
+    try:
+        # Using get_value for efficient single-value retrieval
+        supplier_id = frappe.db.get_value(
+            'Supplier',
+            {'supplier_name': supplier_name},
+            'name'
+        )
+        
+        return supplier_id
+    except Exception as e:
+        frappe.log_error(f"Error getting supplier ID: {str(e)}")
+        return None
+
+def get_item_by_name(item_name: str):
+    if not item_name:
+        raise ValueError("Item name cannot be empty")
+        
+    try:
+        # Using get_value for efficient single-value retrieval
+        item = frappe.db.get_value(
+            'Item',
+            {'item_name': item_name},
+            'name'
+        )
+        
+        return item
+    except Exception as e:
+        frappe.log_error(f"Error getting supplier ID: {str(e)}")
+        return None
+
+def get_itemId(item_name: str):
+    if not item_name:
+        raise ValueError("Item name cannot be empty")
+    item = get_item_by_name(item_name)
+    print(f"+++Item:{item}++++")
+
+    if item :
+        return item
+
+    raise ValueError(f"Item: {item_name} not found")
+
+def get_item_Amount(item_name: str):
+    if not item_name:
+        raise ValueError("Item name cannot be empty")
+        
+    try:
+        # Using get_value for efficient single-value retrieval
+        item = frappe.db.get_value(
+            'Item',
+            {'item_name': item_name},
+            'amount'
+        )
+        
+        return item if item  else 0
+    except Exception as e:
+        frappe.log_error(f"Error getting Item Amount: {str(e)}")
+        return None
+    
 
 
 # def automated_csv_import(file_path, doctype_name):

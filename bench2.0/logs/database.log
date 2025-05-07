@@ -1379,3 +1379,13 @@ index creation(creation))
 2025-05-06 11:09:52,304 WARNING database DDL Query made to DB:
 ALTER TABLE `tabCommon Code`
 				ADD INDEX IF NOT EXISTS `code_list_common_code_index`(code_list, common_code)
+2025-05-07 05:28:43,019 WARNING database DDL Query made to DB:
+alter table `tabDocType` add column if not exists migration_hash varchar(140)
+2025-05-07 05:30:58,922 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAddress` ADD COLUMN `tax_category` varchar(140), ADD COLUMN `is_your_company_address` tinyint NOT NULL DEFAULT 0
+2025-05-07 05:30:58,939 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAddress` MODIFY `is_shipping_address` tinyint NOT NULL DEFAULT 0, MODIFY `is_primary_address` tinyint NOT NULL DEFAULT 0, MODIFY `disabled` tinyint NOT NULL DEFAULT 0
+2025-05-07 05:30:59,290 WARNING database DDL Query made to DB:
+ALTER TABLE `tabContact` ADD COLUMN `is_billing_contact` tinyint NOT NULL DEFAULT 0
+2025-05-07 05:30:59,331 WARNING database DDL Query made to DB:
+ALTER TABLE `tabContact` MODIFY `unsubscribed` tinyint NOT NULL DEFAULT 0, MODIFY `sync_with_google_contacts` tinyint NOT NULL DEFAULT 0, MODIFY `pulled_from_google_contacts` tinyint NOT NULL DEFAULT 0, MODIFY `is_primary_contact` tinyint NOT NULL DEFAULT 0
