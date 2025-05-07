@@ -348,7 +348,7 @@ def export_warehouse_to_csv(warehouses: List[WarehouseModel], filename: str):
     # Crée le dossier si besoin
     Path(filename).parent.mkdir(parents=True, exist_ok=True)
 
-    #existing_warehouse = get_warehouse_list()
+    existing_warehouse = get_warehouse_list()
     # Ouvre le fichier en écriture
     with open(filename, mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
@@ -358,8 +358,8 @@ def export_warehouse_to_csv(warehouses: List[WarehouseModel], filename: str):
 
         # Données
         for w in warehouses:
-            #if w.warehouse_name.strip() not in existing_warehouse:
-            writer.writerow([w.warehouse_name, w.company, "All Warehouses - ITU", 0])
+            if w.warehouse_name.strip() not in existing_warehouse:
+                writer.writerow([w.warehouse_name, w.company, "All Warehouses - ITU", 0])
 
 def export_items_to_csv(items: List[ItemModel], filename: str):
     # Crée le dossier si besoin
@@ -385,11 +385,11 @@ def export_suppliers_to_csv(suppliers: List[SupplierModel], filename: str):
         writer = csv.writer(file)
 
         # En-têtes CSV
-        writer.writerow(['supplier_name', 'country', 'supplier_type'])
+        writer.writerow(['ID','supplier_name', 'country', 'supplier_type'])
 
         # Données
         for supplier in suppliers:
-            writer.writerow([supplier.supplier_name, supplier.country, supplier.type])
+            writer.writerow(['', supplier.supplier_name, supplier.country, supplier.type])
 
 def export_mat_requests_to_csv(materials: List[MaterialRequestModel], items: List[ItemModel], filename: str):
     # Crée le dossier si besoin
@@ -448,6 +448,13 @@ def export_supplier_quoatation_to_csv(materials: List[MaterialRequestModel], ite
 def automated_csv_import(file_path, doctype_name, submit=True):
     try:
         file_name = os.path.basename(file_path)
+        # Check if this file have at least 2 rows
+        with open(file_path, 'r', encoding='utf-8') as f:
+            reader = csv.reader(f)
+            data = list(reader)
+            if len(data) < 2:
+                return None
+                #raise ValueError("Csv  file must contains at least 2 rows (headers + data)")
 
         # Create Data Import document first
         data_import = frappe.get_doc({

@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.*;
+import org.springframework.security.web.header.Header;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 
@@ -61,7 +62,7 @@ public class RequestForQuotationService extends MainService {
         );
 
         if (response.getStatusCode().is2xxSuccessful()) {
-            return true;
+            return submit(response, headers);
         } else if (response.getStatusCode().isSameCodeAs(HttpStatusCode.valueOf(417))) {
             throw new ActionNotAllowedExcpetion();
         } else {
@@ -69,6 +70,35 @@ public class RequestForQuotationService extends MainService {
         }
     }
 
+    private boolean submit(ResponseEntity<Map> response, HttpHeaders headers) {
+        // Récupérer le parent Supplier Quotation depuis l'item mis à jour
+        Map<String, Object> itemData = (Map<String, Object>) response.getBody().get("data");
+        String parentQuotation = (String) itemData.get("parent");
+
+        // Appel à la soumission du document parent
+        String submitUrl = String.format("%s/api/resource/Supplier Quotation/%s",
+                this.getErpNextUrl(),
+                parentQuotation
+        );
+
+        // Ajouter le paramètre run_method pour la soumission
+        submitUrl += "?run_method=submit";
+
+        HttpEntity<String> emptyEntity = new HttpEntity<>(headers);
+
+        ResponseEntity<Map> submitResponse = this.getRestTemplate().exchange(
+                submitUrl,
+                HttpMethod.POST,
+                emptyEntity,
+                Map.class
+        );
+
+        if (submitResponse.getStatusCode().is2xxSuccessful()) {
+            return true;
+        } else {
+            throw new RuntimeException("Supplier quotation updated but submission failed");
+        }
+    }
     public List<SupplierQuotation> getSupplierQuotation(String supplierName) {
         try {
             if (supplierName == null)
