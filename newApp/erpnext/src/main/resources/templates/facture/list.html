@@ -30,7 +30,7 @@
             <th scope="col">Date</th>
             <th scope="col" class="text-end">Total</th>
             <th scope="col" class="text-end">Outstanding Amount</th>
-            <th scope="col" class="text-center">Status</th>
+            <th scope="col">Status</th>
             <th scope="col" class="text-center">Action</th>
           </tr>
           </thead>
@@ -41,7 +41,7 @@
               <td th:text="${facture.getBill_date()}"></td>
               <td class="text-end" th:text="${#numbers.formatCurrency(facture.getGrand_total())}"></td>
               <td class="text-end" th:text="${#numbers.formatCurrency(facture.getOutstanding_amount())}"></td>
-              <td class="text-center" th:style="${'color:' + facture.getColor()}" th:text="${facture.getStatus()}"></td>
+              <td th:style="${'color:' + facture.getColor()}" th:text="${facture.getStatus()}"></td>
               <td class="text-center">
                 <a class="btn btn-primary w-100" th:unless="${facture.getStatus() == 'Paid'}" th:href="@{/purchase-invoices/{name}/bill(name=${facture.getName()})}">Bill</a>
               </td>

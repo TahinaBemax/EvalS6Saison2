@@ -203,3 +203,12 @@ Form Dict: {'data_import': 'Request for Quotation Import on 2025-05-07 08:19:48.
 2025-05-07 08:26:09,408 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'data_import': 'Request for Quotation Import on 2025-05-07 08:19:48.748591', 'import_file': '/private/files/req_for_quotation48ed15.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-07 09:54:20,926 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Request for Quotation Import on 2025-05-07 09:41:38.900431', 'import_file': '/private/files/req_for_quotation86e525.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-07 09:54:22,857 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Supplier Quotation Import on 2025-05-07 09:41:41.957989', 'import_file': '/private/files/supplier_quotatione52d8b.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-07 10:04:14,697 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'references': [{'reference_name': 'ACC-PINV-2025-00001', 'reference_doctype': 'Purchase Invoice', 'total_amount': 1800.0, 'allocated_amount': 1800.0, 'outstanding_amount': '1800.0'}], 'party_type': 'Supplier', 'received_amount': 1800.0, 'doctype': 'Payment Entry', 'payment_type': 'Pay', 'paid_from_account_currency': 'EUR', 'submit_after_save': True, 'paid_to': 'Creditors - ITU', 'paid_amount': 1800.0, 'company': 'IT University', 'mode_of_payment': 'Cash', 'posting_date': '2025-05-07', 'paid_from': 'Cash - ITU', 'source_exchange_rate': 1, 'party': 'Sanifer'}

@@ -7,6 +7,7 @@ import itu.mg.erpnext.dto.AccountListResponse;
 import itu.mg.erpnext.dto.PurchaseInvoiceResponse;
 import itu.mg.erpnext.dto.SinglePurchaseInvoiceResponse;
 import itu.mg.erpnext.exceptions.AccountCompanyNotFoundExcpetion;
+import itu.mg.erpnext.exceptions.PaymentSubmissionException;
 import itu.mg.erpnext.models.Account;
 import itu.mg.erpnext.models.PurchaseInvoice;
 import org.slf4j.Logger;
@@ -95,6 +96,7 @@ public class PurchaseInvoiceService extends MainService{
         }
         return null;
     }
+/*
     public String paySupplierPurchaseInvoice(String invoiceName, BigDecimal amount) throws AccountCompanyNotFoundExcpetion {
         try {
             String url = String.format("%s/api/resource/Payment Entry", this.getErpNextUrl());
@@ -138,6 +140,106 @@ public class PurchaseInvoiceService extends MainService{
         }
 
         throw new RuntimeException("Failed to create Payment Entry");
+    }
+*/
+
+    public boolean paySupplierPurchaseInvoice(String invoiceName, BigDecimal amount) throws AccountCompanyNotFoundExcpetion {
+        try {
+            String url = String.format("%s/api/resource/Payment Entry", this.getErpNextUrl());
+
+            // 1. On récupère les infos de la facture
+            PurchaseInvoice invoice = getPurchaseInvoiceDetails(invoiceName);
+            if (invoice == null) {
+                throw new RuntimeException("Invoice not found: " + invoiceName);
+            }
+
+            Account account = getCompanyPaymentAccount(invoice.getCompany());
+            if (account == null) {
+                throw new AccountCompanyNotFoundExcpetion(invoice.getCompany());
+            }
+
+            Map<String, Object> data = this.prepareData(invoiceName, invoice, account, amount);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie());
+
+            HttpEntity<Map<String, Object>> entity = new HttpEntity<>(data, headers);
+
+            ResponseEntity<Map> response = this.getRestTemplate().exchange(
+                    url,
+                    HttpMethod.POST,
+                    entity,
+                    Map.class
+            );
+
+            if (response.getStatusCode().is2xxSuccessful()) {
+                try{
+                    Map<String, Object> submitResponse = submitPayment(response);
+                    Map<String, Object> submitResponseData = (Map<String, Object>) submitResponse.get("data");
+
+                    return submitResponseData != null && submitResponseData.size() > 0;
+                } catch (Exception e){
+                    logger.error(String.format("Submit payment error: %s", e));
+                }
+                return true;
+            }
+
+        } catch (RestClientException e) {
+            logger.error(e.getLocalizedMessage());
+            throw new RuntimeException("Error paying invoice: " + e.getMessage(), e);
+        } catch (Exception e) {
+            logger.error(e.getLocalizedMessage());
+            throw new RuntimeException(e);
+        }
+
+        throw new RuntimeException("Failed to create Payment Entry");
+    }
+
+    public Map<String, Object> submitPayment(ResponseEntity<Map>  response) throws PaymentSubmissionException {
+        try {
+            if (response == null)
+                throw new RuntimeException("Payment Response is null");
+
+            Map<String, Object> responseBody = response.getBody();
+            Map<String, Object> message = (Map<String, Object>) responseBody.get("data");
+
+            String paymentEntryName = (String) message.get("name");
+
+            // Construction de l'URL pour la soumission
+            String submitUrl = String.format("%s/api/resource/Payment Entry/%s?run_method=submit",
+                    this.getErpNextUrl(),
+                    paymentEntryName
+            );
+
+            // Préparation des headers
+            HttpHeaders headers = this.getHeaders();
+
+            // Création de l'entité HTTP sans corps
+            HttpEntity<String> entity = new HttpEntity<>(headers);
+
+            // Exécution de la requête POST
+            ResponseEntity<Map> submitResponse = this.getRestTemplate().exchange(
+                    submitUrl,
+                    HttpMethod.POST,
+                    entity,
+                    Map.class
+            );
+
+            // Vérification du statut de la réponse
+            if (response.getStatusCode().is2xxSuccessful()) {
+                return submitResponse.getBody();
+            } else {
+                throw new PaymentSubmissionException("Failed to submit payment: " + submitResponse.getStatusCode());
+            }
+
+        } catch (RestClientException e) {
+            logger.error("Error submitting payment: " + e.getLocalizedMessage());
+            throw new PaymentSubmissionException("Error submitting payment", e);
+        } catch (Exception e) {
+            logger.error("Unexpected error submitting payment: " + e.getLocalizedMessage());
+            throw new PaymentSubmissionException("Unexpected error submitting payment", e);
+        }
     }
 
     private Map<String, Object>  prepareData(String invoiceName, PurchaseInvoice invoice, Account account, BigDecimal amount){
@@ -218,11 +320,6 @@ public class PurchaseInvoiceService extends MainService{
         throw new RuntimeException("Could not retrieve payment account");
     }
 
-    private double resteAPayer(double total, double amount){
-        if (total < amount)
-            return 0;
-        return total - amount;
-    }
 
     /*
     public String paySupplierPurchaseInvoice(String invoiceName, BigDecimal amount) throws AccountCompanyNotFoundExcpetion {

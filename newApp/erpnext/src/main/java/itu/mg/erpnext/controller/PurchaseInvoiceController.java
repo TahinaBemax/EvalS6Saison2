@@ -34,13 +34,6 @@ public class PurchaseInvoiceController extends MainController{
             return "redirect:/login";
         }
 
-        String selectedSupplier = (String) session.getAttribute("supplier");
-        status = "Received";
-
-/*        if (selectedSupplier == null){
-            return "redirect:/supplier-quotations";
-        }*/
-
         List<PurchaseInvoice> orders =  purchaseInvoiceService.getSupplierPurchaseInvoice();
         model.addAttribute("factures", orders);
         return "facture/list";
@@ -81,11 +74,11 @@ public class PurchaseInvoiceController extends MainController{
 
         if (amount == null || amount.compareTo(BigDecimal.valueOf(0)) <= 0){
             redirectAttributes.addFlashAttribute("ErrorAmount", "Amount must be more than zero");
-            return String.format("redirect:/%s/bill", name);
+            return String.format("redirect:/purchase-invoices/%s/bill", name);
         }
 
         try {
-            if (purchaseInvoiceService.paySupplierPurchaseInvoice(name, amount) != null) {
+            if (purchaseInvoiceService.paySupplierPurchaseInvoice(name, amount)) {
                 redirectAttributes.addFlashAttribute("billSuccess", "Facture paid");
             } else {
                 redirectAttributes.addFlashAttribute("billError", "An error occured when billing the facture");
