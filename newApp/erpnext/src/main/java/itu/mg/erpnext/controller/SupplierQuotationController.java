@@ -1,11 +1,16 @@
 package itu.mg.erpnext.controller;
 
 import itu.mg.erpnext.components.SessionManager;
+import itu.mg.erpnext.dto.SupplierQuotationDTO;
 import itu.mg.erpnext.dto.UpdateSupQuotaItemPriceFormData;
+import itu.mg.erpnext.exceptions.AccountCompanyNotFoundExcpetion;
 import itu.mg.erpnext.exceptions.ActionNotAllowedExcpetion;
 import itu.mg.erpnext.exceptions.AmountInvalidExcpetion;
+import itu.mg.erpnext.models.Item;
+import itu.mg.erpnext.models.Supplier;
 import itu.mg.erpnext.models.SupplierQuotation;
 import itu.mg.erpnext.models.SupplierQuotationItem;
+import itu.mg.erpnext.services.ItemService;
 import itu.mg.erpnext.services.RequestForQuotationService;
 import itu.mg.erpnext.services.SupplierQuotationService;
 import itu.mg.erpnext.services.SupplierService;
@@ -18,6 +23,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller()
@@ -25,11 +32,78 @@ import java.util.List;
 public class SupplierQuotationController extends MainController{
     private final RequestForQuotationService RFQService;
     private final SupplierQuotationService supplierQuotationService;
+    private final ItemService itemService;
+    private final SupplierService supplierService;
     @Autowired
-    public SupplierQuotationController(SessionManager sessionManager, RequestForQuotationService RFQService, SupplierQuotationService supplierQuotationService) {
+    public SupplierQuotationController(SessionManager sessionManager,
+                                       RequestForQuotationService RFQService,
+                                       SupplierQuotationService supplierQuotationService,
+                                       ItemService itemService,
+                                       SupplierService supplierService) {
         super(sessionManager);
         this.RFQService = RFQService;
         this.supplierQuotationService = supplierQuotationService;
+        this.itemService = itemService;
+        this.supplierService = supplierService;
+    }
+
+    @GetMapping("/new")
+    public String pageSupplierQuotationInsertion(Model model){
+        List<Item>  items = itemService.getItems().getData();
+        List<Supplier>  suppliers = supplierService.getSuppliers().getData();
+
+        model.addAttribute("items", items);
+        model.addAttribute("suppliers", suppliers);
+        model.addAttribute("supplierQuotation", new SupplierQuotationDTO());
+        return "devis/form";
+    }
+
+    @GetMapping("/save")
+    public String save(){
+        try {
+            SupplierQuotationDTO dto = new SupplierQuotationDTO();
+            dto.setSupplier_name("ABC");
+
+            List<Item> items = new ArrayList<>();
+            Item item1 = new Item();
+            item1.setItem_code("ITEM-00016");
+            item1.setAmount(BigDecimal.valueOf(2));
+            item1.setRate(BigDecimal.valueOf(2));
+            item1.setItem_name("tuile");
+            item1.setUom("Abampere");
+            item1.setWarehouse("Stores - ITU");
+            item1.setQty(5);
+
+            Item item2 = new Item();
+            item2.setItem_code("ITEM-00015");
+            item2.setAmount(BigDecimal.valueOf(2));
+            item2.setRate(BigDecimal.valueOf(2));
+            item2.setItem_name("colle");
+            item2.setUom("Abampere");
+            item2.setWarehouse("Stores - ITU");
+            item2.setQty(11);
+
+            Item item3 = new Item();
+            item3.setItem_code("ITEM-00015");
+            item3.setAmount(BigDecimal.valueOf(221));
+            item3.setRate(BigDecimal.valueOf(211));
+            item3.setItem_name("colle");
+            item3.setUom("Abampere");
+            item3.setWarehouse("Stores - ITU");
+            item3.setQty(230);
+
+            items.add(item1);
+            items.add(item2);
+            items.add(item3);
+
+            dto.setItems(items);
+
+            supplierQuotationService.save(dto);
+        } catch (AccountCompanyNotFoundExcpetion e) {
+            throw new RuntimeException(e);
+        }
+
+        return "redirect:/supplier-quotations";
     }
 
 
@@ -53,6 +127,8 @@ public class SupplierQuotationController extends MainController{
         model.addAttribute("formData", data);
         return "devis/update-price";
     }
+
+
 
     @PostMapping("/items/{id}/update-price")
     public String updatePrice(@Validated @ModelAttribute("formData") UpdateSupQuotaItemPriceFormData data,

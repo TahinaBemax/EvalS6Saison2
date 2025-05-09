@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/head :: head}">
+  <title>Choose A Supplier</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main>
+  <div class="container-fluid">
+    <h5 class="text-center p-3 bg-white my-3">Purchase orders</h5>
+
+    <section class="px-3 row align-items-center justify-content-center">
+      <div class="filtre bg-white row mt-4 py-3">
+        <div class="col-4">
+          <p class="text-secondary">Filtre</p>
+
+          <form method="post" action="/purchase-orders/save" th:object="supplierQuotation">
+            <div class="col rounded">
+              <label for="supplier" class="form-label">Suppliers</label>
+              <select class="form-select" name="status" aria-label="supplier" id="supplier" multiple="true">
+                <option value="">All</option>
+                <option th:each="s : ${suppliers}"
+                        th:value="${s}"
+                        th:text="${s}"
+                ></option>
+              </select>
+
+              <div th:if="${valueError != null}"  class="my-2 alert alert-danger" th:text="${valueError}"></div>
+            </div>
+
+            <div class="col rounded">
+              <label for="items" class="form-label">Items</label>
+              <select class="form-select" name="status" aria-label="items" id="items" multiple="true">
+                <option th:each="s : ${items}"
+                        th:value="${s.getItem_code()}"
+                        th:text="${s.getItem_name()}"
+                ></option>
+              </select>
+
+              <div th:if="${valueError != null}"  class="my-2 alert alert-danger" th:text="${valueError}"></div>
+            </div>
+
+            <div class="col rounded">
+              <label for="qty" class="form-label">Qty</label>
+              <input type="number" step="any">
+              <div th:if="${valueError != null}"  class="my-2 alert alert-danger" th:text="${valueError}"></div>
+            </div>
+
+            <div class="col rounded">
+              <label for="amount" class="form-label">Amount</label>
+              <input type="number" step="any" th:field="">
+
+              <div th:if="${valueError != null}"  class="my-2 alert alert-danger" th:text="${valueError}"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 my-3">Filter</button>
+          </form>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</main>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready( function () {
+    $('#table').DataTable(); // Applique DataTables au tableau
+  });
+</script>
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

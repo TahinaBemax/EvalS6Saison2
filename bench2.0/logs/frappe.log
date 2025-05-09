@@ -46,3 +46,36 @@ Form Dict: {'data_import': 'Supplier Quotation Import on 2025-05-07 09:41:41.957
 2025-05-07 10:04:14,697 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'references': [{'reference_name': 'ACC-PINV-2025-00001', 'reference_doctype': 'Purchase Invoice', 'total_amount': 1800.0, 'allocated_amount': 1800.0, 'outstanding_amount': '1800.0'}], 'party_type': 'Supplier', 'received_amount': 1800.0, 'doctype': 'Payment Entry', 'payment_type': 'Pay', 'paid_from_account_currency': 'EUR', 'submit_after_save': True, 'paid_to': 'Creditors - ITU', 'paid_amount': 1800.0, 'company': 'IT University', 'mode_of_payment': 'Cash', 'posting_date': '2025-05-07', 'paid_from': 'Cash - ITU', 'source_exchange_rate': 1, 'party': 'Sanifer'}
+2025-05-07 15:55:17,330 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {}
+2025-05-07 15:56:13,620 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'limit_page_length': 20}
+2025-05-07 15:58:49,068 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'items': [{'item_code': '', 'amount': 2, 'uom': 'Abampere', 'quantity': 1.0, 'rate': 1, 'exchanger_rate': 0, 'warehouse': 'Stereos - ITU'}], 'Date': '2025-05-07'}
+2025-05-07 16:00:00,881 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'item_idx': '1', 'docs': '{"docstatus":0,"doctype":"Supplier Quotation","name":"new-supplier-quotation-xdgnhngcmb","__islocal":1,"__unsaved":1,"owner":"Administrator","naming_series":"PUR-SQTN-.YYYY.-","company":"IT University","status":"Draft","transaction_date":"2025-05-07","has_unit_price_items":0,"currency":"EUR","buying_price_list":"Standard Buying","price_list_currency":"EUR","ignore_pricing_rule":0,"items":[{"docstatus":0,"doctype":"Supplier Quotation Item","name":"new-supplier-quotation-item-bqdhohlaqh","__islocal":1,"__unsaved":1,"owner":"Administrator","is_free_item":0,"stock_uom":"Nos","page_break":0,"parent":"new-supplier-quotation-xdgnhngcmb","parentfield":"items","parenttype":"Supplier Quotation","idx":1,"qty":0,"conversion_factor":0,"stock_qty":0,"price_list_rate":0,"discount_amount":0,"distributed_discount_amount":0,"base_price_list_rate":0,"rate":0,"amount":0,"base_rate":0,"base_amount":0,"net_rate":0,"net_amount":0,"base_net_rate":0,"base_net_amount":0,"weight_per_unit":0,"total_weight":0,"item_code":"ITEM-00009"}],"taxes":[],"apply_discount_on":"Grand Total","disable_rounded_total":0,"pricing_rules":[],"group_same_items":0,"is_subcontracted":0,"valid_till":"2025-06-07","billing_address":"","shipping_address":"","billing_address_display":"","shipping_address_display":"","conversion_rate":1,"plc_conversion_rate":1,"base_net_total":0,"net_total":0,"base_total":0,"total":0,"total_qty":0,"grand_total":0,"taxes_and_charges_deducted":0,"taxes_and_charges_added":0,"base_grand_total":0,"base_taxes_and_charges_added":0,"base_taxes_and_charges_deducted":0,"total_taxes_and_charges":0,"base_total_taxes_and_charges":0,"rounded_total":0,"rounding_adjustment":0,"base_rounding_adjustment":0,"base_rounded_total":0,"in_words":"","base_in_words":"","base_discount_amount":0}', 'method': 'process_item_selection', 'args': '{"item_idx":1}', 'cmd': 'run_doc_method'}
+2025-05-07 16:21:00,607 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'Date': '2025-05-07'}
+2025-05-07 16:21:16,376 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'Date': '2025-05-07'}
+2025-05-07 16:58:18,469 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'items': [{'item_code': '', 'amount': 2, 'uom': 'Abampere', 'quantity': 1.0, 'rate': 1, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}], 'Date': '2025-05-07'}
+2025-05-07 17:01:12,411 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'items': [{'item_code': '', 'amount': 2, 'uom': 'Abampere', 'rate': 1, 'qty': 1.0, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}], 'Date': '2025-05-07'}
+2025-05-07 17:03:10,661 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'items': [{'item_code': 'tuile', 'amount': 2, 'uom': 'Abampere', 'rate': 1, 'qty': 1.0, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}], 'Date': '2025-05-07'}
+2025-05-07 17:06:19,136 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'items': [{'item_code': 'ITEM-00016', 'amount': 2, 'uom': 'Abampere', 'rate': 1, 'qty': 1.0, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}], 'Date': '2025-05-07'}
+2025-05-07 17:31:11,400 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'supplier': 'ABC', 'submit_after_save': True, 'company': 'IT University', 'items': [{'item_code': 'tuile', 'amount': 2, 'uom': 'Abampere', 'rate': 1, 'qty': 2.0, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}, {'item_code': 'colle', 'amount': 2, 'uom': 'Abampere', 'rate': 1, 'qty': 2.0, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}], 'Date': '2025-05-07'}

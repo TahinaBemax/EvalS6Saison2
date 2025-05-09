@@ -3,9 +3,14 @@ package itu.mg.erpnext.services;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import itu.mg.erpnext.components.SessionManager;
+import itu.mg.erpnext.dto.SupplierQuotationDTO;
 import itu.mg.erpnext.dto.SupplierQuotationItemResponse;
+import itu.mg.erpnext.exceptions.AccountCompanyNotFoundExcpetion;
 import itu.mg.erpnext.exceptions.RequestForQuotationException;
 import itu.mg.erpnext.exceptions.SupplierQuotationItemNotFoundException;
+import itu.mg.erpnext.models.Account;
+import itu.mg.erpnext.models.Item;
+import itu.mg.erpnext.models.PurchaseInvoice;
 import itu.mg.erpnext.models.SupplierQuotationItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +19,8 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.*;
 
 @Service
@@ -58,4 +65,66 @@ public class SupplierQuotationService extends MainService{
 
         throw new RequestForQuotationException("An error occured when fetching Request for quotation Item");
     }
+
+    public boolean save(SupplierQuotationDTO data) throws AccountCompanyNotFoundExcpetion {
+        try {
+            String url = String.format("%s/api/resource/Supplier Quotation", this.getErpNextUrl());
+
+            Map<String, Object> formdata = this.prepareData(data);
+
+            HttpHeaders headers = new HttpHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+            headers.set(HttpHeaders.COOKIE, this.getSessionManager().getSessionCookie());
+
+            HttpEntity<Map<String, Object>> entity = new HttpEntity<>(formdata, headers);
+
+
+            this.getRestTemplate().postForEntity(url, entity, String.class);
+
+/*            ResponseEntity<String> response = this.getRestTemplate().exchange(
+                    url,
+                    HttpMethod.POST,
+                    entity,
+                    String.class
+            );*/
+            return true;
+
+        } catch (RestClientException e) {
+            logger.error(e.getLocalizedMessage());
+            throw new RuntimeException("Error paying invoice: " + e.getMessage(), e);
+        } catch (Exception e) {
+            logger.error(e.getLocalizedMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+    private Map<String, Object>  prepareData(SupplierQuotationDTO supplierQuotation){
+        Map<String, Object> data = new HashMap<>();
+        data.put("series", "PUR-SQTN-.YYYY");
+        data.put("supplier", supplierQuotation.getSupplier_name());
+        data.put("company", "IT University");
+        data.put("Date", LocalDate.now());
+        data.put("submit_after_save", true);
+
+
+        // ✅ Partie manquante : ajout de la section "references"
+        List<Map<String, Object>> itemList = new ArrayList<>();
+        for (Item item : supplierQuotation.getItems()) {
+            Map<String, Object> items = new HashMap<>();
+            items.put("exchanger_rate", 0);
+            items.put("item_code", item.getItem_code());
+            items.put("amount", item.getAmount());
+            items.put("qty", item.getQty());
+            items.put("uom", item.getUom()); // Tu peux ajuster si tu as un compte "Cash" ou "Bank"
+            items.put("rate", 1);
+            items.put("warehouse", item.getWarehouse());
+            itemList.add(items);
+        }
+
+
+        data.put("items", itemList);
+
+        return data;
+    }
+
 }

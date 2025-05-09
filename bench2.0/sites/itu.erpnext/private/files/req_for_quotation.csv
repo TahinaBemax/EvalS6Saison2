@@ -1,0 +1,8 @@
+Series,Company,Date,Status,Message for Supplier,ID (Suppliers),Supplier (Suppliers),ID (Items),Item Code (Items),Quantity (Items),Required Date (Items),Stock UOM (Items),UOM (Items),UOM Conversion Factor (Items),Warehouse (Items)
+PUR-RFQ-.YYYY.-,IT University,2025-05-07,Submitted,Bonjour,,Sanifer,ITEM-00009,ITEM-00009,9.0,2025-05-09,Nos,Abampere,1,Stores - ITU
+PUR-RFQ-.YYYY.-,IT University,2025-05-07,Submitted,Bonjour,,Exxon,ITEM-00009,ITEM-00009,9.0,2025-05-09,Nos,Abampere,1,Stores - ITU
+PUR-RFQ-.YYYY.-,IT University,2025-05-04,Submitted,Bonjour,,Sanifer,ITEM-00009,ITEM-00009,33.0,2025-05-07,Nos,Abampere,1,Stores - ITU
+PUR-RFQ-.YYYY.-,IT University,2025-05-09,Submitted,Bonjour,,Sanifer,ITEM-00014,ITEM-00014,49.0,2025-05-10,Nos,Abampere,1,Stores - ITU
+PUR-RFQ-.YYYY.-,IT University,2025-05-09,Submitted,Bonjour,,Electroplus,ITEM-00014,ITEM-00014,49.0,2025-05-10,Nos,Abampere,1,Stores - ITU
+PUR-RFQ-.YYYY.-,IT University,2025-05-05,Submitted,Bonjour,,ABC,ITEM-00016,ITEM-00016,24.0,2025-05-07,Nos,Abampere,1,Stores - ITU
+PUR-RFQ-.YYYY.-,IT University,2025-05-05,Submitted,Bonjour,,Exxon,ITEM-00016,ITEM-00016,24.0,2025-05-07,Nos,Abampere,1,Stores - ITU

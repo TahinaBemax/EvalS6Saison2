@@ -3,6 +3,7 @@ package itu.mg.erpnext.controller;
 import itu.mg.erpnext.components.SessionManager;
 import itu.mg.erpnext.dto.SupplierResponse;
 import itu.mg.erpnext.models.SupplierQuotation;
+import itu.mg.erpnext.services.ItemService;
 import itu.mg.erpnext.services.RequestForQuotationService;
 import itu.mg.erpnext.services.SupplierService;
 import jakarta.servlet.http.HttpSession;
@@ -19,13 +20,12 @@ import java.util.List;
 @RequestMapping("/suppliers")
 public class SupplierController extends MainController{
     private final SupplierService supplierService;
-    private final RequestForQuotationService RFQService;
+
 
     @Autowired
-    public SupplierController(SessionManager sessionManager, SupplierService supplierService,RequestForQuotationService RFQService) {
+    public SupplierController(SessionManager sessionManager, SupplierService supplierService) {
         super(sessionManager);
         this.supplierService = supplierService;
-        this.RFQService = RFQService;
     }
 
     @GetMapping
