@@ -1,6 +1,7 @@
 package itu.mg.erpnext.controller;
 
 import itu.mg.erpnext.components.SessionManager;
+import itu.mg.erpnext.dto.ApiResponse;
 import itu.mg.erpnext.dto.SupplierQuotationDTO;
 import itu.mg.erpnext.dto.UpdateSupQuotaItemPriceFormData;
 import itu.mg.erpnext.exceptions.AccountCompanyNotFoundExcpetion;
@@ -16,6 +17,8 @@ import itu.mg.erpnext.services.SupplierQuotationService;
 import itu.mg.erpnext.services.SupplierService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,11 +32,12 @@ import java.util.List;
 
 @Controller()
 @RequestMapping("/supplier-quotations")
-public class SupplierQuotationController extends MainController{
+public class SupplierQuotationController extends MainController {
     private final RequestForQuotationService RFQService;
     private final SupplierQuotationService supplierQuotationService;
     private final ItemService itemService;
     private final SupplierService supplierService;
+
     @Autowired
     public SupplierQuotationController(SessionManager sessionManager,
                                        RequestForQuotationService RFQService,
@@ -48,73 +52,51 @@ public class SupplierQuotationController extends MainController{
     }
 
     @GetMapping("/new")
-    public String pageSupplierQuotationInsertion(Model model){
-        List<Item>  items = itemService.getItems().getData();
-        List<Supplier>  suppliers = supplierService.getSuppliers().getData();
+    public String pageSupplierQuotationInsertion(Model model, HttpSession session) {
+        if (this.getSessionManager().getSessionCookie() == null) {
+            return "redirect:/login";
+        }
 
-        model.addAttribute("items", items);
-        model.addAttribute("suppliers", suppliers);
-        model.addAttribute("supplierQuotation", new SupplierQuotationDTO());
+        String selectedSupplier = (String) session.getAttribute("supplier");
+
+        model.addAttribute("supplier", selectedSupplier);
+        SupplierQuotationDTO supplierQuotationDTO = new SupplierQuotationDTO();
+        supplierQuotationDTO.setSupplier(selectedSupplier);
+
+        model.addAttribute("supplierQuotation", supplierQuotationDTO);
         return "devis/form";
     }
 
-    @GetMapping("/save")
-    public String save(){
-        try {
-            SupplierQuotationDTO dto = new SupplierQuotationDTO();
-            dto.setSupplier_name("ABC");
-
-            List<Item> items = new ArrayList<>();
-            Item item1 = new Item();
-            item1.setItem_code("ITEM-00016");
-            item1.setAmount(BigDecimal.valueOf(2));
-            item1.setRate(BigDecimal.valueOf(2));
-            item1.setItem_name("tuile");
-            item1.setUom("Abampere");
-            item1.setWarehouse("Stores - ITU");
-            item1.setQty(5);
-
-            Item item2 = new Item();
-            item2.setItem_code("ITEM-00015");
-            item2.setAmount(BigDecimal.valueOf(2));
-            item2.setRate(BigDecimal.valueOf(2));
-            item2.setItem_name("colle");
-            item2.setUom("Abampere");
-            item2.setWarehouse("Stores - ITU");
-            item2.setQty(11);
-
-            Item item3 = new Item();
-            item3.setItem_code("ITEM-00015");
-            item3.setAmount(BigDecimal.valueOf(221));
-            item3.setRate(BigDecimal.valueOf(211));
-            item3.setItem_name("colle");
-            item3.setUom("Abampere");
-            item3.setWarehouse("Stores - ITU");
-            item3.setQty(230);
-
-            items.add(item1);
-            items.add(item2);
-            items.add(item3);
-
-            dto.setItems(items);
-
-            supplierQuotationService.save(dto);
-        } catch (AccountCompanyNotFoundExcpetion e) {
-            throw new RuntimeException(e);
+    @PostMapping("/save")
+    @ResponseBody
+    public ResponseEntity<?> save(@Validated @RequestBody SupplierQuotationDTO supplierQuotationDTO,
+                       BindingResult bindingResult)
+    {
+        if (bindingResult.hasErrors()) {
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body(new ApiResponse<>(List.of(supplierQuotationDTO), "Bad Request!", "error"));
         }
 
-        return "redirect:/supplier-quotations";
+        if (supplierQuotationService.save(supplierQuotationDTO)) {
+            return ResponseEntity
+                    .ok(new ApiResponse<>(List.of(supplierQuotationDTO), "Saved!", "success"));
+        }
+
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ApiResponse<>(List.of(supplierQuotationDTO), "Internal Server Error", "error"));
     }
 
 
     @GetMapping("/{id}/update-price")
-    public String getSupplierQuoteRequests(@PathVariable String id, Model model, HttpSession session){
+    public String getSupplierQuoteRequests(@PathVariable String id, Model model, HttpSession session) {
         String selectedSupplier = (String) session.getAttribute("supplier");
-        if (selectedSupplier == null){
+        if (selectedSupplier == null) {
             return "redirect:/suppliers";
         }
 
-        if(id == null)
+        if (id == null)
             return String.format("redirect:/suppliers/%s/requests-for-quotation", selectedSupplier);
 
         SupplierQuotationItem supplierQuotationItem = supplierQuotationService.getSupplierQuotationItem(id);
@@ -129,17 +111,16 @@ public class SupplierQuotationController extends MainController{
     }
 
 
-
     @PostMapping("/items/{id}/update-price")
     public String updatePrice(@Validated @ModelAttribute("formData") UpdateSupQuotaItemPriceFormData data,
                               BindingResult bindingResult,
-                              HttpSession session, Model model, RedirectAttributes redirectAttributes){
+                              HttpSession session, Model model, RedirectAttributes redirectAttributes) {
         try {
-            if (bindingResult.hasErrors()){
+            if (bindingResult.hasErrors()) {
                 return "devis/update-price";
             }
 
-            if(RFQService.updateSupplierQuotationPrice(data.getId(), data.getNewPrice())){
+            if (RFQService.updateSupplierQuotationPrice(data.getId(), data.getNewPrice())) {
                 redirectAttributes.addFlashAttribute("priceUpdatedAlert", "Price updated successfuly");
                 return "redirect:/supplier-quotations";
             }
@@ -152,13 +133,13 @@ public class SupplierQuotationController extends MainController{
     }
 
     @GetMapping()
-    public String getSupplierQuoteRequests(Model model, HttpSession session){
-        if (this.getSessionManager().getSessionCookie() == null){
+    public String getSupplierQuoteRequests(Model model, HttpSession session) {
+        if (this.getSessionManager().getSessionCookie() == null) {
             return "redirect:/login";
         }
 
         String selectedSupplier = (String) session.getAttribute("supplier");
-        if (selectedSupplier == null){
+        if (selectedSupplier == null) {
             return "redirect:/suppliers";
         }
 

@@ -66,7 +66,7 @@ public class SupplierQuotationService extends MainService{
         throw new RequestForQuotationException("An error occured when fetching Request for quotation Item");
     }
 
-    public boolean save(SupplierQuotationDTO data) throws AccountCompanyNotFoundExcpetion {
+    public boolean save(SupplierQuotationDTO data){
         try {
             String url = String.format("%s/api/resource/Supplier Quotation", this.getErpNextUrl());
 
@@ -79,19 +79,9 @@ public class SupplierQuotationService extends MainService{
             HttpEntity<Map<String, Object>> entity = new HttpEntity<>(formdata, headers);
 
 
-            this.getRestTemplate().postForEntity(url, entity, String.class);
+            ResponseEntity<String> stringResponseEntity = this.getRestTemplate().postForEntity(url, entity, String.class);
 
-/*            ResponseEntity<String> response = this.getRestTemplate().exchange(
-                    url,
-                    HttpMethod.POST,
-                    entity,
-                    String.class
-            );*/
-            return true;
-
-        } catch (RestClientException e) {
-            logger.error(e.getLocalizedMessage());
-            throw new RuntimeException("Error paying invoice: " + e.getMessage(), e);
+            return stringResponseEntity.getStatusCode().is2xxSuccessful();
         } catch (Exception e) {
             logger.error(e.getLocalizedMessage());
             throw new RuntimeException(e);
@@ -100,10 +90,10 @@ public class SupplierQuotationService extends MainService{
 
     private Map<String, Object>  prepareData(SupplierQuotationDTO supplierQuotation){
         Map<String, Object> data = new HashMap<>();
-        data.put("series", "PUR-SQTN-.YYYY");
-        data.put("supplier", supplierQuotation.getSupplier_name());
+        data.put("series", supplierQuotation.getSeries());
+        data.put("supplier", supplierQuotation.getSupplier());
         data.put("company", "IT University");
-        data.put("Date", LocalDate.now());
+        data.put("Date", supplierQuotation.getTransaction_date());
         data.put("submit_after_save", true);
 
 
@@ -116,7 +106,7 @@ public class SupplierQuotationService extends MainService{
             items.put("amount", item.getAmount());
             items.put("qty", item.getQty());
             items.put("uom", item.getUom()); // Tu peux ajuster si tu as un compte "Cash" ou "Bank"
-            items.put("rate", 1);
+            items.put("rate", item.getRate());
             items.put("warehouse", item.getWarehouse());
             itemList.add(items);
         }

@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 public class Item {
     private String name;
     private String item_name;
+    @NotNull
     private String item_code;
     @NotBlank
     private String uom;
