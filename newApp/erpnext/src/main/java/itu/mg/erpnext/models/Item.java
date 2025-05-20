@@ -10,17 +10,16 @@ import java.math.BigDecimal;
 @Data
 public class Item {
     private String name;
+    @NotNull
     private String item_name;
     @NotNull
     private String item_code;
+    @NotNull
+    private String item_group;
     @NotBlank
-    private String uom;
-    @NotBlank
+    private String stock_uom;
     private String warehouse;
-    @NotNull
     private double qty;
-    @NotNull
     private BigDecimal rate;
-    @NotNull
     private BigDecimal amount;
 }

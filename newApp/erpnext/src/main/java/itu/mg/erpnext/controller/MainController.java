@@ -14,4 +14,8 @@ public class MainController {
     public MainController(SessionManager sessionManager) {
         this.sessionManager = sessionManager;
     }
+
+    public SessionManager getSessionManager() {
+        return sessionManager;
+    }
 }

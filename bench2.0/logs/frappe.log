@@ -88,3 +88,15 @@ Form Dict: {'series': 'PUR-SQTN-.YYYY', 'supplier': 'ABC', 'submit_after_save': 
 2025-05-13 16:18:31,367 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'series': 'PUR-SQTN-.YYYY', 'supplier': 'ABC', 'submit_after_save': True, 'company': 'IT University', 'items': [{'item_code': 'ITEM-00009', 'amount': None, 'uom': '', 'rate': None, 'qty': 0.0, 'exchanger_rate': 0, 'warehouse': ''}], 'Date': '2025-05-13'}
+2025-05-20 10:49:49,737 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': [['name', 'item_name', 'item_group']], 'limit_page_length': 20}
+2025-05-20 10:50:44,007 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': [['name', 'item_name', 'item_group']], 'limit_page_length': 20}
+2025-05-20 14:13:22,914 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': None, 'item_name': None, 'item_code': 'ITEM-00010', 'item_group': 'consommable', 'stock_uom': 'Nos', 'warehouse': None, 'qty': 0.0, 'rate': None, 'amount': None}
+2025-05-20 14:14:51,397 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': None, 'item_name': None, 'item_code': 'ITEM-10010', 'item_group': 'consommable', 'stock_uom': 'Nos', 'warehouse': None, 'qty': 0.0, 'rate': None, 'amount': None}

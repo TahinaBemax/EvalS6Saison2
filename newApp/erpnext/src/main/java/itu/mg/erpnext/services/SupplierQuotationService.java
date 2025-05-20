@@ -105,7 +105,7 @@ public class SupplierQuotationService extends MainService{
             items.put("item_code", item.getItem_code());
             items.put("amount", item.getAmount());
             items.put("qty", item.getQty());
-            items.put("uom", item.getUom()); // Tu peux ajuster si tu as un compte "Cash" ou "Bank"
+            items.put("uom", item.getStock_uom()); // Tu peux ajuster si tu as un compte "Cash" ou "Bank"
             items.put("rate", item.getRate());
             items.put("warehouse", item.getWarehouse());
             itemList.add(items);
