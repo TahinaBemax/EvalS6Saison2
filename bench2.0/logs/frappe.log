@@ -142,3 +142,54 @@ Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api
 2025-05-27 18:22:52,368 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-30 16:24:55,668 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 16:54:54,997 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:08:46,637 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:15:16,472 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:28:04,486 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:34:23,790 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:41:30,158 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:44:28,073 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:53:40,659 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 18:50:45,189 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:00:05,143 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:01:04,935 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:03:46,052 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:11:57,982 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:12:53,299 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:30:43,392 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:34:13,324 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}

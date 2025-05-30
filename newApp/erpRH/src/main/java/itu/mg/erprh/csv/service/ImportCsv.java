@@ -1,5 +1,6 @@
 package itu.mg.erprh.csv.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
@@ -13,8 +14,12 @@ import itu.mg.erprh.csv.dto.RequestForQuotation;
 import itu.mg.erprh.csv.dto.Supplier;
 import itu.mg.erprh.csv.dto.SupplierQuotation;
 import itu.mg.erprh.csv.dto.export.SupplierExportDTO;
+import itu.mg.erprh.dto.ApiResponse;
 import itu.mg.erprh.dto.ImportDto;
+import itu.mg.erprh.exception.FrappeApiException;
+import itu.mg.erprh.models.error.FrappeApiErrorResponse;
 import itu.mg.erprh.services.MainService;
+import itu.mg.erprh.utils.RestClientExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +43,7 @@ import java.util.Map;
 public class ImportCsv extends MainService {
     private final ExportCsvService exportCsvService;
     public static final Logger logger = LoggerFactory.getLogger(ImportCsv.class);
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Autowired
     public ImportCsv(RestTemplateBuilder restTemplate, SessionManager sessionManager, ExportCsvService exportCsvService) {
@@ -45,7 +51,24 @@ public class ImportCsv extends MainService {
         this.exportCsvService = exportCsvService;
     }
 
+    public ApiResponse deleteData(){
+        String url = String.format("%s/api/method/importapp.api.import.delete_all_data", this.getErpNextUrl());
 
+        HttpHeaders headers = this.getHeaders();
+
+        HttpEntity<?> entity = new HttpEntity<>(headers);
+
+        ResponseEntity<ApiResponse> response = null;
+        try {
+            response = this.getRestTemplate()
+                    .exchange(url, HttpMethod.GET, entity, ApiResponse.class);
+        } catch (RestClientException e) {
+            logger.error(e.getLocalizedMessage());
+            RestClientExceptionHandler.handleError(e);
+        }
+
+        return response.getBody();
+    }
     public CsvParseFinalResult importation(ImportDto importDto)  {
         CsvParseResult<Supplier> suppliers = null;
         try {
@@ -144,15 +167,13 @@ public class ImportCsv extends MainService {
         try {
             response = this.getRestTemplate()
                     .exchange(url, HttpMethod.GET, entity, Map.class);
+             if(response.getStatusCode().is2xxSuccessful()) {
+                 Map<String, Object> responseBody = response.getBody();
+                 return true;
+             }
         } catch (RestClientException e) {
-            throw new RuntimeException(e);
+            RestClientExceptionHandler.handleError(e);
         }
-
-         if(response.getStatusCode().is2xxSuccessful()) {
-             Map<String, Object> responseBody = response.getBody();
-             return true;
-         }
-
-         return false;
+        return false;
     }
 }

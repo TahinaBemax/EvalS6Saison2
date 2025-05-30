@@ -17,7 +17,6 @@ public class CsvParseResult<T> {
     public long countValidRows(){
         return validRows.size();
     }
-
     public long countInvalidRows(){
         return errors.size();
     }

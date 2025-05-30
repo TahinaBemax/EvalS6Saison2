@@ -11,4 +11,5 @@ public class ApiResponse<T> {
     List<T> data;
     String message;
     String status;
+    List<String> errors;
 }

@@ -9,8 +9,17 @@
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <div class="container my-5">
-    <div class="form-container py-3 px-4 bg-white">
+    <div class="form-container py-3 px-4 bg-white" id="form-container">
         <div th:if="${success} != null" class="alert alert-success" th:text="${success}"></div>
+
+        <div id="delete-data" class="my-3 bg-white py-2">
+            <form method="post" action="/delete-data">
+                <h3 class="text-secondary fs-5 mb-3 border-bottom py-2">Data</h3>
+
+                <label for="delete" class="form-label">Delete existing data!</label> <br>
+                <input type="submit" value="Delete Data" id="delete" class="btn btn-primary py-0">
+            </form>
+        </div>
 
         <form class="form" method="post" action="/" th:object="${importDto}" enctype="multipart/form-data">
             <h3 class="text-secondary fs-5 mb-3 border-bottom py-2">Importation</h3>
