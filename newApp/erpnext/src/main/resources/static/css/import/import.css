@@ -1,0 +1,33 @@
+table {
+    display: none;
+}
+
+table.active {
+    display: block;
+    width: 100%;
+}
+table tr {
+    width: 100%;
+}
+table tr th.row-nbr {
+    width: 90px !important;
+}
+
+table tr th,
+table tr td {
+    padding: 3px 8px !important;
+}
+
+table tr td {
+    color: #595555 !important;
+    font-size: 0.9em;
+}
+
+table tr.success td {
+    background-color: rgb(169, 227, 169);
+}
+
+table tr.danger td,
+.danger {
+    background-color: rgb(255, 190, 190) !important;
+}

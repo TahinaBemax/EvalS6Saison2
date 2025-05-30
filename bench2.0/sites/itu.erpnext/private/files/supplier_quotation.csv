@@ -1,8 +1,0 @@
-Series,Supplier,Company,Status,Date,Currency,Exchange Rate,ID (Items),Amount (Company Currency) (Items),Item Code (Items),Quantity (Items),Rate (Company Currency) (Items),Stock UOM (Items),UOM (Items),UOM Conversion Factor (Items)
-PUR-SQTN-.YYYY.-,Sanifer,IT University,Draft,2025-05-07,EUR,0,ITEM-00009,,ITEM-00009,9.0,0,Nos,Abampere,1
-PUR-SQTN-.YYYY.-,Exxon,IT University,Draft,2025-05-07,EUR,0,ITEM-00009,,ITEM-00009,9.0,0,Nos,Abampere,1
-PUR-SQTN-.YYYY.-,Sanifer,IT University,Draft,2025-05-04,EUR,0,ITEM-00009,,ITEM-00009,33.0,0,Nos,Abampere,1
-PUR-SQTN-.YYYY.-,Sanifer,IT University,Draft,2025-05-09,EUR,0,ITEM-00014,,ITEM-00014,49.0,0,Nos,Abampere,1
-PUR-SQTN-.YYYY.-,Electroplus,IT University,Draft,2025-05-09,EUR,0,ITEM-00014,,ITEM-00014,49.0,0,Nos,Abampere,1
-PUR-SQTN-.YYYY.-,ABC,IT University,Draft,2025-05-05,EUR,0,ITEM-00016,,ITEM-00016,24.0,0,Nos,Abampere,1
-PUR-SQTN-.YYYY.-,Exxon,IT University,Draft,2025-05-05,EUR,0,ITEM-00016,,ITEM-00016,24.0,0,Nos,Abampere,1

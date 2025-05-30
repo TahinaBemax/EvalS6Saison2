@@ -266,3 +266,45 @@ Form Dict: {'name': None, 'item_name': None, 'item_code': 'ITEM-00010', 'item_gr
 2025-05-20 14:14:51,397 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'name': None, 'item_name': None, 'item_code': 'ITEM-10010', 'item_group': 'consommable', 'stock_uom': 'Nos', 'warehouse': None, 'qty': 0.0, 'rate': None, 'amount': None}
+2025-05-23 11:18:12,510 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'MAT-MR-.YYYY.-', 'required_by': '2025-05-23', 'transaction_date': None, 'purpose': 'Purchase', 'items': [{'warehouse': 'All Warehouses - ITU', 'qty': '1', 'stock_uom': 'Nos', 'required_by': '2025-05-23'}]}
+2025-05-23 11:31:04,790 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'MAT-MR-.YYYY.-', 'required_by': '2025-05-23', 'transaction_date': None, 'material_request_type': None, 'items': [{'warehouse': 'All Warehouses - ITU', 'qty': '1', 'stock_uom': 'Nos', 'required_by': '2025-05-23'}]}
+2025-05-23 11:42:45,871 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'MAT-MR-.YYYY.-', 'required_by': None, 'transaction_date': '2025-05-23', 'material_request_type': None, 'items': [{'warehouse': 'All Warehouses - ITU', 'qty': '1', 'stock_uom': 'Nos'}]}
+2025-05-23 11:46:40,288 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'MAT-MR-.YYYY.-', 'required_by': None, 'transaction_date': '2025-05-23', 'material_request_type': None, 'items': [{'warehouse': 'All Warehouses - ITU', 'qty': '1', 'stock_uom': 'Nos'}]}
+2025-05-27 16:31:50,014 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'C:\\Users\\TahinaBemax\\Desktop\\EvaluationS6\\Saison_2\\bench2.0\\sites\\itu.erpnext\\private\\files\\supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 16:38:17,563 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 16:47:08,548 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 16:56:51,156 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 17:04:59,909 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 17:18:54,670 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 17:19:59,789 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 17:23:17,714 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 18:18:47,662 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 18:22:52,368 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}

@@ -3955,3 +3955,881 @@ Traceback (most recent call last):
     raise ConnectionError(
 redis.exceptions.ConnectionError: Error while reading from 127.0.0.1:11001 : (104, 'Connection reset by peer')
 2025-05-20 09:56:49,858 Could not connect to Redis instance: Connection closed by server. Retrying in 2 seconds...
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+2025-05-20 14:45:57,343 Could not connect to Redis instance: Connection closed by server. Retrying in 2 seconds...
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+2025-05-21 08:28:57,620 [Job itu.erpnext||scheduled_job||rurianamfg]: exception raised while executing (frappe.utils.background_jobs.execute_job)
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1643, in perform_job
+    return_value = job.perform()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/job.py", line 1344, in perform
+    self._result = self._execute()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/job.py", line 1378, in _execute
+    result = self.func(*self.args, **self.kwargs)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/utils/background_jobs.py", line 293, in execute_job
+    frappe.db.commit()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 1163, in commit
+    self.sql("commit")
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 260, in sql
+    self.execute_query(query, values)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 355, in execute_query
+    return self._cursor.execute(query, values)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 562, in query
+    self._execute_command(COMMAND.COM_QUERY, sql)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 843, in _execute_command
+    raise err.InterfaceError(0, "")
+pymysql.err.InterfaceError: (0, '')
+
+2025-05-21 08:28:59,014 [Job itu.erpnext||scheduled_job||el7v4hd682]: exception raised while executing (frappe.utils.background_jobs.execute_job)
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 649, in connect
+    sock = socket.create_connection(
+  File "/usr/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/usr/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1643, in perform_job
+    return_value = job.perform()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/job.py", line 1344, in perform
+    self._result = self._execute()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/job.py", line 1378, in _execute
+    result = self.func(*self.args, **self.kwargs)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/utils/background_jobs.py", line 293, in execute_job
+    frappe.db.commit()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 1163, in commit
+    self.sql("commit")
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 237, in sql
+    self.connect()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 135, in connect
+    self.get_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 105, in get_connection
+    conn = self._get_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 111, in _get_connection
+    return self.create_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 114, in create_connection
+    return pymysql.connect(**self.get_connection_settings())
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 716, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+
+2025-05-21 08:29:00,265 [Job itu.erpnext||scheduled_job||rur9371iai]: exception raised while executing (frappe.utils.background_jobs.execute_job)
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 649, in connect
+    sock = socket.create_connection(
+  File "/usr/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/usr/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1643, in perform_job
+    return_value = job.perform()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/job.py", line 1344, in perform
+    self._result = self._execute()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/job.py", line 1378, in _execute
+    result = self.func(*self.args, **self.kwargs)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/utils/background_jobs.py", line 293, in execute_job
+    frappe.db.commit()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 1163, in commit
+    self.sql("commit")
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 237, in sql
+    self.connect()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 135, in connect
+    self.get_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 105, in get_connection
+    conn = self._get_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 111, in _get_connection
+    return self.create_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 114, in create_connection
+    return pymysql.connect(**self.get_connection_settings())
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 716, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+
+2025-05-21 08:29:01,615 [Job itu.erpnext||scheduled_job||rurml2k6ih]: exception raised while executing (frappe.utils.background_jobs.execute_job)
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 649, in connect
+    sock = socket.create_connection(
+  File "/usr/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/usr/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1643, in perform_job
+    return_value = job.perform()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/job.py", line 1344, in perform
+    self._result = self._execute()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/job.py", line 1378, in _execute
+    result = self.func(*self.args, **self.kwargs)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/utils/background_jobs.py", line 293, in execute_job
+    frappe.db.commit()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 1163, in commit
+    self.sql("commit")
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 237, in sql
+    self.connect()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 135, in connect
+    self.get_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 105, in get_connection
+    conn = self._get_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 111, in _get_connection
+    return self.create_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 114, in create_connection
+    return pymysql.connect(**self.get_connection_settings())
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 716, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+
+2025-05-21 08:29:02,331 [Job itu.erpnext||scheduled_job||el8ls64ef1]: exception raised while executing (frappe.utils.background_jobs.execute_job)
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 649, in connect
+    sock = socket.create_connection(
+  File "/usr/lib/python3.10/socket.py", line 845, in create_connection
+    raise err
+  File "/usr/lib/python3.10/socket.py", line 833, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1643, in perform_job
+    return_value = job.perform()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/job.py", line 1344, in perform
+    self._result = self._execute()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/job.py", line 1378, in _execute
+    result = self.func(*self.args, **self.kwargs)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/utils/background_jobs.py", line 293, in execute_job
+    frappe.db.commit()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 1163, in commit
+    self.sql("commit")
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 237, in sql
+    self.connect()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/database.py", line 135, in connect
+    self.get_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 105, in get_connection
+    conn = self._get_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 111, in _get_connection
+    return self.create_connection()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/database/mariadb/database.py", line 114, in create_connection
+    return pymysql.connect(**self.get_connection_settings())
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pymysql/connections.py", line 716, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([Errno 111] Connection refused)")
+
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+2025-05-21 08:37:16,642 Could not connect to Redis instance: Connection closed by server. Retrying in 2 seconds...
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+2025-05-22 15:41:02,335 Worker rq:worker:2239df73ab7949d7a5088d012895dedb: found an unhandled exception, quitting...
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 592, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/_parsers/hiredis.py", line 128, in read_response
+    self.read_from_socket()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/_parsers/hiredis.py", line 88, in read_from_socket
+    bufflen = self._sock.recv_into(self._buffer)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 625, in work
+    self.execute_job(job, queue)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1409, in execute_job
+    self.monitor_work_horse(job, queue)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1345, in monitor_work_horse
+    retpid, ret_val, rusage = self.wait_for_horse()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1267, in wait_for_horse
+    pid, stat, rusage = os.wait4(self.horse_pid, 0)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 531, in request_stop
+    self._shutdown()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 540, in _shutdown
+    self.set_shutdown_requested_date()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 960, in set_shutdown_requested_date
+    self.connection.hset(self.key, 'shutdown_requested_date', utcformat(self._shutdown_requested_date))
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/commands/core.py", line 5045, in hset
+    return self.execute_command("HSET", name, *pieces)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 567, in _execute_command
+    return conn.retry.call_with_retry(
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/retry.py", line 65, in call_with_retry
+    fail(error)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 571, in <lambda>
+    lambda error: self._disconnect_raise(conn, error),
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 555, in _disconnect_raise
+    raise error
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 568, in <lambda>
+    lambda: self._send_command_parse_response(
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 542, in _send_command_parse_response
+    return self.parse_response(conn, command_name, **options)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 584, in parse_response
+    response = connection.read_response()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 600, in read_response
+    raise ConnectionError(
+redis.exceptions.ConnectionError: Error while reading from 127.0.0.1:11001 : (104, 'Connection reset by peer')
+2025-05-22 15:41:02,340 Could not connect to Redis instance: Connection closed by server. Retrying in 2 seconds...
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+2025-05-28 12:21:07,295 Worker rq:worker:6020e8a32bef4ebc9c54562439288075: found an unhandled exception, quitting...
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 592, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/_parsers/hiredis.py", line 128, in read_response
+    self.read_from_socket()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/_parsers/hiredis.py", line 88, in read_from_socket
+    bufflen = self._sock.recv_into(self._buffer)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 625, in work
+    self.execute_job(job, queue)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1409, in execute_job
+    self.monitor_work_horse(job, queue)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1345, in monitor_work_horse
+    retpid, ret_val, rusage = self.wait_for_horse()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1267, in wait_for_horse
+    pid, stat, rusage = os.wait4(self.horse_pid, 0)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 531, in request_stop
+    self._shutdown()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 540, in _shutdown
+    self.set_shutdown_requested_date()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 960, in set_shutdown_requested_date
+    self.connection.hset(self.key, 'shutdown_requested_date', utcformat(self._shutdown_requested_date))
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/commands/core.py", line 5045, in hset
+    return self.execute_command("HSET", name, *pieces)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 567, in _execute_command
+    return conn.retry.call_with_retry(
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/retry.py", line 65, in call_with_retry
+    fail(error)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 571, in <lambda>
+    lambda error: self._disconnect_raise(conn, error),
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 555, in _disconnect_raise
+    raise error
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 568, in <lambda>
+    lambda: self._send_command_parse_response(
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 542, in _send_command_parse_response
+    return self.parse_response(conn, command_name, **options)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 584, in parse_response
+    response = connection.read_response()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 600, in read_response
+    raise ConnectionError(
+redis.exceptions.ConnectionError: Error while reading from 127.0.0.1:11001 : (104, 'Connection reset by peer')
+2025-05-28 12:21:07,306 Could not connect to Redis instance: Connection closed by server. Retrying in 2 seconds...
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 357, in connect
+    sock = self.retry.call_with_retry(
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 358, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 730, in _connect
+    raise err
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 718, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [Errno 111] Connection refused
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/monitor.py", line 127, in flush
+    logs = frappe.cache.lrange(MONITOR_REDIS_KEY, 0, -1)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/frappe/frappe/utils/redis_wrapper.py", line 174, in lrange
+    return super().lrange(self.make_key(key), start, stop)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/commands/core.py", line 2748, in lrange
+    return self.execute_command("LRANGE", name, start, end, keys=[name])
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 565, in _execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 1422, in get_connection
+    connection.connect()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 363, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 111 connecting to 127.0.0.1:13001. Connection refused.
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+2025-05-30 08:42:15,003 Worker rq:worker:044d31ac715146c8b572d2d36c1dd5d7: found an unhandled exception, quitting...
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 592, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/_parsers/hiredis.py", line 128, in read_response
+    self.read_from_socket()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/_parsers/hiredis.py", line 88, in read_from_socket
+    bufflen = self._sock.recv_into(self._buffer)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 625, in work
+    self.execute_job(job, queue)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1409, in execute_job
+    self.monitor_work_horse(job, queue)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1345, in monitor_work_horse
+    retpid, ret_val, rusage = self.wait_for_horse()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 1267, in wait_for_horse
+    pid, stat, rusage = os.wait4(self.horse_pid, 0)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 531, in request_stop
+    self._shutdown()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 540, in _shutdown
+    self.set_shutdown_requested_date()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/rq/worker.py", line 960, in set_shutdown_requested_date
+    self.connection.hset(self.key, 'shutdown_requested_date', utcformat(self._shutdown_requested_date))
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/commands/core.py", line 5045, in hset
+    return self.execute_command("HSET", name, *pieces)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 559, in execute_command
+    return self._execute_command(*args, **options)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 567, in _execute_command
+    return conn.retry.call_with_retry(
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/retry.py", line 65, in call_with_retry
+    fail(error)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 571, in <lambda>
+    lambda error: self._disconnect_raise(conn, error),
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 555, in _disconnect_raise
+    raise error
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/retry.py", line 62, in call_with_retry
+    return do()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 568, in <lambda>
+    lambda: self._send_command_parse_response(
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 542, in _send_command_parse_response
+    return self.parse_response(conn, command_name, **options)
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/client.py", line 584, in parse_response
+    response = connection.read_response()
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/redis/connection.py", line 600, in read_response
+    raise ConnectionError(
+redis.exceptions.ConnectionError: Error while reading from 127.0.0.1:11001 : (104, 'Connection reset by peer')
+2025-05-30 08:42:15,007 Could not connect to Redis instance: Connection closed by server. Retrying in 2 seconds...
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4
+/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pypdf/_crypt_providers/_cryptography.py:32: CryptographyDeprecationWarning: ARC4 has been moved to cryptography.hazmat.decrepit.ciphers.algorithms.ARC4 and will be removed from cryptography.hazmat.primitives.ciphers.algorithms in 48.0.0.
+  from cryptography.hazmat.primitives.ciphers.algorithms import AES, ARC4

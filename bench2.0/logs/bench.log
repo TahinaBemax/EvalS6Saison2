@@ -403,3 +403,60 @@
 2025-05-20 10:29:25,754 INFO /home/tahina/.cache/uv/archive-v0/LAUa49Ql52JkO6d33k4nE/bin/bench worker
 2025-05-20 10:29:25,864 INFO /home/tahina/.cache/uv/archive-v0/LAUa49Ql52JkO6d33k4nE/bin/bench schedule
 2025-05-20 12:00:04,189 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-05-21 08:13:04,265 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench start
+2025-05-21 08:13:05,382 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench serve --port 8001
+2025-05-21 08:13:05,383 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench watch
+2025-05-21 08:13:05,448 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench schedule
+2025-05-21 08:13:05,630 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench worker
+2025-05-22 10:19:41,318 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench start
+2025-05-22 10:19:42,267 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench serve --port 8001
+2025-05-22 10:19:42,275 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench schedule
+2025-05-22 10:19:42,291 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench watch
+2025-05-22 10:19:42,541 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench worker
+2025-05-22 12:00:04,101 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-05-23 10:46:55,836 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench start
+2025-05-23 10:46:56,696 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench serve --port 8001
+2025-05-23 10:46:56,707 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench watch
+2025-05-23 10:46:56,707 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench worker
+2025-05-23 10:46:56,846 INFO /home/tahina/.cache/uv/archive-v0/fHLHajV1SJbKyyg2CfANT/bin/bench schedule
+2025-05-27 15:54:26,120 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench new-app importApp
+2025-05-27 15:54:26,207 LOG creating new app importapp
+2025-05-27 15:57:09,814 LOG Installing importapp
+2025-05-27 15:57:09,984 DEBUG cd /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0 && /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/bin/python -m pip install --quiet --upgrade -e /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/importapp 
+2025-05-27 15:58:53,601 DEBUG bench build --app importapp
+2025-05-27 15:58:54,134 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench build --app importapp
+2025-05-27 16:00:49,571 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext install-app importApp
+2025-05-27 16:03:21,656 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext install-app importapp
+2025-05-27 16:09:18,245 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-27 16:09:19,417 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-27 16:09:19,429 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-27 16:09:19,451 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-27 16:09:19,502 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-27 18:00:02,969 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-05-28 11:23:36,166 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-28 11:23:38,851 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-28 11:23:38,852 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-28 11:23:39,047 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-28 11:23:39,271 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-28 12:00:03,279 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-05-30 08:28:16,567 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-30 08:28:17,524 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-30 08:28:17,528 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-30 08:28:17,529 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-30 08:28:17,659 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-30 08:43:09,647 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench install-app hrms
+2025-05-30 08:47:58,639 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench get-app hrms
+2025-05-30 08:48:00,465 LOG Getting hrms
+2025-05-30 08:48:00,466 DEBUG cd ./apps && git clone https://github.com/frappe/hrms.git  --depth 1 --origin upstream
+2025-05-30 08:48:51,953 LOG Installing hrms
+2025-05-30 08:48:51,978 DEBUG cd /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0 && /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/bin/python -m pip install --quiet --upgrade -e /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/hrms 
+2025-05-30 08:49:59,587 DEBUG cd /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/hrms && yarn install --check-files
+2025-05-30 09:05:53,551 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-30 09:05:56,899 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-30 09:05:56,901 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-30 09:05:56,922 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-30 09:05:57,311 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-30 09:31:58,611 DEBUG bench build --app hrms
+2025-05-30 09:32:00,614 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench build --app hrms
+2025-05-30 09:44:43,676 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext install-app hrms
+2025-05-30 09:52:56,754 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext migrate

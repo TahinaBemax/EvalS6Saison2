@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}">
+</head>
+  <link th:href="@{/css/item/item-style.css}" rel="stylesheet">
+  <title>Item-list</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<!-- ITEM FORM MODAL-->
+<div class="modal fade" id="modal-item-form" aria-hidden="true" aria-labelledby="modal-item-form" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content px-3">
+      <form class="row g-3 needs-validation" novalidate id="item-form">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">New Item</h1>
+          <button class="btn-close" data-bs-dismiss="modal" type="button" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body m-0">
+          <div class="">
+            <label class="form-label" for="item-code">Item Code <span style="color: red;">*</span></label>
+            <input class="form-control" id="item-code" name="item_code" type="text" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+          </div>
+          <div class="position-relative">
+            <label class="form-label" for="item-group">Item Group <span style="color: red;">*</span></label>
+            <input class="form-control" id="item-group" name="item_group" type="text" value required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+
+            <!-- Modal for Item Group List-->
+            <div class="position-absolute end-0  bg-white shadow" id="item-group-container">
+              <ul id="item-group-list">
+                <li th:each="item_group : ${itemGroups}" th:text="${item_group.getName()}"></li>
+              </ul>
+            </div>
+            <!-- -->
+          </div>
+          <div class="">
+            <label class="form-label" for="uom">Default Unite of Measure <span style="color: red;">*</span></label>
+            <input class="form-control" id="uom" type="text" name="stock_uom" value="Nos" required>
+            <div class="invalid-feedback"></div>
+          </div>
+
+          <div class="">
+            <div class="check-box-container">
+              <input class="form-check-input" id="maintain-stock" type="checkbox" checked="true">
+              <label class="form-check-label" for="maintain-stock">Maintain Stock</label>
+              <div class="valid-feedback"></div>
+            </div>
+          </div>
+
+          <div class="">
+            <div class="check-box-container">
+              <input class="form-check-input" id="is-fixed-asset" name="is-fixed-asset" type="checkbox">
+              <label class="form-check-label" for="is-fixed-asset">Is fixed asset</label>
+              <div class="valid-feedback"></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer m-0">
+          <button class="btn btn-secondary" data-bs-dismiss="modal" type="reset">Cancel</button>
+          <button class="btn btn-primary" type="submit" id="save-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- ---- -->
+
+<main>
+  <section>
+    <div class="row p-2 bg-light align-items-center justify-content-between">
+      <h4 class="w-auto fs-5 title">Item</h4>
+      <div class="w-auto text-end">
+        <!-- Button trigger modal -->
+        <button class="btn btn-primary px-2 py-1" data-bs-target="#modal-item-form" data-bs-toggle="modal" type="button">
+          <i class="bi bi-plus"></i>
+          <span>Add Item</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-2 p-2">
+      <table class="table table-bordered" id="item-list">
+        <thead class="bg-primary-subtle">
+        <tr>
+          <th scope="row" class="col-actions">
+            <input type="checkbox" name="all" class="form-check-input" id="all-checkbox">
+            <span class="item-name">Item Name</span>
+          </th>
+          <th scope="col">Status</th>
+          <th scope="col">Item Group</th>
+          <th scope="col">ID</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${items != null && items.size() > 0}" th:each="item : ${items}">
+          <th scope="row" class="col-actions">
+            <input type="checkbox" value="3" name="" class="form-check-input" id="">
+            <span class="" th:text="${item.getItem_name()}"></span>
+          </th>
+          <td>Enable</td>
+          <td th:text="${item.getItem_group()}"></td>
+          <td th:text="${item.getName()}"></td>
+        </tr>
+
+        <tr th:unless="${items != null && items.size() > 0}"><td colspan="4">No data</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script th:src="@{/js/item/item-script.js}"></script>
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>
