@@ -2,3 +2,8 @@ bench2.0/.idea
 bench2.0/env/
 bench2.0/sites/assets/erpnext
 bench2.0/sites/assets/frappe
+bench2.0/sites/assets/custom_app
+bench2.0/apps/erpnext/.git
+bench2.0/apps/hrms/.git
+bench2.0/sites/assets/hrms
+bench2.0/sites/assets/importapp

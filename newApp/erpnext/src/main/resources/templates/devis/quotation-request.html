@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/head :: head}">
+  <title>Choose A Supplier</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div style="position:fixed;bottom:0; right:0; width: auto"
+     class="alert-success alert text-end" th:if="${priceUpdatedAlert != null}" th:text="${priceUpdatedAlert}"></div>
+
+<main>
+  <div class="container-fluid">
+    <h5 class="text-center p-3 bg-white my-3">Quotation Requests</h5>
+    <div class="mb-3 p-3 bg-white"><a href="/supplier-quotations/new">New Supplier Quotation</a> </div>
+
+    <section class="row px-3 align-items-center justify-content-center">
+      <div class="col-12 bg-white py-3">
+        <p class="text-secondary mb-2">List of quotation request</p>
+
+        <table class="table my-3" id="table">
+          <thead>
+          <tr class="">
+            <th scope="col">Company</th>
+            <th scope="col">Supplier</th>
+            <th scope="col" class="text-center">Transaction Date</th>
+            <th scope="col">Item</th>
+            <th scope="col" class="text-end">Qty</th>
+            <th scope="col" class="text-end">Rate</th>
+            <th scope="col" class="text-end">Total Amount</th>
+            <th scope="col" class="text-center">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr th:if="${quotations.size() > 0}" th:each="item : ${quotations}">
+              <td th:text="${item.getCompany()}"></td>
+              <td th:text="${item.getSupplier_name()}"></td>
+              <td class="text-center" th:text="${item.getTransaction_date()}"></td>
+              <td th:text="${item.getItem_name()}"></td>
+              <td class="text-end" th:text="${item.getQty()}"></td>
+              <td class="text-end" th:text="${#numbers.formatCurrency(item.getRate())}"></td>
+              <td class="text-end" th:text="${#numbers.formatCurrency(item.getAmount())}"></td>
+
+              <td class="text-center" th:with="name=${item.getName()}">
+                <a th:if="${!item.isSubmited()}"
+                        th:href="@{/supplier-quotations/{id}/update-price(id=${item.name})}">
+                  <i class="bi bi-pencil-square"></i>
+                </a>
+                <span th:unless="${!item.isSubmited()}" style="color:#005bb5;"> Submited </span>
+              </td>
+            </tr>
+
+          <tr th:unless="${quotations.size() > 0}">
+            <td colspan="8" class="text-center">Empty</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready( function () {
+    $('#table').DataTable();
+  });
+</script>
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

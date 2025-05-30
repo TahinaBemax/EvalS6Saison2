@@ -1,0 +1,310 @@
+2025-05-06 12:52:51,367 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 12:54:15,458 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': 'data-configuration', 'cmd': 'frappe.desk.desk_page.getpage'}
+2025-05-06 13:09:04,835 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': 'data-configuration', 'cmd': 'frappe.desk.desk_page.getpage'}
+2025-05-06 13:12:08,420 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:19:52,204 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:35:05,720 ERROR frappe list.count() takes exactly one argument (0 given)
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:35:05,720 ERROR frappe list.count() takes exactly one argument (0 given)
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:35:05,728 ERROR frappe list.count() takes exactly one argument (0 given)
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:35:05,728 ERROR frappe list.count() takes exactly one argument (0 given)
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:35:45,900 ERROR frappe list.count() takes exactly one argument (0 given)
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 13:35:45,900 ERROR frappe list.count() takes exactly one argument (0 given)
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 14:10:22,044 ERROR frappe An error occurred: Attached To Name must be a string or an integer
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:00:32,524 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'Warehouse', 'name': 'Test - ITU', 'cmd': 'frappe.client.delete'}
+2025-05-06 15:12:12,886 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csvs'}
+2025-05-06 15:13:57,295 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:18:15,445 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:25:09,604 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:25:31,242 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:32:11,623 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:42:47,403 ERROR frappe ValidationError.__new__() missing 1 required positional argument: 'line_errors'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:49:07,865 ERROR frappe Material - There is an invalid data at line 2 : 8 validation errors for MaterialRequestModel
+date
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+item_name
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+item_groupe
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+required_by
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+quantity
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+purpose
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+target_warehouse
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+ref
+  Field required [type=missing, input_value={'supplier_name': 'Sanife...car', 'type': 'Company'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 15:54:50,423 ERROR frappe Material - There is an invalid data at line 2 : 2 validation errors for MaterialRequestModel
+date
+  Value error, Date must be in format YYYY-MM-DD: time data '02/05/2025' does not match format '%d-%m-%Y' [type=value_error, input_value='02/05/2025', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/value_error
+required_by
+  Value error, Date must be in format YYYY-MM-DD: time data '02/06/2025' does not match format '%d-%m-%Y' [type=value_error, input_value='02/06/2025', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.10/v/value_error
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 16:05:00,574 ERROR frappe An error occured during importation name 'suppliers' is not defined
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'ref_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/erpnext/erpnext/data_configuration/page/data_configuration/data_configuration.py", line 95, in import_csv
+    message=f"Material Request: csv_rows:${len(suppliers)}, imported_rows:${0}.",
+NameError: name 'suppliers' is not defined
+2025-05-06 16:52:19,327 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 16:59:32,231 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:06:02,939 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:12:19,064 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:17:20,128 ERROR frappe local variable 'groupes' referenced before assignment
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:32:36,959 ERROR frappe BaseModel.__init__() takes 1 positional argument but 2 were given
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:41:52,312 ERROR frappe 'function' object has no attribute 'info'
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:46:38,798 ERROR frappe 1 validation error for ItemModel
+item_code
+  Field required [type=missing, input_value={'item_group': 'piece', 'item_name': 'boulon'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+2025-05-06 17:46:38,840 ERROR frappe An error occured during importation 1 validation error for ImportCSVResponse
+message
+  Input should be a valid string [type=string_type, input_value=1 validation error for It...antic.dev/2.10/v/missing, input_type=ValidationError]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+Site: itu.erpnext
+Form Dict: {'supplier_file': 'undefined', 'delimiter': ',', 'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.import_csv'}
+Traceback (most recent call last):
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/apps/erpnext/erpnext/data_configuration/page/data_configuration/data_configuration.py", line 86, in import_csv
+    return ImportCSVResponse(
+  File "/mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/env/lib/python3.10/site-packages/pydantic/main.py", line 214, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+pydantic_core._pydantic_core.ValidationError: 1 validation error for ImportCSVResponse
+message
+  Input should be a valid string [type=string_type, input_value=1 validation error for It...antic.dev/2.10/v/missing, input_type=ValidationError]
+    For further information visit https://errors.pydantic.dev/2.10/v/string_type
+2025-05-06 20:27:31,904 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:27:31,904 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:27:31,904 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:27:31,904 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:27:35,622 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Group Import on 2025-05-06 19:10:37.078648', 'import_file': '/private/files/item_groups_extracted2b83d3.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:27:35,622 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Group Import on 2025-05-06 19:10:37.078648', 'import_file': '/private/files/item_groups_extracted2b83d3.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:28:56,773 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 20:28:56,773 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Item Import on 2025-05-06 16:52:54.634094', 'import_file': '/private/files/items_extracted02dd3e.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-06 23:47:22,141 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'party': 'Sanifer', 'party_type': 'Supplier', 'cmd': 'erpnext.accounts.party.get_party_details'}
+2025-05-07 00:09:58,275 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'erpnext.data_configuration.page.data_configuration.data_configuration.delete_all_data'}
+2025-05-07 01:05:24,934 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'party': 'Exxon', 'party_type': 'Supplier', 'cmd': 'erpnext.accounts.party.get_party_details'}
+2025-05-07 01:11:24,721 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'upload_file'}
+2025-05-07 01:25:50,890 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'party': 'Electroplus', 'party_type': 'Supplier', 'cmd': 'erpnext.accounts.party.get_party_details'}
+2025-05-07 01:40:35,511 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'party': 'Sanifer', 'party_type': 'Supplier', 'price_list': 'Standard Buying', 'posting_date': '2025-05-07', 'fetch_payment_terms_template': '1', 'currency': 'EUR', 'company': 'IT University', 'doctype': 'Supplier Quotation', 'cmd': 'erpnext.accounts.party.get_party_details'}
+2025-05-07 01:40:50,166 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'item_idx': '1', 'docs': '{"docstatus":0,"doctype":"Supplier Quotation","name":"new-supplier-quotation-nsyhqtqrrh","__islocal":1,"__unsaved":1,"owner":"Administrator","naming_series":"PUR-SQTN-.YYYY.-","company":"IT University","status":"Draft","transaction_date":"2025-05-07","has_unit_price_items":0,"currency":"EUR","buying_price_list":"Standard Buying","price_list_currency":"EUR","ignore_pricing_rule":0,"items":[{"docstatus":0,"doctype":"Supplier Quotation Item","name":"new-supplier-quotation-item-iaejokklkd","__islocal":1,"__unsaved":1,"owner":"Administrator","is_free_item":0,"stock_uom":"Nos","page_break":0,"parent":"new-supplier-quotation-nsyhqtqrrh","parentfield":"items","parenttype":"Supplier Quotation","idx":1,"qty":0,"conversion_factor":0,"stock_qty":0,"price_list_rate":0,"discount_amount":0,"distributed_discount_amount":0,"base_price_list_rate":0,"rate":0,"amount":0,"base_rate":0,"base_amount":0,"net_rate":0,"net_amount":0,"base_net_rate":0,"base_net_amount":0,"weight_per_unit":0,"total_weight":0,"item_code":"ITEM-00004"}],"taxes":[],"apply_discount_on":"Grand Total","disable_rounded_total":0,"pricing_rules":[],"group_same_items":0,"is_subcontracted":0,"valid_till":"2025-06-07","billing_address":"","shipping_address":"","billing_address_display":"","shipping_address_display":"","conversion_rate":1,"plc_conversion_rate":1,"base_net_total":0,"net_total":0,"base_total":0,"total":0,"total_qty":0,"grand_total":0,"taxes_and_charges_deducted":0,"taxes_and_charges_added":0,"base_grand_total":0,"base_taxes_and_charges_added":0,"base_taxes_and_charges_deducted":0,"total_taxes_and_charges":0,"base_total_taxes_and_charges":0,"rounded_total":0,"rounding_adjustment":0,"base_rounding_adjustment":0,"base_rounded_total":0,"in_words":"","base_in_words":"","base_discount_amount":0,"supplier_name":"Sanifer","supplier":"Sanifer"}', 'method': 'process_item_selection', 'args': '{"item_idx":1}', 'cmd': 'run_doc_method'}
+2025-05-07 01:41:43,253 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Supplier Quotation","name":"new-supplier-quotation-nsyhqtqrrh","__islocal":1,"__unsaved":1,"owner":"Administrator","naming_series":"PUR-SQTN-.YYYY.-","company":"IT University","status":"Draft","transaction_date":"2025-05-07","has_unit_price_items":0,"currency":"EUR","buying_price_list":"Standard Buying","price_list_currency":"EUR","ignore_pricing_rule":0,"items":[{"docstatus":0,"doctype":"Supplier Quotation Item","name":"new-supplier-quotation-item-iaejokklkd","__islocal":1,"__unsaved":1,"owner":"Administrator","is_free_item":0,"stock_uom":"Nos","page_break":0,"parent":"new-supplier-quotation-nsyhqtqrrh","parentfield":"items","parenttype":"Supplier Quotation","idx":1,"qty":1,"conversion_factor":1,"stock_qty":1,"price_list_rate":0,"discount_amount":0,"distributed_discount_amount":0,"base_price_list_rate":0,"rate":0,"amount":0,"base_rate":0,"base_amount":0,"net_rate":0,"net_amount":0,"base_net_rate":0,"base_net_amount":0,"weight_per_unit":0,"total_weight":0,"item_code":"ITEM-00004","uom":"Abampere","pricing_rules":"","has_margin":false,"child_docname":"new-supplier-quotation-item-iaejokklkd","discount_percentage":0,"warehouse":"All Warehouses - ITU","projected_qty":5,"actual_qty":0,"reserved_qty":0,"company_total_stock":0}],"taxes":[],"apply_discount_on":"Grand Total","disable_rounded_total":0,"pricing_rules":[],"group_same_items":0,"is_subcontracted":0,"valid_till":"2025-06-07","billing_address":"","shipping_address":"","billing_address_display":"","shipping_address_display":"","conversion_rate":1,"plc_conversion_rate":1,"base_net_total":0,"net_total":0,"base_total":0,"total":0,"total_qty":1,"grand_total":0,"taxes_and_charges_deducted":0,"taxes_and_charges_added":0,"base_grand_total":0,"base_taxes_and_charges_added":0,"base_taxes_and_charges_deducted":0,"total_taxes_and_charges":0,"base_total_taxes_and_charges":0,"rounded_total":0,"rounding_adjustment":0,"base_rounding_adjustment":0,"base_rounded_total":0,"in_words":"","base_in_words":"","base_discount_amount":0,"supplier_name":"Sanifer","supplier":"Sanifer","total_net_weight":0}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-05-07 05:21:22,337 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'party': 'Sanifer', 'party_type': 'Supplier', 'price_list': 'Standard Buying', 'posting_date': '2025-05-07', 'fetch_payment_terms_template': '1', 'currency': 'EUR', 'company': 'IT University', 'doctype': 'Supplier Quotation', 'cmd': 'erpnext.accounts.party.get_party_details'}
+2025-05-07 05:21:22,485 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'method': 'erpnext.buying.doctype.request_for_quotation.request_for_quotation.make_supplier_quotation_from_rfq', 'source_names': '["PUR-RFQ-2025-00008","PUR-RFQ-2025-00009"]', 'target_doc': '{"docstatus":0,"doctype":"Supplier Quotation","name":"new-supplier-quotation-ddjaryezfu","__islocal":1,"__unsaved":1,"owner":"Administrator","naming_series":"PUR-SQTN-.YYYY.-","company":"IT University","status":"Draft","transaction_date":"2025-05-07","has_unit_price_items":0,"currency":"EUR","buying_price_list":"Standard Buying","price_list_currency":"EUR","ignore_pricing_rule":0,"items":[],"taxes":[],"apply_discount_on":"Grand Total","disable_rounded_total":0,"pricing_rules":[],"group_same_items":0,"is_subcontracted":0,"valid_till":"2025-06-07","conversion_rate":1,"plc_conversion_rate":1,"billing_address":"","shipping_address":"","billing_address_display":"","shipping_address_display":"","base_net_total":0,"net_total":0,"base_total":0,"total":0,"total_qty":0,"grand_total":0,"taxes_and_charges_deducted":0,"taxes_and_charges_added":0,"base_grand_total":0,"base_taxes_and_charges_added":0,"base_taxes_and_charges_deducted":0,"total_taxes_and_charges":0,"base_total_taxes_and_charges":0,"rounded_total":0,"rounding_adjustment":0,"base_rounding_adjustment":0,"base_rounded_total":0,"in_words":"","base_in_words":"","base_discount_amount":0,"supplier_name":"Sanifer","supplier":"Sanifer"}', 'cmd': 'frappe.model.mapper.map_docs'}
+2025-05-07 08:26:09,408 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Request for Quotation Import on 2025-05-07 08:19:48.748591', 'import_file': '/private/files/req_for_quotation48ed15.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-07 08:26:09,408 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Request for Quotation Import on 2025-05-07 08:19:48.748591', 'import_file': '/private/files/req_for_quotation48ed15.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-07 09:54:20,926 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Request for Quotation Import on 2025-05-07 09:41:38.900431', 'import_file': '/private/files/req_for_quotation86e525.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-07 09:54:22,857 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Supplier Quotation Import on 2025-05-07 09:41:41.957989', 'import_file': '/private/files/supplier_quotatione52d8b.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
+2025-05-07 10:04:14,697 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'references': [{'reference_name': 'ACC-PINV-2025-00001', 'reference_doctype': 'Purchase Invoice', 'total_amount': 1800.0, 'allocated_amount': 1800.0, 'outstanding_amount': '1800.0'}], 'party_type': 'Supplier', 'received_amount': 1800.0, 'doctype': 'Payment Entry', 'payment_type': 'Pay', 'paid_from_account_currency': 'EUR', 'submit_after_save': True, 'paid_to': 'Creditors - ITU', 'paid_amount': 1800.0, 'company': 'IT University', 'mode_of_payment': 'Cash', 'posting_date': '2025-05-07', 'paid_from': 'Cash - ITU', 'source_exchange_rate': 1, 'party': 'Sanifer'}
+2025-05-07 15:55:17,330 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {}
+2025-05-07 15:56:13,620 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'limit_page_length': 20}
+2025-05-07 15:58:49,068 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'items': [{'item_code': '', 'amount': 2, 'uom': 'Abampere', 'quantity': 1.0, 'rate': 1, 'exchanger_rate': 0, 'warehouse': 'Stereos - ITU'}], 'Date': '2025-05-07'}
+2025-05-07 16:00:00,881 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'item_idx': '1', 'docs': '{"docstatus":0,"doctype":"Supplier Quotation","name":"new-supplier-quotation-xdgnhngcmb","__islocal":1,"__unsaved":1,"owner":"Administrator","naming_series":"PUR-SQTN-.YYYY.-","company":"IT University","status":"Draft","transaction_date":"2025-05-07","has_unit_price_items":0,"currency":"EUR","buying_price_list":"Standard Buying","price_list_currency":"EUR","ignore_pricing_rule":0,"items":[{"docstatus":0,"doctype":"Supplier Quotation Item","name":"new-supplier-quotation-item-bqdhohlaqh","__islocal":1,"__unsaved":1,"owner":"Administrator","is_free_item":0,"stock_uom":"Nos","page_break":0,"parent":"new-supplier-quotation-xdgnhngcmb","parentfield":"items","parenttype":"Supplier Quotation","idx":1,"qty":0,"conversion_factor":0,"stock_qty":0,"price_list_rate":0,"discount_amount":0,"distributed_discount_amount":0,"base_price_list_rate":0,"rate":0,"amount":0,"base_rate":0,"base_amount":0,"net_rate":0,"net_amount":0,"base_net_rate":0,"base_net_amount":0,"weight_per_unit":0,"total_weight":0,"item_code":"ITEM-00009"}],"taxes":[],"apply_discount_on":"Grand Total","disable_rounded_total":0,"pricing_rules":[],"group_same_items":0,"is_subcontracted":0,"valid_till":"2025-06-07","billing_address":"","shipping_address":"","billing_address_display":"","shipping_address_display":"","conversion_rate":1,"plc_conversion_rate":1,"base_net_total":0,"net_total":0,"base_total":0,"total":0,"total_qty":0,"grand_total":0,"taxes_and_charges_deducted":0,"taxes_and_charges_added":0,"base_grand_total":0,"base_taxes_and_charges_added":0,"base_taxes_and_charges_deducted":0,"total_taxes_and_charges":0,"base_total_taxes_and_charges":0,"rounded_total":0,"rounding_adjustment":0,"base_rounding_adjustment":0,"base_rounded_total":0,"in_words":"","base_in_words":"","base_discount_amount":0}', 'method': 'process_item_selection', 'args': '{"item_idx":1}', 'cmd': 'run_doc_method'}
+2025-05-07 16:21:00,607 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'Date': '2025-05-07'}
+2025-05-07 16:21:16,376 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'Date': '2025-05-07'}
+2025-05-07 16:58:18,469 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'items': [{'item_code': '', 'amount': 2, 'uom': 'Abampere', 'quantity': 1.0, 'rate': 1, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}], 'Date': '2025-05-07'}
+2025-05-07 17:01:12,411 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'items': [{'item_code': '', 'amount': 2, 'uom': 'Abampere', 'rate': 1, 'qty': 1.0, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}], 'Date': '2025-05-07'}
+2025-05-07 17:03:10,661 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'items': [{'item_code': 'tuile', 'amount': 2, 'uom': 'Abampere', 'rate': 1, 'qty': 1.0, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}], 'Date': '2025-05-07'}
+2025-05-07 17:06:19,136 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'submit_after_save': True, 'Supplier': 'ABC', 'company': 'IT University', 'items': [{'item_code': 'ITEM-00016', 'amount': 2, 'uom': 'Abampere', 'rate': 1, 'qty': 1.0, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}], 'Date': '2025-05-07'}
+2025-05-07 17:31:11,400 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'supplier': 'ABC', 'submit_after_save': True, 'company': 'IT University', 'items': [{'item_code': 'tuile', 'amount': 2, 'uom': 'Abampere', 'rate': 1, 'qty': 2.0, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}, {'item_code': 'colle', 'amount': 2, 'uom': 'Abampere', 'rate': 1, 'qty': 2.0, 'exchanger_rate': 0, 'warehouse': 'Stores - ITU'}], 'Date': '2025-05-07'}
+2025-05-13 15:51:23,891 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'supplier': 'ABC', 'submit_after_save': True, 'company': 'IT University', 'items': [{'item_code': None, 'amount': None, 'uom': 'Nos', 'rate': 1, 'qty': 0.0, 'exchanger_rate': 0, 'warehouse': 'All Warehouse - ITU'}], 'Date': '2025-05-13'}
+2025-05-13 16:14:13,629 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'supplier': 'ABC', 'submit_after_save': True, 'company': 'IT University', 'items': [{'item_code': 'ITEM-00009', 'amount': None, 'uom': '', 'rate': None, 'qty': 0.0, 'exchanger_rate': 0, 'warehouse': ''}], 'Date': '2025-05-13'}
+2025-05-13 16:18:31,367 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'PUR-SQTN-.YYYY', 'supplier': 'ABC', 'submit_after_save': True, 'company': 'IT University', 'items': [{'item_code': 'ITEM-00009', 'amount': None, 'uom': '', 'rate': None, 'qty': 0.0, 'exchanger_rate': 0, 'warehouse': ''}], 'Date': '2025-05-13'}
+2025-05-20 10:49:49,737 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': [['name', 'item_name', 'item_group']], 'limit_page_length': 20}
+2025-05-20 10:50:44,007 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': [['name', 'item_name', 'item_group']], 'limit_page_length': 20}
+2025-05-20 14:13:22,914 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': None, 'item_name': None, 'item_code': 'ITEM-00010', 'item_group': 'consommable', 'stock_uom': 'Nos', 'warehouse': None, 'qty': 0.0, 'rate': None, 'amount': None}
+2025-05-20 14:14:51,397 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': None, 'item_name': None, 'item_code': 'ITEM-10010', 'item_group': 'consommable', 'stock_uom': 'Nos', 'warehouse': None, 'qty': 0.0, 'rate': None, 'amount': None}
+2025-05-23 11:18:12,510 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'MAT-MR-.YYYY.-', 'required_by': '2025-05-23', 'transaction_date': None, 'purpose': 'Purchase', 'items': [{'warehouse': 'All Warehouses - ITU', 'qty': '1', 'stock_uom': 'Nos', 'required_by': '2025-05-23'}]}
+2025-05-23 11:31:04,790 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'MAT-MR-.YYYY.-', 'required_by': '2025-05-23', 'transaction_date': None, 'material_request_type': None, 'items': [{'warehouse': 'All Warehouses - ITU', 'qty': '1', 'stock_uom': 'Nos', 'required_by': '2025-05-23'}]}
+2025-05-23 11:42:45,871 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'MAT-MR-.YYYY.-', 'required_by': None, 'transaction_date': '2025-05-23', 'material_request_type': None, 'items': [{'warehouse': 'All Warehouses - ITU', 'qty': '1', 'stock_uom': 'Nos'}]}
+2025-05-23 11:46:40,288 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'series': 'MAT-MR-.YYYY.-', 'required_by': None, 'transaction_date': '2025-05-23', 'material_request_type': None, 'items': [{'warehouse': 'All Warehouses - ITU', 'qty': '1', 'stock_uom': 'Nos'}]}
+2025-05-27 16:31:50,014 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'C:\\Users\\TahinaBemax\\Desktop\\EvaluationS6\\Saison_2\\bench2.0\\sites\\itu.erpnext\\private\\files\\supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 16:38:17,563 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 16:47:08,548 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 16:56:51,156 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 17:04:59,909 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 17:18:54,670 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 17:19:59,789 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 17:23:17,714 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 18:18:47,662 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-27 18:22:52,368 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}

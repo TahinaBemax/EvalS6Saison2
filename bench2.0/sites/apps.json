@@ -17,5 +17,35 @@
         "required": [],
         "idx": 2,
         "version": "16.0.0-dev"
+    },
+    "custom_app": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "2bc0fdf076f42b41ef53bfdd1eadee5c6e137c8d",
+            "branch": "metier-quotation"
+        },
+        "required": [],
+        "idx": 3,
+        "version": "0.0.1"
+    },
+    "importapp": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "a2d381004afab2030f6eae600fe633f8f7637efc",
+            "branch": "feature-item"
+        },
+        "required": [],
+        "idx": 4,
+        "version": "0.0.1"
+    },
+    "hrms": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "ad44f7ce22bc02315cf672635cf02adb8a61e06b",
+            "branch": "develop"
+        },
+        "required": [],
+        "idx": 5,
+        "version": "16.0.0-dev"
     }
 }

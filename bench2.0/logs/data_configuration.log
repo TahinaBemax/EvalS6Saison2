@@ -1,0 +1,19 @@
+2025-05-06 17:46:38,477 INFO data_configuration item_groups: [ItemGroupModel(item_group_name='piece'), ItemGroupModel(item_group_name='consommable')]
+2025-05-06 17:46:38,510 INFO data_configuration Material name:boulon
+2025-05-06 17:46:38,611 INFO data_configuration Material name:boulon
+2025-05-06 17:52:12,550 INFO data_configuration item_groups: [ItemGroupModel(item_group_name='piece'), ItemGroupModel(item_group_name='consommable')]
+2025-05-06 17:52:12,827 INFO data_configuration Material name:boulon
+2025-05-06 17:52:13,185 INFO data_configuration Material name:boulon
+2025-05-06 17:52:13,228 ERROR data_configuration An error occured during importation local variable 'e' referenced before assignment
+2025-05-06 17:53:11,739 INFO data_configuration item_groups: [ItemGroupModel(item_group_name='piece'), ItemGroupModel(item_group_name='consommable')]
+2025-05-06 17:53:11,757 INFO data_configuration Material name:boulon
+2025-05-06 17:53:11,765 INFO data_configuration Material name:boulon
+2025-05-06 17:53:11,773 ERROR data_configuration An error occured during importation local variable 'e' referenced before assignment
+2025-05-06 17:56:15,219 INFO data_configuration item_groups: [ItemGroupModel(item_group_name='piece'), ItemGroupModel(item_group_name='consommable')]
+2025-05-06 17:56:15,225 INFO data_configuration Material name:boulon
+2025-05-06 17:56:15,231 INFO data_configuration Material name:boulon
+2025-05-06 17:56:15,239 ERROR data_configuration 1 validation error for ItemModel
+item_code
+  Field required [type=missing, input_value={'item_group': 'piece', 'item_name': 'boulon'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.10/v/missing
+2025-05-06 18:03:17,470 INFO data_configuration Material name:boulon

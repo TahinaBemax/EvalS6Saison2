@@ -1,0 +1,92 @@
+form input {
+    padding: 1px 5px !important;
+    background: #f9f4f4 !important;
+    display: inline-block !important;
+}
+
+form .form-label {
+    color: rgb(51, 50, 50);
+}
+.supplier_quotation input{
+    width: 400px !important;
+}
+
+.field-container {
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+
+/* table*/
+.table tr td {
+    padding: 2px 2px !important;
+}
+.table tr th {
+    padding: 5px 10px;
+    font-weight: 500 !important;
+}
+
+.table tr td input {
+    border-radius: none !important;
+}
+
+
+.table tr td.action,
+.table tr th.action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table tr td > button,
+.table tr th > button {
+    display: inline-block;
+    font-size: 1em;
+    width: 30px;
+    height: 25px;
+}
+
+.rate, .qty, .uom, .amount_rate {
+    width: 130px !important;
+}
+
+/* WAREHOUSE POP UP*/
+
+#warehouse-container,
+#item-container {
+    display: flex;
+    width: 100%;
+    border-radius: 8px;
+    top: 100%;
+}
+
+#warehouse-container ul,
+#item-container ul{
+    width: 100%;
+    list-style: none;
+    padding: 0 8px;
+}
+
+#warehouse-container ul li,
+#item-container ul li{
+    margin: 5px 0px;
+    font-size: 0.85em;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 5px;
+    font-weight: 600;
+}
+
+#warehouse-container ul li:hover,
+#item-container ul li:hover{
+    text-decoration: underline;
+    font-weight: 400;
+    background-color: rgb(248, 244, 244);
+}
+
+#warehouse-container ul li.active{
+    background-color: rgb(248, 244, 244);
+}
+/*  */

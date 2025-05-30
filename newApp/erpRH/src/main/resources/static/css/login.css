@@ -1,0 +1,50 @@
+/* Style général */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+/* Personnalisation du bouton */
+.btn-primary {
+    background-color: #0066cc;
+    border-color: #0066cc;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #005bb5;
+    border-color: #005bb5;
+}
+
+/* Mise en forme du formulaire */
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+input.form-control {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+/* Card Shadow pour un effet de profondeur */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Centrer l'écran */
+.min-vh-100 {
+    min-height: 100vh;
+}

@@ -1,0 +1,14 @@
+{
+  "purchase_orders": [
+    "",
+    "Draft",
+    "On Hold",
+    "To Receive and Bill",
+    "To Bill",
+    "To Receive",
+    "Completed",
+    "Cancelled",
+    "Closed",
+    "Delivered"
+  ]
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{fragments/head :: head}">
+    <title>New price</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main>
+    <div class="container-fluid" style="min-height: 76vh">
+        <section class="row align-items-center justify-content-center" style="min-height: 75vh">
+
+            <div class="col-5 bg-white">
+                <form method="post" th:action="@{/supplier-quotations/items/{id}/update-price(id=*{id})}" th:object="${formData}">
+                    <div class="my-2">
+                        <h4 class="text-center">Update Price</h4>
+                        <div class="alert-danger alert" th:if="${error}" th:text="${error}"></div>
+                    </div>
+
+                    <div class="inputs">
+                        <input type="hidden" name="id" th:field="*{id}">
+                        <div class="col p-3 rounded">
+                            <label for="price" class="form-label">Price</label>
+                            <input type="number" class="form-control" step="any" name="newPrice" id="price" th:field="*{newPrice}">
+
+                            <div class="alert alert-danger" th:if="${#fields.hasErrors('newPrice')}" th:errors="*{newPrice}"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 my-4">Update</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</main>
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

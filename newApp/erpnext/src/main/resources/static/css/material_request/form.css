@@ -1,0 +1,44 @@
+.required_field {
+    color: red;
+}
+
+.input_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input_container > label {
+    width: 36% !important;
+    padding: 3px 8px !important;
+}
+
+.input_container > input
+.input_container > select{
+    width: 63% !important;
+    padding: 3px 8px !important;
+}
+
+/* START TABLE */
+.table tr > th {
+    font-weight: 400;
+    font-size: 0.9em;
+    padding: 3px 8px;
+    background-color: rgb(241, 238, 238);
+}
+
+.table > tbody > tr > td {
+    padding: 0px;
+}
+.table > tbody > tr > td > input {
+    font-size: 0.9em;
+    padding: 3px 8px;
+    width: 100%;
+    background-color: rgb(252, 251, 251);
+    border: none;
+}
+
+.table > tbody > tr > td > input:focus {
+    outline: 1px solid rgb(129, 176, 217)
+}
+/* END TABLE */

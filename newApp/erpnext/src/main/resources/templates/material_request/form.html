@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="~{fragments/head :: head}">
+</head>
+
+<head>
+    <link th:href="@{/css/material_request/form.css}" rel="stylesheet">
+    <title>New Material Request</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header class="border row justify-content-between py-2 px-3 bg-white">
+    <h3 class="w-auto fs-5 ">
+        Material Request
+        <span style="font-size: 0.7em;"
+              class="status w-auto bg-warning-subtle text-danger rounded-3 p-1 mx-2">Not Saved</span>
+    </h3>
+    <div class="w-auto">
+        <button type="button" class="btn bg-dark text-white px-3 py-1" id="save-btn">Save</button>
+    </div>
+</header>
+
+<main>
+    <div class="container my-3 shadow-sm rounded py-3 px-2 bg-white">
+        <form>
+            <div class="row">
+                <div class="col">
+                    <div class="input_container">
+                        <label class="form-label" for="series">Series <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control" id="series" value="MAT-MR-.YYYY.-">
+                    </div>
+
+                    <div class="input_container">
+                        <label class="form-label" for="purpose">Purpose <span class="text-danger">*</span></label>
+                        <select name="purpose" class="form-select" id="purpose">
+                            <option value="Purchase">Purchase</option>
+                            <option value="Material Transfert">Material Transfert</option>
+                            <option value="Material Issue">Material Issue</option>
+                            <option value="Manufacture">Manufacture</option>
+                            <option value="Subcontracting">Subcontracting</option>
+                            <option value="Customer Provider">Customer Provider</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="input_container">
+                        <label class="form-label" for="transaction_date">Transaction Date <span class="text-danger">*</span></label>
+                        <input type="date" name="transaction_date" class="form-control" id="transaction_date">
+                    </div>
+
+                    <div class="input_container">
+                        <label class="form-label" for="requried_date">Required By <span class="required_field">*</span></label>
+                        <input type="date" name="required_by" class="form-control" id="requried_date">
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-100 my-4">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th class="text-center"><input type="checkbox" id="all-checkbox"></th>
+                        <th class="text-center">No.</th>
+                        <th>Item Code</th>
+                        <th>Required By <span class="required_field">*</span></th>
+                        <th>Quantity</th>
+                        <th>Target Warehouse</th>
+                        <th>UOM <span class="required_field">*</span></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="checkbox" class=""> </td>
+                        <td class="text-center">1</td>
+                        <td><input type="text" name="item_code"></td>
+                        <td><input type="date" name="item_required_by"></td>
+                        <td><input type="text" name="quantity"></td>
+                        <td><input type="text" name="warehouse"></td>
+                        <td><input type="text" name="uom"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="btn-container">
+                <button type="button" id="add-row-btn" class="px-3 py-1 rounded-2" style="font-size: 0.95em;">Add Row</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+<script th:src="@{/js/material_request/script.js}"></script>
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>
