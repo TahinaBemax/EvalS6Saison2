@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}">
+</head>
+<link th:href="@{/css/employee/list.css}" rel="stylesheet">
+<title>Employee - List</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main>
+  <section>
+    <div class="mt-2 p-2">
+      <table class="table table-bordered" id="item-list">
+        <thead class="bg-primary-subtle">
+        <tr>
+          <th scope="col" class="col-actions">
+            <input type="checkbox" name="all" class="form-check-input" id="all-checkbox">
+            ID
+          </th>
+          <th scope="row" >
+            <span class="item-name">Full Name</span>
+          </th>
+          <th scope="col">Designation</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="col-actions">
+            <input type="checkbox" value="3" name="" class="form-check-input" id="">
+            HR-EMP-0002
+          </td>
+          <th scope="row" >
+            <span class="">Tahina Bemax</span>
+          </th>
+          <td>Developpeur</td>
+          <td>Male</td>
+          <td>Active</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script th:src="@{/js/employee/employee.js}"></script>
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

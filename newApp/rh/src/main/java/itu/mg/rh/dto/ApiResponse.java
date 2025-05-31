@@ -1,0 +1,15 @@
+package itu.mg.rh.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+public class ApiResponse<T> {
+    List<T> data;
+    String message;
+    String status;
+    List<String> errors;
+}

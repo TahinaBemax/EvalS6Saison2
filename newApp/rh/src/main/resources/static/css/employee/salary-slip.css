@@ -1,0 +1,63 @@
+/* Salary Slip specific styles */
+.title {
+    color: #333;
+    font-weight: 500;
+}
+
+.table th {
+    background-color: #f8f9fa;
+    font-weight: 500;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Filter section styles */
+.form-label {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.form-select, .form-control {
+    font-size: 0.875rem;
+}
+
+/* Modal styles */
+.modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
+/* Action buttons styles */
+.btn-group {
+    gap: 0.25rem;
+}
+
+.btn-group .btn {
+    border-radius: 0.25rem !important;
+}
+
+/* Status badge styles */
+.badge {
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .row.g-3 {
+        margin-right: -0.5rem;
+        margin-left: -0.5rem;
+    }
+    
+    .col-md-3 {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+}

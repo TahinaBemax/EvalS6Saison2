@@ -482,3 +482,30 @@
 2025-05-31 09:45:10,205 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
 2025-05-31 09:45:10,546 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
 2025-05-31 10:55:51,347 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute erpnext.demo.make_demo
+2025-05-31 11:24:16,476 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute full_hr_seed_data.create_hr_test_data
+2025-05-31 11:26:32,973 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute importapp.fakedata.full_hr_seed_data.create_hr_test_data
+2025-05-31 11:28:41,279 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute importapp.importapp.fakedata.full_hr_seed_data.create_hr_test_data
+2025-05-31 12:00:02,971 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-05-31 13:12:34,266 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-31 13:12:39,611 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-31 13:12:39,660 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-31 13:12:39,701 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-31 13:12:39,890 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-31 14:44:45,315 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute erpnext.hr.doctype.department.department.setup_defaults
+2025-05-31 14:49:52,856 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext reinstall-app hrms
+2025-05-31 14:52:43,320 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute frappe.reload_doctype('Employee')
+2025-05-31 14:53:08,771 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute frappe.reload_doctype('Department')
+2025-05-31 14:53:46,527 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute frappe.reload_doctype('Designation')
+2025-05-31 14:54:46,777 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext backup
+2025-05-31 14:55:30,249 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext uninstall-app hrms
+2025-05-31 14:57:52,353 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext install-app hrms
+2025-05-31 15:06:46,670 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-31 15:06:49,099 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-31 15:06:49,512 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-31 15:06:49,536 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-31 15:06:49,691 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-31 18:23:15,812 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-31 18:23:16,903 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-31 18:23:16,907 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-31 18:23:17,007 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-31 18:23:17,123 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker

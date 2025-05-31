@@ -1,9 +1,0 @@
-package itu.mg.erprh.models;
-
-import java.time.LocalDate;
-
-public class ExpenseClaim {
-    String employee;
-    LocalDate postingDate;
-    String expenseEntries;
-}

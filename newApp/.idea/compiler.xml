@@ -7,11 +7,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="erpnext (2)" />
+        <module name="rh" />
+      </profile>
+      <profile name="Annotation profile for erpnext" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="erpnext" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="erpnext" target="17" />
+      <module name="erpnext (1)" target="17" />
+      <module name="erpnext (2)" target="17" />
       <module name="erpRH" target="1.5" />
       <module name="Prepa_evalutation_S6" target="17" />
     </bytecodeTargetLevel>
@@ -22,6 +32,7 @@
       <module name="erpnext" options="-parameters" />
       <module name="erpnext (1)" options="-parameters" />
       <module name="erpnext (2)" options="-parameters" />
+      <module name="rh" options="-parameters" />
     </option>
   </component>
 </project>
