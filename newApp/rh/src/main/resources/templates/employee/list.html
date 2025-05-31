@@ -31,7 +31,12 @@
           </div>
           <div class="col-4">
             <label for="departementFilter" class="form-label">Department</label>
-            <input type="text" class="form-control" id="departementFilter" placeholder="Enter department">
+            <select class="form-select" id="departementFilter">
+              <option value="">All</option>
+              <option th:each="department : ${departments}"
+                      th:value="${department.getName()}"
+                      th:text="${department.getDepartmentName()}"></option>
+            </select>
           </div>
 
           <div class="col align-self-end">

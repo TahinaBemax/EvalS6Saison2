@@ -3,7 +3,9 @@ package itu.mg.rh.controller;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.dto.SalarySlipDTO;
 import itu.mg.rh.exception.FrappeApiException;
+import itu.mg.rh.models.Departement;
 import itu.mg.rh.models.Employee;
+import itu.mg.rh.services.DepartementService;
 import itu.mg.rh.services.EmployeeService;
 import itu.mg.rh.services.SalarySlipService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +23,20 @@ import java.util.List;
 public class EmployeeController {
 
     private final EmployeeService employeeService;
+    private final DepartementService departmentService;
     private final SalarySlipService salarySlipService;
 
     @Autowired
-    EmployeeController(SalarySlipService salarySlipService, EmployeeService employeeService) {
+    EmployeeController(SalarySlipService salarySlipService, EmployeeService employeeService, DepartementService departmentService) {
         this.salarySlipService = salarySlipService;
         this.employeeService = employeeService;
+        this.departmentService = departmentService;
     }
 
     @GetMapping()
-    public String employeePage(Model model ) {
+    public String employeePage(Model model) {
+        List<Departement> allDepartments = departmentService.getAllDepartments();
+        model.addAttribute("departments", allDepartments);
         return "employee/list";
     }
 
@@ -62,4 +68,5 @@ public class EmployeeController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body( e.getErrorResponse());
         }
     }
+
 }

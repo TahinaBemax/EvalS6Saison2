@@ -1,7 +1,11 @@
 package itu.mg.rh.models;
 
+import lombok.Data;
+
+@Data
 public class Departement {
-    String DepartementName;
+    String name;
+    String DepartmentName;
     String company;
-    String parentDepartement;
+    String parentDepartment;
 }

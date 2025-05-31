@@ -293,3 +293,11 @@
 2025-05-31 22:04:02,026 ERROR scheduler Skipped queueing frappe.website.doctype.personal_data_deletion_request.personal_data_deletion_request.process_data_deletion_request because it was found in queue for itu.erpnext
 2025-05-31 22:04:02,153 ERROR scheduler Skipped queueing frappe.email.doctype.notification.notification.trigger_offset_alerts because it was found in queue for itu.erpnext
 2025-05-31 22:04:02,218 ERROR scheduler Skipped queueing frappe.email.doctype.newsletter.newsletter.send_scheduled_email because it was found in queue for itu.erpnext
+2025-05-31 23:04:01,121 ERROR scheduler Skipped queueing frappe.twofactor.delete_all_barcodes_for_users because it was found in queue for itu.erpnext
+2025-05-31 23:04:01,186 ERROR scheduler Skipped queueing frappe.monitor.flush because it was found in queue for itu.erpnext
+2025-05-31 23:04:01,287 ERROR scheduler Skipped queueing frappe.desk.form.document_follow.send_hourly_updates because it was found in queue for itu.erpnext
+2025-05-31 23:04:01,324 ERROR scheduler Skipped queueing frappe.email.doctype.notification.notification.trigger_offset_alerts because it was found in queue for itu.erpnext
+2025-05-31 23:04:01,483 ERROR scheduler Skipped queueing frappe.email.doctype.email_account.email_account.notify_unreplied because it was found in queue for itu.erpnext
+2025-05-31 23:04:01,526 ERROR scheduler Skipped queueing frappe.deferred_insert.save_to_db because it was found in queue for itu.erpnext
+2025-05-31 23:04:01,553 ERROR scheduler Skipped queueing hrms.hr.doctype.interview.interview.send_interview_reminder because it was found in queue for itu.erpnext
+2025-05-31 23:04:01,570 ERROR scheduler Skipped queueing erpnext.erpnext_integrations.doctype.plaid_settings.plaid_settings.automatic_synchronization because it was found in queue for itu.erpnext

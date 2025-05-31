@@ -13,7 +13,8 @@ $(document).ready(function () {
     init();
 
     function init() {
-        filterEmployees()
+        //fetchDepartments();
+        filterEmployees();
         bindEvents();
         dataTable();
     }
@@ -149,7 +150,24 @@ $(document).ready(function () {
         $("input[name='warehouse']").autocomplete({ source: warehouses });
     }
 
-
+    function fetchDepartments() {
+        $.ajax({
+            url: "/departments",
+            method: "GET",
+            dataType: "json",
+            success: function(data) {
+                const $select = $("#departementFilter");
+                if (data != null && data.status === "success"){
+                    data.forEach(function(department) {
+                        $select.append(`<option value="${department.DepartementName}">${department.DepartementName}</option>`);
+                    });
+                }
+            },
+            error: function(xhr) {
+                console.error("Departments Error:", xhr.responseText);
+            }
+        });
+    }
 
     function prepareFormData(){
         const series = $("[name='series']").val();
