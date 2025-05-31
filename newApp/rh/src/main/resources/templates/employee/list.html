@@ -22,6 +22,27 @@
     </div>
 
     <div class="mt-2 p-2 bg-white">
+      <div id="filter" class="mb-4 border py-2 px-1">
+        <p class="text-secondary">Filter</p>
+        <div class="row">
+          <div class="col-4">
+            <label for="fullNameFilter" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullNameFilter" placeholder="Enter full name">
+          </div>
+          <div class="col-4">
+            <label for="departementFilter" class="form-label">Department</label>
+            <input type="text" class="form-control" id="departementFilter" placeholder="Enter department">
+          </div>
+
+          <div class="col align-self-end">
+            <button class="btn bg-black text-white px-2 py-1" id="filterButton" type="button">
+              <i class="bi bi-filter"></i>
+              <span>Filter</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      
       <table class="table table-bordered" id="employee-list">
         <thead class="bg-primary-subtle">
         <tr>
@@ -33,9 +54,10 @@
             <span>Full Name</span>
           </th>
           <th scope="col">Designation</th>
+          <th scope="col">Department</th>
+          <th scope="col">Employement type</th>
           <th scope="col">Gender</th>
           <th scope="col">Status</th>
-          <th scope="col" style="width: auto;">To PDF</th>
         </tr>
         </thead>
         <tbody>
@@ -48,11 +70,10 @@
             <span class="">Tahina Bemax</span>
           </td>
           <td>Developpeur</td>
+          <td>Developpeur</td>
+          <td>Developpeur</td>
           <td>Male</td>
           <td>Active</td>
-          <td>
-            <button type="button" title="Export to pdf" class="w-100 py-1"><i class="bi bi-file-pdf"></i></button>
-          </td>
         </tr>
         </tbody>
       </table>

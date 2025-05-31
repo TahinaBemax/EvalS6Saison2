@@ -8,13 +8,12 @@ $(document).ready(function () {
     const $tbody = $("tbody");
     const $table = $("table");
     const submitBtn = $("#save-btn");
-
+    const filterBtn = $("#filterButton");
 
     init();
 
     function init() {
-        fetchItems();
-        fetchWarehouses();
+        filterEmployees()
         bindEvents();
         dataTable();
     }
@@ -34,6 +33,59 @@ $(document).ready(function () {
         $btnContainer.on("click", "#delete-row-btn", handleDeleteRows);
         $table.on("click", ":checkbox", handleCheckboxClick);
         submitBtn.click(save);
+        filterBtn.click(filterEmployees);
+    }
+
+    function filterEmployees() {
+        const fullName = $("#fullNameFilter").val();
+        const departement = $("#departementFilter").val();
+
+        $.ajax({
+            url: "/employees/filter",
+            method: "GET",
+            data: { fullName: fullName, departement: departement },
+            dataType: "json",
+            beforeSend: function() {
+                showLoading()
+            },
+            success: function(data) {
+                if (data && data.status === "success"){
+                    updateEmployeeList(data.data);
+                    return true;
+                }
+                alert("An error occured when fetching employeee data!")
+            },
+            error: function(xhr) {
+                const response = JSON.parse(xhr.responseText);
+                alert(response.exception)
+                console.error("Filter Error:", xhr.responseText);
+            },
+            complete: () =>{
+                hideLoading()
+            }
+        });
+    }
+
+    function updateEmployeeList(data) {
+        $tbody.empty();
+        data.forEach(function(employee) {
+            $tbody.append(`
+                <tr>
+                    <td class="col-actions">
+                        <input type="checkbox" class="w-auto">
+                        <span>${employee.employeID}</span>
+                    </td>
+                    <td>
+                        <span class="">${employee.fullName}</span>
+                    </td>
+                    <td>${employee.designation}</td>
+                    <td>${employee.department}</td>
+                    <td>${employee.employementType}</td>
+                    <td>${employee.gender}</td>
+                    <td>${employee.status}</td>
+                </tr>
+            `);
+        });
     }
 
     function handleAddRow(e) {
@@ -97,43 +149,7 @@ $(document).ready(function () {
         $("input[name='warehouse']").autocomplete({ source: warehouses });
     }
 
-    function fetchItems() {
-        $.ajax({
-            url: "/items",
-            method: "GET",
-            dataType: "json",
-            success(data) {
-                if (data.status === "success") {
-                    items = data.data.map(item => item.name);
-                    initAutocomplete();
-                } else {
-                    alert("Error when fetching items");
-                }
-            },
-            error(xhr) {
-                console.error("Items Error:", xhr.responseText);
-            }
-        });
-    }
 
-    function fetchWarehouses() {
-        $.ajax({
-            url: "/warehouses",
-            method: "GET",
-            dataType: "json",
-            success(data) {
-                if (data.status === "success") {
-                    warehouses = data.data.map(w => w.name);
-                    initAutocomplete();
-                } else {
-                    alert("Error when fetching warehouses");
-                }
-            },
-            error(xhr) {
-                console.error("Warehouses Error:", xhr.responseText);
-            }
-        });
-    }
 
     function prepareFormData(){
         const series = $("[name='series']").val();

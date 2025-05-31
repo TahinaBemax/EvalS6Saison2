@@ -20,7 +20,7 @@ public class Employee {
     @NotNull
     LocalDate dateOfBirth;
     @NotNull
-    String departement;
+    String department;
     @NotNull
     String designation;
     @NotNull
