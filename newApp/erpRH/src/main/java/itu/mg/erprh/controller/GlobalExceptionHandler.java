@@ -1,6 +1,8 @@
 package itu.mg.erprh.controller;
 
 import itu.mg.erprh.exception.FrappeApiException;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -16,9 +18,9 @@ public class GlobalExceptionHandler {
     public static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(RestClientException.class)
-    public String exceptionHandler(RestClientException e) {
+    public String exceptionHandler(HttpServletRequest request, RestClientException e) {
         logger.error(e.getLocalizedMessage());
-        return "error/500";
+        return handleByStatusCode(request);
     }
 
     @ExceptionHandler(IOException.class)
@@ -28,15 +30,31 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    public String exceptionHandler(Exception e) {
+    public String exceptionHandler(HttpServletRequest request, Exception e) {
         logger.error(e.getLocalizedMessage());
-        return "error/500";
+        return handleByStatusCode(request);
     }
 
     @ExceptionHandler(FrappeApiException.class)
-    public String exceptionHandler(FrappeApiException e) {
+    public String exceptionHandler(HttpServletRequest request,FrappeApiException e) {
         logger.error(e.getLocalizedMessage());
-        return "error/500";
+        return handleByStatusCode(request);
     }
 
+    private String handleByStatusCode(HttpServletRequest request){
+        Object status = (Integer) request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+        if (status != null){
+            Integer statusCode = Integer.valueOf(status.toString());
+
+            switch (statusCode) {
+                case 404 -> {
+                    return "error/404";
+                }
+                case 403 -> {
+                    return "403";
+                }
+            }
+        }
+        return "error/500";
+    }
 }
