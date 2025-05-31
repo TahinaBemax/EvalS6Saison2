@@ -1,23 +1,17 @@
 package itu.mg.rh.services.impl;
 
-import itu.mg.rh.components.SessionManager;
 import itu.mg.rh.csv.service.ImportCsv;
 import itu.mg.rh.dto.SalarySlipDTO;
-import itu.mg.rh.exception.FrappeApiException;
 import itu.mg.rh.services.MainService;
 import itu.mg.rh.services.SalarySlipService;
 import itu.mg.rh.utils.RestClientExceptionHandler;
-import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
-import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -27,28 +21,26 @@ import java.util.Map;
 @Service
 public class SalarySlipServiceImpl implements SalarySlipService {
     
-    @Value("${erpnext.url}")
-    private String erpNextUrl;
-    
-    private final RestTemplate restTemplate;
-    private final SessionManager sessionManager;
+    private final MainService mainService;
     public static final Logger logger = LoggerFactory.getLogger(ImportCsv.class);
 
     @Autowired
-    public SalarySlipServiceImpl(RestTemplateBuilder restTemplate , SessionManager sessionManager) {
-        this.restTemplate = restTemplate.build();
-        this.sessionManager = sessionManager;
+    public SalarySlipServiceImpl(MainService mainService) {
+        this.mainService = mainService;
     }
+
+
+
 
     @Override
     public SalarySlipDTO getSalarySlipById(String salarySlipId) {
-        String url = erpNextUrl + "/api/resource/Salary Slip/" + salarySlipId;
+        String url = mainService.getErpNextUrl() + "/api/resource/Salary Slip/" + salarySlipId;
         
-        HttpHeaders headers = getHeaders();
+        HttpHeaders headers = mainService.getHeaders();
         HttpEntity<?> requestEntity = new HttpEntity<>(headers);
         
         try {
-            ResponseEntity<SalarySlipDTO> response = restTemplate.exchange(
+            ResponseEntity<SalarySlipDTO> response = mainService.getRestTemplate().exchange(
                 url,
                 HttpMethod.GET,
                 requestEntity,
@@ -63,13 +55,13 @@ public class SalarySlipServiceImpl implements SalarySlipService {
 
     @Override
     public List<SalarySlipDTO> getEmployeeSalarySlips(String employeeId) {
-        String url = erpNextUrl + "/api/resource/Salary Slip?filters=[[\"employee\",\"=\",\"" + employeeId + "\"]]";
+        String url = mainService.getErpNextUrl() + "/api/resource/Salary Slip?filters=[[\"employee\",\"=\",\"" + employeeId + "\"]]";
         
-        HttpHeaders headers = getHeaders();
+        HttpHeaders headers = mainService.getHeaders();
         HttpEntity<?> requestEntity = new HttpEntity<>(headers);
         
         try {
-            ResponseEntity<Map> response = restTemplate.exchange(
+            ResponseEntity<Map> response = mainService.getRestTemplate().exchange(
                 url,
                 HttpMethod.GET,
                 requestEntity,
@@ -90,14 +82,14 @@ public class SalarySlipServiceImpl implements SalarySlipService {
 
     @Override
     public SalarySlipDTO getEmployeeSalarySlipForPeriod(String employeeId, LocalDate startDate, LocalDate endDate) {
-        String url = erpNextUrl + "/api/resource/Salary Slip?filters=[[\"employee\",\"=\",\"" + employeeId + "\"]," +
+        String url = mainService.getErpNextUrl() + "/api/resource/Salary Slip?filters=[[\"employee\",\"=\",\"" + employeeId + "\"]," +
                 "[\"start_date\",\"=\",\"" + startDate + "\"],[\"end_date\",\"=\",\"" + endDate + "\"]]";
         
-        HttpHeaders headers = getHeaders();
+        HttpHeaders headers = mainService.getHeaders();
         HttpEntity<?> requestEntity = new HttpEntity<>(headers);
         
         try {
-            ResponseEntity<Map> response = restTemplate.exchange(
+            ResponseEntity<Map> response = mainService.getRestTemplate().exchange(
                 url,
                 HttpMethod.GET,
                 requestEntity,
@@ -119,9 +111,9 @@ public class SalarySlipServiceImpl implements SalarySlipService {
 
     @Override
     public SalarySlipDTO generateSalarySlip(String employeeId, LocalDate periodStartDate, LocalDate periodEndDate) {
-        String url = erpNextUrl + "/api/resource/Salary Slip";
+        String url = mainService.getErpNextUrl() + "/api/resource/Salary Slip";
         
-        HttpHeaders headers = getHeaders();
+        HttpHeaders headers = mainService.getHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         
         Map<String, Object> requestBody = Map.of(
@@ -133,7 +125,7 @@ public class SalarySlipServiceImpl implements SalarySlipService {
         HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(requestBody, headers);
         
         try {
-            ResponseEntity<SalarySlipDTO> response = restTemplate.exchange(
+            ResponseEntity<SalarySlipDTO> response = mainService.getRestTemplate().exchange(
                 url,
                 HttpMethod.POST,
                 requestEntity,
@@ -146,11 +138,6 @@ public class SalarySlipServiceImpl implements SalarySlipService {
         }
     }
 
-    private HttpHeaders getHeaders() {
-        HttpHeaders headers = new HttpHeaders();
-        headers.set(HttpHeaders.COOKIE, sessionManager.getSessionCookie());
-        return headers;
-    }
 
     private SalarySlipDTO convertMapToSalarySlipDTO(Map data) {
         SalarySlipDTO dto = new SalarySlipDTO();

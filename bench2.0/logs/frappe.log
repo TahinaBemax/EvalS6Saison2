@@ -223,3 +223,6 @@ Form Dict: {'filters': "[['employee','=','HR-EMP-00002']]", 'limit_page_length':
 2025-05-31 20:22:18,609 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'filters': "[['employee','=','HR-EMP-00002']]", 'limit_page_length': 20}
+2025-05-31 20:40:22,271 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'filters': "[['employee','=','HR-EMP-00002']]", 'limit_page_length': 20}
