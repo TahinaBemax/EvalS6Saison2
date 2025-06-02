@@ -4,6 +4,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Map;
 
 @Data
@@ -27,9 +28,13 @@ public class SalarySlip {
     private LocalDate startDate;
     private LocalDate endDate;
     private Double totalDeduction;
-    private Double grossPay;
+    private Double totalEarnings;
     private Double netPay;
+    private Double grossPay;
     private String salaryStructure;
     private String paymentStatus;
     private String payroll_frequency;
+
+    private List<SalaryDetail> salaryDetailEarnings;
+    private List<SalaryDetail> salaryDetailDeductions;
 }
