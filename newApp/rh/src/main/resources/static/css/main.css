@@ -2,8 +2,13 @@ body {
     background: #e6f1fd;
 }
 
+main {
+    padding: 10px;
+}
+
 /* START TABLE */
 .table tr > th {
+    width: auto;
     font-weight: 400;
     font-size: 0.9em;
     padding: 0px;

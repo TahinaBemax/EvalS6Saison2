@@ -407,3 +407,24 @@ Form Dict: {'name': 'Sal Slip/HR-EMP-00002/00001', 'cmd': 'frappe.core.doctype.s
 2025-06-02 07:48:01,340 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'name': 'Sal Slip/HR-EMP-00002/00001', 'cmd': 'frappe.core.doctype.salary_slip.salary_slip.download_pdf'}
+2025-06-02 13:03:20,307 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'mode_of_payment': 'Credit Card', 'company': 'IT University', 'cmd': 'erpnext.accounts.doctype.sales_invoice.sales_invoice.get_bank_cash_account'}
+2025-06-02 15:03:52,734 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'filters': '[["parenttype","=","Salary Slip"]]', 'limit_page_length': 20}
+2025-06-02 15:04:42,794 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'filters': '[["parenttype","=","Salary Slip"]]', 'limit_page_length': 20}
+2025-06-02 15:15:03,948 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'employee', 'employee_name', 'company', 'department', 'designation', 'branch', 'posting_date', 'status', 'currency', 'payroll_frequency', 'start_date', 'end_date', 'salary_structure', 'mode_of_payment', 'total_working_days', 'absent_days', 'payment_days', 'gross_pay', 'total_deduction', 'net_pay', 'total_in_words', 'earnings', 'deductions'], 'limit_page_length': 20}
+2025-06-02 15:15:46,076 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'employee', 'employee_name', 'company', 'department', 'designation', 'branch', 'posting_date', 'status', 'currency', 'payroll_frequency', 'start_date', 'end_date', 'salary_structure', 'mode_of_payment', 'total_working_days', 'absent_days', 'payment_days', 'gross_pay', 'total_deduction', 'net_pay', 'total_in_words', 'earnings', 'deductions'], 'limit_page_length': 20}
+2025-06-02 15:16:16,877 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'employee', 'employee_name', 'company', 'department', 'designation', 'branch', 'posting_date', 'status', 'currency', 'payroll_frequency', 'start_date', 'end_date', 'salary_structure', 'mode_of_payment', 'total_working_days', 'absent_days', 'payment_days', 'gross_pay', 'total_deduction', 'net_pay', 'total_in_words', 'earnings', 'deductions'], 'limit_page_length': 20}
+2025-06-02 15:32:51,996 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {}
