@@ -1,5 +1,6 @@
 bench2.0/.idea
 bench2.0/env/
+bench2.0/logs/*
 bench2.0/sites/assets/erpnext
 bench2.0/sites/assets/frappe
 bench2.0/sites/assets/custom_app
