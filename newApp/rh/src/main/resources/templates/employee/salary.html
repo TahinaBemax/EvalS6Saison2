@@ -75,7 +75,7 @@
             <table class="table table-bordered" id="salary-slip-list">
                 <thead class="bg-primary-subtle">
                     <tr>
-                        <th>
+                        <th scope="col">
                             <input type="checkbox" class="form-check-input" id="select-all">
                             ID
                         </th>
@@ -83,7 +83,6 @@
                         <th>Posting Date</th>
                         <th>Start Date</th>
                         <th>End Date</th>
-                        <th>Gross Pay</th>
                         <th>Net Pay</th>
                         <th>Status</th>
                         <th>Actions</th>
@@ -92,14 +91,13 @@
                 <tbody>
                     <tr th:each="slip : ${salarySlips}">
                         <td>
-                            <input type="checkbox" class="form-check-input me-2">
-                            <span th:text="${slip.id}">SAL-SLIP-001</span>
+                            <input type="checkbox" class="w-auto me-2">
+                            <span th:text="${slip.name}">SAL-SLIP-001</span>
                         </td>
                         <td th:text="${slip.employeeName}">John Doe</td>
-                        <td th:text="${#temporals.format(slip.postingDate, 'dd-MM-yyyy')}">01-03-2024</td>
+                        <td th:text="${#temporals.format(slip.paymentDate, 'dd-MM-yyyy')}">01-03-2024</td>
                         <td th:text="${#temporals.format(slip.startDate, 'dd-MM-yyyy')}">01-03-2024</td>
                         <td th:text="${#temporals.format(slip.endDate, 'dd-MM-yyyy')}">31-03-2024</td>
-                        <td class="text-end" th:text="${#numbers.formatDecimal(slip.grossPay, 1, 'COMMA', 2, 'POINT')}">50,000.00</td>
                         <td class="text-end" th:text="${#numbers.formatDecimal(slip.netPay, 1, 'COMMA', 2, 'POINT')}">45,000.00</td>
                         <td>
                             <span th:class="${'badge ' + (slip.status == 'PAID' ? 'bg-success' : (slip.status == 'SUBMITTED' ? 'bg-primary' : 'bg-secondary'))}" 
@@ -107,7 +105,7 @@
                         </td>
                         <td class="text-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-sm btn-outline-primary" title="View">
+<!--                                <button type="button" class="btn btn-sm btn-outline-primary" title="View">
                                     <i class="bi bi-eye"></i>
                                 </button>
                                 <button type="button" class="btn btn-sm btn-outline-secondary" title="Edit">
@@ -115,8 +113,8 @@
                                 </button>
                                 <button type="button" class="btn btn-sm btn-outline-danger" title="Delete">
                                     <i class="bi bi-trash"></i>
-                                </button>
-                                <button type="button" class="btn btn-sm btn-outline-success" title="Export to PDF">
+                                </button>-->
+                                <button type="button" th:data-id="${slip.name}" class="btn btn-sm btn-outline-success toPdfButton" title="Export to PDF">
                                     <i class="bi bi-file-pdf"></i>
                                 </button>
                             </div>
@@ -171,6 +169,7 @@
     </div>
 </main>
 
+<script th:src="@{/js/salary/salary.js}"></script>
 <footer th:insert="~{fragments/footer :: footer}"></footer>
 
 <!-- Custom CSS -->
@@ -183,48 +182,5 @@
         padding: 0.25rem 0.5rem;
     }
 </style>
-
-<!-- Custom JavaScript -->
-<script th:inline="javascript">
-$(document).ready(function() {
-    // Initialize DataTable
-    $('#salary-slip-list').DataTable({
-        pageLength: 10,
-        order: [[2, 'desc']], // Sort by posting date by default
-        columnDefs: [
-            { orderable: false, targets: [0, 8] } // Disable sorting for checkbox and actions columns
-        ]
-    });
-
-    // Handle select all checkbox
-    $('#select-all').change(function() {
-        $('tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'));
-    });
-
-    // Handle filter changes
-    $('#employee, #month, #year, #status').change(function() {
-        // Add your filter logic here
-    });
-
-    // Initialize date inputs with current month
-    const now = new Date();
-    const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
-    const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
-    
-    $('#posting-date').val(now.toISOString().split('T')[0]);
-    $('#start-date').val(firstDay.toISOString().split('T')[0]);
-    $('#end-date').val(lastDay.toISOString().split('T')[0]);
-
-    // Handle form submission
-    $('#save-salary-slip').click(function() {
-        if ($('#salary-slip-form')[0].checkValidity()) {
-            // Add your save logic here
-            $('#modal-salary-slip-form').modal('hide');
-        } else {
-            $('#salary-slip-form')[0].reportValidity();
-        }
-    });
-});
-</script>
 </body>
 </html>

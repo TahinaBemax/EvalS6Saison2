@@ -398,3 +398,12 @@ Form Dict: {'fields': ['employee-name', 'gender', 'date_of_birth', 'date_of_join
 2025-05-31 22:25:00,509 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'fields': ['employee-name', 'gender', 'date_of_birth', 'date_of_joining', 'status', 'company', 'department', 'designation', 'reports_to', 'employment_type', 'grade', 'name'], 'limit_page_length': 20}
+2025-06-02 06:09:21,134 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'Salary Slip', 'name': 'Sal Slip/HR-EMP-00002/00001', 'format': 'Standard', 'no_letterhead': '1', 'letterhead': 'No Letterhead', 'settings': '{}', '_lang': 'en', 'cmd': 'frappe.utils.print_format.download_pdf'}
+2025-06-02 07:37:05,291 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': 'Sal Slip/HR-EMP-00002/00001', 'cmd': 'frappe.core.doctype.salary_slip.salary_slip.download_pdf'}
+2025-06-02 07:48:01,340 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': 'Sal Slip/HR-EMP-00002/00001', 'cmd': 'frappe.core.doctype.salary_slip.salary_slip.download_pdf'}

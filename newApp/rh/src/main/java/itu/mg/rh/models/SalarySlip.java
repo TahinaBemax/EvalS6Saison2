@@ -1,13 +1,35 @@
 package itu.mg.rh.models;
 
-import java.time.LocalDate;
+import lombok.Data;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.Map;
+
+@Data
 public class SalarySlip {
-    String employee;
-    LocalDate postingDate;
-    LocalDate startDate;
-    LocalDate endDate;
-    String company;
-    String salaryStructure;
-    String earnings;
+    private String name;
+    private String currency;
+    private String department;
+    private String employeeId;
+    private String employeeName;
+    private String company;
+    private String designation;
+    private String branch;
+    private String status;
+    private String payrollFrequency;
+    private String modeOfPayment;
+    private String totalInWords;
+    private Double totalWorkingDays;
+    private Double absentDays;
+    private Double paymentDays;
+    private LocalDate paymentDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private Double totalDeduction;
+    private Double grossPay;
+    private Double netPay;
+    private String salaryStructure;
+    private String paymentStatus;
+    private String payroll_frequency;
 }

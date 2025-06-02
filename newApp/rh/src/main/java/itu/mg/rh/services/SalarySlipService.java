@@ -1,6 +1,9 @@
 package itu.mg.rh.services;
 
-import itu.mg.rh.dto.SalarySlipDTO;
+
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import itu.mg.rh.models.SalarySlip;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -11,15 +14,26 @@ public interface SalarySlipService {
      * @param salarySlipId The unique identifier of the salary slip
      * @return The salary slip details
      */
-    SalarySlipDTO getSalarySlipById(String salarySlipId);
+    SalarySlip getSalarySlipById(String salarySlipId);
     
     /**
      * Get all salary slips for a specific employee
      * @param employeeId The employee's ID
      * @return List of salary slips
      */
-    List<SalarySlipDTO> getEmployeeSalarySlips(String employeeId);
-    
+    List<SalarySlip> getEmployeeSalarySlips(String employeeId) throws JsonProcessingException;
+
+    /**
+     * Get all salary slips for all employee
+     * @return List of salary slips
+     */
+    List<SalarySlip> getSalarySlips() throws JsonProcessingException;
+
+    /**
+     * Export a salary Slip for a specific user to pdf
+     * @return byte[]
+     */
+     byte[] exportSalarySlipToPdf(String salarySlipId);
     /**
      * Get salary slip for an employee for a specific period
      * @param employeeId The employee's ID
@@ -27,7 +41,7 @@ public interface SalarySlipService {
      * @param endDate End date of the period
      * @return The salary slip for the specified period
      */
-    SalarySlipDTO getEmployeeSalarySlipForPeriod(String employeeId, LocalDate startDate, LocalDate endDate);
+    SalarySlip getEmployeeSalarySlipForPeriod(String employeeId, LocalDate startDate, LocalDate endDate);
     
     /**
      * Generate a new salary slip for an employee
@@ -36,5 +50,5 @@ public interface SalarySlipService {
      * @param periodEndDate End date of the salary period
      * @return The generated salary slip
      */
-    SalarySlipDTO generateSalarySlip(String employeeId, LocalDate periodStartDate, LocalDate periodEndDate);
+    SalarySlip generateSalarySlip(String employeeId, LocalDate periodStartDate, LocalDate periodEndDate);
 }

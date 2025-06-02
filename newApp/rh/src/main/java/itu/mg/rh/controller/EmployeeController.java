@@ -1,10 +1,11 @@
 package itu.mg.rh.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import itu.mg.rh.dto.ApiResponse;
-import itu.mg.rh.dto.SalarySlipDTO;
 import itu.mg.rh.exception.FrappeApiException;
 import itu.mg.rh.models.Departement;
 import itu.mg.rh.models.Employee;
+import itu.mg.rh.models.SalarySlip;
 import itu.mg.rh.services.DepartementService;
 import itu.mg.rh.services.EmployeeService;
 import itu.mg.rh.services.SalarySlipService;
@@ -37,19 +38,6 @@ public class EmployeeController {
     public String employeePage(Model model) {
         List<Departement> allDepartments = departmentService.getAllDepartments();
         model.addAttribute("departments", allDepartments);
-        return "employee/list";
-    }
-
-    @GetMapping("/salary-slip")
-    public String salarySlipPage(Model model) {
-        List<SalarySlipDTO> salarySlips = salarySlipService.getEmployeeSalarySlips("HR-EMP-00002");
-        model.addAttribute("salarySlips", salarySlips);
-
-        return "employee/salary";
-    }
-
-    @PostMapping("/{id}/salary-slip/toPdf")
-    public String salarySlipPage(@PathVariable("id") String id, @RequestParam(required = false) LocalDate date, Model model) {
         return "employee/list";
     }
 
