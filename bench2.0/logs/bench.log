@@ -520,18 +520,3 @@
 2025-06-02 05:28:57,760 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
 2025-06-02 05:28:57,816 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
 2025-06-02 06:00:03,326 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
-<<<<<<< HEAD
-2025-06-02 18:00:04,109 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
-=======
-2025-06-02 10:21:14,281 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
-2025-06-02 10:21:16,910 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
-2025-06-02 10:21:16,934 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
-2025-06-02 10:21:17,296 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
-2025-06-02 10:21:17,408 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
-2025-06-02 12:00:02,638 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
-2025-06-02 12:49:03,414 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
-2025-06-02 12:49:04,347 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
-2025-06-02 12:49:04,348 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
-2025-06-02 12:49:04,486 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
-2025-06-02 12:49:04,639 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
->>>>>>> dashboard
