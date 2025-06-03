@@ -13,10 +13,12 @@ main {
     font-size: 0.9em;
     padding: 0px;
     background-color: rgb(241, 238, 238);
+    color: #535353 !important;
 }
 
 .table > tbody > tr > td {
     padding: 0px;
+    color: #535353 !important;
 }
 .table > tbody > tr > td > input {
     font-size: 0.9em;
@@ -35,6 +37,7 @@ main {
 table.dataTable tbody tr {
     padding:5px 10px;
     vertical-align: middle;
+    border: 1px solid #535353;
 }
 table.dataTable tbody td {
     padding:5px 10px;

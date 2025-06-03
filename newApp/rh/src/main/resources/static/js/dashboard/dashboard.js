@@ -73,30 +73,39 @@ $(document).ready(function () {
                   <td>${salarySlip.startDate}</td>
                   <td>${salarySlip.endDate}</td>
                   <td class="text-start">
-                        ${salarySlipDetailsList(salarySlip.salaryDetailEarnings, salarySlip.totalEarnings, salarySlip.currency)}
+                        ${salarySlipDetailsList(salarySlip.salaryDetailEarnings, salarySlip.grossPay)}
                   </td>
                   <td class="text-start">
-                        ${salarySlipDetailsList(salarySlip.salaryDetailDeductions, salarySlip.totalDeduction, salarySlip.currency)}
+                        ${salarySlipDetailsList(salarySlip.salaryDetailDeductions, salarySlip.totalDeduction)}
                   </td>
                   <td class="text-end">
-                        ${salarySlip.netPay + '' + salarySlip.currency}
+                        ${currencyFormat(salarySlip.netPay)}
                   </td>
                 </tr>
             `);
         });
     }
 
-    function salarySlipDetailsList(details, total, currency){
+    function salarySlipDetailsList(details, total){
         if(details == null){
             return ""
         }
 
         var list = "<ul>"
         details.forEach(function(detail) {
-            list += `<li>${detail.salaryComponent}: ${detail.amount + '' + currency}</li>`
+            list += `<li>${detail.salaryComponent}: ${currencyFormat(detail.amount)}</li>`
         })
 
-        list += `<li><b>Total</b>:${total + "" + currency}</li></ul>`;
+        list += `<li><b>Total</b>: ${currencyFormat(total)}</li></ul>`;
         return list;
+    }
+
+    function currencyFormat(amount){
+        var currenyFormatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'EUR'
+        })
+
+        return currenyFormatter.format(amount);
     }
 });

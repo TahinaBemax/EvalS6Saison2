@@ -315,3 +315,7 @@
 2025-06-03 07:56:01,444 ERROR scheduler Skipped queueing hrms.hr.utils.allocate_earned_leaves because it was found in queue for itu.erpnext
 2025-06-03 07:56:01,470 ERROR scheduler Skipped queueing hrms.hr.doctype.leave_ledger_entry.leave_ledger_entry.process_expired_allocation because it was found in queue for itu.erpnext
 2025-06-03 08:00:02,022 ERROR scheduler Skipped queueing frappe.integrations.doctype.dropbox_settings.dropbox_settings.take_backups_daily because it was found in queue for itu.erpnext
+2025-06-03 09:04:00,931 ERROR scheduler Skipped queueing erpnext.manufacturing.doctype.bom_update_log.bom_update_log.resume_bom_cost_update_jobs because it was found in queue for itu.erpnext
+2025-06-03 09:04:01,154 ERROR scheduler Skipped queueing frappe.email.doctype.newsletter.newsletter.send_scheduled_email because it was found in queue for itu.erpnext
+2025-06-03 09:04:01,298 ERROR scheduler Skipped queueing erpnext.projects.doctype.project.project.collect_project_status because it was found in queue for itu.erpnext
+2025-06-03 09:04:01,576 ERROR scheduler Skipped queueing frappe.email.doctype.email_account.email_account.notify_unreplied because it was found in queue for itu.erpnext
