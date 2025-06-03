@@ -33,11 +33,9 @@ public class EmployeeExportDTO {
     String gender;
 
     @CsvBindByName(column = "Date of Joining", required = true)
-    @CsvDate
     LocalDate hireDate;
 
     @CsvBindByName(column = "Date of Birth", required = true)
-    @CsvDate
     LocalDate dateOfBirth;
 
     @CsvBindByName(column = "Status", required = true)
@@ -45,6 +43,12 @@ public class EmployeeExportDTO {
 
     @CsvBindByName(column = "Company", required = true)
     String company;
+
+    @CsvBindByName(column = "Holiday List", required = true)
+    String holidayList;
+
+    @CsvBindByName(column = "Salary Currency", required = true)
+    String salaryCurrency;
 
     public void setFullName(){
         this.fullName = lastName != null ? firstName + " " + lastName: firstName;

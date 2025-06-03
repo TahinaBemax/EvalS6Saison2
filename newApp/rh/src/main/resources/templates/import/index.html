@@ -12,6 +12,13 @@
     <div class="form-container py-3 px-4 bg-white" id="form-container">
         <div th:if="${success} != null" class="alert alert-success" th:text="${success}"></div>
 
+        <div th:if="${hasErrors} != null" class="alert alert-danger">
+            <h5 th:text="${results.getErrorLevel()}"></h5>
+            <ul>
+                <li th:each="error : ${results.getErrorGlobal()}" th:text="${error}"></li>
+            </ul>
+        </div>
+
         <div id="delete-data" class="my-3 bg-white py-2">
             <form method="post" action="/delete-data">
                 <h3 class="text-secondary fs-5 mb-3 border-bottom py-2">Data</h3>

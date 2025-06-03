@@ -28,6 +28,9 @@ public class SalaryStructureAssignmentExportDTO {
     @CsvBindByName(column = "Employee Name", required = true)
     String employeeName;
 
+    @CsvBindByName(column = "Base", required = true)
+    Double Base;
+
     @CsvBindByName(column = "Payroll Payable Account")
     String payrollPayableAccount;
 }

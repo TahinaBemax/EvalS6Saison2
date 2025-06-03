@@ -2,7 +2,7 @@ package itu.mg.rh.controller;
 
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
-import itu.mg.rh.csv.CsvParseFinalResult;
+import itu.mg.rh.csv.CsvImportFinalResult;
 import itu.mg.rh.csv.service.ImportCsv;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.dto.ImportDto;
@@ -61,10 +61,12 @@ public class ImportController {
             return importPage(model);
         }
 
-        CsvParseFinalResult result = importCsv.csvFileReader(importDto);
+        CsvImportFinalResult result = importCsv.dataImport(importDto);
 
         if (result.isValid()){
             redirectAttributes.addFlashAttribute("success", "Imported successfuly");
+        } else {
+            redirectAttributes.addFlashAttribute("hasErrors", true);
         }
 
         redirectAttributes.addFlashAttribute("results", result);

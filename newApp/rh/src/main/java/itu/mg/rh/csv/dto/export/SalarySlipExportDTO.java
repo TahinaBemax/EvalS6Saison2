@@ -22,15 +22,15 @@ public class SalarySlipExportDTO {
     @CsvBindByName(column = "Posting Date", required = true)
     LocalDate postingDate;
 
-    @CsvBindByName(column = "Start Date", required = true)
+/*    @CsvBindByName(column = "Start Date", required = true)
     LocalDate startDate;
 
     @CsvBindByName(column = "End Date", required = true)
     LocalDate EndDate;
 
+    */
     @CsvBindByName(column = "Mode Of Payment", required = true)
     String ModeOfPayment;
-
     @CsvBindByName(column = "Currency", required = true)
     String currency;
 
@@ -48,4 +48,28 @@ public class SalarySlipExportDTO {
 
     @CsvBindByName(column = "Payroll Frequency", required = true)
     String PayrollFrequency;
+
+    @CsvBindByName(column = "status", required = true)
+    String status;
+
+    @CsvBindByName(column = "ID (Earnings)", required = true)
+    String idEarnings;
+
+    @CsvBindByName(column = "Component (Earnings)", required = true)
+    String componentEarnings;
+
+    @CsvBindByName(column = "ID (Deductions)", required = true)
+    String idDeductions;
+
+    @CsvBindByName(column = "Component (Deductions)", required = true)
+    String componentDeductions;
+
+
+    public void setWorkingDays() {
+        this.workingDays = this.postingDate.lengthOfMonth();
+    }
+
+    public void setPaymentDays() {
+        this.paymentDays = this.postingDate.lengthOfMonth();
+    }
 }

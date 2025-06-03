@@ -20,6 +20,9 @@ public class SalaryStructureExportDTO {
     @CsvBindByName(column = "Payroll Frequency", required = true)
     String payrollFrequency;
 
+    @CsvBindByName(column = "Salary Component", required = true)
+    String salaryComponent;
+
     @CsvBindByName(column = "Mode of Payment", required = true)
     String modeOfPayment;
 
@@ -28,7 +31,7 @@ public class SalaryStructureExportDTO {
 
 
     @CsvBindByName(column = "ID (Earnings)")
-    String iDEarnings;
+    String idEarnings;
 
     @CsvBindByName(column = "Component (Earnings)")
     String componentEarnings;
@@ -37,7 +40,14 @@ public class SalaryStructureExportDTO {
     String formulaEarnings;
 
     @CsvBindByName(column = "Amount based on formula (Earnings)")
-    String AmountBasedOnFormulaEarnings;
+    Integer amountBasedOnFormulaEarnings;
+
+    @CsvBindByName(column = "Abbr (Earnings)")
+    String abbrEarnings;
+
+    @CsvBindByName(column = "Depends on Payment Days (Earnings)")
+    Integer dependsOnPaymentDaysEarnings;
+
 
     @CsvBindByName(column = "ID (Deductions)")
     String idDeductions;
@@ -46,8 +56,14 @@ public class SalaryStructureExportDTO {
     String componentDeductions;
 
     @CsvBindByName(column = "Amount based on formula (Deductions)")
-    String AmountBasedOnFormulaDeductions;
+    Integer AmountBasedOnFormulaDeductions;
 
     @CsvBindByName(column = "Formula (Deductions)")
     String FormulaDeductions;
+
+    @CsvBindByName(column = "Abbr (Deductions)")
+    String abbrDeductions;
+
+    @CsvBindByName(column = "Depends on Payment Days (Deductions)")
+    Integer dependsOnPaymentDaysDeductions;
 }

@@ -3,15 +3,18 @@ package itu.mg.rh.csv.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvException;
+import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import itu.mg.rh.components.SessionManager;
 import itu.mg.rh.csv.CsvErrorMessage;
-import itu.mg.rh.csv.CsvParseFinalResult;
+import itu.mg.rh.csv.CsvImportFinalResult;
 import itu.mg.rh.csv.CsvParseResult;
 import itu.mg.rh.csv.dto.CsvValidationResultDTO;
 import itu.mg.rh.csv.dto.EmployeeDTO;
 import itu.mg.rh.csv.dto.SalaryComponentDTO;
 import itu.mg.rh.csv.dto.SalarySlipDTO;
+import itu.mg.rh.csv.dto.export.*;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.dto.ImportDto;
 import itu.mg.rh.services.MainService;
@@ -34,14 +37,22 @@ import java.util.Map;
 
 @Service
 public class ImportCsv extends MainService {
+    private final String companyFileName = "company.csv";
+    private final String employeeFileName = "employee.csv";
+    private final String salaryComponentFileName = "salary_component.csv";
+    private final String salaryStructureFileName = "salary_structure.csv";
+    private final String salaryStructureAssignmentFileName = "salary_structure_assignment.csv";
+    private final String salarySlipFileName = "salary_slip.csv";
     private final ExportCsvService exportCsvService;
+    private final DataExtractor dataExtractor;
     public static final Logger logger = LoggerFactory.getLogger(ImportCsv.class);
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     @Autowired
-    public ImportCsv(RestTemplateBuilder restTemplate, SessionManager sessionManager, ExportCsvService exportCsvService) {
+    public ImportCsv(RestTemplateBuilder restTemplate, SessionManager sessionManager, DataExtractor dataExtractor, ExportCsvService exportCsvService) {
         super(restTemplate, sessionManager);
         this.exportCsvService = exportCsvService;
+        this.dataExtractor = dataExtractor;
     }
 
     public ApiResponse deleteData() {
@@ -62,7 +73,49 @@ public class ImportCsv extends MainService {
 
         return response.getBody();
     }
-    public CsvParseFinalResult csvFileReader(ImportDto importDto) {
+
+    public CsvImportFinalResult dataImport(ImportDto importDto) {
+        CsvImportFinalResult csvImportFinalResult = csvFileReader(importDto);
+
+        if (csvImportFinalResult.isValid()) {
+            List<CompanyExportDTO> company = dataExtractor.getCompany(csvImportFinalResult);
+            List<EmployeeExportDTO> employees = dataExtractor.getEmployees(csvImportFinalResult);
+            List<SalaryComponentExportDTO> salaryComponent = dataExtractor.getSalaryComponent(csvImportFinalResult);
+            List<SalaryStructureExportDTO> salaryStructures = dataExtractor.getSalaryStructures(csvImportFinalResult);
+            List<?> salaryAssigments = dataExtractor.getSalaryAssigments(csvImportFinalResult);
+            List<SalarySlipExportDTO> salarySlips = dataExtractor.getSalarySlips(csvImportFinalResult);
+
+            try {
+                convertToFrappeImportCsvModel(company, companyFileName);
+                convertToFrappeImportCsvModel(employees, employeeFileName);
+                convertToFrappeImportCsvModel(salaryComponent, salaryComponentFileName);
+                convertToFrappeImportCsvModel(salaryStructures, salaryStructureFileName);
+                convertToFrappeImportCsvModel(salaryAssigments, salaryStructureAssignmentFileName);
+                convertToFrappeImportCsvModel(salarySlips, salarySlipFileName);
+            } catch (Exception e) {
+                csvImportFinalResult.setErrorLevel("Converting to frappe data import csv model!");
+                csvImportFinalResult.setErrorGlobal(List.of(e.getMessage()));
+                logger.error(e.getLocalizedMessage());
+            }
+
+            try {
+                submit();
+            } catch (RuntimeException e) {
+                csvImportFinalResult.setErrorLevel("Importing from frappe data import!");
+                csvImportFinalResult.setErrorGlobal(List.of(e.getMessage()));
+                logger.error(e.getLocalizedMessage());
+                throw new RuntimeException(e);
+            }
+        }
+
+        return csvImportFinalResult;
+    }
+
+    private <T> Object convertToFrappeImportCsvModel(List<T> data, String fileName) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
+        return exportCsvService.beanToCsv(data, fileName);
+    }
+
+    private CsvImportFinalResult csvFileReader(ImportDto importDto) {
         CsvParseResult<EmployeeDTO> employees = null;
         CsvParseResult<SalaryComponentDTO> salaryComponents = null;
         CsvParseResult<SalarySlipDTO> salarySlips = null;
@@ -71,8 +124,9 @@ public class ImportCsv extends MainService {
         salaryComponents = csvParser(importDto.getSalaryComponentFile(), SalaryComponentDTO.class);
         salarySlips = csvParser(importDto.getSalarySlipFile(), SalarySlipDTO.class);
 
-        return new CsvParseFinalResult(employees, salaryComponents, salarySlips);
+        return new CsvImportFinalResult(employees, salaryComponents, salarySlips);
     }
+
     private <T> CsvParseResult<T> csvParser(MultipartFile file, Class<T> model) {
         List<T> validRows = new ArrayList<>();
         List<CsvErrorMessage> errors = new ArrayList<>();
@@ -127,8 +181,70 @@ public class ImportCsv extends MainService {
         return new CsvParseResult<>(validRows, errors);
     }
 
+    public boolean submit() {
+        String url = String.format("%s/api/method/importapp.api.import.import_multiple_csv_files", this.getErpNextUrl());
 
+        HttpHeaders headers = this.getHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
 
+        Map data = prepareFormData();
+
+        HttpEntity<Map> entity = new HttpEntity<>(data, headers);
+
+        ResponseEntity<Map> response = null;
+        try {
+            response = this.getRestTemplate()
+                    .exchange(url, HttpMethod.GET, entity, Map.class);
+            if (response.getStatusCode().is2xxSuccessful()) {
+                Map<String, Object> responseBody = response.getBody();
+                return true;
+            }
+        } catch (RestClientException e) {
+            RestClientExceptionHandler.handleError(e);
+        }
+        return false;
+    }
+
+    private Map<String, Object> prepareFormData(){
+        Map<String, Object> data = new HashMap<>();
+        List<Map<String, String>> files = new ArrayList<>();
+
+        Map<String, String> Company = new HashMap<>();
+        Company.put("file", companyFileName);
+        Company.put("doctype", "Company");
+
+        Map<String, String> employee = new HashMap<>();
+        employee.put("file", employeeFileName);
+        employee.put("doctype", "Employee");
+
+        Map<String, String> salaryComponent = new HashMap<>();
+        salaryComponent.put("file", salaryComponentFileName);
+        salaryComponent.put("doctype", "Salary Component");
+
+        Map<String, String> salaryStructure = new HashMap<>();
+        salaryStructure.put("file", salaryStructureAssignmentFileName);
+        salaryStructure.put("doctype", "Salary Structure");
+
+        Map<String, String> salaryStructureAssigment = new HashMap<>();
+        salaryStructureAssigment.put("file", salaryStructureAssignmentFileName);
+        salaryStructureAssigment.put("doctype", "Salary Structure Assignment");
+
+        Map<String, String> salarySlip = new HashMap<>();
+        salarySlip.put("file", salarySlipFileName);
+        salarySlip.put("doctype", "Salary Slip");
+        
+        
+        files.add(Company);
+        files.add(employee);
+        files.add(salaryComponent);
+        files.add(salaryStructure);
+        files.add(salaryStructureAssigment);
+        files.add(salarySlip);
+        
+        data.put("files", files);
+        
+        return data;
+    }
     private List<String> getOriginalLines(Reader reader) throws IOException {
         List<String> originalLines = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(reader)) {
@@ -173,49 +289,5 @@ public class ImportCsv extends MainService {
         }
 
         return results;
-    }
-/*
-    private List<SupplierExportDTO> prepareData(List<Supplier> employees){
-        List<SupplierExportDTO> results = new ArrayList<>();
-
-        for (Supplier supplier : suppliers) {
-            SupplierExportDTO temporary = new SupplierExportDTO(
-                    supplier.getSupplierName(),
-                    supplier.getCountry(),
-                    supplier.getType()
-            );
-
-            results.add(temporary);
-        }
-
-        return results;
-    }
-*/
-
-    public boolean submit() {
-        String url = String.format("%s/api/method/importapp.api.import.import_csv_file", this.getErpNextUrl());
-
-        HttpHeaders headers = this.getHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        Map<String, String> data = new HashMap<>();
-
-        data.put("file", exportCsvService.getFileName());
-        data.put("doctype", "supplier");
-
-        HttpEntity<Map> entity = new HttpEntity<>(data, headers);
-
-        ResponseEntity<Map> response = null;
-        try {
-            response = this.getRestTemplate()
-                    .exchange(url, HttpMethod.GET, entity, Map.class);
-            if (response.getStatusCode().is2xxSuccessful()) {
-                Map<String, Object> responseBody = response.getBody();
-                return true;
-            }
-        } catch (RestClientException e) {
-            RestClientExceptionHandler.handleError(e);
-        }
-        return false;
     }
 }

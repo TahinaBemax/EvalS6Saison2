@@ -14,11 +14,17 @@ public class SalaryComponentExportDTO {
     @CsvBindByName(column = "Type", required = true)
     String type;
 
+    @CsvBindByName(column = "Amount based on formula", required = true)
+    Integer AmountBasedOnFormula;
+
     @CsvBindByName(column = "Formula", required = true)
     String formula;
 
-    @CsvBindByName(column = "Amount based on formula", required = true)
-    String AmountBasedOnFormula;
+    @CsvBindByName(column = "Depends on Payment Days")
+    Integer dependsOnPaymentDays;
+
+    @CsvBindByName(column = "Remove if Zero Valued")
+    Integer removeIfZeroValued;
 
     @CsvBindByName(column = "ID (Accounts)", required = true)
     String idAccounts;
