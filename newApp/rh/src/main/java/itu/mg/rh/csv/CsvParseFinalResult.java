@@ -1,9 +1,9 @@
 package itu.mg.rh.csv;
 
 
-import itu.mg.rh.csv.dto.RequestForQuotation;
-import itu.mg.rh.csv.dto.Supplier;
-import itu.mg.rh.csv.dto.SupplierQuotation;
+import itu.mg.rh.csv.dto.SalaryComponentDTO;
+import itu.mg.rh.csv.dto.EmployeeDTO;
+import itu.mg.rh.csv.dto.SalarySlipDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -12,27 +12,34 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class CsvParseFinalResult {
-    CsvParseResult<Supplier> suppliers;
-    CsvParseResult<RequestForQuotation> requestForQuotations;
-    CsvParseResult<SupplierQuotation> supplierQuotations;
+    CsvParseResult<EmployeeDTO> employees;
+    CsvParseResult<SalaryComponentDTO> salaryComponents;
+    CsvParseResult<SalarySlipDTO> salarySlips;
 
     public boolean isValid() {
-        return (suppliers.isValid() && requestForQuotations.isValid() && supplierQuotations.isValid());
+        return (employees.isValid() && salaryComponents.isValid() && salarySlips.isValid());
     }
 
-    public List<Supplier> getValidSuppliers(){
-        return suppliers.getValidRows();
+    public List<EmployeeDTO> getValidEmployees(){
+        return employees.getValidRows();
+    }
+    public List<SalaryComponentDTO> getValidSalaryComponents(){
+        return salaryComponents.getValidRows();
+    }
+    public List<SalarySlipDTO> getValidSalarySlips(){
+        return salarySlips.getValidRows();
     }
 
-    public List<CsvErrorMessage> getSupplierErrors(){
-        return this.suppliers.getErrors();
-    }
 
-    public List<CsvErrorMessage> getRequestForQuotationErrors(){
-        return this.requestForQuotations.getErrors();
-    }
 
-    public List<CsvErrorMessage> getSupplierQuotationErrors(){
-        return this.requestForQuotations.getErrors();
+
+    public List<CsvErrorMessage> getEmployeeDTOErrors(){
+        return this.employees.getErrors();
+    }
+    public List<CsvErrorMessage> getSalaryComponentDTOErrors(){
+        return this.salaryComponents.getErrors();
+    }
+    public List<CsvErrorMessage> getSalarySlipDTOErrors(){
+        return this.salarySlips.getErrors();
     }
 }

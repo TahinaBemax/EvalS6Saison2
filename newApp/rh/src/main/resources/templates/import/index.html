@@ -25,22 +25,22 @@
             <h3 class="text-secondary fs-5 mb-3 border-bottom py-2">Importation</h3>
             <div class="row supplier_quotation">
                 <div class="col">
-                    <label class="form-label" for="supplier">Supplier<span class="text-danger">*</span></label>
-                    <input class="form-control py-1 px-2" id="supplier" th:field="*{supplierFile}" type="file"
+                    <label class="form-label" for="employee">Employee<span class="text-danger">*</span></label>
+                    <input class="form-control py-1 px-2" id="employee" th:field="*{employeeFile}" type="file"
                            accept=".csv">
                 </div>
 
                 <div class="col">
-                    <label class="form-label" for="request_for_quotation">Request For Quotation <span
+                    <label class="form-label" for="salary_component">Salary Component<span
                             class="text-danger">*</span></label>
-                    <input class="form-control py-1 px-2" id="request_for_quotation" th:field="*{requestForQuotation}"
+                    <input class="form-control py-1 px-2" id="salary_component" th:field="*{salaryComponentFile}"
                            type="file" accept=".csv">
                 </div>
 
                 <div class="col">
-                    <label class="form-label" for="supplier_quotation">Supplier Quotation <span
+                    <label class="form-label" for="salarySlip">Salary Slip <span
                             class="text-danger">*</span></label>
-                    <input class="form-control py-1 px-2" id="supplier_quotation" th:field="*{supplierQuotation}"
+                    <input class="form-control py-1 px-2" id="salarySlip" th:field="*{salarySlipFile}"
                            type="file" accept=".csv">
                 </div>
 
@@ -49,76 +49,176 @@
                 </div>
             </div>
         </form>
+    </div>
 
-        <div class="errors mt-2 p-2 rounded" style="background: rgb(243, 241, 241);" th:if="${results != null}">
+    <div class="resultat-container  my-3" th:if="${results != null}">
+        <div class="errors my-2 bg-white p-2 rounded" style="background: rgb(243, 241, 241);">
             <h5 class="py-2">Import FeedBack</h5>
 
             <div class="btn-group" role="group" aria-label="Basic outlined example">
-                <button type="button" id="supplierBtn" class="btn btn-outline-secondary">Supplier</button>
-                <button type="button" id="reqBtn" class="btn btn-outline-secondary">Request For Quotation</button>
-                <button type="button" class="btn btn-outline-secondary">Supplier Quotation</button>
+                <button type="button" id="employeeBtn" class="btn btn-outline-secondary">Employee</button>
+                <button type="button" id="salaryComponentBtn" class="btn btn-outline-secondary">Salary Component
+                </button>
+                <button type="button" id="salarySlipBtn" class="btn btn-outline-secondary">Salary Slip</button>
             </div>
+        </div>
 
-            <div class="my-2">
-                <p class="alert alert-info ">
-                    Valid rows: <span class="text-success" th:text="${ results.getSuppliers().countValidRows()}"></span>
-                    and invalid rows: <span class="text-danger"
-                                            th:text="${ results.getSuppliers().countInvalidRows()}"></span>
-                </p>
+        <div class="my-2 ">
+            <div class="row bg-white my-2 py-2 rounded employee-container">
+                <h5 class="text-info">Employee</h5>
+                <div class="col-12 error-card">
+                    <p class="alert alert-info ">
+                        Valid rows: <span class="text-success"
+                                          th:text="${ results.getEmployees().countValidRows()}"></span>
+                        and invalid rows: <span class="text-danger"
+                                                th:text="${ results.getEmployees().countInvalidRows()}"></span>
+                    </p>
 
-                <div class="errors-container py-3 bg-white">
-                    <ul>
-                        <li th:each="error : ${results.getSupplierErrors()}">
-                            <b>Line at</b> <th:block th:text="${error.getLine()}"></th:block>,
-                            <b>message:</b> <span class="text-danger-emphasis" th:text="${error.getMessage()}"></span>
-                            <b>File:</b><th:block th:text="${error.getFileName()}"></th:block>
-                        </li>
-                    </ul>
+                    <div class="errors-container py-3 bg-white" th:if="${results.getEmployeeDTOErrors().size() > 0}">
+                        <ul>
+                            <li th:each="error : ${results.getEmployeeDTOErrors()}">
+                                <b>Line at</b>
+                                <th:block th:text="${error.getLine()}"></th:block>
+                                ,
+                                <b>message:</b> <span class="text-danger-emphasis"
+                                                      th:text="${error.getMessage()}"></span>
+                                <b>File:</b>
+                                <th:block th:text="${error.getFileName()}"></th:block>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
-                <div class="row bg-white my-2 supplier">
-                    <div class="col-12">
-                        <table class="table table-bordered active" id="table-supplier">
-                            <thead>
-                                <tr>
-                                    <th class="row-nbr">Row</th>
-                                    <th>Supplier Name</th>
-                                    <th>Country</th>
-                                    <th>Type</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr th:each="resultat : ${results.getValidSuppliers()}" class="success">
-                                    <td></td>
-                                    <td th:text="${resultat.getSupplierName()}"></td>
-                                    <td th:text="${resultat.getCountry()}">900</td>
-                                    <td th:text="${resultat.getType()}"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="col-12">
+                    <table class="table table-bordered active" id="table-employee">
+                        <thead>
+                        <tr>
+                            <th class="row-nbr">Ref</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Genre</th>
+                            <th>Date embauche</th>
+                            <th>Date de naissance</th>
+                            <th>Company</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="resultat : ${results.getValidEmployees()}" class="success">
+                            <td th:text="${resultat.getRef()}"></td>
+                            <td th:text="${resultat.getFirstName()}"></td>
+                            <td th:text="${resultat.getLastName()}"></td>
+                            <td th:text="${resultat.getGender()}"></td>
+                            <td th:text="${resultat.getHireDate()}"></td>
+                            <td th:text="${resultat.getDateOfBirth()}"></td>
+                            <td th:text="${resultat.getCompany()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                    <div class="col-12">
-                        <table class="table table-bordered" id="table-req-for-quotation">
-                            <thead>
-                            <tr>
-                                <th class="row-nbr">Row</th>
-                                <th>Supplier Name</th>
-                                <th>Country</th>
-                                <th>Type</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+            <div class="row bg-white my-2 py-2 salary-component-container">
+                <h5 class="text-info">Salary Component</h5>
+                <div class="col-12 error-card">
+                    <p class="alert alert-info ">
+                        Valid rows: <span class="text-success"
+                                          th:text="${ results.getSalaryComponents().countValidRows()}"></span>
+                        and invalid rows: <span class="text-danger"
+                                                th:text="${ results.getSalaryComponents().countInvalidRows()}"></span>
+                    </p>
 
-                            </tbody>
-                        </table>
+                    <div class="errors-container py-3 bg-white"
+                         th:if="${results.getSalaryComponentDTOErrors().size() > 0}">
+                        <ul>
+                            <li th:each="error : ${results.getSalaryComponentDTOErrors()}">
+                                <b>Line at</b>
+                                <th:block th:text="${error.getLine()}"></th:block>
+                                ,
+                                <b>message:</b> <span class="text-danger-emphasis"
+                                                      th:text="${error.getMessage()}"></span>
+                                <b>File:</b>
+                                <th:block th:text="${error.getFileName()}"></th:block>
+                            </li>
+                        </ul>
                     </div>
+                </div>
+
+                <div class="col-12">
+
+                    <table class="table table-bordered active" id="table-salary-component">
+                        <thead>
+                        <tr>
+                            <th>Salary Structure</th>
+                            <th>Name</th>
+                            <th>Abbr</th>
+                            <th>Type</th>
+                            <th>Valeur</th>
+                            <th>Company</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="resultat : ${results.getValidSalaryComponents()}" class="success">
+                            <td th:text="${resultat.getSalaryStructure()}"></td>
+                            <td th:text="${resultat.getName()}">900</td>
+                            <td th:text="${resultat.getAbbr()}"></td>
+                            <td th:text="${resultat.getType()}"></td>
+                            <td th:text="${resultat.getValeur()}"></td>
+                            <td th:text="${resultat.getCompany()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row bg-white my-2 py-2 salary-slip-container">
+                <h5 class="text-info">Salary Slip</h5>
+                <div class="col-12 error-card">
+                    <p class="alert alert-info ">
+                        Valid rows: <span class="text-success"
+                                          th:text="${ results.getSalarySlips().countValidRows()}"></span>
+                        and invalid rows: <span class="text-danger"
+                                                th:text="${ results.getSalarySlips().countInvalidRows()}"></span>
+                    </p>
+
+                    <div class="errors-container py-3 bg-white" th:if="${results.getSalarySlipDTOErrors().size() > 0}">
+                        <ul>
+                            <li th:each="error : ${results.getSalarySlipDTOErrors()}">
+                                <b>Line at</b>
+                                <th:block th:text="${error.getLine()}"></th:block>
+                                ,
+                                <b>message:</b> <span class="text-danger-emphasis"
+                                                      th:text="${error.getMessage()}"></span>
+                                <b>File:</b>
+                                <th:block th:text="${error.getFileName()}"></th:block>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-12">
+
+                    <table class="table table-bordered active" id="table-salary-slip">
+                        <thead>
+                        <tr>
+                            <th>Mois</th>
+                            <th>Ref Employee</th>
+                            <th>Salaire Base</th>
+                            <th>Salaire</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="resultat : ${results.getValidSalarySlips()}" class="success">
+                            <td th:text="${resultat.getMois()}"></td>
+                            <td th:text="${resultat.getRefEmployee()}">900</td>
+                            <td th:text="${resultat.getBaseSalary()}"></td>
+                            <td th:text="${resultat.getSalary()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-
-
 </div>
 
 

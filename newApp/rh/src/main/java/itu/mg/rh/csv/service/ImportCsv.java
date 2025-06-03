@@ -3,17 +3,15 @@ package itu.mg.rh.csv.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
-import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvException;
-import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import itu.mg.rh.components.SessionManager;
 import itu.mg.rh.csv.CsvErrorMessage;
 import itu.mg.rh.csv.CsvParseFinalResult;
 import itu.mg.rh.csv.CsvParseResult;
-import itu.mg.rh.csv.dto.RequestForQuotation;
-import itu.mg.rh.csv.dto.Supplier;
-import itu.mg.rh.csv.dto.SupplierQuotation;
-import itu.mg.rh.csv.dto.export.SupplierExportDTO;
+import itu.mg.rh.csv.dto.CsvValidationResultDTO;
+import itu.mg.rh.csv.dto.EmployeeDTO;
+import itu.mg.rh.csv.dto.SalaryComponentDTO;
+import itu.mg.rh.csv.dto.SalarySlipDTO;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.dto.ImportDto;
 import itu.mg.rh.services.MainService;
@@ -27,10 +25,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,7 +44,7 @@ public class ImportCsv extends MainService {
         this.exportCsvService = exportCsvService;
     }
 
-    public ApiResponse deleteData(){
+    public ApiResponse deleteData() {
         String url = String.format("%s/api/method/importapp.api.import.delete_all_data", this.getErpNextUrl());
 
         HttpHeaders headers = this.getHeaders();
@@ -67,28 +62,26 @@ public class ImportCsv extends MainService {
 
         return response.getBody();
     }
-    public CsvParseFinalResult importation(ImportDto importDto)  {
-        CsvParseResult<Supplier> suppliers = null;
-        try {
-            suppliers = csvParser(importDto.getSupplierFile(), Supplier.class);
-            exportCsvService.exportSupplierToCsv(prepareData(suppliers.getValidRows()));
-            submit();
-        } catch (CsvDataTypeMismatchException | CsvRequiredFieldEmptyException e) {
-            throw new RuntimeException(e);
-        }
+    public CsvParseFinalResult csvFileReader(ImportDto importDto) {
+        CsvParseResult<EmployeeDTO> employees = null;
+        CsvParseResult<SalaryComponentDTO> salaryComponents = null;
+        CsvParseResult<SalarySlipDTO> salarySlips = null;
 
-        CsvParseResult<RequestForQuotation> requestForQuotations = csvParser(importDto.getRequestForQuotation(), RequestForQuotation.class);
-        CsvParseResult<SupplierQuotation> supplierQuotations = csvParser(importDto.getSupplierQuotation(), SupplierQuotation.class);
+        employees = csvParser(importDto.getEmployeeFile(), EmployeeDTO.class);
+        salaryComponents = csvParser(importDto.getSalaryComponentFile(), SalaryComponentDTO.class);
+        salarySlips = csvParser(importDto.getSalarySlipFile(), SalarySlipDTO.class);
 
-        return new CsvParseFinalResult(suppliers, requestForQuotations, supplierQuotations);
+        return new CsvParseFinalResult(employees, salaryComponents, salarySlips);
     }
     private <T> CsvParseResult<T> csvParser(MultipartFile file, Class<T> model) {
         List<T> validRows = new ArrayList<>();
         List<CsvErrorMessage> errors = new ArrayList<>();
         String fileName = file.getResource().getFilename();
+        List<String> originalLines = new ArrayList<>();
 
         try (InputStream inputStream = file.getInputStream();
              Reader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8)) {
+            // = this.getOriginalLines(reader);
 
             CsvToBean<T> csvToBean = new CsvToBeanBuilder<T>(reader)
                     .withType(model)
@@ -103,7 +96,7 @@ public class ImportCsv extends MainService {
             for (CsvException capturedException : capturedExceptions) {
                 String field = "unknown";
 
-                Throwable cause  = capturedException.getCause();
+                Throwable cause = capturedException.getCause();
                 String message = cause != null ? cause.getMessage() : capturedException.getMessage();
 
                 CsvErrorMessage error = new CsvErrorMessage(
@@ -130,9 +123,59 @@ public class ImportCsv extends MainService {
             errors.add(error);
         }
 
+        //List<CsvValidationResultDTO> csvValidationResultDTOList = getValidationResults(originalLines, errors);
         return new CsvParseResult<>(validRows, errors);
     }
-    private List<SupplierExportDTO> prepareData(List<Supplier> suppliers){
+
+
+
+    private List<String> getOriginalLines(Reader reader) throws IOException {
+        List<String> originalLines = new ArrayList<>();
+        try (BufferedReader bufferedReader = new BufferedReader(reader)) {
+
+            // Read header
+            String header = bufferedReader.readLine();
+            originalLines.add(header);
+
+            // Read and store all lines
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                originalLines.add(line);
+            }
+        }
+
+        reader.reset();
+        return originalLines;
+    }
+
+    private List<CsvValidationResultDTO> getValidationResults(List<String> originalLines, List<CsvErrorMessage> errors) {
+        List<CsvValidationResultDTO> results = new ArrayList<>();
+
+        // Add header
+        results.add(new CsvValidationResultDTO(originalLines.get(0), true, null, 1));
+
+        // Process data lines
+        for (int i = 1; i < originalLines.size(); i++) {
+            String line = originalLines.get(i);
+            boolean isValid = true;
+            String errorMessage = null;
+
+            // Check if this line has an error
+            for (CsvErrorMessage error : errors) {
+                if (error.getLine() != null && (Integer) error.getLine() == i + 1) {
+                    isValid = false;
+                    errorMessage = error.getMessage();
+                    break;
+                }
+            }
+
+            results.add(new CsvValidationResultDTO(line, isValid, errorMessage, i + 1));
+        }
+
+        return results;
+    }
+/*
+    private List<SupplierExportDTO> prepareData(List<Supplier> employees){
         List<SupplierExportDTO> results = new ArrayList<>();
 
         for (Supplier supplier : suppliers) {
@@ -147,6 +190,7 @@ public class ImportCsv extends MainService {
 
         return results;
     }
+*/
 
     public boolean submit() {
         String url = String.format("%s/api/method/importapp.api.import.import_csv_file", this.getErpNextUrl());
@@ -165,10 +209,10 @@ public class ImportCsv extends MainService {
         try {
             response = this.getRestTemplate()
                     .exchange(url, HttpMethod.GET, entity, Map.class);
-             if(response.getStatusCode().is2xxSuccessful()) {
-                 Map<String, Object> responseBody = response.getBody();
-                 return true;
-             }
+            if (response.getStatusCode().is2xxSuccessful()) {
+                Map<String, Object> responseBody = response.getBody();
+                return true;
+            }
         } catch (RestClientException e) {
             RestClientExceptionHandler.handleError(e);
         }

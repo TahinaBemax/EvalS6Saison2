@@ -61,15 +61,13 @@ public class ImportController {
             return importPage(model);
         }
 
-        CsvParseFinalResult result = importCsv.importation(importDto);
+        CsvParseFinalResult result = importCsv.csvFileReader(importDto);
 
         if (result.isValid()){
             redirectAttributes.addFlashAttribute("success", "Imported successfuly");
-            return "redirect:/";
         }
 
         redirectAttributes.addFlashAttribute("results", result);
-        return "redirect:/";
-
+        return "redirect:/import";
     }
 }

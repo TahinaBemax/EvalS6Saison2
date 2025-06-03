@@ -5,7 +5,7 @@ import com.opencsv.bean.StatefulBeanToCsv;
 import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
-import itu.mg.rh.csv.dto.export.SupplierExportDTO;
+import itu.mg.rh.csv.dto.export.SalaryComponentExportDTO;
 import itu.mg.rh.csv.helper.CustomHeaderColumnNameMappingStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,18 +25,18 @@ public class ExportCsvService {
     public String getFileName() {
         return supplier_filename;
     }
-    public boolean exportSupplierToCsv(List<SupplierExportDTO> supplier) throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+    public boolean exportSupplierToCsv(List<SalaryComponentExportDTO> supplier) throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
         String file_output =  String.format("%s\\%s", output_dir, supplier_filename);
 
         try(CSVWriter writer = new CSVWriter(new FileWriter(file_output))){
-            CustomHeaderColumnNameMappingStrategy<SupplierExportDTO> strategy = new CustomHeaderColumnNameMappingStrategy<>();
-            strategy.setType(SupplierExportDTO.class);
+            CustomHeaderColumnNameMappingStrategy<SalaryComponentExportDTO> strategy = new CustomHeaderColumnNameMappingStrategy<>();
+            strategy.setType(SalaryComponentExportDTO.class);
 
 /*            // Set columns in order and with the names you want in the header
             String[] columns = new String[]{"id", "supplier_name", "country", "supplier_type"};
             writer.writeNext(columns);*/
 
-            StatefulBeanToCsv<SupplierExportDTO> beanToCsv = new StatefulBeanToCsvBuilder<SupplierExportDTO>(writer)
+            StatefulBeanToCsv<SalaryComponentExportDTO> beanToCsv = new StatefulBeanToCsvBuilder<SalaryComponentExportDTO>(writer)
                     .withMappingStrategy(strategy)
                     .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
                     .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
