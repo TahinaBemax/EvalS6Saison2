@@ -6,10 +6,7 @@ import com.opencsv.bean.HeaderColumnNameMappingStrategy;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CustomHeaderColumnNameMappingStrategy<T> extends HeaderColumnNameMappingStrategy<T> {
     private Map<String, Field> fieldMap = new HashMap<>();
@@ -24,15 +21,15 @@ public class CustomHeaderColumnNameMappingStrategy<T> extends HeaderColumnNameMa
             if (field.isAnnotationPresent(CsvBindByName.class)) {
                 CsvBindByName annotation = field.getAnnotation(CsvBindByName.class);
                 String columnName = annotation.column();
-                headers.add(columnName);
+                headers.add(columnName.toLowerCase());
                 field.setAccessible(true);
-                fieldMap.put(columnName, field);
+                fieldMap.put(columnName.toLowerCase(), field);
             } else if (field.isAnnotationPresent(CsvCustomBindByName.class)) {
                 CsvCustomBindByName annotation = field.getAnnotation(CsvCustomBindByName.class);
                 String columnName = annotation.column();
-                headers.add(columnName);
+                headers.add(columnName.toLowerCase());
                 field.setAccessible(true);
-                fieldMap.put(columnName, field);
+                fieldMap.put(columnName.toLowerCase(), field);
             }
         }
 
