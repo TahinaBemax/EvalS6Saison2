@@ -72,10 +72,10 @@ $(document).ready(function () {
                   <td>${salarySlip.employeeName}</td>
                   <td>${salarySlip.startDate}</td>
                   <td>${salarySlip.endDate}</td>
-                  <td class="text-start">
+                  <td>
                         ${salarySlipDetailsList(salarySlip.salaryDetailEarnings, salarySlip.grossPay)}
                   </td>
-                  <td class="text-start">
+                  <td>
                         ${salarySlipDetailsList(salarySlip.salaryDetailDeductions, salarySlip.totalDeduction)}
                   </td>
                   <td class="text-end">
@@ -91,12 +91,12 @@ $(document).ready(function () {
             return ""
         }
 
-        var list = "<ul>"
+        var list = "<ul class='salary-detail-container'>"
         details.forEach(function(detail) {
-            list += `<li>${detail.salaryComponent}: ${currencyFormat(detail.amount)}</li>`
+            list += `<li><span>${detail.salaryComponent}:</span> <span>${currencyFormat(detail.amount)}</span></li>`
         })
 
-        list += `<li><b>Total</b>: ${currencyFormat(total)}</li></ul>`;
+        list += `<li><span><b>Total</b>:</span> <span>${currencyFormat(total)}</span></li></ul>`;
         return list;
     }
 

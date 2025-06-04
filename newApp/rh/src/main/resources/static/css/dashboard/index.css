@@ -8,3 +8,11 @@ table > tbody > tr ul {
     margin-bottom: 0;
     list-style: none;
 }
+
+ul.salary-detail-container > li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2px;
+}

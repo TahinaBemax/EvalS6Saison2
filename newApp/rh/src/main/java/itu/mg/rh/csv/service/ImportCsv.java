@@ -76,9 +76,9 @@ public class ImportCsv {
         try {
             response = this.mainService.getRestTemplate()
                     .exchange(url, HttpMethod.GET, entity, ApiResponse.class);
-        } catch (RuntimeException e) {
+        } catch (RestClientException e) {
             logger.error(e.getLocalizedMessage());
-            throw e;
+            throw new RuntimeException(e);
         }
 
         return response.getBody();

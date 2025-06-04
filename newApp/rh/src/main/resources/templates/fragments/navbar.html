@@ -1,8 +1,8 @@
 
-<header style="position: sticky; top: 0" th:fragment="navbar" xmlns:th="http://www.thymeleaf.org">
+<header style="position: sticky; top: 0" class="z-3" th:fragment="navbar" xmlns:th="http://www.thymeleaf.org">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">NewApp</a>
+            <a class="navbar-brand" href="/">NewApp</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -22,12 +22,12 @@
                     <li class="nav-item">
                         <a  class="nav-link" href="/import">Import</a>
                     </li>
-
-                    <li class="nav-item">
-                        <a  class="nav-link" href="/logout">Logout</a>
-                    </li>
                 </ul>
             </div>
+
+            <button class="btn btn-primary position-relative" style="right: 15px;">
+                <a  class="nav-link text-light" href="/logout">Logout</a>
+            </button>
         </div>
     </nav>
 </header>

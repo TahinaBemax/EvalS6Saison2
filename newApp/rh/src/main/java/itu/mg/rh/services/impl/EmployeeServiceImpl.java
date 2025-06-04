@@ -39,7 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<Employee> getEmployee(String fullName, String departement) {
+    public List<Employee> getEmployee(String fullName, String company) {
         StringBuilder urlBuilder = new StringBuilder(mainService.getErpNextUrl() + "/api/resource/Employee");
         try {
             urlBuilder.append(String.format("?fields=%s", new ObjectMapper().writeValueAsString(employeeFields)));
@@ -47,19 +47,20 @@ public class EmployeeServiceImpl implements EmployeeService {
             throw new RuntimeException(e);
         }
 
-        if (fullName != null || departement != null) {
+        if (fullName != null || company != null) {
             urlBuilder.append("&filters=[");
             if (fullName != null) {
                 urlBuilder.append("[\"employee_name\",\"like\",\"").append(fullName).append("\"]");
             }
-            if (departement != null) {
+            if (company != null) {
                 if (fullName != null) {
                     urlBuilder.append(",");
                 }
-                urlBuilder.append("[\"department\",\"like\",\"").append(departement).append("\"]");
+                urlBuilder.append("[\"company\",\"=\",\"").append(company).append("\"]");
             }
             urlBuilder.append("]");
         }
+
         String url = urlBuilder.toString();
         HttpHeaders headers = mainService.getHeaders();
         HttpEntity<?> requestEntity = new HttpEntity<>(headers);
