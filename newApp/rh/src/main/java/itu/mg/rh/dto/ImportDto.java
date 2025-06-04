@@ -7,9 +7,9 @@ import org.springframework.web.multipart.MultipartFile;
 @Data
 public class ImportDto {
     @NotNull
-    MultipartFile supplierFile;
+    MultipartFile employeeFile;
     @NotNull
-    MultipartFile SupplierQuotation;
+    MultipartFile salaryComponentFile;
     @NotNull
-    MultipartFile requestForQuotation;
+    MultipartFile salarySlipFile;
 }
