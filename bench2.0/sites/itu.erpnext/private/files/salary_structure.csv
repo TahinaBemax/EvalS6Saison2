@@ -1,0 +1,6 @@
+"ID","Company","Is Active","Currency","Payroll Frequency","Salary Component","Mode of Payment","Payment Account","ID (Earnings)","Component (Earnings)","Formula (Earnings)","Amount based on formula (Earnings)","Abbr (Earnings)","Depends on Payment Days (Earnings)","Is Tax Applicable (Earnings)","ID (Deductions)","Component (Deductions)","Amount based on formula (Deductions)","Formula (Deductions)","Abbr (Deductions)","Depends on Payment Days (Deductions)","Is Tax Applicable (Deductions)"
+gasy1,My Company,Yes,EUR,Monthly,Salaire Base,Cash,Cash - MC,,Salaire Base,base,1,SB,0,1,,,,,,,
+gasy1,My Company,Yes,EUR,Monthly,Indemnit�,Cash,Cash - MC,,Indemnit�,SB * 0.3,1,IND,0,1,,,,,,,
+gasy1,My Company,Yes,EUR,Monthly,Taxe sociale,Cash,Cash - MC,,,,,,,,,Taxe sociale,1,(SB + IND) * 0.2,TS,0,0
+gasy1, My Company,Yes,EUR,Monthly,Taxe sociale,Cash,Cash - MC,,,,,,,,,Taxe sociale,1,(SB + IND) * 0.2,TS,0,0
+gasy1,My Company,Yes,EUR,Monthly,Taxe sociale,Cash,Cash - MC,,,,,,,,,Taxe sociale,1,(SB + IND) * 0.2,TS,0,0

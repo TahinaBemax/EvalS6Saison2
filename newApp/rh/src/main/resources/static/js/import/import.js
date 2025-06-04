@@ -56,13 +56,11 @@ $(document).ready(function () {
                 error: function (xhr) {
                     console.log(xhr)
                     const response = JSON.parse(xhr.responseText);
-                    var errorList = "<ul class='p-0 m-0'>"
 
-                    for (const message of response) {
-                        errorList += `<li>${message.message}</li>`
-                    }
-                    errorList += "</ul>"
-
+                    var errorList = `
+                        <ul class='p-0 m-0'>
+                            <li>${response.message}</li>
+                        </ul>`
                     showErrorMessage(errorList);
                 }
             })

@@ -8,22 +8,22 @@ import itu.mg.rh.csv.exception.DuplicateValueException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class UniqueItemName extends AbstractBeanField<String, String> {
-    Set<String> existingItemName;
+public class UniqueEmployeeRef extends AbstractBeanField<String, String> {
+    Set<String> existingRef;
 
-    public UniqueItemName() {
-        existingItemName = new HashSet<>();
+    public UniqueEmployeeRef() {
+        existingRef = new HashSet<>();
     }
 
     @Override
     protected Object convert(String s) throws CsvDataTypeMismatchException, CsvConstraintViolationException {
         if (s.trim().isEmpty())
-            throw new CsvDataTypeMismatchException("Item Name is required and can not be blank");
+            throw new CsvDataTypeMismatchException("Ref is required and can not be blank");
 
-        if (existingItemName.contains(s))
+        if (existingRef.contains(s))
             throw new DuplicateValueException(field.getName(), s);
 
-        existingItemName.add(s);
+        existingRef.add(s);
         return s;
     }
 }

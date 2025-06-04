@@ -2,7 +2,7 @@ package itu.mg.rh.controller;
 
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
-import itu.mg.rh.csv.CsvParseFinalResult;
+import itu.mg.rh.csv.CsvImportFinalResult;
 import itu.mg.rh.csv.service.ImportCsv;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.dto.ImportDto;
@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("")
@@ -47,10 +50,18 @@ public class ImportController {
             }
 
             return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(apiResponse);
-        } catch (FrappeApiException e) {
+        } catch (RuntimeException e) {
+            Throwable cause = e.getCause();
+            ApiResponse response = new ApiResponse<>(null, e.getMessage(), "error", null);
+
+            if (cause instanceof RestClientException){
+                RestClientException ex = (RestClientException) cause;
+                response = ApiResponse.parseJsonErrorToApiResponse(ex);
+            }
+
             return ResponseEntity
                     .status(417)
-                    .body(e.getErrorResponse().getServerMessages());
+                    .body(response);
         }
     }
 
@@ -61,15 +72,15 @@ public class ImportController {
             return importPage(model);
         }
 
-        CsvParseFinalResult result = importCsv.importation(importDto);
+        CsvImportFinalResult result = importCsv.dataImport(importDto);
 
         if (result.isValid()){
             redirectAttributes.addFlashAttribute("success", "Imported successfuly");
-            return "redirect:/";
+        } else {
+            redirectAttributes.addFlashAttribute("hasErrors", true);
         }
 
         redirectAttributes.addFlashAttribute("results", result);
-        return "redirect:/";
-
+        return "redirect:/import";
     }
 }

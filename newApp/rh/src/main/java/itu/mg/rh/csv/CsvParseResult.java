@@ -3,6 +3,7 @@ package itu.mg.rh.csv;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -10,6 +11,13 @@ import java.util.List;
 public class CsvParseResult<T> {
     private List<T> validRows;
     private List<CsvErrorMessage> errors;
+    private List<String> originalLines;
+
+    public CsvParseResult(List<T> validRows, List<CsvErrorMessage> errors) {
+        this.validRows = validRows;
+        this.errors = errors;
+        this.originalLines = new ArrayList<>();
+    }
 
     public boolean isValid(){
         return errors.size() == 0;
