@@ -319,3 +319,13 @@
 2025-06-04 17:40:02,312 ERROR scheduler Skipped queueing frappe.integrations.doctype.google_calendar.google_calendar.sync because it was found in queue for itu.erpnext
 2025-06-04 17:40:02,427 ERROR scheduler Skipped queueing hrms.hr.doctype.interview.interview.send_interview_reminder because it was found in queue for itu.erpnext
 2025-06-04 17:40:02,525 ERROR scheduler Skipped queueing frappe.desk.form.document_follow.send_hourly_updates because it was found in queue for itu.erpnext
+2025-06-04 17:48:00,733 ERROR scheduler Skipped queueing frappe.twofactor.delete_all_barcodes_for_users because it was found in queue for itu.erpnext
+2025-06-04 17:48:00,777 ERROR scheduler Skipped queueing frappe.deferred_insert.save_to_db because it was found in queue for itu.erpnext
+2025-06-04 17:48:00,851 ERROR scheduler Skipped queueing frappe.oauth.delete_oauth2_data because it was found in queue for itu.erpnext
+2025-06-04 17:48:00,951 ERROR scheduler Skipped queueing erpnext.manufacturing.doctype.bom_update_log.bom_update_log.resume_bom_cost_update_jobs because it was found in queue for itu.erpnext
+2025-06-04 17:48:01,278 ERROR scheduler Skipped queueing frappe.website.doctype.web_page.web_page.check_publish_status because it was found in queue for itu.erpnext
+2025-06-04 17:48:01,339 ERROR scheduler Skipped queueing frappe.automation.doctype.reminder.reminder.send_reminders because it was found in queue for itu.erpnext
+2025-06-04 17:48:01,539 ERROR scheduler Skipped queueing frappe.email.doctype.notification.notification.trigger_offset_alerts because it was found in queue for itu.erpnext
+2025-06-04 17:48:01,586 ERROR scheduler Skipped queueing frappe.email.doctype.email_account.email_account.notify_unreplied because it was found in queue for itu.erpnext
+2025-06-04 17:51:58,264 ERROR scheduler Skipped queueing frappe.email.doctype.email_account.email_account.pull because it was found in queue for itu.erpnext
+2025-06-04 17:52:01,423 ERROR scheduler Skipped queueing frappe.email.doctype.email_account.email_account.pull because it was found in queue for itu.erpnext
