@@ -460,3 +460,114 @@
 2025-05-30 09:32:00,614 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench build --app hrms
 2025-05-30 09:44:43,676 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext install-app hrms
 2025-05-30 09:52:56,754 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext migrate
+2025-05-30 12:00:03,452 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-05-30 13:07:13,198 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-30 13:07:15,281 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-30 13:07:15,291 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-30 13:07:15,378 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-30 13:07:15,653 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-30 14:57:45,002 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-30 14:57:46,232 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-30 14:57:46,270 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-30 14:57:46,365 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-30 14:57:46,565 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-30 18:38:58,555 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-30 18:38:59,561 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-30 18:38:59,565 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-30 18:38:59,580 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-30 18:38:59,631 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-31 09:45:08,633 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-31 09:45:10,202 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-31 09:45:10,202 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-31 09:45:10,205 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-31 09:45:10,546 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-31 10:55:51,347 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute erpnext.demo.make_demo
+2025-05-31 11:24:16,476 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute full_hr_seed_data.create_hr_test_data
+2025-05-31 11:26:32,973 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute importapp.fakedata.full_hr_seed_data.create_hr_test_data
+2025-05-31 11:28:41,279 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute importapp.importapp.fakedata.full_hr_seed_data.create_hr_test_data
+2025-05-31 12:00:02,971 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-05-31 13:12:34,266 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-31 13:12:39,611 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-31 13:12:39,660 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-31 13:12:39,701 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-31 13:12:39,890 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-31 14:44:45,315 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute erpnext.hr.doctype.department.department.setup_defaults
+2025-05-31 14:49:52,856 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext reinstall-app hrms
+2025-05-31 14:52:43,320 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute frappe.reload_doctype('Employee')
+2025-05-31 14:53:08,771 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute frappe.reload_doctype('Department')
+2025-05-31 14:53:46,527 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext execute frappe.reload_doctype('Designation')
+2025-05-31 14:54:46,777 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext backup
+2025-05-31 14:55:30,249 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext uninstall-app hrms
+2025-05-31 14:57:52,353 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench --site itu.erpnext install-app hrms
+2025-05-31 15:06:46,670 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-31 15:06:49,099 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-31 15:06:49,512 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-31 15:06:49,536 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-31 15:06:49,691 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-05-31 18:23:15,812 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-05-31 18:23:16,903 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-05-31 18:23:16,907 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-05-31 18:23:17,007 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-05-31 18:23:17,123 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-01 18:26:49,963 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-01 18:26:52,784 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-01 18:26:52,803 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-01 18:26:52,834 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-01 18:26:53,201 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-02 05:28:55,521 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-02 05:28:57,502 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-02 05:28:57,539 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-02 05:28:57,760 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-02 05:28:57,816 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-02 06:00:03,326 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-06-02 10:21:14,281 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-02 10:21:16,910 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-02 10:21:16,934 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-02 10:21:17,296 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-02 10:21:17,408 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-02 12:00:02,638 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-06-02 12:49:03,414 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-02 12:49:04,347 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-02 12:49:04,348 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-02 12:49:04,486 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-02 12:49:04,639 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-03 00:00:03,690 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-06-03 07:42:12,603 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-03 07:42:13,852 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-03 07:42:13,891 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-03 07:42:14,002 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-03 07:42:14,298 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-03 12:00:02,558 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-06-03 14:40:45,918 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-03 14:40:47,228 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-03 14:40:47,228 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-03 14:40:47,328 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-03 14:40:47,348 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-03 14:44:19,624 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-03 14:44:20,852 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-03 14:44:20,865 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-03 14:44:20,881 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-03 14:44:21,128 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-03 18:00:04,118 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-06-03 18:30:01,476 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-03 18:30:04,430 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-03 18:30:04,440 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-03 18:30:04,590 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-03 18:30:04,729 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-03 19:53:18,196 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-03 19:53:19,690 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-03 19:53:19,699 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-03 19:53:19,720 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-03 19:53:19,982 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-04 00:00:04,217 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-06-04 08:12:24,639 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-04 08:12:25,856 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-04 08:12:25,861 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-04 08:12:25,950 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-04 08:12:26,142 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-04 12:00:03,685 INFO /home/tahina/.cache/uv/archive-v0/qyoYkZ8mseB_Higfxz7vq/bin/bench --verbose --site all backup
+2025-06-04 17:29:01,709 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-04 17:29:02,768 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-04 17:29:02,783 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-04 17:29:02,823 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-04 17:29:03,090 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch

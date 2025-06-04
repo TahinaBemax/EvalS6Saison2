@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}">
+</head>
+<link th:href="@{/css/dashboard/index.css}" rel="stylesheet">
+<title>Employee - List</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<main>
+  <section>
+
+    <div class="card bg-white border-0 mt-1" style="width: 18rem;">
+      <div class="card-body" id="filter">
+        <h5 class="card-title">Filter</h5>
+        <div class="col">
+          <label for="select-month" class="form-label">Month</label>
+          <select class="form-select" id="select-month">
+            <option value="">All Months</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-2 p-3 bg-white">
+      <table class="table table-bordered" id="dashboard">
+        <thead class="bg-primary-subtle">
+        <tr>
+          <th scope="row" > Full Name </th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Total Earnings</th>
+          <th scope="col">Total Deductions</th>
+          <th scope="col" class="w-auto">Total Net</th>
+        </tr>
+        </thead>
+        <tbody>
+            <!-- generate by dashboard.js -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+<script th:src="@{/js/dashboard/dashboard.js}"></script>
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

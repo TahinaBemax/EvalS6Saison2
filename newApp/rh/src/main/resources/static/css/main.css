@@ -1,0 +1,52 @@
+body {
+    background: #e6f1fd;
+}
+
+main {
+    padding: 10px;
+}
+
+/* START TABLE */
+.table tr > th {
+    width: auto;
+    font-weight: 400;
+    font-size: 0.9em;
+    padding: 0px;
+    background-color: rgb(241, 238, 238);
+    color: #535353 !important;
+}
+
+.table > tbody > tr > td {
+    padding: 0px;
+    color: #535353 !important;
+}
+.table > tbody > tr > td > input {
+    font-size: 0.9em;
+    padding: 3px 8px;
+    width: 100%;
+    background-color: rgb(252, 251, 251);
+    border: none;
+}
+
+.table > tbody > tr > td > input:focus {
+    outline: 1px solid rgb(129, 176, 217)
+}
+/* END TABLE */
+
+/* --- Datatable css ---- */
+table.dataTable tbody tr {
+    padding:5px 10px;
+    vertical-align: middle;
+    border: 1px solid #535353;
+}
+table.dataTable tbody td {
+    padding:5px 10px;
+}
+table.dataTable.no-footer {
+    border-bottom:0px solid #111;
+}
+.dataTables_wrapper .dataTables_length{
+    margin-bottom: 10px;
+}
+/* --- Datatable css ---- */
+

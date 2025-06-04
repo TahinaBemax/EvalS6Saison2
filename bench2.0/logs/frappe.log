@@ -142,3 +142,144 @@ Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api
 2025-05-27 18:22:52,368 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'doctype': 'supplier', 'file': 'supplier.csv', 'cmd': 'importapp.api.import.import_csv_file'}
+2025-05-30 16:24:55,668 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 16:54:54,997 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:08:46,637 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:15:16,472 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:28:04,486 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:34:23,790 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:41:30,158 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:44:28,073 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 17:53:40,659 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 18:50:45,189 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:00:05,143 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:01:04,935 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:03:46,052 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:11:57,982 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:12:53,299 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:30:43,392 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-30 19:34:13,324 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'cmd': 'importapp.api.import.delete_all_data'}
+2025-05-31 13:31:25,405 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-slip-slcljyfgit","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","posting_date":"2025-05-31","status":"Draft","currency":"EUR","exchange_rate":1,"payroll_frequency":"Monthly","salary_slip_based_on_timesheet":0,"deduct_tax_for_unclaimed_employee_benefits":0,"deduct_tax_for_unsubmitted_tax_exemption_proof":0,"timesheets":[],"earnings":[],"deductions":[],"leave_details":[],"employee_name":"Tahina Bemax","department":"Informatique","designation":"Designation 1","branch":null,"employee":"HR-EMP-00002","end_date":""}', 'method': 'get_emp_and_working_day_details', 'cmd': 'run_doc_method'}
+2025-05-31 13:31:25,454 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-slip-slcljyfgit","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","posting_date":"2025-05-31","status":"Draft","currency":"EUR","exchange_rate":1,"payroll_frequency":"","salary_slip_based_on_timesheet":0,"deduct_tax_for_unclaimed_employee_benefits":0,"deduct_tax_for_unsubmitted_tax_exemption_proof":0,"timesheets":[],"earnings":[],"deductions":[],"leave_details":[],"employee_name":"Tahina Bemax","department":"Informatique","designation":"Designation 1","branch":null,"employee":"HR-EMP-00002"}', 'method': 'get_emp_and_working_day_details', 'cmd': 'run_doc_method'}
+2025-05-31 13:31:25,454 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-slip-slcljyfgit","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","posting_date":"2025-05-31","status":"Draft","currency":"EUR","exchange_rate":1,"payroll_frequency":"Monthly","salary_slip_based_on_timesheet":0,"deduct_tax_for_unclaimed_employee_benefits":0,"deduct_tax_for_unsubmitted_tax_exemption_proof":0,"timesheets":[],"earnings":[],"deductions":[],"leave_details":[],"employee_name":"Tahina Bemax","department":"Informatique","designation":"Designation 1","branch":null,"employee":"HR-EMP-00002","end_date":"2025-05-31","start_date":"2025-05-01"}', 'method': 'get_emp_and_working_day_details', 'cmd': 'run_doc_method'}
+2025-05-31 14:08:21,724 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-slip-slcljyfgit","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","posting_date":"2025-05-31","status":"Draft","currency":"EUR","exchange_rate":1,"payroll_frequency":"Monthly","salary_slip_based_on_timesheet":0,"deduct_tax_for_unclaimed_employee_benefits":0,"deduct_tax_for_unsubmitted_tax_exemption_proof":0,"timesheets":[],"earnings":[],"deductions":[],"leave_details":[],"employee_name":"Tahina Bemax","department":"Informatique","designation":"Designation 1","branch":null,"employee":"HR-EMP-00002","end_date":"2025-05-31","start_date":"2025-05-01","leave_without_pay":0}', 'method': 'process_salary_based_on_working_days', 'cmd': 'run_doc_method'}
+2025-05-31 15:02:22,198 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'Department', 'fields': '["`tabDepartment`.`name`","`tabDepartment`.`owner`","`tabDepartment`.`creation`","`tabDepartment`.`modified`","`tabDepartment`.`modified_by`","`tabDepartment`.`_user_tags`","`tabDepartment`.`_comments`","`tabDepartment`.`_assign`","`tabDepartment`.`_liked_by`","`tabDepartment`.`docstatus`","`tabDepartment`.`idx`","`tabDepartment`.`department_name`","`tabDepartment`.`parent_department`","`tabDepartment`.`is_group`","`tabDepartment`.`leave_block_list`","`tabDepartment`.`disabled`"]', 'filters': '[]', 'order_by': '`tabDepartment`.creation asc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '', 'with_comment_count': '1', 'cmd': 'frappe.desk.reportview.get'}
+2025-05-31 18:30:09,918 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'filters': "[['employee','=','HR-EMP-00002']]", 'limit_page_length': 20}
+2025-05-31 18:54:29,831 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"name":"HR-EMP-00002","owner":"Administrator","creation":"2025-05-31 11:32:13.058937","modified":"2025-05-31 14:11:07.258634","modified_by":"Administrator","docstatus":0,"idx":0,"employee":"HR-EMP-00002","naming_series":"HR-EMP-","first_name":"Tahina","last_name":"Bemax","employee_name":"Tahina Bemax","gender":"Male","date_of_birth":"2003-05-01","salutation":"Mr","date_of_joining":"2025-04-28","status":"Active","create_user_permission":1,"company":"IT University","department":"Informatique","employment_type":"Full-time","designation":"Designation 1","grade":"M2","notice_number_of_days":0,"date_of_retirement":"2063-05-01","prefered_contact_email":"","unsubscribed":0,"current_accommodation_type":"","permanent_accommodation_type":"","holiday_list":"Holiday 1","ctc":0,"salary_currency":"EUR","salary_mode":"Cash","marital_status":"Single","blood_group":"A+","leave_encashed":"","lft":1,"rgt":2,"old_parent":"","doctype":"Employee","education":[],"external_work_history":[],"internal_work_history":[],"__last_sync_on":"2025-05-31T15:52:45.898Z","__unsaved":1}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-05-31 19:38:29,593 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Structure Assignment","name":"new-salary-structure-assignment-sxpxyeumtt","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","currency":"EUR","payroll_cost_centers":[{"docstatus":0,"idx":1,"cost_center":"Main - ITU","percentage":100,"parent":"new-salary-structure-assignment-sxpxyeumtt","parentfield":"payroll_cost_centers","parenttype":"Salary Structure Assignment","doctype":"Employee Cost Center","__islocal":1,"name":"new-employee-cost-center-lbfabmnzif"}],"employee_name":"Jean Dupont","department":"Marketing - ITU","designation":"Designation 1","grade":"License","employee":"HR-EMP-00003","base":0,"idx":0,"variable":0,"taxable_earnings_till_date":0,"tax_deducted_till_date":0,"from_date":"2025-05-01"}', 'method': 'are_opening_entries_required', 'cmd': 'run_doc_method'}
+2025-05-31 20:19:50,886 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'filters': "[['employee','=','HR-EMP-00002']]", 'limit_page_length': 20}
+2025-05-31 20:22:18,609 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'filters': "[['employee','=','HR-EMP-00002']]", 'limit_page_length': 20}
+2025-05-31 20:40:22,271 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'filters': "[['employee','=','HR-EMP-00002']]", 'limit_page_length': 20}
+2025-05-31 22:24:56,814 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['employee-name', 'gender', 'date_of_birth', 'date_of_joining', 'status', 'company', 'department', 'designation', 'reports_to', 'employment_type', 'grade', 'name'], 'limit_page_length': 20}
+2025-05-31 22:25:00,509 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['employee-name', 'gender', 'date_of_birth', 'date_of_joining', 'status', 'company', 'department', 'designation', 'reports_to', 'employment_type', 'grade', 'name'], 'limit_page_length': 20}
+2025-06-02 06:09:21,134 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'Salary Slip', 'name': 'Sal Slip/HR-EMP-00002/00001', 'format': 'Standard', 'no_letterhead': '1', 'letterhead': 'No Letterhead', 'settings': '{}', '_lang': 'en', 'cmd': 'frappe.utils.print_format.download_pdf'}
+2025-06-02 07:37:05,291 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': 'Sal Slip/HR-EMP-00002/00001', 'cmd': 'frappe.core.doctype.salary_slip.salary_slip.download_pdf'}
+2025-06-02 07:48:01,340 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'name': 'Sal Slip/HR-EMP-00002/00001', 'cmd': 'frappe.core.doctype.salary_slip.salary_slip.download_pdf'}
+2025-06-02 13:03:20,307 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'mode_of_payment': 'Credit Card', 'company': 'IT University', 'cmd': 'erpnext.accounts.doctype.sales_invoice.sales_invoice.get_bank_cash_account'}
+2025-06-02 15:03:52,734 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'filters': '[["parenttype","=","Salary Slip"]]', 'limit_page_length': 20}
+2025-06-02 15:04:42,794 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'filters': '[["parenttype","=","Salary Slip"]]', 'limit_page_length': 20}
+2025-06-02 15:15:03,948 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'employee', 'employee_name', 'company', 'department', 'designation', 'branch', 'posting_date', 'status', 'currency', 'payroll_frequency', 'start_date', 'end_date', 'salary_structure', 'mode_of_payment', 'total_working_days', 'absent_days', 'payment_days', 'gross_pay', 'total_deduction', 'net_pay', 'total_in_words', 'earnings', 'deductions'], 'limit_page_length': 20}
+2025-06-02 15:15:46,076 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'employee', 'employee_name', 'company', 'department', 'designation', 'branch', 'posting_date', 'status', 'currency', 'payroll_frequency', 'start_date', 'end_date', 'salary_structure', 'mode_of_payment', 'total_working_days', 'absent_days', 'payment_days', 'gross_pay', 'total_deduction', 'net_pay', 'total_in_words', 'earnings', 'deductions'], 'limit_page_length': 20}
+2025-06-02 15:16:16,877 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'employee', 'employee_name', 'company', 'department', 'designation', 'branch', 'posting_date', 'status', 'currency', 'payroll_frequency', 'start_date', 'end_date', 'salary_structure', 'mode_of_payment', 'total_working_days', 'absent_days', 'payment_days', 'gross_pay', 'total_deduction', 'net_pay', 'total_in_words', 'earnings', 'deductions'], 'limit_page_length': 20}
+2025-06-02 15:32:51,996 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {}
+2025-06-03 08:27:31,636 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-slip-igqglfqrwj","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","posting_date":"2025-06-03","status":"Draft","currency":"EUR","exchange_rate":1,"payroll_frequency":"Monthly","salary_slip_based_on_timesheet":0,"deduct_tax_for_unclaimed_employee_benefits":0,"deduct_tax_for_unsubmitted_tax_exemption_proof":0,"timesheets":[],"earnings":[],"deductions":[],"leave_details":[],"employee_name":"Tahina Bemax","department":"Informatique","designation":"Designation 1","employee":"HR-EMP-00002","idx":0,"total_working_days":1,"unmarked_days":0,"leave_without_pay":0,"absent_days":0,"payment_days":1,"total_working_hours":0,"hour_rate":0,"base_hour_rate":0,"gross_pay":0,"base_gross_pay":0,"gross_year_to_date":0,"base_gross_year_to_date":0,"total_deduction":0,"base_total_deduction":0,"net_pay":0,"base_net_pay":0,"rounded_total":0,"base_rounded_total":0,"year_to_date":0,"base_year_to_date":0,"month_to_date":0,"base_month_to_date":0,"ctc":0,"income_from_other_sources":0,"total_earnings":0,"non_taxable_earnings":0,"standard_tax_exemption_amount":0,"tax_exemption_declaration":0,"deductions_before_tax_calculation":0,"annual_taxable_amount":0,"income_tax_deducted_till_date":0,"current_month_income_tax":0,"future_income_tax_deductions":0,"total_income_tax":0,"end_date":""}', 'method': 'get_emp_and_working_day_details', 'cmd': 'run_doc_method'}
+2025-06-03 09:11:56,109 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Salary Structure","name":"new-salary-structure-chtfkgvgdu","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","is_active":"Yes","is_default":"No","currency":"EUR","salary_slip_based_on_timesheet":0,"payroll_frequency":"Monthly","earnings":[{"docstatus":0,"doctype":"Salary Detail","name":"new-salary-detail-mimzreskfg","__islocal":1,"__unsaved":1,"owner":"Administrator","is_recurring_additional_salary":0,"statistical_component":0,"depends_on_payment_days":1,"exempted_from_income_tax":0,"is_tax_applicable":1,"is_flexible_benefit":0,"variable_based_on_taxable_salary":0,"do_not_include_in_total":0,"deduct_full_tax_on_selected_payroll_date":0,"amount_based_on_formula":1,"parent":"new-salary-structure-chtfkgvgdu","parentfield":"earnings","parenttype":"Salary Structure","idx":1,"__unedited":false,"abbr":"BS","salary_component":"Base Salary","condition":null,"formula":null,"amount":null},{"docstatus":0,"doctype":"Salary Detail","name":"new-salary-detail-pekdjgsfcj","__islocal":1,"__unsaved":1,"owner":"Administrator","is_recurring_additional_salary":0,"statistical_component":0,"depends_on_payment_days":1,"exempted_from_income_tax":0,"is_tax_applicable":1,"is_flexible_benefit":0,"variable_based_on_taxable_salary":0,"do_not_include_in_total":0,"deduct_full_tax_on_selected_payroll_date":0,"amount_based_on_formula":1,"parent":"new-salary-structure-chtfkgvgdu","parentfield":"earnings","parenttype":"Salary Structure","idx":2,"__unedited":false,"abbr":"I","salary_component":"Indemnity","condition":null,"formula":"SB * 0.3","amount":null}],"deductions":[{"docstatus":0,"doctype":"Salary Detail","name":"new-salary-detail-kwqpgkhwzj","__islocal":1,"__unsaved":1,"owner":"Administrator","is_recurring_additional_salary":0,"statistical_component":0,"depends_on_payment_days":1,"exempted_from_income_tax":0,"is_tax_applicable":0,"is_flexible_benefit":0,"variable_based_on_taxable_salary":0,"do_not_include_in_total":0,"deduct_full_tax_on_selected_payroll_date":0,"amount_based_on_formula":1,"parent":"new-salary-structure-chtfkgvgdu","parentfield":"deductions","parenttype":"Salary Structure","idx":1,"__unedited":false,"abbr":"TS","salary_component":"Tax Social","condition":null,"formula":"(SB + I) * 0.2","amount":null}],"total_earning":0,"total_deduction":0,"net_pay":0,"letter_head":null,"__newname":"gase1","mode_of_payment":"Cash","payment_account":"Cash - ITU"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-03 09:21:58,331 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-slip-ofqfihqayt","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","posting_date":"2025-06-03","status":"Draft","currency":"EUR","exchange_rate":1,"payroll_frequency":"","salary_slip_based_on_timesheet":0,"deduct_tax_for_unclaimed_employee_benefits":0,"deduct_tax_for_unsubmitted_tax_exemption_proof":0,"timesheets":[],"earnings":[],"deductions":[],"leave_details":[],"employee_name":"Rakoto Alain","department":null,"designation":null,"branch":null,"employee":"HR-EMP-00004"}', 'method': 'get_emp_and_working_day_details', 'cmd': 'run_doc_method'}
+2025-06-03 09:26:31,235 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-slip-ofqfihqayt","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","posting_date":"2025-06-03","status":"Draft","currency":"EUR","exchange_rate":1,"payroll_frequency":"Monthly","salary_slip_based_on_timesheet":0,"deduct_tax_for_unclaimed_employee_benefits":0,"deduct_tax_for_unsubmitted_tax_exemption_proof":0,"timesheets":[],"earnings":[],"deductions":[],"leave_details":[],"employee_name":"Rakoto Alain","department":null,"designation":null,"branch":null,"employee":"HR-EMP-00004","end_date":""}', 'method': 'get_emp_and_working_day_details', 'cmd': 'run_doc_method'}
+2025-06-03 09:28:23,947 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-slip-ofqfihqayt","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","posting_date":"2025-06-03","status":"Draft","currency":"EUR","exchange_rate":1,"payroll_frequency":"Monthly","salary_slip_based_on_timesheet":0,"deduct_tax_for_unclaimed_employee_benefits":0,"deduct_tax_for_unsubmitted_tax_exemption_proof":0,"timesheets":[],"earnings":[],"deductions":[],"leave_details":[],"employee_name":"Rakoto Alain","department":null,"designation":null,"branch":null,"employee":"HR-EMP-00004","end_date":"2025-04-30","start_date":"2025-04-01"}', 'method': 'get_emp_and_working_day_details', 'cmd': 'run_doc_method'}
+2025-06-03 16:03:11,998 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'files': [{'doctype': 'Company', 'file': 'company.csv'}, {'doctype': 'Employee', 'file': 'employee.csv'}, {'doctype': 'Salary Component', 'file': 'salary_component.csv'}, {'doctype': 'Salary Structure', 'file': 'salary_structure_assignment.csv'}, {'doctype': 'Salary Structure Assignment', 'file': 'salary_structure_assignment.csv'}, {'doctype': 'Salary Slip', 'file': 'salary_slip.csv'}], 'cmd': 'importapp.api.import.import_csv_file'}
+2025-06-03 19:18:30,224 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Department","name":"new-department-tabzsdogtc","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","is_group":1,"disabled":0,"shift_request_approver":[],"leave_approvers":[],"expense_approvers":[],"department_name":"All Departments"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
