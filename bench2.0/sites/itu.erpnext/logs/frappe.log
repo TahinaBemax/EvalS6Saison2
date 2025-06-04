@@ -429,10 +429,13 @@ Form Dict: {'fields': ['name', 'employee', 'employee_name', 'company', 'departme
 Site: itu.erpnext
 Form Dict: {}
 <<<<<<< HEAD
+<<<<<<< HEAD
 2025-06-04 17:56:20,762 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'data_import': 'Salary Component Import on 2025-06-04 17:43:03.824307', 'import_file': '/private/files/salary_component76c14c.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
 =======
+=======
+>>>>>>> cfcc26f91a8d3da1b98c54fb774f4da43c99194d
 2025-06-03 08:27:31,636 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-slip-igqglfqrwj","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","posting_date":"2025-06-03","status":"Draft","currency":"EUR","exchange_rate":1,"payroll_frequency":"Monthly","salary_slip_based_on_timesheet":0,"deduct_tax_for_unclaimed_employee_benefits":0,"deduct_tax_for_unsubmitted_tax_exemption_proof":0,"timesheets":[],"earnings":[],"deductions":[],"leave_details":[],"employee_name":"Tahina Bemax","department":"Informatique","designation":"Designation 1","employee":"HR-EMP-00002","idx":0,"total_working_days":1,"unmarked_days":0,"leave_without_pay":0,"absent_days":0,"payment_days":1,"total_working_hours":0,"hour_rate":0,"base_hour_rate":0,"gross_pay":0,"base_gross_pay":0,"gross_year_to_date":0,"base_gross_year_to_date":0,"total_deduction":0,"base_total_deduction":0,"net_pay":0,"base_net_pay":0,"rounded_total":0,"base_rounded_total":0,"year_to_date":0,"base_year_to_date":0,"month_to_date":0,"base_month_to_date":0,"ctc":0,"income_from_other_sources":0,"total_earnings":0,"non_taxable_earnings":0,"standard_tax_exemption_amount":0,"tax_exemption_declaration":0,"deductions_before_tax_calculation":0,"annual_taxable_amount":0,"income_tax_deducted_till_date":0,"current_month_income_tax":0,"future_income_tax_deductions":0,"total_income_tax":0,"end_date":""}', 'method': 'get_emp_and_working_day_details', 'cmd': 'run_doc_method'}
@@ -454,4 +457,7 @@ Form Dict: {'files': [{'doctype': 'Company', 'file': 'company.csv'}, {'doctype':
 2025-06-03 19:18:30,224 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'doc': '{"docstatus":0,"doctype":"Department","name":"new-department-tabzsdogtc","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","is_group":1,"disabled":0,"shift_request_approver":[],"leave_approvers":[],"expense_approvers":[],"department_name":"All Departments"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+<<<<<<< HEAD
+>>>>>>> cfcc26f91a8d3da1b98c54fb774f4da43c99194d
+=======
 >>>>>>> cfcc26f91a8d3da1b98c54fb774f4da43c99194d
