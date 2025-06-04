@@ -428,3 +428,6 @@ Form Dict: {'fields': ['name', 'employee', 'employee_name', 'company', 'departme
 2025-06-02 15:32:51,996 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {}
+2025-06-04 17:56:20,762 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'data_import': 'Salary Component Import on 2025-06-04 17:43:03.824307', 'import_file': '/private/files/salary_component76c14c.csv', 'cmd': 'frappe.core.doctype.data_import.data_import.get_preview_from_template'}
