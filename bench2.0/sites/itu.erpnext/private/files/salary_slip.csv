@@ -1,5 +1,5 @@
-COMPANY,COMPONENT (DEDUCTIONS),COMPONENT (EARNINGS),CURRENCY,EMPLOYEE,EMPLOYEE NAME,EXCHANGE RATE,ID,ID (DEDUCTIONS),ID (EARNINGS),MODE OF PAYMENT,PAYMENT DAYS,PAYROLL FREQUENCY,POSTING DATE,SALARY STRUCTURE,STATUS,WORKING DAYS
-My Company,Taxe sociale,Indemnit�,EUR,,Rakoto Rakoto,0.0,,,,Cash,30,Monthly,2025-04-01,gasy1,Submitted,30
-My Company,Taxe sociale,Indemnit�,EUR,,Rasoa Rasoa,0.0,,,,Cash,30,Monthly,2025-04-01,gasy1,Submitted,30
-My Company,Taxe sociale,Indemnit�,EUR,,Rakoto Rakoto,0.0,,,,Cash,31,Monthly,2025-03-01,gasy1,Submitted,31
-My Company,Taxe sociale,Indemnit�,EUR,,Rasoa Rasoa,0.0,,,,Cash,31,Monthly,2025-03-01,gasy1,Submitted,31
+"ID","Employee","Employee Name","Company","Posting Date","Mode Of Payment","Currency","Exchange Rate","Salary Structure","Working Days","Payment Days","Payroll Frequency","status","ID (Earnings)","Component (Earnings)","ID (Deductions)","Component (Deductions)"
+,HR-EMP-00001,Rakoto Alain,My Company,2025-04-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnit�,,Taxe sociale
+,HR-EMP-00002,Rasoa Jeanne,My Company,2025-04-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnit�,,Taxe sociale
+,HR-EMP-00001,Rakoto Alain,My Company,2025-03-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnit�,,Taxe sociale
+,HR-EMP-00002,Rasoa Jeanne,My Company,2025-03-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnit�,,Taxe sociale

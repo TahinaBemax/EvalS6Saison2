@@ -1,5 +1,5 @@
-BASE,COMPANY,CURRENCY,EMPLOYEE,EMPLOYEE NAME,FROM DATE,ID,PAYROLL PAYABLE ACCOUNT,SALARY STRUCTURE
-1500000.0,My Company,EUR,,Rakoto Rakoto,2025-04-01,,Payroll Payable - My Company,gasy1
-900000.0,My Company,EUR,,Rasoa Rasoa,2025-04-01,,Payroll Payable - My Company,gasy1
-1600000.0,My Company,EUR,,Rakoto Rakoto,2025-03-01,,Payroll Payable - My Company,gasy1
-900000.0,My Company,EUR,,Rasoa Rasoa,2025-03-01,,Payroll Payable - My Company,gasy1
+"ID","Employee","Salary Structure","From Date","Company","Currency","Employee Name","Base","Payroll Payable Account"
+,HR-EMP-00001,gasy1,2025-04-01,My Company,EUR,Rakoto Alain,1500000.0,Payroll Payable - MC
+,HR-EMP-00002,gasy1,2025-04-01,My Company,EUR,Rasoa Jeanne,900000.0,Payroll Payable - MC
+,HR-EMP-00001,gasy1,2025-03-01,My Company,EUR,Rakoto Alain,1600000.0,Payroll Payable - MC
+,HR-EMP-00002,gasy1,2025-03-01,My Company,EUR,Rasoa Jeanne,900000.0,Payroll Payable - MC

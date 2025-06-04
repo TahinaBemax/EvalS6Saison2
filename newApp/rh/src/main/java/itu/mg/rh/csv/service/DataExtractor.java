@@ -9,7 +9,7 @@ public interface DataExtractor {
     List<EmployeeExportDTO> getEmployees(CsvImportFinalResult result);
     List<SalaryComponentExportDTO> getSalaryComponent(CsvImportFinalResult result);
     List<SalaryStructureExportDTO> getSalaryStructures(CsvImportFinalResult result);
-    List<?> getSalaryAssigments(CsvImportFinalResult result);
+    List<SalaryStructureAssignmentExportDTO> getSalaryAssigments(CsvImportFinalResult result);
     List<SalarySlipExportDTO> getSalarySlips(CsvImportFinalResult result);
     List<CompanyExportDTO> getCompany(CsvImportFinalResult result);
 }

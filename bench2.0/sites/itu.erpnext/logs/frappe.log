@@ -446,3 +446,6 @@ Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-s
 2025-06-03 16:03:11,998 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'files': [{'doctype': 'Company', 'file': 'company.csv'}, {'doctype': 'Employee', 'file': 'employee.csv'}, {'doctype': 'Salary Component', 'file': 'salary_component.csv'}, {'doctype': 'Salary Structure', 'file': 'salary_structure_assignment.csv'}, {'doctype': 'Salary Structure Assignment', 'file': 'salary_structure_assignment.csv'}, {'doctype': 'Salary Slip', 'file': 'salary_slip.csv'}], 'cmd': 'importapp.api.import.import_csv_file'}
+2025-06-03 19:18:30,224 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Department","name":"new-department-tabzsdogtc","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"IT University","is_group":1,"disabled":0,"shift_request_approver":[],"leave_approvers":[],"expense_approvers":[],"department_name":"All Departments"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}

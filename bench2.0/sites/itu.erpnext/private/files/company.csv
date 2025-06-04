@@ -1,2 +1,2 @@
-ABBR,COMPANY,COUNTRY,DEFAULT CURRENCY,DEFAULT HOLIDAYS LIST
-MC,My Company,Madagascar,EUR,Jour Ferié
+"Company","Abbr","Default Currency","Country","Default Holidays List"
+My Company,MC,EUR,Madagascar,Jour Ferié

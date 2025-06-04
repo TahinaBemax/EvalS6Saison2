@@ -1,8 +1,7 @@
 package itu.mg.rh.csv.service.impl;
 
 import com.opencsv.CSVWriter;
-import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.bean.StatefulBeanToCsvBuilder;
+import com.opencsv.bean.*;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import itu.mg.rh.csv.helper.CustomHeaderColumnNameMappingStrategy;
@@ -15,6 +14,8 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,34 +25,60 @@ public class ExportCsvServiceImpl implements ExportCsvService {
     public static final Logger logger = LoggerFactory.getLogger(ImportCsv.class);
 
     @Override
-    public <T>Object beanToCsv(List<T> beans, String outputFileName) throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
-        String file_output =  String.format("%s\\%s", output_dir, outputFileName);
+    public <T> Object beanToCsv(List<T> beans, String outputFileName) throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
+        String file_output = String.format("%s\\%s", output_dir, outputFileName);
 
         if (beans == null || beans.isEmpty())
             return null;
 
-        try(CSVWriter writer = new CSVWriter(new FileWriter(file_output))){
-            CustomHeaderColumnNameMappingStrategy<T> strategy = new CustomHeaderColumnNameMappingStrategy<>();
-            strategy.setType((Class<T>) beans.get(0).getClass());
+        Class<T> clazz = (Class<T>) beans.get(0).getClass();
 
-            StatefulBeanToCsv<T> beanToCsv = new StatefulBeanToCsvBuilder<T>(writer)
-                    //.withMappingStrategy(strategy)
-                    .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
-                    .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
-                    .withOrderedResults(true)
-                    .withApplyQuotesToAll(false)
-                    .build();
+        List<String> headers = new ArrayList<>();
+        List<String> fieldOrder = new ArrayList<>();
 
-            beanToCsv.write(beans);
-            writer.flush();
+        // Use reflection to extract @CsvBindByName values
+        for (Field field : clazz.getDeclaredFields()) {
+            CsvBindByName bind = field.getAnnotation(CsvBindByName.class);
+            CsvCustomBindByName customBind = field.getAnnotation(CsvCustomBindByName.class);
+            if (bind != null) {
+                headers.add(bind.column());
+                fieldOrder.add(field.getName());
+            } else if (customBind != null) {
+                headers.add(customBind.column());
+                fieldOrder.add(field.getName());
+            }
+        }
 
-            return true;
-        } catch (IOException e) {
-            logger.error(e.getMessage());
-            throw new RuntimeException(e);
-        } catch (CsvRequiredFieldEmptyException | CsvDataTypeMismatchException e) {
-            logger.error(e.getMessage());
-            throw e;
+
+            try (CSVWriter writer = new CSVWriter(new FileWriter(file_output))) {
+                // Write header
+                writer.writeNext(headers.toArray(new String[0]));
+
+/*                HeaderColumnNameMappingStrategy<T> strategy = new HeaderColumnNameMappingStrategy<>();
+                strategy.setType((Class<T>) beans.get(0).getClass());*/
+                // Use ColumnPositionMappingStrategy with dynamically extracted field names
+                ColumnPositionMappingStrategy<T> strategy = new ColumnPositionMappingStrategy<>();
+                strategy.setType(clazz);
+                strategy.setColumnMapping(fieldOrder.toArray(new String[0]));
+
+                StatefulBeanToCsv<T> beanToCsv = new StatefulBeanToCsvBuilder<T>(writer)
+                        .withMappingStrategy(strategy)
+/*                        .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
+                        .withSeparator(CSVWriter.DEFAULT_SEPARATOR)*/
+                        .withOrderedResults(true)
+                        .withApplyQuotesToAll(false)
+                        .build();
+
+                beanToCsv.write(beans);
+                writer.flush();
+
+                return true;
+            } catch (IOException e) {
+                logger.error(e.getMessage());
+                throw new RuntimeException(e);
+            } catch (CsvRequiredFieldEmptyException | CsvDataTypeMismatchException e) {
+                logger.error(e.getMessage());
+                throw e;
+            }
         }
     }
-}

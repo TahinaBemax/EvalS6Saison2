@@ -21,15 +21,15 @@ public class CustomHeaderColumnNameMappingStrategy<T> extends HeaderColumnNameMa
             if (field.isAnnotationPresent(CsvBindByName.class)) {
                 CsvBindByName annotation = field.getAnnotation(CsvBindByName.class);
                 String columnName = annotation.column();
-                headers.add(columnName.toLowerCase());
+                headers.add(columnName);
                 field.setAccessible(true);
-                fieldMap.put(columnName.toLowerCase(), field);
+                fieldMap.put(columnName, field);
             } else if (field.isAnnotationPresent(CsvCustomBindByName.class)) {
                 CsvCustomBindByName annotation = field.getAnnotation(CsvCustomBindByName.class);
                 String columnName = annotation.column();
-                headers.add(columnName.toLowerCase());
+                headers.add(columnName);
                 field.setAccessible(true);
-                fieldMap.put(columnName.toLowerCase(), field);
+                fieldMap.put(columnName, field);
             }
         }
 

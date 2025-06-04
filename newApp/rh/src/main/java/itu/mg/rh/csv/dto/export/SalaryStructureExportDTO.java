@@ -48,6 +48,9 @@ public class SalaryStructureExportDTO {
     @CsvBindByName(column = "Depends on Payment Days (Earnings)")
     Integer dependsOnPaymentDaysEarnings;
 
+    @CsvBindByName(column = "Is Tax Applicable (Earnings)")
+    Integer isTaxApplicableEarnings;
+
 
     @CsvBindByName(column = "ID (Deductions)")
     String idDeductions;
@@ -66,4 +69,7 @@ public class SalaryStructureExportDTO {
 
     @CsvBindByName(column = "Depends on Payment Days (Deductions)")
     Integer dependsOnPaymentDaysDeductions;
+
+    @CsvBindByName(column = "Is Tax Applicable (Deductions)")
+    Integer isTaxApplicableDeductions;
 }

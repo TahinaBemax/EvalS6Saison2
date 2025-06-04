@@ -32,7 +32,11 @@ public class CompanyExportDTO {
         this.defaultHolidaysList = "Jour Ferié";
     }
     private void setAbbr(){
-        String[] words = this.company.split("\\s+");
+        this.abbr = getAbbr(this.company);
+    }
+
+    public static String getAbbr(String company){
+        String[] words = company.split("\\s+");
 
         StringBuilder initials = new StringBuilder();
         for (String word : words) {
@@ -41,6 +45,6 @@ public class CompanyExportDTO {
             }
         }
 
-        this.abbr = initials.toString();
+        return initials.toString();
     }
 }

@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("")
@@ -47,10 +50,18 @@ public class ImportController {
             }
 
             return  ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(apiResponse);
-        } catch (FrappeApiException e) {
+        } catch (RuntimeException e) {
+            Throwable cause = e.getCause();
+            ApiResponse response = new ApiResponse<>(null, e.getMessage(), "error", null);
+
+            if (cause instanceof RestClientException){
+                RestClientException ex = (RestClientException) cause;
+                response = ApiResponse.parseJsonErrorToApiResponse(ex);
+            }
+
             return ResponseEntity
                     .status(417)
-                    .body(e.getErrorResponse().getServerMessages());
+                    .body(response);
         }
     }
 

@@ -1,4 +1,0 @@
-ABBR,ACCOUNT (ACCOUNTS),AMOUNT BASED ON FORMULA,COMPANY (ACCOUNTS),DEPENDS ON PAYMENT DAYS,FORMULA,ID (ACCOUNTS),NAME,REMOVE IF ZERO VALUED,TYPE
-SB,Cash-My Company,1,My Company,0,base,,,1,Earning
-IND,Cash- My Company,1, My Company,0,SB * 0.3,,,1,Earning
-TS,Cash-My Company,1,My Company,0,(SB + IND) * 0.2,,,1,Deduction

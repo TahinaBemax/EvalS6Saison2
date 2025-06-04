@@ -54,4 +54,7 @@ public class EmployeeExportDTO {
         this.fullName = lastName != null ? firstName + " " + lastName: firstName;
     }
 
+    public void setID(){
+
+    }
 }
