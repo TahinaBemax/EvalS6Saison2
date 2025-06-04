@@ -39,12 +39,12 @@ $(document).ready(function () {
 
     function filterEmployees() {
         const fullName = $("#fullNameFilter").val();
-        const departement = $("#departementFilter").val();
+        const company = $("#companyFilter").val();
 
         $.ajax({
             url: "/employees/filter",
             method: "GET",
-            data: { fullName: fullName, departement: departement },
+            data: { fullName: fullName, company: company },
             dataType: "json",
             beforeSend: function() {
                 showLoading()
@@ -76,12 +76,8 @@ $(document).ready(function () {
                         <input type="checkbox" class="w-auto">
                         <span>${employee.employeID}</span>
                     </td>
-                    <td>
-                        <span class="">${employee.fullName}</span>
-                    </td>
-                    <td>${employee.designation}</td>
-                    <td>${employee.department}</td>
-                    <td>${employee.employementType}</td>
+                    <td>${employee.fullName}</td>
+                    <td>${employee.company}</td>
                     <td>${employee.gender}</td>
                     <td>${employee.status}</td>
                 </tr>

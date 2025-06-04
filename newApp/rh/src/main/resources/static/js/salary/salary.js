@@ -13,20 +13,16 @@ $(document).ready(function() {
     function initializeDataTable(){
         $('#salary-slip-list').DataTable();
     }
-
     function handleSelectAllCheckbox(){
         $('#select-all').change(function() {
             $('tbody input[type="checkbox"]').prop('checked', $(this).prop('checked'));
         });
     }
-
     function handleFilterChange(){
         $('#employee, #month, #year, #status').change(function() {
             // Add your filter logic here
         });
     }
-
-
     function formSubmissionHandler(){
         $('#salary-slip-list').click(function() {
             if ($('#salary-slip-form')[0].checkValidity()) {
@@ -37,7 +33,6 @@ $(document).ready(function() {
             }
         });
     }
-
     function initializeCurrentDate(){
         // Initialize date inputs with current month
         const now = new Date();
@@ -57,7 +52,6 @@ $(document).ready(function() {
 
         toPdfBtns.click(function () {
             const salarySlipId = $(this).attr("data-id");
-            console.log(salarySlipId)
             toPdf(salarySlipId)
         });
     }

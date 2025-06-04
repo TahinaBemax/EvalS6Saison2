@@ -1,9 +1,13 @@
 body {
-    background: #e6f1fd;
+    background: #062e59;
 }
 
 main {
     padding: 10px;
+}
+
+label.form-label {
+    color: white !important;
 }
 
 /* START TABLE */
@@ -11,14 +15,16 @@ main {
     width: auto;
     font-weight: 400;
     font-size: 0.9em;
-    padding: 0px;
-    background-color: rgb(241, 238, 238);
-    color: #535353 !important;
+    padding: 6px 10px !important;
+    background-color: rgb(19, 26, 60);
+    color: #d3f7fb !important;
 }
 
 .table > tbody > tr > td {
-    padding: 0px;
-    color: #535353 !important;
+    color: #add8e1 !important;
+    background-color: #161f46;
+    padding: 4px 10px !important;
+    border-collapse: collapse !important;
 }
 .table > tbody > tr > td > input {
     font-size: 0.9em;
@@ -37,10 +43,9 @@ main {
 table.dataTable tbody tr {
     padding:5px 10px;
     vertical-align: middle;
-    border: 1px solid #535353;
 }
 table.dataTable tbody td {
-    padding:5px 10px;
+    border: 1px solid #0f1533;
 }
 table.dataTable.no-footer {
     border-bottom:0px solid #111;
@@ -48,5 +53,15 @@ table.dataTable.no-footer {
 .dataTables_wrapper .dataTables_length{
     margin-bottom: 10px;
 }
+
+.dataTables_length > *,
+.dataTables_length > select,
+.dataTables_info,
+.dataTables_paginate > a,
+.dataTables_filter{
+    color: white !important;
+}
+
+
 /* --- Datatable css ---- */
 
