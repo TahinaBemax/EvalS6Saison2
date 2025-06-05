@@ -535,3 +535,9 @@
 2025-06-04 19:56:52,957 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
 2025-06-04 19:56:53,075 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
 2025-06-04 19:56:53,139 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
+2025-06-05 15:10:02,216 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-05 15:10:02,237 WARNING Command not being executed in bench directory
+2025-06-05 15:10:25,437 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-05 15:10:25,450 WARNING Command not being executed in bench directory
+2025-06-05 15:11:35,090 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-05 15:11:35,111 WARNING Command not being executed in bench directory

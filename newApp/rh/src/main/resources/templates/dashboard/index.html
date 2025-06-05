@@ -52,6 +52,35 @@
         </tbody>
       </table>
     </div>
+
+    <div class="my-2 p-3 bg-black">
+      <div class="col-md-3">
+        <label for="year" class="form-label">Year</label>
+        <select class="form-select" id="year">
+          <option th:value="${#dates.year(#dates.createNow())}"
+                  th:text="${#dates.year(#dates.createNow())}">
+          </option>
+          <option th:each="year : ${#numbers.sequence(2015, #dates.year(#dates.createNow()) - 1)}"
+                  th:value="${year}"
+                  th:text="${year}">
+          </option>
+        </select>
+      </div>
+
+      <table class="table table-bordered" id="statistic-per-month">
+        <thead class="bg-primary-subtle">
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Total Earnings</th>
+          <th scope="col">Total Deductions</th>
+          <th scope="col" class="w-auto">Total Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- generate by dashboard.js -->
+        </tbody>
+      </table>
+    </div>
   </section>
 </main>
 
