@@ -1,15 +1,13 @@
 package itu.mg.rh.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import itu.mg.rh.components.SessionManager;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.exception.FrappeApiException;
-import itu.mg.rh.models.Departement;
-import itu.mg.rh.models.Employee;
 import itu.mg.rh.models.SalarySlip;
-import itu.mg.rh.services.DepartementService;
+import itu.mg.rh.services.impl.DepartementServiceImpl;
 import itu.mg.rh.services.EmployeeService;
 import itu.mg.rh.services.SalarySlipService;
-import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -21,29 +19,27 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequestMapping("/salary-slips")
-public class SalaryStripController {
-
-    private final EmployeeService employeeService;
-    private final DepartementService departmentService;
+public class SalaryStripController extends MainController{
     private final SalarySlipService salarySlipService;
 
     @Autowired
-    SalaryStripController(SalarySlipService salarySlipService, EmployeeService employeeService, DepartementService departmentService) {
+    public SalaryStripController(SessionManager sessionManager, SalarySlipService salarySlipService) {
+        super(sessionManager);
         this.salarySlipService = salarySlipService;
-        this.employeeService = employeeService;
-        this.departmentService = departmentService;
     }
+
+
 
     @GetMapping()
     public String salarySlipPage(Model model) throws JsonProcessingException {
+        if (!this.isAuthentified()) {
+            return "redirect:/";
+        }
         List<SalarySlip> salarySlips = salarySlipService.getSalarySlips();
         model.addAttribute("salarySlips", salarySlips);
 
@@ -53,7 +49,12 @@ public class SalaryStripController {
 
     @PostMapping("/toPdf")
     @ResponseBody
-    public ResponseEntity<?> salarySlipToPdf(@RequestParam(value = "id", required = true) String id, HttpServletResponse response) throws IOException {
+    public ResponseEntity<?> salarySlipToPdf(@RequestParam(value = "id", required = true) String id, HttpServletResponse response) throws IOException
+    {
+        if (!this.isAuthentified()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("You need to login to get access to this resource.");
+        }
+
         if (id == null || id.trim().isBlank()){
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(new ApiResponse<>(null,

@@ -3,7 +3,7 @@ package itu.mg.rh.controller;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.exception.FrappeApiException;
 import itu.mg.rh.models.Departement;
-import itu.mg.rh.services.DepartementService;
+import itu.mg.rh.services.impl.DepartementServiceImpl;
 import itu.mg.rh.services.SalarySlipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,11 +16,11 @@ import java.util.List;
 @Controller
 public class DepartmentController {
 
-    private final DepartementService departmentService;
+    private final DepartementServiceImpl departmentService;
     private final SalarySlipService salarySlipService;
 
     @Autowired
-    DepartmentController(SalarySlipService salarySlipService, DepartementService departmentService) {
+    DepartmentController(SalarySlipService salarySlipService, DepartementServiceImpl departmentService) {
         this.salarySlipService = salarySlipService;
         this.departmentService = departmentService;
     }

@@ -1,4 +1,4 @@
-package itu.mg.rh.services;
+package itu.mg.rh.services.helper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;

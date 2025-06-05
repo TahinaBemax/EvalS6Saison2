@@ -295,3 +295,6 @@ Form Dict: {'doc': '{"docstatus":0,"doctype":"Department","name":"new-department
 >>>>>>> cfcc26f91a8d3da1b98c54fb774f4da43c99194d
 =======
 >>>>>>> cfcc26f91a8d3da1b98c54fb774f4da43c99194d
+2025-06-05 17:03:15,514 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'year': 2025, 'cmd': 'import.api.dashboard.total_salary_per_month'}

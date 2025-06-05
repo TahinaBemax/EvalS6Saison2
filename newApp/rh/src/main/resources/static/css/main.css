@@ -21,7 +21,7 @@ label.form-label {
 }
 
 .table > tbody > tr > td {
-    color: #add8e1 !important;
+    color: #add8e1;
     background-color: #161f46;
     padding: 4px 10px !important;
     border-collapse: collapse !important;

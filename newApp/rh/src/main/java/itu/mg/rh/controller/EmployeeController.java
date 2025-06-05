@@ -1,14 +1,11 @@
 package itu.mg.rh.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import itu.mg.rh.components.SessionManager;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.exception.FrappeApiException;
 import itu.mg.rh.models.Company;
-import itu.mg.rh.models.Departement;
 import itu.mg.rh.models.Employee;
-import itu.mg.rh.models.SalarySlip;
 import itu.mg.rh.services.CompanyService;
-import itu.mg.rh.services.DepartementService;
 import itu.mg.rh.services.EmployeeService;
 import itu.mg.rh.services.SalarySlipService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,26 +15,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Controller
 @RequestMapping("/employees")
-public class EmployeeController {
-
+public class EmployeeController extends MainController{
     private final EmployeeService employeeService;
     private final CompanyService companyService;
-    private final SalarySlipService salarySlipService;
 
     @Autowired
-    EmployeeController(SalarySlipService salarySlipService, EmployeeService employeeService, CompanyService companyService) {
-        this.salarySlipService = salarySlipService;
+    public EmployeeController(SessionManager sessionManager, EmployeeService employeeService, CompanyService companyService) {
+        super(sessionManager);
         this.employeeService = employeeService;
         this.companyService = companyService;
     }
 
+
+
     @GetMapping()
     public String employeePage(Model model) {
+        if (!this.isAuthentified()) {
+            return "redirect:/login";
+        }
+
         List<Company> companies = companyService.findAll();
         model.addAttribute("companies", companies);
         return "employee/list";
@@ -48,6 +48,9 @@ public class EmployeeController {
     public ResponseEntity<?> filterEmployees(
             @RequestParam(required = false) String fullName,
             @RequestParam(required = false) String company) {
+        if (!this.isAuthentified()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("You need to login to get access to this resource.");
+        }
         try {
             fullName = (fullName !=null && fullName.trim().isEmpty()) ? null : fullName;
             company = (company !=null && company.trim().isEmpty()) ? null : company;

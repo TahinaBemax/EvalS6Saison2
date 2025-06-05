@@ -1,7 +1,7 @@
 package itu.mg.rh.controller;
 
 import itu.mg.rh.models.login.LoginRequest;
-import itu.mg.rh.services.LoginService;
+import itu.mg.rh.services.impl.LoginServiceImpl;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginController{
-    private final LoginService loginService;
+    private final LoginServiceImpl loginServiceImpl;
 
-    public LoginController(LoginService loginService) {
-        this.loginService = loginService;
+    public LoginController(LoginServiceImpl loginServiceImpl) {
+        this.loginServiceImpl = loginServiceImpl;
     }
 
     @GetMapping("/login")
@@ -34,7 +34,7 @@ public class LoginController{
                 return "login/login";
             }
 
-            if(loginService.login(request.getUsr(), request.getPwd())){
+            if(loginServiceImpl.login(request.getUsr(), request.getPwd())){
                 return "redirect:/";
             }
         } catch (UsernameNotFoundException e) {
@@ -48,7 +48,7 @@ public class LoginController{
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        loginService.getSessionManager().setSessionCookie(null);
+        loginServiceImpl.getSessionManager().setSessionCookie(null);
         return "redirect:/login";
     }
 }

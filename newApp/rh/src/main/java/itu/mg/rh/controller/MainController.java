@@ -20,4 +20,8 @@ public class MainController {
     public SessionManager getSessionManager() {
         return sessionManager;
     }
+
+    public boolean isAuthentified(){
+        return sessionManager.getSessionCookie() != null;
+    }
 }

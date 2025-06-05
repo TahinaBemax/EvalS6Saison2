@@ -1,8 +1,9 @@
-package itu.mg.rh.services;
+package itu.mg.rh.services.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import itu.mg.rh.models.Departement;
+import itu.mg.rh.services.MainService;
 import itu.mg.rh.utils.RestClientExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,13 +19,13 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class DepartementService {
+public class DepartementServiceImpl {
     private final MainService mainService;
-    public static final Logger logger = LoggerFactory.getLogger(DepartementService.class);
+    public static final Logger logger = LoggerFactory.getLogger(DepartementServiceImpl.class);
     private String[] departmentFields;
 
     @Autowired
-    public DepartementService(MainService mainService) {
+    public DepartementServiceImpl(MainService mainService) {
         this.mainService = mainService;
         departmentFields = new String[]{
             "name", "department_name", "parent_department", "company"

@@ -1,4 +1,4 @@
-package itu.mg.rh.services;
+package itu.mg.rh.services.impl;
 
 import itu.mg.rh.components.SessionManager;
 import lombok.Data;
@@ -16,13 +16,13 @@ import java.util.Map;
 
 @Service
 @Data
-public class LoginService {
+public class LoginServiceImpl {
     private final RestTemplate restTemplate;
     @Value("${erpnext.url}")
     private String erpNextUrl;
     private final SessionManager sessionManager;
 
-    public LoginService(RestTemplateBuilder builder, SessionManager sessionManager) {
+    public LoginServiceImpl(RestTemplateBuilder builder, SessionManager sessionManager) {
         this.restTemplate = builder.build();
         this.sessionManager = sessionManager;
     }
