@@ -541,3 +541,8 @@
 2025-06-05 15:10:25,450 WARNING Command not being executed in bench directory
 2025-06-05 15:11:35,090 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
 2025-06-05 15:11:35,111 WARNING Command not being executed in bench directory
+2025-06-05 15:18:03,156 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench start
+2025-06-05 15:18:04,847 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench schedule
+2025-06-05 15:18:04,847 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench watch
+2025-06-05 15:18:05,042 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench serve --port 8001
+2025-06-05 15:18:05,373 INFO /home/tahina/.cache/uv/archive-v0/4c8Hkq_AQnsQwu67w8LMQ/bin/bench worker
