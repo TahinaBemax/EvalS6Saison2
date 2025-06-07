@@ -97,9 +97,9 @@
                             <span th:text="${slip.name}">SAL-SLIP-001</span>
                         </td>
                         <td th:text="${slip.employeeName}">John Doe</td>
-                        <td th:text="${#temporals.format(slip.paymentDate, 'dd-MM-yyyy')}">01-03-2024</td>
-                        <td th:text="${#temporals.format(slip.startDate, 'dd-MM-yyyy')}">01-03-2024</td>
-                        <td th:text="${#temporals.format(slip.endDate, 'dd-MM-yyyy')}">31-03-2024</td>
+                        <td th:text="${#temporals.format(slip.paymentDate, 'yyyy-MM-dd')}">01-03-2024</td>
+                        <td th:text="${#temporals.format(slip.startDate, 'yyyy-MM-dd')}">01-03-2024</td>
+                        <td th:text="${#temporals.format(slip.endDate, 'yyyy-MM-dd')}">31-03-2024</td>
                         <td class="text-end" th:text="${#numbers.formatDecimal(slip.netPay, 1, 'COMMA', 2, 'POINT')}">45,000.00</td>
                         <td>
                             <span th:class="${'badge ' + (slip.status == 'PAID' ? 'bg-success' : (slip.status == 'SUBMITTED' ? 'bg-primary' : 'bg-secondary'))}" 

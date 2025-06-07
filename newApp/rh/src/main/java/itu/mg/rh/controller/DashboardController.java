@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/")
 public class DashboardController extends MainController{
-
     private final SalarySlipService salarySlipService;
     private final DashboardService dashboardService;
 
@@ -43,15 +43,36 @@ public class DashboardController extends MainController{
         return "dashboard/index";
     }
 
+    @GetMapping("detail-per-employee")
+    public String detailSalarySummaryPerEmployee(@RequestParam(name = "month") Integer month,
+                                                 @RequestParam(name = "year") Integer year, Model model)
+    {
+        if (!this.isAuthentified()) {
+            return "redirect:/login";
+        }
+
+        try {
+            List<SalarySlip> salarySlipsByMonth = salarySlipService.findSalaryEmployeeDetails(month, year);
+
+            model.addAttribute("details", salarySlipsByMonth);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        return "dashboard/detail-per-employee";
+    }
+
     @GetMapping("salary-slips/details")
     @ResponseBody
-    public ResponseEntity<?> getSalarySlipWithSalaryDetais(@RequestParam(name = "month", required = false) Integer month){
+    public ResponseEntity<?> getSalarySlipWithSalaryDetais(
+            @RequestParam(name = "month", required = false) Integer month)
+    {
         if (!this.isAuthentified()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("You need to login to get access to this resource.");
         }
 
         try {
-            List<SalarySlip> salarySlipsByMonth = salarySlipService.getSalarySlipsWithSalaryDetail(month);
+            List<SalarySlip> salarySlipsByMonth = salarySlipService.findSalaryEmployeeDetails(month, null);
 
             return ResponseEntity.ok(salarySlipsByMonth);
         } catch (FrappeApiException e){

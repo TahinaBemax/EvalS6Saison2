@@ -46,10 +46,10 @@ public interface SalarySlipService {
     List<SalarySlip> getSalarySlips() throws JsonProcessingException;
 
     /**
-     * Get all salary slips with salary detail for all employee
+     * Get all salary slips with salary detail for all employee for a given month and year
      * @return List of salary slips
      */
-    List<SalarySlip> getSalarySlipsWithSalaryDetail(Integer month) throws JsonProcessingException;
+    List<SalarySlip> findSalaryEmployeeDetails(Integer month, Integer year) throws JsonProcessingException;
 
     /**
      * Export a salary Slip for a specific user to pdf

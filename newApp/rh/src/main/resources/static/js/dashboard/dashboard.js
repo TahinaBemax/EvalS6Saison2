@@ -1,14 +1,18 @@
 $(document).ready(function () {
-    const $tbody = $("#dashboard tbody");
-    const tbodyForStatPerMonth = $("#statistic-per-month tbody");
-    const selectMonth = $("#select-month");
+    const tableMonthlyEmployeeSalary = $("#monthly-employee-salary")
+    const tableForStatPerMonth = $("#statistic-per-month");
+
+    const tbodyMonthlyEmployeeSalary = tableMonthlyEmployeeSalary.children("tbody");
+    const tbodyForStatPerMonth = tableForStatPerMonth.children("tbody");
+
+    const selectedMonth = $("#select-month");
     const selectedTotalSalarySlipYear = $("#year");
 
     init();
 
     function init() {
         fetchTotalSalarySlipPerMonth();
-        filterResults();
+        fetchMonthlyEmployeeSalary();
         bindEvents();
         dataTable();
     }
@@ -22,10 +26,10 @@ $(document).ready(function () {
         });
     }
     function bindEvents() {
-        selectMonth.change(filterResults);
+        selectedMonth.change(fetchMonthlyEmployeeSalary);
         selectedTotalSalarySlipYear.change(fetchTotalSalarySlipPerMonth)
     }
-    function filterResults() {
+    function fetchMonthlyEmployeeSalary() {
         const month = $("#select-month").val();
 
         $.ajax({
@@ -34,7 +38,7 @@ $(document).ready(function () {
             data: {month : month || null},
             dataType: "json",
             beforeSend: function() {
-                showLoading()
+                tableFetchDataLoadingAnimation(tableMonthlyEmployeeSalary)
             },
             success: function(data) {
                 if (data){
@@ -44,18 +48,7 @@ $(document).ready(function () {
                 alert("An error occured when fetching data!")
             },
             error: function(xhr) {
-                if (xhr){
-                    const responseText = xhr.responseText;
-                    const response = (responseText != null) ? JSON.parse(responseText) : "Internal Server Error";
-                    const message = (responseText != null) ? response.message : response
-
-                    alert(message)
-                    $tbody.empty();
-                    $tbody.append(`<tr><td colspan='6' class='text-center text-danger'>${message}</td></tr>`);
-                    console.error("Filter Error:", response);
-                    return false;
-                }
-                alert("Internal Server Error")
+                xhrErrorHandler(xhr, tbodyMonthlyEmployeeSalary, 6)
             },
             complete: function(){
                 hideLoading()
@@ -71,7 +64,7 @@ $(document).ready(function () {
             data: {year : year || null},
             dataType: "json",
             beforeSend: function() {
-                showLoading()
+                tableFetchDataLoadingAnimation(tableForStatPerMonth)
             },
             success: function(data) {
                 if (data){
@@ -81,17 +74,7 @@ $(document).ready(function () {
                 alert("An error occured when fetching data!")
             },
             error: function(xhr) {
-                if (xhr){
-                    const responseText = xhr.responseText;
-                    const response = (responseText != null) ? JSON.parse(responseText) : "Internal Server Error";
-                    const message = (responseText != null) ? response.message : response
-
-                    tbodyForStatPerMonth.empty();
-                    tbodyForStatPerMonth.append(`<tr><td colspan='3' class='text-center text-danger'>${message}</td></tr>`);
-                    console.error("Filter Error:", response);
-                    return false;
-                }
-                alert("Internal Server Error")
+                xhrErrorHandler(xhr, tbodyForStatPerMonth, 3);
             },
             complete: function(){
                 hideLoading()
@@ -103,13 +86,13 @@ $(document).ready(function () {
         HTML CONTENT
        ++++++ +++++ +++++++*/
     function salaryEmployeeTableContent(data) {
-        $tbody.empty();
+        tbodyMonthlyEmployeeSalary.empty();
 
         if (!data || data.length === 0)
-            return $tbody.append("<tr><td colspan='6' class='text-center text-warning'>Empty</td></tr>");
+            return tbodyMonthlyEmployeeSalary.append("<tr><td colspan='6' class='text-center text-warning'>Empty</td></tr>");
 
         data.forEach(function(salarySlip) {
-            $tbody.append(`
+            tbodyMonthlyEmployeeSalary.append(`
                 <tr>
                   <td>${salarySlip.employeeName}</td>
                   <td>${salarySlip.startDate}</td>
@@ -137,7 +120,9 @@ $(document).ready(function () {
             tbodyForStatPerMonth.append(`
                 <tr>
                   <td>${getMonthName(stat.month)}</td>
-                  <td class="text-end">${currencyFormat(stat.totalAmount)}</td>
+                  <td class="text-end">
+                    <a href="/detail-per-employee?month=${stat.month}&year=${stat.year}">${currencyFormat(stat.totalAmount)}</a>
+                  </td>
                   <td>
                         ${salaryEmployeeDetailsHtmlContent(stat.details)}
                   </td>

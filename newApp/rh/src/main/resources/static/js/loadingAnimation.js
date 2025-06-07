@@ -8,6 +8,36 @@ function hideLoading(){
 
 }
 
+function tableFetchDataLoadingAnimation(table) {
+    const tbody = table.children("tbody");
+
+    if (!tbody) return;
+
+    const thead = table.children("thead");
+    var totalColumnLength = thead ? thead.find("tr > th").length : 0;
+
+    // If no columns are found, return early
+    if (totalColumnLength === 0) {
+        const td = thead.find("tr > td");
+        totalColumnLength = td ? td.length : 0
+    }
+
+    if (totalColumnLength === 0) return ;
+
+    // Clear the tbody and inject the loading spinner
+    tbody.empty().append(`
+        <tr>
+            <td class="text-center" colspan="${totalColumnLength}">
+                <div class="spinner-border text-light" role="status" id="loading-animation">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </td>
+        </tr>
+    `);
+}
+
+
+
 function loading(){
     return `
     <div id="loading-animation" class="d-flex align-items-center justify-content-center" style="width: 100vw; 

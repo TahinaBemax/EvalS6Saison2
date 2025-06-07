@@ -110,7 +110,7 @@ public class SalarySlipServiceImpl implements SalarySlipService {
         LocalDate startDate = LocalDate.of(year, month, 1);
         LocalDate endDate = startDate.plusMonths(1).minusDays(1);
 
-        String url = String.format("%s/api/resource/Salary Slip?filters=[[\"start_date\",\">=\",\"%s\"],[\"end_date\",\"<=\",\"%s\"]]&fields=%s",
+        String url = String.format("%s/api/resource/Salary Slip?filters=[[\"start_date\",\"<=\",\"%s\"],[\"end_date\",\">=\",\"%s\"]]&fields=%s",
                 mainService.getErpNextUrl(),
                 startDate,
                 endDate,
@@ -170,9 +170,15 @@ public class SalarySlipServiceImpl implements SalarySlipService {
     }
 
     @Override
-    public List<SalarySlip> getSalarySlipsWithSalaryDetail(Integer month) throws JsonProcessingException {
+    public List<SalarySlip> findSalaryEmployeeDetails(Integer month, Integer year) throws JsonProcessingException {
         try {
-            List<SalarySlip> salarySlips = ( month != null) ? getSalarySlipsByMonth(month) : getSalarySlips();
+            List<SalarySlip> salarySlips = new ArrayList<>();
+
+            if (year != null)  {
+                salarySlips = getSalarySlipsByDate(month, year);
+            } else {
+                salarySlips = ( month != null) ? getSalarySlipsByMonth(month) : getSalarySlips();
+            }
 
             if (salarySlips == null)
                 return salarySlips;
@@ -337,6 +343,50 @@ public class SalarySlipServiceImpl implements SalarySlipService {
 
         return null;
     }
+
+
+    private List<SalarySlip> getSalarySlipsByDate(Integer month, Integer year) throws JsonProcessingException {
+        if (month == null || month > 12 || month < 1) {
+            throw new RuntimeException("Month is null or invalid");
+        }
+
+        if (year == null || year <= 0) {
+            throw new RuntimeException("Year is null or invalid");
+        }
+        LocalDate date = LocalDate.of(year, month, 1);
+
+        String url = String.format("%s/api/resource/Salary Slip?filters=[[\"start_date\",\"<=\",\"%s\"],[\"end_date\",\">=\",\"%s\"]]&fields=%s",
+                mainService.getErpNextUrl(),
+                date,
+                date,
+                this.fieldsAsString());
+
+        HttpHeaders headers = mainService.getHeaders();
+        HttpEntity<?> requestEntity = new HttpEntity<>(headers);
+
+        try {
+            ResponseEntity<Map> response = mainService.getRestTemplate().exchange(
+                    url,
+                    HttpMethod.GET,
+                    requestEntity,
+                    Map.class
+            );
+
+            Map<String, Object> responseBody = response.getBody();
+            List<Map> salarySlipsData = (List<Map>) responseBody.get("data");
+
+            return Arrays.asList(
+                    salarySlipsData
+                            .stream().map(this::convertMapToSalarySlip)
+                            .toArray(SalarySlip[]::new)
+            );
+        } catch (RestClientException e) {
+            logger.error(e.getLocalizedMessage());
+            RestClientExceptionHandler.handleError(e);
+        }
+        return null;
+    }
+
 
     private SalaryDetail convertMapToSalaryDetail(Map data) {
         if (data == null || data.isEmpty())
