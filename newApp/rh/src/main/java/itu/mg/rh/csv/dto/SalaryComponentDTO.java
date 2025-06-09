@@ -14,10 +14,10 @@ public class SalaryComponentDTO {
     @CsvCustomBindByName(column = "salary structure", converter = Required.class, required = true)
     String salaryStructure;
 
-    @CsvCustomBindByName(column = "name", converter = UniqueSalaryComponentName.class,required = true)
+    @CsvBindByName(column = "name", required = true)
     String name;
 
-    @CsvCustomBindByName(column = "Abbr", converter = UniqueSalaryComponentAbbr.class, required = true)
+    @CsvBindByName(column = "Abbr", required = true)
     String abbr;
 
     @CsvCustomBindByName(column = "type", converter = StructureComponentTypeConverter.class, required = true)

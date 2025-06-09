@@ -3,13 +3,23 @@
 <head th:replace="~{fragments/head :: head}">
 </head>
 <link th:href="@{/css/dashboard/index.css}" rel="stylesheet">
-<title>Employee - List</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<title>Dashboard</title>
 </head>
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
 <main>
   <section>
+    <header class="row bg-black my-1 py-2 align-items-center justify-content-between">
+      <h4 class="w-auto text-white">Dashboard</h4>
+      <div class="w-auto text-end">
+        <button class="btn btn-primary text-white px-2 py-1" type="button">
+          <i class="bi bi-graph-up-arrow"></i>
+          <a href="/chart" class="fs-4 text-white">Chart</a>
+        </button>
+      </div>
+    </header>
 
     <div class="card bg-black border-0 mt-1" style="width: 18rem;">
       <div class="card-body" id="filter">
@@ -41,7 +51,7 @@
       <table class="table table-bordered" id="monthly-employee-salary">
         <thead class="bg-primary-subtle">
         <tr>
-          <th scope="row" > Full Name </th>
+          <th scope="row"> Full Name </th>
           <th scope="col">Start Date</th>
           <th scope="col">End Date</th>
           <th scope="col">Total Earnings</th>
@@ -90,9 +100,7 @@
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
 <script type="text/javascript" th:src="@{/js/dashboard/dashboard.js}"></script>
-
 <footer th:insert="~{fragments/footer :: footer}"></footer>
 </body>
 </html>

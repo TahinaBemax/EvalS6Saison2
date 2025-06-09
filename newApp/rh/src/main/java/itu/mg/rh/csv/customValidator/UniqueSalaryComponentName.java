@@ -18,10 +18,10 @@ public class UniqueSalaryComponentName extends AbstractBeanField<String, String>
     @Override
     protected Object convert(String s) throws CsvDataTypeMismatchException, CsvConstraintViolationException {
         if (s.trim().isEmpty())
-            throw new CsvDataTypeMismatchException("Salary Component Name is required and can not be blank");
+            throw new CsvDataTypeMismatchException(String.format("%s is required and can not be blank", getField().getName()));
 
         if (existing.contains(s))
-            throw new DuplicateValueException(field.getName(), s);
+            throw new CsvDataTypeMismatchException(String.format("Field: %s, The value %s is already exist!", field.getName(), s));
 
         existing.add(s);
         return s;

@@ -21,7 +21,7 @@ public class UniqueSalaryComponentAbbr extends AbstractBeanField<String, String>
             throw new CsvDataTypeMismatchException(String.format("The Field %s is required and can not be blank", getField().getName()));
 
         if (existing.contains(s))
-            throw new DuplicateValueException(field.getName(), s);
+            throw new CsvDataTypeMismatchException(String.format("Field: %s, The value %s is already exist!", field.getName(), s));
 
         existing.add(s);
         return s;

@@ -57,7 +57,8 @@ public class ImportCsv {
     public ImportCsv(ExportCsvService exportCsvService
             , DataExtractor dataExtractor, MainService mainService,
                      SalaryStructureService salaryStructureService,
-                     SalaryStructureAssignmentService salaryStructureAssignmentService) {
+                     SalaryStructureAssignmentService salaryStructureAssignmentService)
+    {
         this.exportCsvService = exportCsvService;
         this.dataExtractor = dataExtractor;
         this.mainService = mainService;
@@ -83,9 +84,30 @@ public class ImportCsv {
 
         return response.getBody();
     }
+    public boolean submit(Map data) {
+        String url = String.format("%s/api/method/importapp.api.import.import_multiple_csv_files", this.mainService.getErpNextUrl());
 
+        HttpHeaders headers = this.mainService.getHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Map> entity = new HttpEntity<>(data, headers);
+
+        ResponseEntity<Map> response = null;
+        try {
+            response = this.mainService.getRestTemplate()
+                    .exchange(url, HttpMethod.GET, entity, Map.class);
+            if (response.getStatusCode().is2xxSuccessful()) {
+                Map<String, Object> responseBody = response.getBody();
+                return true;
+            }
+        } catch (RestClientException e) {
+            throw e;
+        }
+        return false;
+    }
     public CsvImportFinalResult dataImport(ImportDto importDto) {
-        CsvImportFinalResult csvImportFinalResult = csvFileReader(importDto);
+        //Step 1 parsing csv data
+        CsvImportFinalResult csvImportFinalResult = this.csvFileReader(importDto);
 
         if (csvImportFinalResult.isValid()) {
             List<CompanyExportDTO> company = dataExtractor.getCompany(csvImportFinalResult);
@@ -98,6 +120,7 @@ public class ImportCsv {
 
             List<SalarySlipExportDTO> salarySlips = dataExtractor.getSalarySlips(csvImportFinalResult);
             setSalarySlipEmployeeID(employees, salarySlips);
+
             try {
                 convertToFrappeImportCsvModel(company, companyFileName);
                 convertToFrappeImportCsvModel(employees, employeeFileName);
@@ -106,7 +129,7 @@ public class ImportCsv {
                 convertToFrappeImportCsvModel(salaryAssigments, salaryStructureAssignmentFileName);
                 convertToFrappeImportCsvModel(salarySlips, salarySlipFileName);
             } catch (Exception e) {
-                csvImportFinalResult.setErrorLevel("Converting to frappe data import csv model!");
+                csvImportFinalResult.setErrorLevel("Step-2: Converting the parsed csv to frappe data import csv model!");
                 csvImportFinalResult.setErrorGlobal(List.of(e.getMessage()));
                 logger.error(e.getLocalizedMessage());
             }
@@ -120,7 +143,7 @@ public class ImportCsv {
                     submit(second);
                 }
             } catch (RuntimeException e) {
-                csvImportFinalResult.setErrorLevel("Importing from frappe data import!");
+                csvImportFinalResult.setErrorLevel("Step-3: Importing csv using Frappe Data Import!");
                 logger.error(e.getLocalizedMessage());
                 Throwable cause = e.getCause();
 
@@ -137,31 +160,10 @@ public class ImportCsv {
         return csvImportFinalResult;
     }
 
-    private void setSalaryStructureAssignmentEmployeeID(List<EmployeeExportDTO> employees, List<SalaryStructureAssignmentExportDTO> dtos){
-        for (SalaryStructureAssignmentExportDTO dto : dtos) {
-            for (EmployeeExportDTO employee : employees) {
-                if (dto.getEmployeeName().equals(employee.getFullName())){
-                    dto.setEmployee(employee.getId());
-                    break;
-                }
-            }
-        }
-    }
 
-    private void setSalarySlipEmployeeID(List<EmployeeExportDTO> employees, List<SalarySlipExportDTO> dtos){
-        for (SalarySlipExportDTO dto : dtos) {
-            for (EmployeeExportDTO employee : employees) {
-                if (dto.getEmployeeName().equals(employee.getFullName())){
-                    dto.setEmployee(employee.getId());
-                    break;
-                }
-            }
-        }
-    }
     private <T> Object convertToFrappeImportCsvModel(List<T> data, String fileName) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
         return exportCsvService.beanToCsv(data, fileName);
     }
-
     private CsvImportFinalResult csvFileReader(ImportDto importDto) {
         CsvParseResult<EmployeeDTO> employees = null;
         CsvParseResult<SalaryComponentDTO> salaryComponents = null;
@@ -171,9 +173,14 @@ public class ImportCsv {
         salaryComponents = csvParser(importDto.getSalaryComponentFile(), SalaryComponentDTO.class);
         salarySlips = csvParser(importDto.getSalarySlipFile(), SalarySlipDTO.class);
 
-        return new CsvImportFinalResult(employees, salaryComponents, salarySlips);
-    }
+        CsvImportFinalResult csvImportFinalResult = new CsvImportFinalResult(employees, salaryComponents, salarySlips);
 
+        if (!csvImportFinalResult.isValid()){
+            csvImportFinalResult.setErrorLevel("Step-1: Parsing Csv");
+        }
+
+        return csvImportFinalResult;
+    }
     private <T> CsvParseResult<T> csvParser(MultipartFile file, Class<T> model) {
         List<T> validRows = new ArrayList<>();
         List<CsvErrorMessage> errors = new ArrayList<>();
@@ -228,28 +235,28 @@ public class ImportCsv {
         return new CsvParseResult<>(validRows, errors);
     }
 
-    public boolean submit(Map data) {
-        String url = String.format("%s/api/method/importapp.api.import.import_multiple_csv_files", this.mainService.getErpNextUrl());
 
-        HttpHeaders headers = this.mainService.getHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
 
-        HttpEntity<Map> entity = new HttpEntity<>(data, headers);
-
-        ResponseEntity<Map> response = null;
-        try {
-            response = this.mainService.getRestTemplate()
-                    .exchange(url, HttpMethod.GET, entity, Map.class);
-            if (response.getStatusCode().is2xxSuccessful()) {
-                Map<String, Object> responseBody = response.getBody();
-                return true;
+    private void setSalaryStructureAssignmentEmployeeID(List<EmployeeExportDTO> employees, List<SalaryStructureAssignmentExportDTO> dtos){
+        for (SalaryStructureAssignmentExportDTO dto : dtos) {
+            for (EmployeeExportDTO employee : employees) {
+                if (dto.getEmployeeName().equals(employee.getFullName())){
+                    dto.setEmployee(employee.getId());
+                    break;
+                }
             }
-        } catch (RestClientException e) {
-            throw e;
         }
-        return false;
     }
-
+    private void setSalarySlipEmployeeID(List<EmployeeExportDTO> employees, List<SalarySlipExportDTO> dtos){
+        for (SalarySlipExportDTO dto : dtos) {
+            for (EmployeeExportDTO employee : employees) {
+                if (dto.getEmployeeName().equals(employee.getFullName())){
+                    dto.setEmployee(employee.getId());
+                    break;
+                }
+            }
+        }
+    }
     private Map<String, Object> prepareFirstRoundFormData(){
         Map<String, Object> data = new HashMap<>();
         List<Map<String, String>> files = new ArrayList<>();
@@ -280,7 +287,6 @@ public class ImportCsv {
         
         return data;
     }
-
     private Map<String, Object> prepareSecondRoundFormData(){
         Map<String, Object> data = new HashMap<>();
         List<Map<String, String>> files = new ArrayList<>();
@@ -300,7 +306,6 @@ public class ImportCsv {
 
         return data;
     }
-
     private List<String> getOriginalLines(Reader reader) throws IOException {
         List<String> originalLines = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(reader)) {
@@ -319,7 +324,6 @@ public class ImportCsv {
         reader.reset();
         return originalLines;
     }
-
     private List<CsvValidationResultDTO> getValidationResults(List<String> originalLines, List<CsvErrorMessage> errors) {
         List<CsvValidationResultDTO> results = new ArrayList<>();
 

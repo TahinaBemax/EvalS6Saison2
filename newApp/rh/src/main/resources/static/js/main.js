@@ -10,3 +10,15 @@ function xhrErrorHandler(xhr, tbody, colspan){
         return false;
     }
 }
+
+function showXhrErrorMessage(xhr){
+    if (xhr){
+        const responseText = xhr.responseText;
+        const response = (responseText != null) ? JSON.parse(responseText) : "Internal Server Error";
+        const message = (responseText != null) ? response.message : response
+
+        alert("Error: " + message)
+        console.error("Filter Error:", response);
+        return false;
+    }
+}

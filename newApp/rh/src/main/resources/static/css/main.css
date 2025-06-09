@@ -11,6 +11,10 @@ label.form-label {
 }
 
 /* START TABLE */
+table.table.dataTable {
+    background: none !important;
+}
+
 .table tr > th {
     width: auto;
     font-weight: 400;

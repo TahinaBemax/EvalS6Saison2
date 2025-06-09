@@ -8,6 +8,16 @@ function hideLoading(){
 
 }
 
+function LoadingButtonOn(btn) {
+    btn.val("Loading...")
+    btn.prop("disabled", true)
+}
+
+function LoadingButtonOff(btn, btnText) {
+    btn.val(btnText)
+    btn.prop("disabled", false)
+}
+
 function tableFetchDataLoadingAnimation(table) {
     const tbody = table.children("tbody");
 

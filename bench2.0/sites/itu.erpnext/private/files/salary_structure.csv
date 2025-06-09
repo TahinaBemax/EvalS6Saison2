@@ -1,0 +1,21 @@
+"ID","Company","Is Active","Currency","Payroll Frequency","Salary Component","Mode of Payment","Payment Account","ID (Earnings)","Component (Earnings)","Formula (Earnings)","Amount based on formula (Earnings)","Abbr (Earnings)","Depends on Payment Days (Earnings)","Is Tax Applicable (Earnings)","ID (Deductions)","Component (Deductions)","Amount based on formula (Deductions)","Formula (Deductions)","Abbr (Deductions)","Depends on Payment Days (Deductions)","Is Tax Applicable (Deductions)"
+Structure_Cadre,My Company,Yes,EUR,Monthly,Salaire Base,Cash,Cash - MC,,Salaire Base,base,1,SB,0,1,,,,,,,
+Structure_Cadre,My Company,Yes,EUR,Monthly,Indemnité de Fonction,Cash,Cash - MC,,Indemnité de Fonction,SB * 0.35,1,IF,0,1,,,,,,,
+Structure_Cadre,My Company,Yes,EUR,Monthly,Prime de Transport,Cash,Cash - MC,,Prime de Transport,SB * 0.12,1,PT,0,1,,,,,,,
+Structure_Cadre,My Company,Yes,EUR,Monthly,Prime de Logement,Cash,Cash - MC,,Prime de Logement,SB * 0.20,1,PL,0,1,,,,,,,
+Structure_Cadre,My Company,Yes,EUR,Monthly,Prime de Responsabilité,Cash,Cash - MC,,Prime de Responsabilité,SB * 0.15,1,PR,0,1,,,,,,,
+Structure_Cadre,My Company,Yes,EUR,Monthly,Taxe Sociale,Cash,Cash - MC,,,,,,,,,Taxe Sociale,1,(SB + IF + PT + PL + PR) * 0.20,TS,0,0
+Structure_Cadre,My Company,Yes,EUR,Monthly,CNaPS,Cash,Cash - MC,,,,,,,,,CNaPS,1,(SB + IF + PT + PL + PR) * 0.10,CN,0,0
+Structure_Cadre,My Company,Yes,EUR,Monthly,OSTIE,Cash,Cash - MC,,,,,,,,,OSTIE,1,(SB + IF + PT + PL + PR) * 0.05,OS,0,0
+Structure_Agent,My Company,Yes,EUR,Monthly,Salaire Base,Cash,Cash - MC,,Salaire Base,base,1,SB,0,1,,,,,,,
+Structure_Agent,My Company,Yes,EUR,Monthly,Indemnité de Fonction,Cash,Cash - MC,,Indemnité de Fonction,SB * 0.25,1,IF,0,1,,,,,,,
+Structure_Agent,My Company,Yes,EUR,Monthly,Prime de Transport,Cash,Cash - MC,,Prime de Transport,SB * 0.08,1,PT,0,1,,,,,,,
+Structure_Agent,My Company,Yes,EUR,Monthly,Prime de Logement,Cash,Cash - MC,,Prime de Logement,SB * 0.12,1,PL,0,1,,,,,,,
+Structure_Agent,My Company,Yes,EUR,Monthly,Taxe Sociale,Cash,Cash - MC,,,,,,,,,Taxe Sociale,1,(SB + IF + PT + PL) * 0.20,TS,0,0
+Structure_Agent,My Company,Yes,EUR,Monthly,CNaPS,Cash,Cash - MC,,,,,,,,,CNaPS,1,(SB + IF + PT + PL) * 0.10,CN,0,0
+Structure_Agent,My Company,Yes,EUR,Monthly,OSTIE,Cash,Cash - MC,,,,,,,,,OSTIE,1,(SB + IF + PT + PL) * 0.05,OS,0,0
+Structure_Stagiaire,My Company,Yes,EUR,Monthly,Salaire Base,Cash,Cash - MC,,Salaire Base,base,1,SB,0,1,,,,,,,
+Structure_Stagiaire,My Company,Yes,EUR,Monthly,Indemnité de Fonction,Cash,Cash - MC,,Indemnité de Fonction,SB * 0.15,1,IF,0,1,,,,,,,
+Structure_Stagiaire,My Company,Yes,EUR,Monthly,Prime de Transport,Cash,Cash - MC,,Prime de Transport,SB * 0.05,1,PT,0,1,,,,,,,
+Structure_Stagiaire,My Company,Yes,EUR,Monthly,Taxe Sociale,Cash,Cash - MC,,,,,,,,,Taxe Sociale,1,(SB + IF + PT) * 0.20,TS,0,0
+Structure_Stagiaire,My Company,Yes,EUR,Monthly,CNaPS,Cash,Cash - MC,,,,,,,,,CNaPS,1,(SB + IF + PT) * 0.10,CN,0,0

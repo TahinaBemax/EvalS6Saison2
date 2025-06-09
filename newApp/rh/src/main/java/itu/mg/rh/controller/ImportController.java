@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -71,16 +72,21 @@ public class ImportController {
         if (bindingResult.hasErrors()) {
             return importPage(model);
         }
+        CsvImportFinalResult result = null;
 
-        CsvImportFinalResult result = importCsv.dataImport(importDto);
+        try {
+            result = importCsv.dataImport(importDto);
 
-        if (result.isValid()){
-            redirectAttributes.addFlashAttribute("success", "Imported successfuly");
-        } else {
-            redirectAttributes.addFlashAttribute("hasErrors", true);
+            if (result.isValid()){
+                redirectAttributes.addFlashAttribute("success", "Imported successfuly");
+            } else {
+                redirectAttributes.addFlashAttribute("hasErrors", true);
+            }
+
+            redirectAttributes.addFlashAttribute("results", result);
+        } catch (Exception e) {
+            result.getErrorGlobal().add(e.getLocalizedMessage());
         }
-
-        redirectAttributes.addFlashAttribute("results", result);
         return "redirect:/import";
     }
 }

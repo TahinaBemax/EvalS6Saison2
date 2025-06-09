@@ -1,8 +1,39 @@
 $(document).ready(function () {
-    $supplierBtn = $("#supplierBtn");
-    $reqBtn = $("#reqBtn");
+    const btns = $(".btn-group").children("button");
 
-    handleEvent()
+    const employeeBtn = $("#employeeBtn");
+    const salaryComponentBtn = $("#salaryComponentBtn");
+    const salarySlipBtn = $("#salarySlipBtn");
+
+    const tableEmployee = $("#table-employee")
+    const tableSalaryComponent = $("#table-salary-component")
+    const tableSalarySlip = $("#table-salary-slip")
+
+    const employeeResultContainer = $("#info-employee")
+    const salaryComponentResultContainer = $("#info-salary-component")
+    const salarySlipResultContainer = $("#info-salary-slip")
+
+    init()
+
+    function init(){
+        handleEvent()
+        initDataTable()
+    }
+
+    function initDataTable(){
+        applyDataTableNoFilterNoSoringSetting(tableEmployee);
+        applyDataTableNoFilterNoSoringSetting(tableSalaryComponent);
+        applyDataTableNoFilterNoSoringSetting(tableSalarySlip);
+    }
+
+    function applyDataTableNoFilterNoSoringSetting(table){
+        table.DataTable({
+            "ordering": false,   // Disable sorting
+            "searching": false,  // Disable searching/filtering
+            "paging": true,      // Optionally keep paging enabled
+            "info": true
+        })
+    }
 
     function handleEvent() {
         $("#delete-data").submit(function (e) {
@@ -10,25 +41,33 @@ $(document).ready(function () {
             deleteData()
         });
 
-        $supplierBtn.click(function () {
-            removeActiveTable();
-            $tableSupplier = $("#table-supplier");
-            setActive($tableSupplier);
+        btns.click(function () {
+            btns.removeClass("active");
+            $(this).addClass("active")
+        })
+
+        employeeBtn.click(function () {
+            setActive(employeeResultContainer);
         });
 
-        $reqBtn.click(function () {
-            removeActiveTable();
-            $tableReqForQuotation = $("#table-req-for-quotation");
-            setActive($tableReqForQuotation);
+        salaryComponentBtn.click(function () {
+            setActive(salaryComponentResultContainer);
+        });
+
+        salarySlipBtn.click(function () {
+            setActive(salarySlipResultContainer);
         });
     }
 
-    function removeActiveTable() {
-        $(".table").removeClass("active");
+    function removeActiveContainer() {
+        employeeResultContainer.removeClass("active");
+        salaryComponentResultContainer.removeClass("active");
+        salarySlipResultContainer.removeClass("active");
     }
 
-    function setActive(table) {
-        table.addClass("active");
+    function setActive(resultContainer) {
+        removeActiveContainer()
+        resultContainer.addClass("active");
     }
 
     function deleteData() {
@@ -82,15 +121,4 @@ $(document).ready(function () {
         $("div.alert-success").remove();
         $("div.alert-danger").remove();
     }
-
-    function LoadingButtonOn(btn) {
-        btn.val("Loading...")
-        btn.prop("disabled", true)
-    }
-
-    function LoadingButtonOff(btn, btnText) {
-        btn.val(btnText)
-        btn.prop("disabled", false)
-    }
-
 })

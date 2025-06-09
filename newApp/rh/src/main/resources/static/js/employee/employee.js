@@ -9,17 +9,10 @@ $(document).ready(function () {
         //fetchDepartments();
         fetchEmployeeData();
         bindEvents();
-        dataTable();
     }
 
     function dataTable(){
-        $("#employee-list").DataTable({
-            "columnDefs": [
-                {
-                    "orderable": false, "targets": [0]
-                }
-            ]
-        });
+        $("#employee-list").DataTable({destroy : true});
     }
 
     function bindEvents() {
@@ -41,6 +34,7 @@ $(document).ready(function () {
             success: function(data) {
                 if (data && data.status === "success"){
                     updateEmployeeList(data.data);
+                    dataTable()
                     return true;
                 }
                 alert("An error occured when fetching employeee data!")
@@ -56,19 +50,23 @@ $(document).ready(function () {
 
     function updateEmployeeList(data) {
         $tbody.empty();
-        data.forEach(function(employee) {
-            $tbody.append(`
-                <tr>
-                    <td class="col-actions">
-                        <input type="checkbox" class="w-auto">
-                        <span>${employee.employeID}</span>
-                    </td>
-                    <td>${employee.fullName}</td>
-                    <td>${employee.company}</td>
-                    <td>${employee.gender}</td>
-                    <td>${employee.status}</td>
-                </tr>
-            `);
-        });
+        if (data.length > 0){
+            data.forEach(function(employee) {
+                $tbody.append(`
+                    <tr>
+                        <td class="col-actions">
+                            <input type="checkbox" class="w-auto">
+                            <span>${employee.employeID}</span>
+                        </td>
+                        <td>${employee.fullName}</td>
+                        <td>${employee.company}</td>
+                        <td>${employee.gender}</td>
+                        <td>${employee.status}</td>
+                    </tr>
+                `);
+            });
+        } else {
+            $tbody.append(`<tr><td colspan="6" class="text-info">Empty</td></tr>`)
+        }
     }
 });

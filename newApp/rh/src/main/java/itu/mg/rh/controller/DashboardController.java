@@ -43,6 +43,15 @@ public class DashboardController extends MainController{
         return "dashboard/index";
     }
 
+    @GetMapping("chart")
+    public String chartPage(){
+        if (!this.isAuthentified()) {
+            return "redirect:/login";
+        }
+
+        return "dashboard/chart";
+    }
+
     @GetMapping("detail-per-employee")
     public String detailSalarySummaryPerEmployee(@RequestParam(name = "month") Integer month,
                                                  @RequestParam(name = "year") Integer year, Model model)

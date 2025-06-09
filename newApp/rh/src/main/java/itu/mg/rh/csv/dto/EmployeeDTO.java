@@ -4,6 +4,7 @@ package itu.mg.rh.csv.dto;
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvCustomBindByName;
 import com.opencsv.bean.CsvDate;
+import itu.mg.rh.csv.customValidator.GenderConverter;
 import itu.mg.rh.csv.customValidator.Required;
 import itu.mg.rh.csv.customValidator.LocalDateConverter;
 import itu.mg.rh.csv.customValidator.UniqueEmployeeRef;
@@ -22,7 +23,7 @@ public class EmployeeDTO {
     @CsvBindByName(column = "Prenom")
     String lastName;
 
-    @CsvCustomBindByName(column = "genre", converter = Required.class, required = true)
+    @CsvCustomBindByName(column = "genre", converter = GenderConverter.class, required = true)
     String gender;
 
     @CsvCustomBindByName(column = "Date embauche", converter = LocalDateConverter.class, required = true)

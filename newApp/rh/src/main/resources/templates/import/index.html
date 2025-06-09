@@ -10,17 +10,20 @@
 
 <main>
     <section class="p-2">
-        <div class="my-5">
-            <div class="form-container py-3 px-4 bg-black" id="form-container">
-                <div th:if="${success} != null" class="alert alert-success" th:text="${success}"></div>
+        <div class="my-3">
+            <div class="form-container rounded py-3 px-4 bg-black" id="form-container">
+                <div class="errors-container bg-white rounded" th:if="${results != null}">
+                    <div th:if="${success} != null" class="alert alert-success mb-0" th:text="${success}"></div>
 
-                <div th:if="${hasErrors} != null" class="alert alert-danger">
-                    <h5 th:text="${results.getErrorLevel()}"></h5>
-                    <ul>
-                        <li th:each="error : ${results.getErrorGlobal()}" th:text="${error}"></li>
-                    </ul>
+                    <div th:if="${hasErrors} != null" class="alert alert-danger mb-0">
+                        <h5 th:utext="${'Error at :<br>' + results.getErrorLevel()}"></h5>
+                        <ul th:if="${results.getErrorGlobal().size() > 0}">
+                            <li th:each="error : ${results.getErrorGlobal()}" th:text="${error}"></li>
+                        </ul>
+                    </div>
                 </div>
 
+                <!-- DELETE DATA FORM -->
                 <div id="delete-data" class="my-3 bg-black py-2">
                     <form method="post" action="/delete-data">
                         <h3 class="text-light fs-5 mb-3 border-bottom py-2">Data</h3>
@@ -29,9 +32,10 @@
                         <input type="submit" value="Delete Data" id="delete" class="px-3 py-1 rounded">
                     </form>
                 </div>
+                <!-- ---- ----- ----- -->
 
                 <form class="form" method="post" action="/" th:object="${importDto}" enctype="multipart/form-data">
-                    <h3 class="text-secondary fs-5 mb-3 border-bottom py-2">Importation</h3>
+                    <h3 class="text-white fs-5 mb-3 border-bottom py-2">Importation</h3>
                     <div class="row supplier_quotation">
                         <div class="col">
                             <label class="form-label" for="employee">Employee<span class="text-danger">*</span></label>
@@ -61,20 +65,19 @@
                 </form>
             </div>
 
-            <div class="resultat-container  my-3" th:if="${results != null}">
-                <div class="errors my-2 bg-black p-2 rounded" style="background: rgb(243, 241, 241);">
-                    <h5 class="py-2">Import FeedBack</h5>
+            <div class="resultat-container bg-black p-3  my-3" th:if="${results != null}">
+                <div class="errors my-2 rounded">
+                    <h5 class="py-2 text-white">Import FeedBack</h5>
 
                     <div class="btn-group" role="group" aria-label="Basic outlined example">
-                        <button type="button" id="employeeBtn" class="btn btn-outline-secondary">Employee</button>
-                        <button type="button" id="salaryComponentBtn" class="btn btn-outline-secondary">Salary Component
-                        </button>
+                        <button type="button" id="employeeBtn" class="btn btn-outline-secondary active">Employee</button>
+                        <button type="button" id="salaryComponentBtn" class="btn btn-outline-secondary">Salary Component</button>
                         <button type="button" id="salarySlipBtn" class="btn btn-outline-secondary">Salary Slip</button>
                     </div>
                 </div>
 
-                <div class="my-2 ">
-                    <div class="row bg-black my-2 py-2 rounded employee-container">
+                <div class="my-2">
+                    <div class="row my-2 rounded import-info-container active" id="info-employee">
                         <h5 class="text-info">Employee</h5>
                         <div class="col-12 error-card">
                             <p class="alert alert-info ">
@@ -101,7 +104,7 @@
                         </div>
 
                         <div class="col-12">
-                            <table class="table table-bordered active" id="table-employee">
+                            <table class="table table-bordered" id="table-employee">
                                 <thead>
                                 <tr>
                                     <th class="row-nbr">Ref</th>
@@ -128,7 +131,7 @@
                         </div>
                     </div>
 
-                    <div class="row bg-black my-2 py-2 salary-component-container">
+                    <div class="row my-2 import-info-container" id="info-salary-component">
                         <h5 class="text-info">Salary Component</h5>
                         <div class="col-12 error-card">
                             <p class="alert alert-info ">
@@ -155,7 +158,6 @@
                         </div>
 
                         <div class="col-12">
-
                             <table class="table table-bordered active" id="table-salary-component">
                                 <thead>
                                 <tr>
@@ -181,7 +183,7 @@
                         </div>
                     </div>
 
-                    <div class="row bg-black my-2 py-2 salary-slip-container">
+                    <div class="row my-2 import-info-container" id="info-salary-slip">
                         <h5 class="text-info">Salary Slip</h5>
                         <div class="col-12 error-card">
                             <p class="alert alert-info ">
@@ -208,7 +210,6 @@
                         </div>
 
                         <div class="col-12">
-
                             <table class="table table-bordered active" id="table-salary-slip">
                                 <thead>
                                 <tr>

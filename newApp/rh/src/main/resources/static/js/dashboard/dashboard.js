@@ -14,21 +14,14 @@ $(document).ready(function () {
         fetchTotalSalarySlipPerMonth();
         fetchMonthlyEmployeeSalary();
         bindEvents();
-        dataTable();
     }
-    function dataTable(){
-        $(".table").DataTable({
-            "columnDefs": [
-                {
-                    "orderable": false, "targets": [0]
-                }
-            ]
-        });
-    }
+
+
     function bindEvents() {
         selectedMonth.change(fetchMonthlyEmployeeSalary);
         selectedTotalSalarySlipYear.change(fetchTotalSalarySlipPerMonth)
     }
+
     function fetchMonthlyEmployeeSalary() {
         const month = $("#select-month").val();
 
@@ -43,6 +36,12 @@ $(document).ready(function () {
             success: function(data) {
                 if (data){
                     salaryEmployeeTableContent(data);
+
+                    $("#monthly-employee-salary").DataTable({
+                        destroy: true,
+                        pageLength: 5,
+                        lengthMenu: [5, 10, 25, 50, 100]
+                    });
                     return true;
                 }
                 alert("An error occured when fetching data!")
@@ -69,6 +68,13 @@ $(document).ready(function () {
             success: function(data) {
                 if (data){
                     monthlySalaryEmployeeSummaryTableContent(data);
+
+                    // Initialize the statistics table
+                    $("#statistic-per-month").DataTable({
+                        destroy: true,
+                        pageLength: 3,
+                        lengthMenu: [3, 6, 9, 12]
+                    });
                     return true;
                 }
                 alert("An error occured when fetching data!")
@@ -85,6 +91,7 @@ $(document).ready(function () {
     /* ++++++ +++++ ++++++++
         HTML CONTENT
        ++++++ +++++ +++++++*/
+
     function salaryEmployeeTableContent(data) {
         tbodyMonthlyEmployeeSalary.empty();
 

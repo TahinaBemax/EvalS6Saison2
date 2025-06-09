@@ -29,19 +29,24 @@ public class ApiDataPreparator {
     public static List<Map<String, Object>> salaryStructure(List<SalaryStructureExportDTO> salaryStructures){
         // Convert salary structures to the format expected by Frappe
         List<Map<String, Object>> formattedStructures = new ArrayList<>();
+        Set<String> existing = new HashSet<>();
+
         for (SalaryStructureExportDTO structure : salaryStructures) {
             Map<String, Object> formattedStructure = new HashMap<>();
-            formattedStructure.put("name", structure.getId());
-            formattedStructure.put("company", structure.getCompany());
-            formattedStructure.put("is_active", structure.getIsActive());
-            formattedStructure.put("payroll_frequency", structure.getPayrollFrequency());
-            formattedStructure.put("currency", structure.getCurrency());
-            formattedStructure.put("mode_of_payment", structure.getModeOfPayment());
-            formattedStructure.put("payment_account", structure.getPaymentAccount());
-            formattedStructure.put("salary_component", structure.getSalaryComponent());
+            if (!existing.contains(structure.getId())){
+                formattedStructure.put("name", structure.getId());
+                formattedStructure.put("company", structure.getCompany());
+                formattedStructure.put("is_active", structure.getIsActive());
+                formattedStructure.put("payroll_frequency", structure.getPayrollFrequency());
+                formattedStructure.put("currency", structure.getCurrency());
+                formattedStructure.put("mode_of_payment", structure.getModeOfPayment());
+                formattedStructure.put("payment_account", structure.getPaymentAccount());
+                formattedStructure.put("salary_component", structure.getSalaryComponent());
 
-            setSalaryDetail(salaryStructures, formattedStructure);
-            formattedStructures.add(formattedStructure);
+                setSalaryDetail(salaryStructures, formattedStructure);
+                formattedStructures.add(formattedStructure);
+                existing.add(structure.getId());
+            }
         }
 
         return formattedStructures;
