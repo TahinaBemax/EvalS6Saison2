@@ -4,9 +4,9 @@ import com.opencsv.CSVWriter;
 import com.opencsv.bean.*;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
-import itu.mg.rh.csv.helper.CustomHeaderColumnNameMappingStrategy;
+import itu.mg.rh.csv.dto.ExtractedData;
+import itu.mg.rh.csv.helper.FileCsvName;
 import itu.mg.rh.csv.service.ExportCsvService;
-import itu.mg.rh.csv.service.ImportCsv;
 import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ import java.util.List;
 @Data
 public class ExportCsvServiceImpl implements ExportCsvService {
     private final String output_dir = "C:\\Users\\TahinaBemax\\Desktop\\EvaluationS6\\Saison_2\\bench2.0\\sites\\itu.erpnext\\private\\files";
-    public static final Logger logger = LoggerFactory.getLogger(ImportCsv.class);
+    public static final Logger logger = LoggerFactory.getLogger(ImportCsvImpl.class);
 
     @Override
     public <T> Object beanToCsv(List<T> beans, String outputFileName) throws CsvDataTypeMismatchException, CsvRequiredFieldEmptyException {
@@ -81,4 +81,16 @@ public class ExportCsvServiceImpl implements ExportCsvService {
                 throw e;
             }
         }
+
+    @Override
+    public boolean exportToFrappeTemplateCsv(ExtractedData extractedData) throws CsvRequiredFieldEmptyException, CsvDataTypeMismatchException {
+        beanToCsv(extractedData.getCompany(), FileCsvName.companyFileName);
+        beanToCsv(extractedData.getEmployees(), FileCsvName.employeeFileName);
+        beanToCsv(extractedData.getSalaryComponent(), FileCsvName.salaryComponentFileName);
+        beanToCsv(extractedData.getSalaryStructures(), FileCsvName.salaryStructureFileName);
+        beanToCsv(extractedData.getSalaryAssigments(), FileCsvName.salaryStructureAssignmentFileName);
+        beanToCsv(extractedData.getSalarySlips(), FileCsvName.salarySlipFileName);
+
+        return true;
     }
+}

@@ -2,7 +2,7 @@ package itu.mg.rh.services.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import itu.mg.rh.csv.service.ImportCsv;
+import itu.mg.rh.csv.service.impl.ImportCsvImpl;
 import itu.mg.rh.models.Employee;
 import itu.mg.rh.services.EmployeeService;
 import itu.mg.rh.services.MainService;
@@ -24,7 +24,7 @@ import java.util.Map;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     private final MainService mainService;
-    public static final Logger logger = LoggerFactory.getLogger(ImportCsv.class);
+    public static final Logger logger = LoggerFactory.getLogger(ImportCsvImpl.class);
     private String[] employeeFields;
 
     @Autowired

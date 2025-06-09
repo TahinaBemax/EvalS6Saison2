@@ -2,6 +2,7 @@ package itu.mg.rh.csv.service.impl;
 
 import itu.mg.rh.csv.CsvImportFinalResult;
 import itu.mg.rh.csv.dto.EmployeeDTO;
+import itu.mg.rh.csv.dto.ExtractedData;
 import itu.mg.rh.csv.dto.SalaryComponentDTO;
 import itu.mg.rh.csv.dto.SalarySlipDTO;
 import itu.mg.rh.csv.dto.export.*;
@@ -20,7 +21,6 @@ public class DataExtractorImpl implements DataExtractor {
     public List<EmployeeExportDTO> getEmployees(CsvImportFinalResult result) {
         return result.getValidEmployees().stream().map(this::mapToEmployee).toList();
     }
-
     @Override
     public List<SalaryComponentExportDTO> getSalaryComponent(CsvImportFinalResult result) {
         Set<String> existingComponentName = new HashSet<>();
@@ -37,7 +37,6 @@ public class DataExtractorImpl implements DataExtractor {
 
         return list.stream().filter(Objects::nonNull).toList();
     }
-
     @Override
     public List<SalaryStructureExportDTO> getSalaryStructures(CsvImportFinalResult result) {
         List<SalaryStructureExportDTO> structures = new ArrayList<>();
@@ -50,104 +49,6 @@ public class DataExtractorImpl implements DataExtractor {
 
         return structures;
     }
-
-/*
-    @Override
-    public List<SalaryStructureExportDTO> getSalaryStructures(CsvImportFinalResult result) {
-        List<SalaryStructureExportDTO> structures = new ArrayList<>();
-        Set<String> existingSalaryNames = new HashSet<>();
-
-        for (SalaryComponentDTO salComp : result.getValidSalaryComponents()) {
-            if (!existingSalaryNames.contains(salComp.getSalaryStructure())) {
-                        existingSalaryNames.add(salComp.getSalaryStructure());
-
-                // Create base structure
-                SalaryStructureExportDTO baseStructure = new SalaryStructureExportDTO();
-                baseStructure.setId(salComp.getSalaryStructure());
-                baseStructure.setCompany(salComp.getCompany());
-                baseStructure.setIsActive("Yes");
-                baseStructure.setCurrency("EUR");
-                baseStructure.setPayrollFrequency("Monthly");
-                baseStructure.setModeOfPayment("Cash");
-                baseStructure.setPaymentAccount("Cash - " + CompanyExportDTO.getAbbr(salComp.getCompany()));
-
-                // Add all earnings components
-                List<SalaryComponentDTO> earnings = findBySalaryStructureNameAndSalCompType(
-                        result.getValidSalaryComponents(),
-                        salComp.getSalaryStructure(),
-                        "earning"
-                );
-
-                int counter = 0;
-                for (SalaryComponentDTO earning : earnings) {
-                    // Set earning specific fields
-                    if (counter >= 1) {
-                        SalaryStructureExportDTO earningStructure = new SalaryStructureExportDTO();
-                        earningStructure.setSalaryComponent(earning.getName());
-                        earningStructure.setIdEarnings("");
-                        earningStructure.setComponentEarnings(earning.getName());
-                        earningStructure.setFormulaEarnings(earning.getValeur());
-                        earningStructure.setAmountBasedOnFormulaEarnings(1);
-                        earningStructure.setAbbrEarnings(earning.getAbbr());
-                        earningStructure.setDependsOnPaymentDaysEarnings(0);
-                        earningStructure.setIsTaxApplicableEarnings(1);
-                        structures.add(earningStructure);
-                    } else {
-                        baseStructure.setSalaryComponent(earning.getName());
-                        baseStructure.setIdEarnings("");
-                        baseStructure.setComponentEarnings(earning.getName());
-                        baseStructure.setFormulaEarnings(earning.getValeur());
-                        baseStructure.setAmountBasedOnFormulaEarnings(1);
-                        baseStructure.setAbbrEarnings(earning.getAbbr());
-                        baseStructure.setDependsOnPaymentDaysEarnings(0);
-                        baseStructure.setIsTaxApplicableEarnings(1);
-                        structures.add(baseStructure);
-                    }
-
-
-                    counter++;
-                }
-
-                // Add all deduction components
-                List<SalaryComponentDTO> deductions = findBySalaryStructureNameAndSalCompType(
-                        result.getValidSalaryComponents(),
-                        salComp.getSalaryStructure(),
-                        "deduction"
-                );
-
-                for (SalaryComponentDTO deduction : deductions) {
-                    if (counter >= 1) {
-                        SalaryStructureExportDTO deductionStructure = new SalaryStructureExportDTO();
-                        // Set deduction specific fields
-                        deductionStructure.setSalaryComponent(deduction.getName());
-                        //deductionStructure.setIdDeductions("");
-                        deductionStructure.setComponentDeductions(deduction.getName());
-                        deductionStructure.setFormulaDeductions(deduction.getValeur());
-                        deductionStructure.setAmountBasedOnFormulaDeductions(1);
-                        deductionStructure.setAbbrDeductions(deduction.getAbbr());
-                        deductionStructure.setDependsOnPaymentDaysDeductions(0);
-                        deductionStructure.setIsTaxApplicableDeductions(0);
-                        structures.add(deductionStructure);
-                    } else {
-                        baseStructure.setSalaryComponent(deduction.getName());
-                        //baseStructure.setIdDeductions("");
-                        baseStructure.setComponentDeductions(deduction.getName());
-                        baseStructure.setFormulaDeductions(deduction.getValeur());
-                        baseStructure.setAmountBasedOnFormulaDeductions(1);
-                        baseStructure.setAbbrDeductions(deduction.getAbbr());
-                        baseStructure.setDependsOnPaymentDaysDeductions(0);
-                        baseStructure.setIsTaxApplicableDeductions(0);
-                        structures.add(baseStructure);
-                    }
-                    counter++;
-                }
-            }
-        }
-
-        return structures;
-    }
-*/
-
     @Override
     public List<SalaryStructureAssignmentExportDTO> getSalaryAssigments(CsvImportFinalResult result) {
         return result.getValidSalarySlips()
@@ -157,7 +58,6 @@ public class DataExtractorImpl implements DataExtractor {
                     return mapToSalaryStructureAssignmentExport(validEmployees, salarySlip);
                 }).toList();
     }
-
     @Override
     public List<SalarySlipExportDTO> getSalarySlips(CsvImportFinalResult result) {
         return result.getValidSalarySlips()
@@ -167,7 +67,6 @@ public class DataExtractorImpl implements DataExtractor {
                     return mapToSalarySlipExport(validEmployees, result.getValidSalaryComponents(), salarySlip);
                 }).toList();
     }
-
     @Override
     public List<CompanyExportDTO> getCompany(CsvImportFinalResult result) {
         Set<String> existingCompanies = new HashSet<>();
@@ -183,6 +82,19 @@ public class DataExtractorImpl implements DataExtractor {
                 .map(CompanyExportDTO::new)
                 .toList();
     }
+
+    @Override
+    public ExtractedData getExtractedData(CsvImportFinalResult csvImportFinalResult) {
+        List<CompanyExportDTO> company = this.getCompany(csvImportFinalResult);
+        List<EmployeeExportDTO> employees = this.getEmployees(csvImportFinalResult);
+        List<SalaryComponentExportDTO> salaryComponent = this.getSalaryComponent(csvImportFinalResult);
+        List<SalaryStructureExportDTO> salaryStructures = this.getSalaryStructures(csvImportFinalResult);
+        List<SalaryStructureAssignmentExportDTO> salaryAssigments = this.getSalaryAssigments(csvImportFinalResult);
+        List<SalarySlipExportDTO> salarySlips = this.getSalarySlips(csvImportFinalResult);
+
+        return new ExtractedData(company, employees, salaryComponent, salaryStructures, salaryAssigments, salarySlips);
+    }
+
 
     private EmployeeExportDTO mapToEmployee(EmployeeDTO dto) {
         EmployeeExportDTO employee = new EmployeeExportDTO();
@@ -201,8 +113,6 @@ public class DataExtractorImpl implements DataExtractor {
 
         return employee;
     }
-
-
     private SalaryComponentExportDTO mapToSalaryComponentExport(SalaryComponentDTO dto) {
         SalaryComponentExportDTO salaryComp = new SalaryComponentExportDTO();
         salaryComp.setName(dto.getName());
@@ -219,12 +129,46 @@ public class DataExtractorImpl implements DataExtractor {
 
         return salaryComp;
     }
+    private SalaryStructureExportDTO mapToSalaryStructureExportDTO(SalaryComponentDTO salComp) {
+        SalaryStructureExportDTO salaryStructure = new SalaryStructureExportDTO();
 
+        salaryStructure.setId(salComp.getSalaryStructure());
+        salaryStructure.setCompany(salComp.getCompany());
+        salaryStructure.setIsActive("Yes");
+        salaryStructure.setCurrency("EUR");
+        salaryStructure.setPayrollFrequency("Monthly");
+        salaryStructure.setSalaryComponent(salComp.getName());
+        salaryStructure.setModeOfPayment("Cash");
+        salaryStructure.setPaymentAccount("Cash - " + CompanyExportDTO.getAbbr(salComp.getCompany()));
 
+        if (salComp.getType().equalsIgnoreCase("earning")){
+            salaryStructure.setIdEarnings("");
+            salaryStructure.setComponentEarnings(salComp.getName());
+            salaryStructure.setFormulaEarnings(salComp.getValeur());
+            salaryStructure.setAmountBasedOnFormulaEarnings(1);
+            salaryStructure.setAbbrEarnings(salComp.getAbbr());
+            salaryStructure.setDependsOnPaymentDaysEarnings(0);
+            salaryStructure.setIsTaxApplicableEarnings(1);
+        } else if (salComp.getType().equalsIgnoreCase("deduction")) {
+            salaryStructure.setIdDeductions("");
+            salaryStructure.setComponentDeductions(salComp.getName());
+            salaryStructure.setFormulaDeductions(salComp.getValeur());
+            salaryStructure.setAmountBasedOnFormulaDeductions(1);
+            salaryStructure.setAbbrDeductions(salComp.getAbbr());
+            salaryStructure.setDependsOnPaymentDaysDeductions(0);
+            salaryStructure.setIsTaxApplicableDeductions(0);
+        }
 
+        return salaryStructure;
+    }
     private SalaryStructureAssignmentExportDTO mapToSalaryStructureAssignmentExport(List<EmployeeDTO> employeeDTOS, SalarySlipDTO slipDTO) {
         SalaryStructureAssignmentExportDTO salaryStructureExp = new SalaryStructureAssignmentExportDTO();
         EmployeeDTO matchedEmployee = findEmployeByRef(employeeDTOS, slipDTO.getRefEmployee());
+
+        if (matchedEmployee.getHireDate().isAfter(slipDTO.getMois())){
+            throw new RuntimeException(String.format("From Date %s cannot be before employee's joining Date %s", slipDTO.getMois(), matchedEmployee.getHireDate()));
+        }
+
         String fullName = matchedEmployee.getLastName() != null ? matchedEmployee.getFirstName() + " " + matchedEmployee.getLastName() : matchedEmployee.getFirstName();
 
         String abbr = CompanyExportDTO.getAbbr(matchedEmployee.getCompany());
@@ -242,7 +186,6 @@ public class DataExtractorImpl implements DataExtractor {
 
         return salaryStructureExp;
     }
-
     private SalarySlipExportDTO mapToSalarySlipExport(List<EmployeeDTO> employeeDTOS, List<SalaryComponentDTO> salaryComponentDTOS, SalarySlipDTO slipDTO) {
         SalarySlipExportDTO salarySlipExp = new SalarySlipExportDTO();
         EmployeeDTO matchedEmployee = findEmployeByRef(employeeDTOS, slipDTO.getRefEmployee());
@@ -285,6 +228,7 @@ public class DataExtractorImpl implements DataExtractor {
 
 
     //======= helper ===========================
+
     private String employeeGenderHandler(String gender) {
         if (gender == null || gender.trim().isBlank())
             throw new RuntimeException("Gender is Null!");
@@ -306,47 +250,12 @@ public class DataExtractorImpl implements DataExtractor {
 
         return gender;
     }
-
-    private SalaryStructureExportDTO mapToSalaryStructureExportDTO(SalaryComponentDTO salComp) {
-        SalaryStructureExportDTO salaryStructure = new SalaryStructureExportDTO();
-
-        salaryStructure.setId(salComp.getSalaryStructure());
-        salaryStructure.setCompany(salComp.getCompany());
-        salaryStructure.setIsActive("Yes");
-        salaryStructure.setCurrency("EUR");
-        salaryStructure.setPayrollFrequency("Monthly");
-        salaryStructure.setSalaryComponent(salComp.getName());
-        salaryStructure.setModeOfPayment("Cash");
-        salaryStructure.setPaymentAccount("Cash - " + CompanyExportDTO.getAbbr(salComp.getCompany()));
-
-        if (salComp.getType().equalsIgnoreCase("earning")){
-            salaryStructure.setIdEarnings("");
-            salaryStructure.setComponentEarnings(salComp.getName());
-            salaryStructure.setFormulaEarnings(salComp.getValeur());
-            salaryStructure.setAmountBasedOnFormulaEarnings(1);
-            salaryStructure.setAbbrEarnings(salComp.getAbbr());
-            salaryStructure.setDependsOnPaymentDaysEarnings(0);
-            salaryStructure.setIsTaxApplicableEarnings(1);
-        } else if (salComp.getType().equalsIgnoreCase("deduction")) {
-            salaryStructure.setIdDeductions("");
-            salaryStructure.setComponentDeductions(salComp.getName());
-            salaryStructure.setFormulaDeductions(salComp.getValeur());
-            salaryStructure.setAmountBasedOnFormulaDeductions(1);
-            salaryStructure.setAbbrDeductions(salComp.getAbbr());
-            salaryStructure.setDependsOnPaymentDaysDeductions(0);
-            salaryStructure.setIsTaxApplicableDeductions(0);
-        }
-
-        return salaryStructure;
-    }
-
     private EmployeeDTO findEmployeByRef(List<EmployeeDTO> employeeDTOS, String ref) {
         return employeeDTOS
                 .stream()
                 .filter(employee -> employee.getRef().equals(ref))
                 .findFirst().orElseThrow();
     }
-
     private static List<SalaryComponentDTO> findBySalaryStructureNameAndSalCompType(List<SalaryComponentDTO> salaryComponentDTOList, String name, String type) {
         return salaryComponentDTOList.stream()
                 .filter(

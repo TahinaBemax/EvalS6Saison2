@@ -1,6 +1,7 @@
 package itu.mg.rh.csv.service;
 
 import itu.mg.rh.csv.CsvImportFinalResult;
+import itu.mg.rh.csv.dto.ExtractedData;
 import itu.mg.rh.csv.dto.export.*;
 
 import java.util.List;
@@ -12,4 +13,6 @@ public interface DataExtractor {
     List<SalaryStructureAssignmentExportDTO> getSalaryAssigments(CsvImportFinalResult result);
     List<SalarySlipExportDTO> getSalarySlips(CsvImportFinalResult result);
     List<CompanyExportDTO> getCompany(CsvImportFinalResult result);
+
+    ExtractedData getExtractedData(CsvImportFinalResult csvImportFinalResult);
 }

@@ -3,10 +3,9 @@ package itu.mg.rh.controller;
 import com.opencsv.exceptions.CsvDataTypeMismatchException;
 import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import itu.mg.rh.csv.CsvImportFinalResult;
-import itu.mg.rh.csv.service.ImportCsv;
+import itu.mg.rh.csv.service.impl.ImportCsvImpl;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.dto.ImportDto;
-import itu.mg.rh.exception.FrappeApiException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,17 +20,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 @RequestMapping("")
 public class ImportController {
-    private final ImportCsv importCsv;
+    private final ImportCsvImpl importCsvImpl;
 
     @Autowired
-    public ImportController(ImportCsv importCsv) {
-        this.importCsv = importCsv;
+    public ImportController(ImportCsvImpl importCsvImpl) {
+        this.importCsvImpl = importCsvImpl;
     }
 
     @GetMapping("/import")
@@ -44,7 +40,7 @@ public class ImportController {
     @ResponseBody
     public ResponseEntity<?> deleteData(){
         try {
-            ApiResponse<?> apiResponse = importCsv.deleteData();
+            ApiResponse<?> apiResponse = importCsvImpl.deleteData();
 
             if (apiResponse.getStatus().equals("success")) {
                 return ResponseEntity.ok(apiResponse);
@@ -75,7 +71,7 @@ public class ImportController {
         CsvImportFinalResult result = null;
 
         try {
-            result = importCsv.dataImport(importDto);
+            result = importCsvImpl.dataImport(importDto);
 
             if (result.isValid()){
                 redirectAttributes.addFlashAttribute("success", "Imported successfuly");

@@ -2,6 +2,7 @@ package itu.mg.rh.csv.dto;
 
 import com.opencsv.bean.CsvBindByName;
 import com.opencsv.bean.CsvCustomBindByName;
+import com.opencsv.bean.CsvDate;
 import com.opencsv.bean.CsvNumber;
 import itu.mg.rh.csv.customValidator.*;
 import lombok.Data;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 public class SalarySlipDTO {
 
     @CsvCustomBindByName(column = "Mois", converter = LocalDateConverter.class, required = true)
+    @CsvDate
     LocalDate mois;
 
     @CsvBindByName(column = "Ref Employe",required = true)

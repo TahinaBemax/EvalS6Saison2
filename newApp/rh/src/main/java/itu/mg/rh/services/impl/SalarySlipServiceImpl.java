@@ -2,7 +2,7 @@ package itu.mg.rh.services.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import itu.mg.rh.csv.service.ImportCsv;
+import itu.mg.rh.csv.service.impl.ImportCsvImpl;
 import itu.mg.rh.models.SalaryDetail;
 import itu.mg.rh.models.SalarySlip;
 import itu.mg.rh.services.MainService;
@@ -16,7 +16,6 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,7 +27,7 @@ import java.util.stream.Collectors;
 public class SalarySlipServiceImpl implements SalarySlipService {
 
     private final MainService mainService;
-    public static final Logger logger = LoggerFactory.getLogger(ImportCsv.class);
+    public static final Logger logger = LoggerFactory.getLogger(ImportCsvImpl.class);
     private String[] fields;
     private String[] salaryDetailfields;
 

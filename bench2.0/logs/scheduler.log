@@ -326,3 +326,7 @@
 2025-06-09 08:44:01,610 ERROR scheduler Skipped queueing erpnext.manufacturing.doctype.bom_update_tool.bom_update_tool.auto_update_latest_price_in_all_boms because it was found in queue for itu.erpnext
 2025-06-09 08:44:02,257 ERROR scheduler Skipped queueing frappe.desk.doctype.changelog_feed.changelog_feed.fetch_changelog_feed because it was found in queue for itu.erpnext
 2025-06-09 08:44:02,396 ERROR scheduler Skipped queueing frappe.desk.form.document_follow.send_weekly_updates because it was found in queue for itu.erpnext
+2025-06-09 09:04:00,449 ERROR scheduler Skipped queueing erpnext.projects.doctype.project.project.collect_project_status because it was found in queue for itu.erpnext
+2025-06-09 09:04:00,493 ERROR scheduler Skipped queueing frappe.twofactor.delete_all_barcodes_for_users because it was found in queue for itu.erpnext
+2025-06-09 09:04:00,675 ERROR scheduler Skipped queueing frappe.desk.form.document_follow.send_hourly_updates because it was found in queue for itu.erpnext
+2025-06-09 09:04:00,785 ERROR scheduler Skipped queueing frappe.email.queue.flush because it was found in queue for itu.erpnext
