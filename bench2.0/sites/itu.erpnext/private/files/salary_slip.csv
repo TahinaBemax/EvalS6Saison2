@@ -1,16 +1,16 @@
 "ID","Employee","Employee Name","Company","Posting Date","Mode Of Payment","Currency","Exchange Rate","Salary Structure","Working Days","Payment Days","Payroll Frequency","status","ID (Earnings)","Component (Earnings)","ID (Deductions)","Component (Deductions)"
-,HR-EMP-00001,Rakotondrabe Andry,My Company,2024-01-01,Cash,EUR,0.0,Structure_Cadre,31,31,Monthly,Submitted,,Prime de Responsabilité,,OSTIE
+,HR-EMP-00001,Rakotondrabe Andry,My Company,2024-01-15,Cash,EUR,0.0,Structure_Cadre,31,31,Monthly,Submitted,,Prime de Responsabilité,,OSTIE
 ,HR-EMP-00002,Razafindrakoto Mireille,My Company,2024-01-01,Cash,EUR,0.0,Structure_Agent,31,31,Monthly,Submitted,,Prime de Logement,,OSTIE
 ,HR-EMP-00003,Randriamampionona Jean-Pierre,My Company,2024-01-13,Cash,EUR,0.0,Structure_Cadre,31,31,Monthly,Submitted,,Prime de Responsabilité,,OSTIE
 ,HR-EMP-00004,Rakotomalala Sarah,My Company,2024-01-01,Cash,EUR,0.0,Structure_Agent,31,31,Monthly,Submitted,,Prime de Logement,,OSTIE
 ,HR-EMP-00005,Ratsimba Patrick,My Company,2024-01-01,Cash,EUR,0.0,Structure_Cadre,31,31,Monthly,Submitted,,Prime de Responsabilité,,OSTIE
-,HR-EMP-00006,Razafy Nathalie,My Company,2024-01-01,Cash,EUR,0.0,Structure_Stagiaire,31,31,Monthly,Submitted,,Prime de Transport,,CNaPS
-,HR-EMP-00007,Randrianarisoa David,My Company,2024-01-01,Cash,EUR,0.0,Structure_Agent,31,31,Monthly,Submitted,,Prime de Logement,,OSTIE
-,HR-EMP-00008,Rakotondrabe Sandra,My Company,2024-01-01,Cash,EUR,0.0,Structure_Stagiaire,31,31,Monthly,Submitted,,Prime de Transport,,CNaPS
-,HR-EMP-00009,Razafindrakoto Thomas,My Company,2024-01-01,Cash,EUR,0.0,Structure_Agent,31,31,Monthly,Submitted,,Prime de Logement,,OSTIE
-,HR-EMP-00010,Randriamampionona Marie,My Company,2024-01-01,Cash,EUR,0.0,Structure_Stagiaire,31,31,Monthly,Submitted,,Prime de Transport,,CNaPS
-,HR-EMP-00011,Rakotomalala Paul,My Company,2024-01-01,Cash,EUR,0.0,Structure_Cadre,31,31,Monthly,Submitted,,Prime de Responsabilité,,OSTIE
-,HR-EMP-00012,Ratsimba Claire,My Company,2024-01-01,Cash,EUR,0.0,Structure_Stagiaire,31,31,Monthly,Submitted,,Prime de Transport,,CNaPS
+,HR-EMP-00006,Razafy Nathalie,My Company,2024-01-15,Cash,EUR,0.0,Structure_Stagiaire,31,31,Monthly,Submitted,,Prime de Transport,,CNaPS
+,HR-EMP-00007,Randrianarisoa David,My Company,2024-02-01,Cash,EUR,0.0,Structure_Agent,29,29,Monthly,Submitted,,Prime de Logement,,OSTIE
+,HR-EMP-00008,Rakotondrabe Sandra,My Company,2024-03-11,Cash,EUR,0.0,Structure_Stagiaire,31,31,Monthly,Submitted,,Prime de Transport,,CNaPS
+,HR-EMP-00009,Razafindrakoto Thomas,My Company,2024-04-21,Cash,EUR,0.0,Structure_Agent,30,30,Monthly,Submitted,,Prime de Logement,,OSTIE
+,HR-EMP-00010,Randriamampionona Marie,My Company,2024-05-01,Cash,EUR,0.0,Structure_Stagiaire,31,31,Monthly,Submitted,,Prime de Transport,,CNaPS
+,HR-EMP-00011,Rakotomalala Paul,My Company,2024-06-15,Cash,EUR,0.0,Structure_Cadre,30,30,Monthly,Submitted,,Prime de Responsabilité,,OSTIE
+,HR-EMP-00012,Ratsimba Claire,My Company,2024-07-01,Cash,EUR,0.0,Structure_Stagiaire,31,31,Monthly,Submitted,,Prime de Transport,,CNaPS
 ,HR-EMP-00001,Rakotondrabe Andry,My Company,2024-07-01,Cash,EUR,0.0,Structure_Cadre,31,31,Monthly,Submitted,,Prime de Responsabilité,,OSTIE
 ,HR-EMP-00002,Razafindrakoto Mireille,My Company,2024-07-01,Cash,EUR,0.0,Structure_Agent,31,31,Monthly,Submitted,,Prime de Logement,,OSTIE
 ,HR-EMP-00003,Randriamampionona Jean-Pierre,My Company,2024-07-01,Cash,EUR,0.0,Structure_Cadre,31,31,Monthly,Submitted,,Prime de Responsabilité,,OSTIE

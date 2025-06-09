@@ -8,42 +8,41 @@
 </head>
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
+<header class="row bg-black p-2 align-items-center justify-content-between">
+    <h4 class="text-white">Chart</h4>
+</header>
 
 <main>
-  <section>
-    <header class="row bg-black my-1 py-2 align-items-center justify-content-between">
-        <h4 class="text-white">Chart</h4>
-    </header>
+    <section>
+        <div id="chart-container">
+            <div class="col-md-3 mb-2">
+                <label for="year" class="form-label">Year</label>
+                <select class="form-select" id="year">
+                    <option th:value="${#dates.year(#dates.createNow())}"
+                            th:text="${#dates.year(#dates.createNow())}">
+                    </option>
+                    <option th:each="year : ${#numbers.sequence(2015, #dates.year(#dates.createNow()) - 1)}"
+                            th:value="${year}"
+                            th:text="${year}">
+                    </option>
+                </select>
+            </div>
 
-    <div id="chart-container">
-      <div class="col-md-3 mb-2">
-        <label for="year" class="form-label">Year</label>
-        <select class="form-select" id="year">
-          <option th:value="${#dates.year(#dates.createNow())}"
-                  th:text="${#dates.year(#dates.createNow())}">
-          </option>
-          <option th:each="year : ${#numbers.sequence(2015, #dates.year(#dates.createNow()) - 1)}"
-                  th:value="${year}"
-                  th:text="${year}">
-          </option>
-        </select>
-      </div>
+            <div class="my-3 p-3 bg-black">
+                <h5 class="text-white py-2">Monthly Salary Chart</h5>
+                <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+                    <canvas id="monthlySalaryChart"></canvas>
+                </div>
+            </div>
 
-      <div class="my-3 p-3 bg-black">
-        <h5 class="text-white py-2">Monthly Salary Chart</h5>
-        <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-          <canvas id="monthlySalaryChart"></canvas>
+            <div class="my-3 p-3 bg-black">
+                <h5 class="text-white py-2">Salary Components Chart</h5>
+                <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+                    <canvas id="salaryComponentsChart"></canvas>
+                </div>
+            </div>
         </div>
-      </div>
-  
-      <div class="my-3 p-3 bg-black">
-        <h5 class="text-white py-2">Salary Components Chart</h5>
-        <div class="chart-container" style="position: relative; height:40vh; width:80vw">
-          <canvas id="salaryComponentsChart"></canvas>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </main>
 
 

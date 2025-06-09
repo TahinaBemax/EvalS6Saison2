@@ -2,6 +2,9 @@ $(document).ready(function () {
     const tableMonthlyEmployeeSalary = $("#monthly-employee-salary")
     const tableForStatPerMonth = $("#statistic-per-month");
 
+    let monthlyDataTable;
+    let monthlySummaryDataTable;
+
     const tbodyMonthlyEmployeeSalary = tableMonthlyEmployeeSalary.children("tbody");
     const tbodyForStatPerMonth = tableForStatPerMonth.children("tbody");
 
@@ -22,6 +25,21 @@ $(document).ready(function () {
         selectedTotalSalarySlipYear.change(fetchTotalSalarySlipPerMonth)
     }
 
+    function monthlyEmployeeSalaryDataTable(){
+        monthlyDataTable = tableMonthlyEmployeeSalary.DataTable({
+            destroy: true,
+            pageLength: 5,
+            lengthMenu: [5, 10, 25, 50, 100]
+        });
+    }
+    function monthlyEmployeeSalarySummaryDataTable(){
+        // Initialize the statistics table
+        monthlySummaryDataTable = tableForStatPerMonth.DataTable({
+            destroy: true,
+            pageLength: 3,
+            lengthMenu: [3, 6, 9, 12]
+        });
+    }
     function fetchMonthlyEmployeeSalary() {
         const month = $("#select-month").val();
 
@@ -35,16 +53,18 @@ $(document).ready(function () {
             },
             success: function(data) {
                 if (data){
-                    salaryEmployeeTableContent(data);
+                    // First destroy the existing DataTable
+                    if ($.fn.DataTable.isDataTable(tableMonthlyEmployeeSalary)) {
+                        monthlyDataTable.destroy();
+                    }
+                    // Clear the table content
+                    tbodyMonthlyEmployeeSalary.empty();
 
-                    $("#monthly-employee-salary").DataTable({
-                        destroy: true,
-                        pageLength: 5,
-                        lengthMenu: [5, 10, 25, 50, 100]
-                    });
-                    return true;
+                    const hasData = salaryEmployeeTableContent(data);
+                    if (hasData) {
+                        monthlyEmployeeSalaryDataTable()
+                    }
                 }
-                alert("An error occured when fetching data!")
             },
             error: function(xhr) {
                 xhrErrorHandler(xhr, tbodyMonthlyEmployeeSalary, 6)
@@ -67,17 +87,18 @@ $(document).ready(function () {
             },
             success: function(data) {
                 if (data){
-                    monthlySalaryEmployeeSummaryTableContent(data);
-
-                    // Initialize the statistics table
-                    $("#statistic-per-month").DataTable({
-                        destroy: true,
-                        pageLength: 3,
-                        lengthMenu: [3, 6, 9, 12]
-                    });
-                    return true;
+                    // First destroy the existing DataTable
+                    if ($.fn.DataTable.isDataTable(tableForStatPerMonth)) {
+                        monthlySummaryDataTable.destroy();
+                    }
+                    // Clear the table content
+                    tbodyForStatPerMonth.empty();
+                    
+                    const hasData = monthlySalaryEmployeeSummaryTableContent(data);
+                    if (hasData) {
+                        monthlyEmployeeSalarySummaryDataTable();
+                    }
                 }
-                alert("An error occured when fetching data!")
             },
             error: function(xhr) {
                 xhrErrorHandler(xhr, tbodyForStatPerMonth, 3);
@@ -95,8 +116,10 @@ $(document).ready(function () {
     function salaryEmployeeTableContent(data) {
         tbodyMonthlyEmployeeSalary.empty();
 
-        if (!data || data.length === 0)
-            return tbodyMonthlyEmployeeSalary.append("<tr><td colspan='6' class='text-center text-warning'>Empty</td></tr>");
+        if (!data || data.length === 0) {
+            tbodyMonthlyEmployeeSalary.append("<tr><td colspan='6' class='text-center text-warning'>Empty</td></tr>");
+            return false;
+        }
 
         data.forEach(function(salarySlip) {
             tbodyMonthlyEmployeeSalary.append(`
@@ -116,12 +139,16 @@ $(document).ready(function () {
                 </tr>
             `);
         });
+
+        return true;
     }
     function monthlySalaryEmployeeSummaryTableContent(data) {
         tbodyForStatPerMonth.empty();
 
-        if (!data || data.length === 0)
-            return tbodyForStatPerMonth.append("<tr><td colspan='6' class='text-center text-warning'>Empty</td></tr>");
+        if (!data || data.length === 0) {
+            tbodyForStatPerMonth.append("<tr><td colspan='6' class='text-center text-warning'>Empty</td></tr>");
+            return false;
+        }
 
         data.forEach(function(stat) {
             tbodyForStatPerMonth.append(`
@@ -136,6 +163,8 @@ $(document).ready(function () {
                 </tr>
             `);
         });
+
+        return true;
     }
     function salarySlipDetailsHtmlListContent(details, total){
         if(details == null){

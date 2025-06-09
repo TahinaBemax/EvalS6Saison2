@@ -17,6 +17,9 @@ import itu.mg.rh.csv.service.ExportCsvService;
 import itu.mg.rh.csv.service.ImportCsv;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.dto.ImportDto;
+import itu.mg.rh.exception.FrappeApiException;
+import itu.mg.rh.models.FiscalYear;
+import itu.mg.rh.services.FiscalYearService;
 import itu.mg.rh.services.MainService;
 import itu.mg.rh.services.SalaryStructureAssignmentService;
 import itu.mg.rh.services.SalaryStructureService;
@@ -30,6 +33,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
+import java.time.Year;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -42,7 +47,7 @@ public class ImportCsvImpl implements ImportCsv {
     private final DataExtractor dataExtractor;
     private final MainService mainService;
     private final SalaryStructureService salaryStructureService;
-    private final SalaryStructureAssignmentService salaryStructureAssignmentService;
+    private final FiscalYearService fiscalYearService;
     public static final Logger logger = LoggerFactory.getLogger(ImportCsvImpl.class);
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -50,13 +55,13 @@ public class ImportCsvImpl implements ImportCsv {
     public ImportCsvImpl(ExportCsvService exportCsvService
             , DataExtractor dataExtractor, MainService mainService,
                          SalaryStructureService salaryStructureService,
-                         SalaryStructureAssignmentService salaryStructureAssignmentService)
+                         FiscalYearService fiscalYearService)
     {
         this.exportCsvService = exportCsvService;
         this.dataExtractor = dataExtractor;
         this.mainService = mainService;
         this.salaryStructureService = salaryStructureService;
-        this.salaryStructureAssignmentService = salaryStructureAssignmentService;
+        this.fiscalYearService = fiscalYearService;
     }
 
     @Override
@@ -122,8 +127,16 @@ public class ImportCsvImpl implements ImportCsv {
             try {
                 Map firstImport = prepareFirstRoundFormData();
                 if (submit(firstImport)){
-                    salaryStructureService.insertSalaryStructures(extractedData.getSalaryStructures());
-                    //this.salaryStructureAssignmentService.saveSalaryStructureAssignment(salaryAssigments);
+                    try {
+                        if(this.createFiscalYear(extractedData)){
+                            salaryStructureService.insertSalaryStructures(extractedData.getSalaryStructures());
+                        }
+                    } catch (FrappeApiException e) {
+                        logger.error("Creating Fiscal Year", e);
+                        csvImportFinalResult.setErrorGlobal(List.of(e.getErrorResponse().getException()));
+                        return csvImportFinalResult;
+                    }
+
                     Map second = prepareSecondRoundFormData();
                     submit(second);
                 }
@@ -222,6 +235,42 @@ public class ImportCsvImpl implements ImportCsv {
 
 
 
+    private boolean createFiscalYear(ExtractedData extractedData){
+        List<Integer> newFiscalYear = getSalarySlipYearToCreateFiscalYear(extractedData.getSalarySlips());
+        CompanyExportDTO company = extractedData.getCompany().get(0);
+        List<FiscalYear> allFiscalYears = fiscalYearService.getAllFiscalYears();
+
+        for (Integer year : newFiscalYear) {
+            LocalDate date = LocalDate.of(year, 1, 1);
+            boolean isExist = false;
+            for (FiscalYear allFiscalYear : allFiscalYears) {
+                if(allFiscalYear.getYearStartDate().getYear() <= year &&
+                        year <= allFiscalYear.getYearEndDate().getYear())
+                {
+                  isExist = true;
+                }
+            }
+
+            if (!isExist){
+                fiscalYearService.createFiscalYear(date, company.getCompany());
+            }
+        }
+
+        return true;
+    }
+    private List<Integer> getSalarySlipYearToCreateFiscalYear(List<SalarySlipExportDTO> salarySlips){
+        List<Integer> dates = new ArrayList<>();
+        for (SalarySlipExportDTO salarySlip : salarySlips) {
+            LocalDate postingDate = salarySlip.getPostingDate();
+
+            if (!dates.contains(postingDate.getYear())){
+                dates.add(postingDate.getYear());
+            }
+        }
+
+        return  dates;
+
+    }
     private Map<String, Object> prepareFirstRoundFormData(){
         Map<String, Object> data = new HashMap<>();
         List<Map<String, String>> files = new ArrayList<>();

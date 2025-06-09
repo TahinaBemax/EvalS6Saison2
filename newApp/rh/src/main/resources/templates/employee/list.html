@@ -8,70 +8,72 @@
 <body>
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<main>
-  <section class="p-2">
-    <header class="row bg-black my-1 py-2 align-items-center justify-content-between">
-      <h4 class="w-auto fs-4 text-white">Employee</h4>
-      <div class="w-auto text-end">
+<header class="row bg-black my-1 p-2 align-items-center justify-content-between">
+    <h4 class="w-auto fs-4 text-white">Employee</h4>
+    <div class="w-auto text-end">
         <!-- Button trigger modal -->
-        <button class="btn btn-primary text-white px-2 py-1" data-bs-target="#modal-item-form" data-bs-toggle="modal" type="button">
-          <i class="bi bi-plus"></i>
-          <span class="fs-4">Add Employee</span>
+        <button class="btn btn-primary text-white px-2 py-1" data-bs-target="#modal-item-form" data-bs-toggle="modal"
+                type="button">
+            <i class="bi bi-plus"></i>
+            <span class="fs-4">Add Employee</span>
         </button>
-      </div>
-    </header>
-
-    <div class="mt-2 py-2 ">
-      <div id="filter" class="mb-4 p-3 rounded bg-black">
-        <p class="text-white">Filter</p>
-
-        <div class="row">
-          <div class="col-4">
-            <label for="fullNameFilter" class="form-label text-light">Full Name</label>
-            <input type="text" class="form-control" id="fullNameFilter" placeholder="Enter full name">
-          </div>
-
-          <div class="col-4">
-            <label for="companyFilter" class="form-label text-light">Company</label>
-            <select class="form-select" id="companyFilter">
-              <option value="">All</option>
-              <option th:each="company : ${companies}"
-                      th:value="${company.companyName}"
-                      th:text="${company.companyName}"></option>
-            </select>
-          </div>
-
-          <div class="col align-self-end">
-            <button class="btn btn-primary text-white px-2 py-1" id="filterButton" type="button">
-              <i class="bi bi-filter"></i>
-              <span>Filter</span>
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="bg-black p-2">
-        <table class="table table-bordered" id="employee-list">
-          <thead class="bg-primary-subtle">
-          <tr>
-            <th scope="col" class="col-actions">
-              <input type="checkbox" name="all" class="form-check-input" id="all-checkbox">
-              ID
-            </th>
-            <th scope="col">Full Name</th>
-            <th scope="col">Company</th>
-            <th scope="col">Gender</th>
-            <th scope="col">Status</th>
-          </tr>
-          </thead>
-          <tbody>
-              <!-- generer par javascript -->
-          </tbody>
-        </table>
-      </div>
     </div>
-  </section>
+</header>
+
+<main>
+    <section class="p-2">
+
+        <div class="mt-2 py-2 ">
+            <div id="filter" class="mb-4 p-3 rounded bg-black">
+                <p class="text-white">Filter</p>
+
+                <div class="row">
+                    <div class="col-4">
+                        <label for="fullNameFilter" class="form-label text-light">Full Name</label>
+                        <input type="text" class="form-control" id="fullNameFilter" placeholder="Enter full name">
+                    </div>
+
+                    <div class="col-4">
+                        <label for="companyFilter" class="form-label text-light">Company</label>
+                        <select class="form-select" id="companyFilter">
+                            <option value="">All</option>
+                            <option th:each="company : ${companies}"
+                                    th:value="${company.companyName}"
+                                    th:text="${company.companyName}"></option>
+                        </select>
+                    </div>
+
+                    <div class="col align-self-end">
+                        <button class="btn btn-primary text-white px-2 py-1" id="filterButton" type="button">
+                            <i class="bi bi-filter"></i>
+                            <span>Filter</span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="bg-black p-2">
+                <table class="table table-bordered" id="employee-list">
+                    <thead class="bg-primary-subtle">
+                    <tr>
+                        <th scope="col" class="col-actions">
+                            <input type="checkbox" name="all" class="form-check-input" id="all-checkbox">
+                            ID
+                        </th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- generer par javascript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>

@@ -298,3 +298,21 @@ Form Dict: {'doc': '{"docstatus":0,"doctype":"Department","name":"new-department
 2025-06-05 17:03:15,514 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'year': 2025, 'cmd': 'import.api.dashboard.total_salary_per_month'}
+2025-06-09 11:31:44,557 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {}
+2025-06-09 11:41:39,420 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {}
+2025-06-09 11:43:47,520 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {}
+2025-06-09 11:45:47,262 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {}
+2025-06-09 12:02:52,809 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'year', 'year_start_date', 'year_end_date', 'is_short_year', 'company', 'is_closed'], 'limit_page_length': 20}
+2025-06-09 12:07:17,903 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'year', 'year_start_date', 'year_end_date', 'is_short_year', 'is_closed'], 'limit_page_length': 20}

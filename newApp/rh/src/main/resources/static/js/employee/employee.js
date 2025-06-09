@@ -2,6 +2,7 @@ $(document).ready(function () {
     const $tbody = $("tbody");
     const tableListEmployee = $("#employee-list");
     const filterBtn = $("#filterButton");
+    let employeeDataTable;
 
     init();
 
@@ -11,8 +12,8 @@ $(document).ready(function () {
         bindEvents();
     }
 
-    function dataTable(){
-        $("#employee-list").DataTable({destroy : true});
+    function dataTable() {
+        employeeDataTable = tableListEmployee.DataTable({destroy: true});
     }
 
     function bindEvents() {
@@ -26,23 +27,27 @@ $(document).ready(function () {
         $.ajax({
             url: "/employees/filter",
             method: "GET",
-            data: { fullName: fullName, company: company },
+            data: {fullName: fullName, company: company},
             dataType: "json",
-            beforeSend: function() {
+            beforeSend: function () {
                 tableFetchDataLoadingAnimation(tableListEmployee)
             },
-            success: function(data) {
-                if (data && data.status === "success"){
-                    updateEmployeeList(data.data);
-                    dataTable()
-                    return true;
+            success: function (data) {
+                if (data && data.status === "success") {
+                    if ($.fn.DataTable.isDataTable(tableListEmployee)) {
+                        employeeDataTable.destroy();
+                    }
+
+                    const hasData = updateEmployeeList(data.data);
+                    if (hasData){
+                        dataTable()
+                    }
                 }
-                alert("An error occured when fetching employeee data!")
             },
-            error: function(xhr) {
+            error: function (xhr) {
                 xhrErrorHandler(xhr, $tbody, 5)
             },
-            complete: () =>{
+            complete: () => {
                 hideLoading()
             }
         });
@@ -50,9 +55,13 @@ $(document).ready(function () {
 
     function updateEmployeeList(data) {
         $tbody.empty();
-        if (data.length > 0){
-            data.forEach(function(employee) {
-                $tbody.append(`
+        if (data == null || data.length === 0) {
+            $tbody.append(`<tr><td colspan="6" class="text-info text-center">Empty</td></tr>`);
+            return false;
+        }
+
+        data.forEach(function (employee) {
+            $tbody.append(`
                     <tr>
                         <td class="col-actions">
                             <input type="checkbox" class="w-auto">
@@ -64,9 +73,7 @@ $(document).ready(function () {
                         <td>${employee.status}</td>
                     </tr>
                 `);
-            });
-        } else {
-            $tbody.append(`<tr><td colspan="6" class="text-info">Empty</td></tr>`)
-        }
+        });
+        return true;
     }
 });
