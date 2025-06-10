@@ -22,13 +22,12 @@ public class SalarySlipExportDTO {
     @CsvBindByName(column = "Posting Date", required = true)
     LocalDate postingDate;
 
-/*    @CsvBindByName(column = "Start Date", required = true)
+    @CsvBindByName(column = "Start Date", required = true)
     LocalDate startDate;
 
     @CsvBindByName(column = "End Date", required = true)
     LocalDate EndDate;
 
-    */
     @CsvBindByName(column = "Mode Of Payment", required = true)
     String ModeOfPayment;
     @CsvBindByName(column = "Currency", required = true)

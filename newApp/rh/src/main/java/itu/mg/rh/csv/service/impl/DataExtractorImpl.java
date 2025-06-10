@@ -196,8 +196,8 @@ public class DataExtractorImpl implements DataExtractor {
         salarySlipExp.setEmployeeName(fullName);
         salarySlipExp.setCompany(matchedEmployee.getCompany());
         salarySlipExp.setPostingDate(slipDTO.getMois());
-/*        salarySlipExp.setStartDate(slipDTO.getMois());
-        salarySlipExp.setEndDate(slipDTO.getMois().plusMonths(1));*/
+        salarySlipExp.setStartDate(slipDTO.getMois());
+        salarySlipExp.setEndDate(slipDTO.getMois().plusMonths(1));
         salarySlipExp.setModeOfPayment("Cash");
         salarySlipExp.setCurrency("EUR");
         salarySlipExp.setExchangeRate(0.0);

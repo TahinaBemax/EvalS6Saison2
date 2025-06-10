@@ -1,9 +1,4 @@
 "Name","Abbr","Type","Amount based on formula","Formula","Depends on Payment Days","Remove if Zero Valued","ID (Accounts)","Company (Accounts)","Account (Accounts)"
 Salaire Base,SB,Earning,1,base,0,1,,My Company,Cash - MC
-Indemnité de Fonction,IF,Earning,1,SB * 0.35,0,1,,My Company,Cash - MC
-Prime de Transport,PT,Earning,1,SB * 0.12,0,1,,My Company,Cash - MC
-Prime de Logement,PL,Earning,1,SB * 0.20,0,1,,My Company,Cash - MC
-Prime de Responsabilité,PR,Earning,1,SB * 0.15,0,1,,My Company,Cash - MC
-Taxe Sociale,TS,Deduction,1,(SB + IF + PT + PL + PR) * 0.20,0,1,,My Company,Cash - MC
-CNaPS,CN,Deduction,1,(SB + IF + PT + PL + PR) * 0.10,0,1,,My Company,Cash - MC
-OSTIE,OS,Deduction,1,(SB + IF + PT + PL + PR) * 0.05,0,1,,My Company,Cash - MC
+Indemnité,IND,Earning,1,SB * 0.3,0,1,,My Company,Cash - MC
+Taxe sociale,TS,Deduction,1,(SB + IND) * 0.2,0,1,,My Company,Cash - MC
