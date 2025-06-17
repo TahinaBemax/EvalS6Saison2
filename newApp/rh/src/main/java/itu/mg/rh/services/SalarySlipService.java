@@ -1,7 +1,5 @@
 package itu.mg.rh.services;
 
-
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import itu.mg.rh.models.SalaryDetail;
 import itu.mg.rh.models.SalarySlip;
@@ -73,4 +71,11 @@ public interface SalarySlipService {
      * @return The generated salary slip
      */
     SalarySlip generateSalarySlip(String employeeId, LocalDate periodStartDate, LocalDate periodEndDate);
+
+    List<SalarySlip> getSalarySlip(String employee, String payrollEntry);
+    List<SalarySlip> findAll();
+    boolean save(SalarySlip salarySlip);
+    boolean delete(String name);
+    SalarySlip findById(String name);
+    boolean update(SalarySlip salarySlip);
 }

@@ -482,3 +482,48 @@ Form Dict: {'fields': ['name', 'year', 'year_start_date', 'year_end_date', 'is_s
 2025-06-09 12:07:17,903 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'fields': ['name', 'year', 'year_start_date', 'year_end_date', 'is_short_year', 'is_closed'], 'limit_page_length': 20}
+2025-06-10 11:09:41,803 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'docs': '{"docstatus":0,"doctype":"Salary Slip","name":"new-salary-slip-dabwleyaec","__islocal":1,"__unsaved":1,"owner":"Administrator","company":"My Company","posting_date":"2024-04-04","status":"Draft","currency":"EUR","exchange_rate":1,"payroll_frequency":"Monthly","salary_slip_based_on_timesheet":0,"deduct_tax_for_unclaimed_employee_benefits":0,"deduct_tax_for_unsubmitted_tax_exemption_proof":0,"timesheets":[],"earnings":[],"deductions":[],"leave_details":[],"employee":"HR-EMP-00011","employee_name":"Rakoto Alain","idx":0,"total_working_days":1,"unmarked_days":0,"leave_without_pay":0,"absent_days":0,"payment_days":1,"total_working_hours":0,"hour_rate":0,"base_hour_rate":0,"gross_pay":0,"base_gross_pay":0,"gross_year_to_date":0,"base_gross_year_to_date":0,"total_deduction":0,"base_total_deduction":0,"net_pay":0,"base_net_pay":0,"rounded_total":0,"base_rounded_total":0,"year_to_date":0,"base_year_to_date":0,"month_to_date":0,"base_month_to_date":0,"ctc":0,"income_from_other_sources":0,"total_earnings":0,"non_taxable_earnings":0,"standard_tax_exemption_amount":0,"tax_exemption_declaration":0,"deductions_before_tax_calculation":0,"annual_taxable_amount":0,"income_tax_deducted_till_date":0,"current_month_income_tax":0,"future_income_tax_deductions":0,"total_income_tax":0,"end_date":""}', 'method': 'get_emp_and_working_day_details', 'cmd': 'run_doc_method'}
+2025-06-10 12:24:48,755 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Company","name":"new-company-chjtkwxhad","__islocal":1,"__unsaved":1,"owner":"Administrator","country":"Madagascar","is_group":0,"create_chart_of_accounts_based_on":"","allow_account_creation_against_child_company":0,"book_advance_payments_in_separate_party_account":0,"reconcile_on_advance_payment_date":0,"reconciliation_takes_effect_on":"Oldest Of Invoice Or Advance","auto_exchange_rate_revaluation":0,"auto_err_frequency":"Daily","submit_err_jv":0,"enable_perpetual_inventory":1,"enable_provisional_accounting_for_non_stock_items":0,"company_name":"Orinasa SA","abbr":"OS","default_currency":"EUR","default_holiday_list":"Jour Ferié"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-10 12:25:31,078 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Company","name":"new-company-chjtkwxhad","__islocal":1,"__unsaved":1,"owner":"Administrator","country":"Madagascar","is_group":0,"create_chart_of_accounts_based_on":"","allow_account_creation_against_child_company":0,"book_advance_payments_in_separate_party_account":0,"reconcile_on_advance_payment_date":0,"reconciliation_takes_effect_on":"Oldest Of Invoice Or Advance","auto_exchange_rate_revaluation":0,"auto_err_frequency":"Daily","submit_err_jv":0,"enable_perpetual_inventory":1,"enable_provisional_accounting_for_non_stock_items":0,"company_name":"Orinasa SA","abbr":"OS","default_currency":"EUR","default_holiday_list":"Jour Ferié"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-10 12:26:16,377 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Company","name":"new-company-chjtkwxhad","__islocal":1,"__unsaved":1,"owner":"Administrator","country":"Madagascar","is_group":0,"create_chart_of_accounts_based_on":"","allow_account_creation_against_child_company":0,"book_advance_payments_in_separate_party_account":0,"reconcile_on_advance_payment_date":0,"reconciliation_takes_effect_on":"Oldest Of Invoice Or Advance","auto_exchange_rate_revaluation":0,"auto_err_frequency":"Daily","submit_err_jv":0,"enable_perpetual_inventory":1,"enable_provisional_accounting_for_non_stock_items":0,"company_name":"Orinasa SA","abbr":"OS","default_currency":"EUR","default_holiday_list":"Jour Ferié"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-10 12:27:44,928 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Company","name":"new-company-zzfskdkfzs","__islocal":1,"__unsaved":1,"owner":"Administrator","country":"Madagascar","is_group":0,"create_chart_of_accounts_based_on":"","allow_account_creation_against_child_company":0,"book_advance_payments_in_separate_party_account":0,"reconcile_on_advance_payment_date":0,"reconciliation_takes_effect_on":"Oldest Of Invoice Or Advance","auto_exchange_rate_revaluation":0,"auto_err_frequency":"Daily","submit_err_jv":0,"enable_perpetual_inventory":1,"enable_provisional_accounting_for_non_stock_items":0,"company_name":"Orinasa SA","abbr":"OS","default_currency":"EUR"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-10 12:42:11,775 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Company","name":"new-company-vggxhysmnv","__islocal":1,"__unsaved":1,"owner":"Administrator","country":"Madagascar","is_group":0,"create_chart_of_accounts_based_on":"","allow_account_creation_against_child_company":0,"book_advance_payments_in_separate_party_account":0,"reconcile_on_advance_payment_date":0,"reconciliation_takes_effect_on":"Oldest Of Invoice Or Advance","auto_exchange_rate_revaluation":0,"auto_err_frequency":"Daily","submit_err_jv":0,"enable_perpetual_inventory":1,"enable_provisional_accounting_for_non_stock_items":0,"company_name":"Orinasa SA","abbr":"OS","default_currency":"EUR","default_holiday_list":"Jour Ferié"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-10 12:58:29,351 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Company","name":"new-company-vggxhysmnv","__islocal":1,"__unsaved":1,"owner":"Administrator","country":"Madagascar","is_group":0,"create_chart_of_accounts_based_on":"","allow_account_creation_against_child_company":0,"book_advance_payments_in_separate_party_account":0,"reconcile_on_advance_payment_date":0,"reconciliation_takes_effect_on":"Oldest Of Invoice Or Advance","auto_exchange_rate_revaluation":0,"auto_err_frequency":"Daily","submit_err_jv":0,"enable_perpetual_inventory":1,"enable_provisional_accounting_for_non_stock_items":0,"company_name":"Orinasa SA","abbr":"OS","default_currency":"EUR","default_holiday_list":"Jour Ferié"}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-10 13:12:17,193 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Company","name":"new-company-vggxhysmnv","__islocal":1,"__unsaved":1,"owner":"Administrator","country":"Madagascar","is_group":0,"create_chart_of_accounts_based_on":"","allow_account_creation_against_child_company":0,"book_advance_payments_in_separate_party_account":0,"reconcile_on_advance_payment_date":0,"reconciliation_takes_effect_on":"Oldest Of Invoice Or Advance","auto_exchange_rate_revaluation":0,"auto_err_frequency":"Daily","submit_err_jv":0,"enable_perpetual_inventory":1,"enable_provisional_accounting_for_non_stock_items":0,"company_name":"Orinasa SA","abbr":"OS","default_currency":"EUR","default_holiday_list":""}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2025-06-10 13:47:39,677 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {}
+2025-06-10 14:03:40,266 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'doctype': 'Company', 'name': 'My Company', 'cmd': 'frappe.client.delete'}
+2025-06-10 14:14:41,768 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'is_private': 'NaN', 'folder': 'Home', 'library_file_name': 'e2025a2296', 'doctype': 'Data Import', 'docname': 'Company Import on 2025-06-10 14:14:17.595763', 'fieldname': 'import_file', 'cmd': 'upload_file'}
+2025-06-10 17:16:58,685 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'employee', 'employee_name', 'company', 'salary_structure', 'from_date', 'base', 'payroll_payble_account'], 'limit_page_length': 20}
+2025-06-10 17:19:45,687 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'employee', 'employee_name', 'company', 'salary_structure', 'from_date', 'base', 'payroll_payble_account'], 'limit_page_length': 20}
+2025-06-10 18:22:44,907 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'employee_name': 'Rakoto Alain', 'employee': 'HR-EMP-00001', 'company': 'Orinasa SA', 'salary_structure': 'g1', 'from_date': '2025-06-01', 'payroll_payable_account': 'Payroll Payable - OS', 'currency': 'EUR', 'docstatus': 1, 'base': 1300000.0, 'variable': 0.0}
+2025-06-10 18:26:21,495 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'employee_name': 'Rakoto Alain', 'employee': 'HR-EMP-00001', 'company': 'Orinasa SA', 'salary_structure': 'g1', 'from_date': '2025-06-01', 'payroll_payable_account': 'Payroll Payable - OS', 'currency': 'EUR', 'docstatus': 1, 'base': 1300000.0, 'variable': 0.0}

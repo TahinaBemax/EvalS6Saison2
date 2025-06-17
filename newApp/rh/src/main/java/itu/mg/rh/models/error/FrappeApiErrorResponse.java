@@ -66,4 +66,13 @@ public class FrappeApiErrorResponse {
             throw new RuntimeException("Failed to locate JSON part in: " + rawMessage);
         }
     }
+
+    public String serverMessageToString(){
+        StringBuilder messages = new StringBuilder();
+        for (ServerMessage serverMessage : getServerMessages()) {
+            messages.append(serverMessage.getMessage()).append("\\r\\n");
+        }
+
+        return messages.toString();
+    }
 }

@@ -134,12 +134,10 @@ public class ImportCsvImpl implements ImportCsv {
                     } catch (FrappeApiException e) {
                         logger.error("Creating Fiscal Year", e);
                         csvImportFinalResult.setErrorGlobal(List.of(e.getErrorResponse().getException()));
-                        this.deleteData();
                         return csvImportFinalResult;
                     } catch (Exception e){
                         logger.error("Creating Fiscal Year", e);
                         csvImportFinalResult.setErrorGlobal(List.of(e.getMessage()));
-                        this.deleteData();
                         return csvImportFinalResult;
                     }
 
@@ -158,7 +156,6 @@ public class ImportCsvImpl implements ImportCsv {
                 } else {
                     csvImportFinalResult.setErrorGlobal(List.of(e.getMessage()));
                 }
-                this.deleteData();
             }
         }
 

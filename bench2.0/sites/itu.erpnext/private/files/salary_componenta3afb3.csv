@@ -1,4 +1,0 @@
-"Name","Abbr","Type","Amount based on formula","Formula","Depends on Payment Days","Remove if Zero Valued","ID (Accounts)","Company (Accounts)","Account (Accounts)"
-Salaire Base,SB,Earning,1,base,0,1,,My Company,Cash - MC
-Indemnité,IND,Earning,1,SB * 0.3,0,1,,My Company,Cash - MC
-Taxe sociale,TS,Deduction,1,(SB + IND) * 0.2,0,1,,My Company,Cash - MC

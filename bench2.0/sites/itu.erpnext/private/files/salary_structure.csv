@@ -1,4 +1,5 @@
 "ID","Company","Is Active","Currency","Payroll Frequency","Salary Component","Mode of Payment","Payment Account","ID (Earnings)","Component (Earnings)","Formula (Earnings)","Amount based on formula (Earnings)","Abbr (Earnings)","Depends on Payment Days (Earnings)","Is Tax Applicable (Earnings)","ID (Deductions)","Component (Deductions)","Amount based on formula (Deductions)","Formula (Deductions)","Abbr (Deductions)","Depends on Payment Days (Deductions)","Is Tax Applicable (Deductions)"
-gasy1,My Company,Yes,EUR,Monthly,Salaire Base,Cash,Cash - MC,,Salaire Base,base,1,SB,0,1,,,,,,,
-gasy1,My Company,Yes,EUR,Monthly,Indemnité,Cash,Cash - MC,,Indemnité,SB * 0.3,1,IND,0,1,,,,,,,
-gasy1,My Company,Yes,EUR,Monthly,Taxe sociale,Cash,Cash - MC,,,,,,,,,Taxe sociale,1,(SB + IND) * 0.2,TS,0,0
+g1,Orinasa SA,Yes,EUR,Monthly,Salaire Base,Cash,Cash - OS,,Salaire Base,base,1,SB,0,1,,,,,,,
+g1,Orinasa SA,Yes,EUR,Monthly,Indemnité,Cash,Cash - OS,,Indemnité,SB * 0.35,1,IDM,0,1,,,,,,,
+g1,Orinasa SA,Yes,EUR,Monthly,Taxe spéciale,Cash,Cash - OS,,,,,,,,,Taxe spéciale,1,(SB + IDM) * 0.21,TSP,0,0
+g1,Orinasa SA,Yes,EUR,Monthly,Impot,Cash,Cash - OS,,,,,,,,,Impot,1,(SB + IDM - TSP ) * 0.1,IMP,0,0

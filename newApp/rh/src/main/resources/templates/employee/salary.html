@@ -21,57 +21,6 @@
 <main>
     <section class="p-2">
 
-        <!-- Filters Section -->
-<!--
-        <div class="bg-black d-none p-3 mb-3">
-            <div class="row g-3">
-                <div class="col-md-3">
-                    <label for="employee" class="form-label">Employee</label>
-                    <select class="form-select" id="employee">
-                        <option value="">All Employees</option>
-                        <option th:each="emp : ${employees}" th:value="${emp.employeeId}" th:text="${emp.employeeName}"></option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label for="month" class="form-label">Month</label>
-                    <select class="form-select" id="month">
-                        <option value="">All Months</option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label for="year" class="form-label">Year</label>
-                    <select class="form-select" id="year">
-                        <option value="">All Years</option>
-                        <option th:each="year : ${#numbers.sequence(2020, #dates.year(#dates.createNow()))}" 
-                                th:value="${year}" 
-                                th:text="${year}"></option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label for="status" class="form-label">Status</label>
-                    <select class="form-select" id="status">
-                        <option value="">All Status</option>
-                        <option value="DRAFT">Draft</option>
-                        <option value="SUBMITTED">Submitted</option>
-                        <option value="PAID">Paid</option>
-                    </select>
-                </div>
-            </div>
-        </div>
--->
-
         <!-- Table Section -->
         <div class="mt-2 p-2 bg-black">
             <table class="table table-bordered" id="salary-slip-list">
@@ -135,22 +84,25 @@
                     <h5 class="modal-title">Create Salary Slip</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
+
                 <div class="modal-body">
-                    <form id="salary-slip-form">
+                    <form id="salary-slip-form" method="post" th:action="@{/salary-slips/save}">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="modal-employee" class="form-label">Employee</label>
-                                <select class="form-select" id="modal-employee" required>
+                                <select class="form-select" id="modal-employee" multiple="multiple" required>
                                     <option value="">Select Employee</option>
                                     <option th:each="emp : ${employees}" 
                                             th:value="${emp.employeeId}" 
                                             th:text="${emp.employeeName}"></option>
                                 </select>
                             </div>
+
                             <div class="col-md-6">
-                                <label for="posting-date" class="form-label">Posting Date</label>
-                                <input type="date" class="form-control" id="posting-date" required>
+                                <label for="end-date" class="form-label">Amount</label>
+                                <input type="number" step="any" class="form-control" id="amount" required>
                             </div>
+
                             <div class="col-md-6">
                                 <label for="start-date" class="form-label">Start Date</label>
                                 <input type="date" class="form-control" id="start-date" required>
@@ -160,11 +112,11 @@
                                 <input type="date" class="form-control" id="end-date" required>
                             </div>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" id="save-salary-slip">Save</button>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="save-salary-slip">Save</button>
                 </div>
             </div>
         </div>

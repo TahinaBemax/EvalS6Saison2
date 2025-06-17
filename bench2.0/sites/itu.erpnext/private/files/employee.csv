@@ -1,3 +1,6 @@
 "ID","Series","First Name","Last Name","Full Name","Gender","Date of Joining","Date of Birth","Status","Company","Holiday List","Salary Currency"
-HR-EMP-00001,HR-EMP-,Rakoto,Alain,Rakoto Alain,Male,2024-04-01,1980-01-01,Active,My Company,Jour Ferié,EUR
-HR-EMP-00002,HR-EMP-,Rasoa,Jeanne,Rasoa Jeanne,Female,2024-06-01,1990-01-01,Active,My Company,Jour Ferié,EUR
+HR-EMP-00001,HR-EMP-,Rakoto,Alain,Rakoto Alain,Male,2024-04-03,1980-01-01,Active,Orinasa SA,Jour Ferié,EUR
+HR-EMP-00002,HR-EMP-,Rasoa,Jeanne,Rasoa Jeanne,Female,2024-06-08,1990-01-01,Active,Orinasa SA,Jour Ferié,EUR
+HR-EMP-00003,HR-EMP-,Rajao,Victor,Rajao Victor,Male,2023-01-04,1990-01-01,Active,Orinasa SA,Jour Ferié,EUR
+HR-EMP-00004,HR-EMP-,Rabe,John,Rabe John,Male,2024-02-01,1990-01-01,Active,Orinasa SA,Jour Ferié,EUR
+HR-EMP-00005,HR-EMP-,Jao,Jacqueline,Jao Jacqueline,Female,2023-01-04,1990-01-01,Active,Orinasa SA,Jour Ferié,EUR

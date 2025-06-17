@@ -159,3 +159,21 @@ Backup Summary for itu.erpnext at 2025-06-09 12:00:37.458641
 Config  : /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/backups/20250609_120026-itu_erpnext-site_config_backup.json 213.0B
 Database: /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/backups/20250609_120026-itu_erpnext-database.sql.gz 1.4MiB
 Backup for Site itu.erpnext has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=_2c7ece168885bdb4 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _2c7ece168885bdb4 | /usr/bin/gzip >> ./itu.erpnext/private/backups/20250610_120024-itu_erpnext-database.sql.gz
+
+Backup Summary for itu.erpnext at 2025-06-10 12:00:35.053599
+Config  : /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/backups/20250610_120024-itu_erpnext-site_config_backup.json 213.0B
+Database: /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/backups/20250610_120024-itu_erpnext-database.sql.gz 1.5MiB
+Backup for Site itu.erpnext has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=_2c7ece168885bdb4 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _2c7ece168885bdb4 | /usr/bin/gzip >> ./itu.erpnext/private/backups/20250610_180028-itu_erpnext-database.sql.gz
+
+Backup Summary for itu.erpnext at 2025-06-10 18:00:42.366311
+Config  : /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/backups/20250610_180028-itu_erpnext-site_config_backup.json 213.0B
+Database: /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/backups/20250610_180028-itu_erpnext-database.sql.gz 1.6MiB
+Backup for Site itu.erpnext has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=_2c7ece168885bdb4 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _2c7ece168885bdb4 | /usr/bin/gzip >> ./itu.erpnext/private/backups/20250612_120031-itu_erpnext-database.sql.gz
+
+Backup Summary for itu.erpnext at 2025-06-12 12:00:51.612723
+Config  : /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/backups/20250612_120031-itu_erpnext-site_config_backup.json 213.0B
+Database: /mnt/c/Users/TahinaBemax/Desktop/EvaluationS6/Saison_2/bench2.0/sites/itu.erpnext/private/backups/20250612_120031-itu_erpnext-database.sql.gz 1.6MiB
+Backup for Site itu.erpnext has been successfully completed

@@ -3,6 +3,7 @@ package itu.mg.rh.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import itu.mg.rh.components.SessionManager;
 import itu.mg.rh.dto.ApiResponse;
+import itu.mg.rh.dto.SalaryDTO;
 import itu.mg.rh.exception.FrappeApiException;
 import itu.mg.rh.models.SalarySlip;
 import itu.mg.rh.services.impl.DepartementServiceImpl;
@@ -35,6 +36,10 @@ public class SalaryStripController extends MainController{
 
 
 
+    @PostMapping("/save")
+    public String save(SalaryDTO salaryDTO){
+        return "";
+    }
     @GetMapping()
     public String salarySlipPage(Model model) throws JsonProcessingException {
         if (!this.isAuthentified()) {

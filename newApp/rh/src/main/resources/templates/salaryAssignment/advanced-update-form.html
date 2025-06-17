@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}">
+</head>
+<link th:href="@{/css/salarySlip/salary-slip.css}" rel="stylesheet">
+<title>Salary Slips - List</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<!-- Header Section -->
+<div class="row p-2 bg-black align-items-center justify-content-between">
+  <h4 class="w-auto fs-5 title">Advanced Update Salary Assignment</h4>
+</div>
+
+<main>
+  <section class="p-2">
+            <div class="alert bg-white p-2 my-2" th:if="${success != null || error != null}">
+              <div class="alert alert-success" th:if="${success} != null" th:text="${success}"></div>
+              <div class="alert alert-danger" th:if="${error} != null" th:text="${error}"></div>
+            </div>
+          <div class="container bg-black p-2 rounded">
+
+            <form id="salary-slip-form" method="post" th:action="@{/salary-structure-assignment/advanced-update}">
+              <div class="row g-3">
+                <div class="col">
+                  <label for="component" class="form-label">Salary Component</label>
+                  <select class="form-select"
+                          name="component"
+                          id="component" required>
+                    <option th:each="component : ${components}"
+                            th:value="${component.getName()}"
+                            th:text="${component.getSalaryComponent()}"></option>
+                  </select>
+                </div>
+
+                <div class="col">
+                  <label for="condition" class="form-label">Condition</label>
+                  <select class="form-select"
+                          name="condition"
+                          id="condition" required>
+                    <option value=">">></option>
+                    <option value="<"><</option>
+                  </select>
+                </div>
+
+                <div class="col">
+                  <label for="amount" class="form-label">Amount</label>
+                  <input type="number" step="any" class="form-control" name="amount" id="amount" required>
+                </div>
+
+                <div class="col">
+                  <label for="percentage" class="form-label">Percentage</label>
+                  <input type="number" step="any" class="form-control" name="endDate" id="percentage" required>
+                </div>
+              </div>
+              <div class="btn-container my-3">
+                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+  </section>
+</main>
+
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

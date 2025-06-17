@@ -1,29 +1,6 @@
 "ID","Employee","Employee Name","Company","Posting Date","Start Date","End Date","Mode Of Payment","Currency","Exchange Rate","Salary Structure","Working Days","Payment Days","Payroll Frequency","status","ID (Earnings)","Component (Earnings)","ID (Deductions)","Component (Deductions)"
-,HR-EMP-00001,Rakoto Alain,My Company,2024-04-04,2024-04-04,2024-05-04,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2024-05-01,2024-05-01,2024-06-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2024-06-01,2024-06-01,2024-07-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2024-06-10,2024-06-10,2024-07-10,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2024-07-01,2024-07-01,2024-08-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2024-07-01,2024-07-01,2024-08-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2024-08-01,2024-08-01,2024-09-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2024-08-01,2024-08-01,2024-09-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2024-09-01,2024-09-01,2024-10-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2024-09-01,2024-09-01,2024-10-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2024-10-01,2024-10-01,2024-11-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2024-10-01,2024-10-01,2024-11-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2024-11-01,2024-11-01,2024-12-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2024-11-01,2024-11-01,2024-12-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2024-12-01,2024-12-01,2025-01-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2024-12-01,2024-12-01,2025-01-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2025-01-01,2025-01-01,2025-02-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2025-01-01,2025-01-01,2025-02-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2025-02-01,2025-02-01,2025-03-01,Cash,EUR,0.0,gasy1,28,28,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2025-02-01,2025-02-01,2025-03-01,Cash,EUR,0.0,gasy1,28,28,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2025-03-01,2025-03-01,2025-04-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2025-03-01,2025-03-01,2025-04-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2025-04-01,2025-04-01,2025-05-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2025-04-01,2025-04-01,2025-05-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2025-05-01,2025-05-01,2025-06-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2025-05-01,2025-05-01,2025-06-01,Cash,EUR,0.0,gasy1,31,31,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00001,Rakoto Alain,My Company,2025-06-01,2025-06-01,2025-07-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
-,HR-EMP-00002,Rasoa Jeanne,My Company,2025-06-01,2025-06-01,2025-07-01,Cash,EUR,0.0,gasy1,30,30,Monthly,Submitted,,Indemnité,,Taxe sociale
+,HR-EMP-00001,Rakoto Alain,Orinasa SA,2025-04-01,2025-04-01,2025-05-01,Cash,EUR,0.0,g1,30,30,Monthly,Submitted,,Indemnité,,Impot
+,HR-EMP-00002,Rasoa Jeanne,Orinasa SA,2025-04-01,2025-04-01,2025-05-01,Cash,EUR,0.0,g1,30,30,Monthly,Submitted,,Indemnité,,Impot
+,HR-EMP-00003,Rajao Victor,Orinasa SA,2025-04-01,2025-04-01,2025-05-01,Cash,EUR,0.0,g1,30,30,Monthly,Submitted,,Indemnité,,Impot
+,HR-EMP-00004,Rabe John,Orinasa SA,2025-04-01,2025-04-01,2025-05-01,Cash,EUR,0.0,g1,30,30,Monthly,Submitted,,Indemnité,,Impot
+,HR-EMP-00002,Rasoa Jeanne,Orinasa SA,2025-03-01,2025-03-01,2025-04-01,Cash,EUR,0.0,g1,31,31,Monthly,Submitted,,Indemnité,,Impot

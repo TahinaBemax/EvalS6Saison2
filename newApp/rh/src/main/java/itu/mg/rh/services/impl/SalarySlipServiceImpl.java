@@ -25,7 +25,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class SalarySlipServiceImpl implements SalarySlipService {
-
     private final MainService mainService;
     public static final Logger logger = LoggerFactory.getLogger(ImportCsvImpl.class);
     private String[] fields;
@@ -267,6 +266,36 @@ public class SalarySlipServiceImpl implements SalarySlipService {
         } catch (Exception e) {
             throw new RuntimeException("Failed to generate salary slip: " + e.getMessage());
         }
+    }
+
+    @Override
+    public List<SalarySlip> getSalarySlip(String employee, String payrollEntry) {
+        return null;
+    }
+
+    @Override
+    public List<SalarySlip> findAll() {
+        return null;
+    }
+
+    @Override
+    public boolean save(SalarySlip salarySlip) {
+        return false;
+    }
+
+    @Override
+    public boolean delete(String name) {
+        return false;
+    }
+
+    @Override
+    public SalarySlip findById(String name) {
+        return null;
+    }
+
+    @Override
+    public boolean update(SalarySlip salarySlip) {
+        return false;
     }
 
     @Override

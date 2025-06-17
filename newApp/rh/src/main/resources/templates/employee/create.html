@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}">
+</head>
+<link th:href="@{/css/salarySlip/salary-slip.css}" rel="stylesheet">
+<title>Salary Slips - List</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<!-- Header Section -->
+<div class="row p-2 bg-black align-items-center justify-content-between">
+  <h4 class="w-auto fs-5 title">Salary Slips</h4>
+  <div class="w-auto text-end">
+    <button class="btn btn-primary text-white px-2 py-1" data-bs-target="#modal-salary-slip-form" data-bs-toggle="modal" type="button">
+      <i class="bi bi-plus"></i>
+      <span>Create Salary Slip</span>
+    </button>
+  </div>
+</div>
+
+<main>
+  <section class="p-2">
+
+    <!-- Table Section -->
+    <div class="mt-2 p-2 bg-black">
+      <table class="table table-bordered" id="salary-slip-list">
+        <thead class="bg-primary-subtle">
+        <tr>
+          <th scope="col">
+            <input type="checkbox" class="form-check-input" id="select-all">
+            ID
+          </th>
+          <th>Employee</th>
+          <th>Posting Date</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Net Pay</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="slip : ${salarySlips}">
+          <td>
+            <input type="checkbox" class="w-auto me-2">
+            <span th:text="${slip.name}">SAL-SLIP-001</span>
+          </td>
+          <td th:text="${slip.employeeName}">John Doe</td>
+          <td th:text="${#temporals.format(slip.paymentDate, 'yyyy-MM-dd')}">01-03-2024</td>
+          <td th:text="${#temporals.format(slip.startDate, 'yyyy-MM-dd')}">01-03-2024</td>
+          <td th:text="${#temporals.format(slip.endDate, 'yyyy-MM-dd')}">31-03-2024</td>
+          <td class="text-end" th:text="${#numbers.formatDecimal(slip.netPay, 1, 'COMMA', 2, 'POINT')}">45,000.00</td>
+          <td>
+                            <span th:class="${'badge ' + (slip.status == 'PAID' ? 'bg-success' : (slip.status == 'SUBMITTED' ? 'bg-primary' : 'bg-secondary'))}"
+                                  th:text="${slip.status}">DRAFT</span>
+          </td>
+          <td class="text-center">
+            <div class="btn-group">
+              <!--                                <button type="button" class="btn btn-sm btn-outline-primary" title="View">
+                                                  <i class="bi bi-eye"></i>
+                                              </button>
+                                              <button type="button" class="btn btn-sm btn-outline-secondary" title="Edit">
+                                                  <i class="bi bi-pencil"></i>
+                                              </button>
+                                              <button type="button" class="btn btn-sm btn-outline-danger" title="Delete">
+                                                  <i class="bi bi-trash"></i>
+                                              </button>-->
+              <button type="button" th:data-id="${slip.name}" class="btn btn-sm btn-outline-success toPdfButton" title="Export to PDF">
+                <i class="bi bi-file-pdf"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Create/Edit Salary Slip Modal -->
+  <div class="modal fade" id="modal-salary-slip-form" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Salary Slip</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="salary-slip-form">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="modal-employee" class="form-label">Employee</label>
+                <select class="form-select" id="modal-employee" required>
+                  <option value="">Select Employee</option>
+                  <option th:each="emp : ${employees}"
+                          th:value="${emp.employeeId}"
+                          th:text="${emp.employeeName}"></option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="posting-date" class="form-label">Posting Date</label>
+                <input type="date" class="form-control" id="posting-date" required>
+              </div>
+              <div class="col-md-6">
+                <label for="start-date" class="form-label">Start Date</label>
+                <input type="date" class="form-control" id="start-date" required>
+              </div>
+              <div class="col-md-6">
+                <label for="end-date" class="form-label">End Date</label>
+                <input type="date" class="form-control" id="end-date" required>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="save-salary-slip">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script th:src="@{/js/salary/salary.js}"></script>
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+
+<!-- Custom CSS -->
+<style>
+  .badge {
+    font-size: 0.8rem;
+    padding: 0.35em 0.65em;
+  }
+  .btn-group .btn {
+    padding: 0.25rem 0.5rem;
+  }
+</style>
+</body>
+</html>

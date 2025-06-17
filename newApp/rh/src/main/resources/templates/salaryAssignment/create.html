@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}">
+</head>
+<link th:href="@{/css/salarySlip/salary-slip.css}" rel="stylesheet">
+<title>Salary Slips - List</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<!-- Header Section -->
+<div class="row p-2 bg-black align-items-center justify-content-between">
+  <h4 class="w-auto fs-5 title">Salary Slips</h4>
+  <div class="w-auto text-end">
+    <button class="btn btn-primary text-white px-2 py-1" data-bs-target="#modal-salary-slip-form" data-bs-toggle="modal" type="button">
+      <i class="bi bi-plus"></i>
+      <span>Create Salary Slip</span>
+    </button>
+  </div>
+</div>
+
+<main>
+  <section class="p-2">
+            <div class="alert bg-white p-2 my-2" th:if="${success != null || error != null}">
+              <div class="alert alert-success" th:if="${success} != null" th:text="${success}"></div>
+              <div class="alert alert-danger" th:if="${error} != null" th:text="${error}"></div>
+            </div>
+          <div class="container bg-black p-2 rounded">
+
+            <form id="salary-slip-form" method="post" th:action="@{/salary-structure-assignment/save}">
+              <div class="row g-3">
+                <div class="col">
+                  <label for="modal-employee" class="form-label">Employee</label>
+                  <select class="form-select"
+                          name="employeeName"
+                          id="modal-employee" multiple="true" required>
+                    <option th:each="emp : ${employees}"
+                            th:value="${emp.getEmployeID()}"
+                            th:text="${emp.getFullName()}"></option>
+                  </select>
+                </div>
+
+                <div class="col">
+                  <label for="end-date" class="form-label">Amount</label>
+                  <input type="number" step="any" name="base" class="form-control" id="amount" required>
+                </div>
+
+                <div class="col">
+                  <label for="start-date" class="form-label">Start Date</label>
+                  <input type="date" class="form-control" name="startDate" id="start-date" required>
+                </div>
+                <div class="col">
+                  <label for="end-date" class="form-label">End Date</label>
+                  <input type="date" class="form-control" name="endDate" id="end-date" required>
+                </div>
+              </div>
+              <div class="btn-container my-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="save-salary-slip">Save</button>
+              </div>
+            </form>
+          </div>
+  </section>
+</main>
+
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

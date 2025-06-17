@@ -1,36 +1,98 @@
-
 <header style="position: sticky; top: 0" class="z-3" th:fragment="navbar" xmlns:th="http://www.thymeleaf.org">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar bg-body-tertiary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/">NewApp</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">New-App</a>
+            <button class="navbar-toggler" data-bs-target="#offcanvasNavbar" data-bs-toggle="offcanvas" type="button"
+                    aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/chart">Chart</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/employees">Employee</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/salary-slips">Salary Slip</a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a  class="nav-link" href="/import">Import</a>
-                    </li>
-                </ul>
+            <div class="offcanvas offcanvas-start w-auto" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"
+                 tabindex="-1">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                    <button class="btn-close" data-bs-dismiss="offcanvas" type="button" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                               aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/chart">Chart</a></li>
+                                <li><a class="dropdown-item" href="/">Monthly Salary Employee</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                               aria-expanded="false">
+                                Employee
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/employees">List</a></li>
+                                <li><a class="dropdown-item" href="/employees/form">Create</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                               data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                Salary Component
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/salary-components">List</a></li>
+                                <li><a class="dropdown-item" href="/salary-components/form">Create</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                               data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                Salary Structure
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/salary-structures">List</a></li>
+                                <li><a class="dropdown-item" href="/salary-structures/form">Create</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle"
+                               data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                Salary Structure Assignment
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/salary-structure-assignment">List</a></li>
+                                <li><a class="dropdown-item" href="/salary-structure-assignment/form">Create</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                               aria-expanded="false">
+                                Salary Slip
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/salary-slips">List</a></li>
+                                <li><a class="dropdown-item" href="/salary-slips/form">Create</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/import" role="button">Import</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link btn bg-black text-white" href="/logout"  role="button">Logout</a>
+                        </li>
+
+                    </ul>
+                </div>
             </div>
-
-            <button class="btn btn-primary position-relative" style="right: 15px;">
-                <a  class="nav-link text-light" href="/logout">Logout</a>
-            </button>
         </div>
     </nav>
+
 </header>

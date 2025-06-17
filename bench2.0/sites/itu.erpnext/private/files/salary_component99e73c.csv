@@ -1,0 +1,5 @@
+"Name","Abbr","Type","Amount based on formula","Formula","Depends on Payment Days","Remove if Zero Valued","ID (Accounts)","Company (Accounts)","Account (Accounts)"
+Salaire Base,SB,Earning,1,base,0,1,,Orinasa SA,Cash - OS
+Indemnité,IDM,Earning,1,SB * 0.35,0,1,,Orinasa SA,Cash - OS
+Taxe spéciale,TSP,Deduction,1,(SB + IDM) * 0.21,0,1,,Orinasa SA,Cash - OS
+Impot,IMP,Deduction,1,(SB + IDM - TSP ) * 0.1,0,1,,Orinasa SA,Cash - OS

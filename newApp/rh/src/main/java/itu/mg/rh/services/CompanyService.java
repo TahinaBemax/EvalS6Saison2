@@ -8,4 +8,7 @@ import java.util.List;
 @Service
 public interface CompanyService {
     List<Company> findAll();
+    void deleteByName(String name);
+
+    boolean deleteAllCompany();
 }

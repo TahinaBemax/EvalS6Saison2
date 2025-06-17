@@ -6,6 +6,7 @@ import itu.mg.rh.csv.CsvImportFinalResult;
 import itu.mg.rh.csv.service.impl.ImportCsvImpl;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.dto.ImportDto;
+import itu.mg.rh.services.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,10 +25,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @RequestMapping("")
 public class ImportController {
     private final ImportCsvImpl importCsvImpl;
+    private final CompanyService companyService;
 
     @Autowired
-    public ImportController(ImportCsvImpl importCsvImpl) {
+    public ImportController(ImportCsvImpl importCsvImpl, CompanyService companyService) {
         this.importCsvImpl = importCsvImpl;
+        this.companyService = companyService;
     }
 
     @GetMapping("/import")
