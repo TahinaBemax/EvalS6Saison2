@@ -1,4 +1,6 @@
-<header style="position: sticky; top: 0" class="z-3" th:fragment="navbar" xmlns:th="http://www.thymeleaf.org">
+<header style="position: sticky; top: 0; margin-bottom: 60px"
+        class="z-3" th:fragment="navbar"
+        xmlns:th="http://www.thymeleaf.org">
     <nav class="navbar bg-body-tertiary fixed-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">New-App</a>
@@ -77,7 +79,9 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/salary-slips">List</a></li>
+                                <li><a class="dropdown-item" href="/salary-slips/details">List with details</a></li>
                                 <li><a class="dropdown-item" href="/salary-slips/form">Create</a></li>
+                                <li><a class="dropdown-item" href="/salary-slips/update">Batch update</a></li>
                             </ul>
                         </li>
 

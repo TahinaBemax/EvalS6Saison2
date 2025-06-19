@@ -12,4 +12,9 @@ public class FrappeApiException extends RuntimeException {
         super(message);
         this.errorResponse = errorResponse;
     }
+
+    public String getMessages(){
+        String message = errorResponse.getExceptionType();
+        return message + "\r\n" + errorResponse.serverMessageToString();
+    }
 }

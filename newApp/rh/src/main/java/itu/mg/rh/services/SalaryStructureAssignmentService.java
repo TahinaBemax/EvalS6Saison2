@@ -2,11 +2,22 @@ package itu.mg.rh.services;
 
 import itu.mg.rh.csv.dto.export.SalaryStructureAssignmentExportDTO;
 import itu.mg.rh.dto.SalaryDTO;
+import itu.mg.rh.exception.FrappeApiException;
 import itu.mg.rh.models.SalaryStructureAssignement;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface SalaryStructureAssignmentService {
+    /**
+     * Find a Salary Structure Assignment for a specific employee and salary structure before the endDate. And Docstatus = 1 (active)
+     * @param employee Employee ID
+     * @param salaryStructure Salary Structure Name
+     * @param endDate End Date
+     * @return Salary Structure Assignment or null
+     */
+
+    SalaryStructureAssignement findBySalarySlipIdAndEndDate(String employee, String salaryStructure,LocalDate endDate);
     /**
      * Insert a list of salary structures into the Frappe RH module
      * @param salaryStructureAssignments List of salary structures assignment to insert
@@ -19,14 +30,14 @@ public interface SalaryStructureAssignmentService {
      * @param salaryStructureAssignment salary structures assignment to insert
      * @return Response indicating success or failure
      */
-    boolean save(SalaryStructureAssignement salaryStructureAssignment);
+    boolean save(SalaryStructureAssignement salaryStructureAssignment) throws FrappeApiException;
 
     /**
      * Insert
      * @param salaryDTO salary  assignment to insert
      * @return Response indicating success or failure
      */
-    boolean saveAll(SalaryDTO salaryDTO);
+    boolean saveAll(SalaryDTO salaryDTO) throws FrappeApiException;
 
     /**
      * This function cancel the existing Salary Structure Assignment and create new one

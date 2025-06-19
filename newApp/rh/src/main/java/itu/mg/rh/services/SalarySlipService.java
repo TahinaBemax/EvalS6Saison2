@@ -1,6 +1,8 @@
 package itu.mg.rh.services;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import itu.mg.rh.dto.SalarySlipUpdateDTO;
+import itu.mg.rh.exception.FrappeApiException;
 import itu.mg.rh.models.SalaryDetail;
 import itu.mg.rh.models.SalarySlip;
 
@@ -8,6 +10,14 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface SalarySlipService {
+
+    /**
+     * Find all salary Slips that match to the condition and update there base salary amount for the given percentage
+     * @param salarySlipUpdateDTO
+     * @return boolean
+     */
+    boolean batchUpdate(SalarySlipUpdateDTO salarySlipUpdateDTO) throws FrappeApiException;
+
     /**
      * Get all salary Detail for a specific salary slip
      * @param salarySlipName
@@ -47,7 +57,7 @@ public interface SalarySlipService {
      * Get all salary slips with salary detail for all employee for a given month and year
      * @return List of salary slips
      */
-    List<SalarySlip> findSalaryEmployeeDetails(Integer month, Integer year) throws JsonProcessingException;
+    List<SalarySlip> findAllWithDetails(Integer month, Integer year) throws JsonProcessingException;
 
     /**
      * Export a salary Slip for a specific user to pdf
@@ -74,8 +84,10 @@ public interface SalarySlipService {
 
     List<SalarySlip> getSalarySlip(String employee, String payrollEntry);
     List<SalarySlip> findAll();
-    boolean save(SalarySlip salarySlip);
+    List<SalarySlip> findAllSubmitted();
+    boolean save(SalarySlip salarySlip) throws FrappeApiException;
     boolean delete(String name);
     SalarySlip findById(String name);
     boolean update(SalarySlip salarySlip);
+    boolean cancel(String name);
 }

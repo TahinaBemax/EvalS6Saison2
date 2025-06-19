@@ -3,29 +3,19 @@ package itu.mg.rh.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import itu.mg.rh.components.SessionManager;
 import itu.mg.rh.dto.AdvancedUpdateSalaryAssignmentDTO;
-import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.dto.SalaryDTO;
 import itu.mg.rh.exception.FrappeApiException;
 import itu.mg.rh.models.Employee;
 import itu.mg.rh.models.SalaryComponent;
-import itu.mg.rh.models.SalarySlip;
-import itu.mg.rh.models.SalaryStructureAssignement;
 import itu.mg.rh.services.EmployeeService;
 import itu.mg.rh.services.SalaryComponentService;
 import itu.mg.rh.services.SalaryStructureAssignmentService;
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller

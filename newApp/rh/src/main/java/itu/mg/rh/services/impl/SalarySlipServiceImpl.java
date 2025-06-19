@@ -3,10 +3,16 @@ package itu.mg.rh.services.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import itu.mg.rh.csv.service.impl.ImportCsvImpl;
+import itu.mg.rh.dto.SalarySlipUpdateDTO;
+import itu.mg.rh.exception.FrappeApiException;
+import itu.mg.rh.exception.SalaryStructureAssignmentNotFound;
 import itu.mg.rh.models.SalaryDetail;
 import itu.mg.rh.models.SalarySlip;
+import itu.mg.rh.models.SalaryStructureAssignement;
 import itu.mg.rh.services.MainService;
 import itu.mg.rh.services.SalarySlipService;
+import itu.mg.rh.services.SalaryStructureAssignmentService;
+import itu.mg.rh.services.helper.SalarySlipHelper;
 import itu.mg.rh.utils.RestClientExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,21 +23,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class SalarySlipServiceImpl implements SalarySlipService {
     private final MainService mainService;
     public static final Logger logger = LoggerFactory.getLogger(ImportCsvImpl.class);
+    private final SalaryStructureAssignmentService salStructureService;
     private String[] fields;
     private String[] salaryDetailfields;
 
     @Autowired
-    public SalarySlipServiceImpl(MainService mainService) {
+    public SalarySlipServiceImpl(MainService mainService, SalaryStructureAssignmentService salStructureService ) {
+        this.salStructureService = salStructureService;
         this.mainService = mainService;
         this.fields = new String[]{
                 "name", "employee", "employee_name", "company",
@@ -70,7 +75,7 @@ public class SalarySlipServiceImpl implements SalarySlipService {
     }
 
     @Override
-    public List<SalarySlip> getEmployeeSalarySlips(String employeeId) throws JsonProcessingException {
+    public List<SalarySlip> getEmployeeSalarySlips(String employeeId) {
         String url = String.format("%s/api/resource/Salary Slip?filters=[[\"employee\",\"=\",\"%s\"]]&fields=%s",
                 mainService.getErpNextUrl(), employeeId, this.fieldsAsString());
 
@@ -98,7 +103,7 @@ public class SalarySlipServiceImpl implements SalarySlipService {
     }
 
     @Override
-    public List<SalarySlip> getSalarySlipsByMonth(Integer month) throws JsonProcessingException {
+    public List<SalarySlip> getSalarySlipsByMonth(Integer month) {
         if (month == null || month > 12 || month < 1) {
             throw new RuntimeException("Month is null or invalid");
         }
@@ -141,7 +146,7 @@ public class SalarySlipServiceImpl implements SalarySlipService {
     }
 
     @Override
-    public List<SalarySlip> getSalarySlips() throws JsonProcessingException {
+    public List<SalarySlip> getSalarySlips() {
         String url = String.format("%s/api/resource/Salary Slip?fields=%s", mainService.getErpNextUrl(), this.fieldsAsString());
 
         HttpHeaders headers = mainService.getHeaders();
@@ -168,7 +173,7 @@ public class SalarySlipServiceImpl implements SalarySlipService {
     }
 
     @Override
-    public List<SalarySlip> findSalaryEmployeeDetails(Integer month, Integer year) throws JsonProcessingException {
+    public List<SalarySlip> findAllWithDetails(Integer month, Integer year) {
         try {
             List<SalarySlip> salarySlips = new ArrayList<>();
 
@@ -197,9 +202,8 @@ public class SalarySlipServiceImpl implements SalarySlipService {
                     .collect(Collectors.toList());
         } catch (RestClientException e) {
             logger.error(e.getLocalizedMessage());
-            RestClientExceptionHandler.handleError(e);
+            throw RestClientExceptionHandler.handleError(e);
         }
-        return null;
     }
 
     private List<SalaryDetail> getSalaryDetailEarningsType(List<SalaryDetail> salaryDetails) {
@@ -275,17 +279,62 @@ public class SalarySlipServiceImpl implements SalarySlipService {
 
     @Override
     public List<SalarySlip> findAll() {
-        return null;
+        return findAllWithDetails(null, null);
     }
 
     @Override
-    public boolean save(SalarySlip salarySlip) {
-        return false;
+    public List<SalarySlip> findAllSubmitted() {
+        return findAllWithDetails(null, null).
+                stream()
+                .filter(s -> !s.getStatus().equalsIgnoreCase("draft"))
+                .toList();
+    }
+
+    @Override
+    public boolean save(SalarySlip salarySlip) throws FrappeApiException {
+        String url = mainService.getErpNextUrl() + "/api/resource/Salary Slip";
+
+        HttpHeaders headers = mainService.getHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        Map<String, Object> requestBody = SalarySlipHelper.bodyPreparator(salarySlip);
+        HttpEntity<Map<String, Object>> requestEntity = new HttpEntity<>(requestBody, headers);
+
+        try {
+            ResponseEntity<Map> response = mainService.getRestTemplate().exchange(
+                    url,
+                    HttpMethod.POST,
+                    requestEntity,
+                    Map.class
+            );
+
+            return response.getStatusCode().is2xxSuccessful();
+        } catch (RestClientException e) {
+            throw RestClientExceptionHandler.handleError(e);
+        }
     }
 
     @Override
     public boolean delete(String name) {
-        return false;
+        try {
+            if (name == null)
+                throw new RuntimeException("Salary Slip Name is null");
+
+            HttpHeaders headers = mainService.getHeaders();
+            // Make API call to Frappe
+            HttpEntity<?> requestEntity = new HttpEntity<>(headers);
+
+            ResponseEntity<Map> response = this.mainService.getRestTemplate().exchange(
+                    String.format("%s/api/resource/Salary Slip/%s", this.mainService.getErpNextUrl(), name),
+                    HttpMethod.DELETE,
+                    requestEntity,
+                    Map.class
+            );
+
+            return (response.getStatusCode() == HttpStatus.OK) ;
+        } catch (RestClientException e) {
+            throw RestClientExceptionHandler.handleError(e);
+        }
     }
 
     @Override
@@ -296,6 +345,33 @@ public class SalarySlipServiceImpl implements SalarySlipService {
     @Override
     public boolean update(SalarySlip salarySlip) {
         return false;
+    }
+
+    @Override
+    public boolean cancel(String name) {
+        try {
+            if (name == null)
+                throw new RuntimeException("Salary Slip Name is null");
+
+            HttpHeaders headers = mainService.getHeaders();
+            headers.setContentType(MediaType.APPLICATION_JSON);
+
+            Map<String, Object> body = new HashMap<>();
+            body.put("docstatus", 2);
+
+            HttpEntity<Map> requestEntity = new HttpEntity<>(body, headers);
+
+            ResponseEntity<Map> response = this.mainService.getRestTemplate().exchange(
+                    String.format("%s/api/resource/Salary Slip/%s", this.mainService.getErpNextUrl(), name),
+                    HttpMethod.PUT,
+                    requestEntity,
+                    Map.class
+            );
+
+            return (response.getStatusCode() == HttpStatus.OK) ;
+        } catch (RestClientException e) {
+            throw RestClientExceptionHandler.handleError(e);
+        }
     }
 
     @Override
@@ -329,6 +405,54 @@ public class SalarySlipServiceImpl implements SalarySlipService {
         return null;
     }
 
+
+    @Override
+    public boolean batchUpdate(SalarySlipUpdateDTO salarySlipUpdateDTO) throws FrappeApiException {
+        if(salarySlipUpdateDTO == null)
+            throw new RuntimeException("Salary Slip Update DTO is null");
+
+        List<SalarySlip> salarySlips = this.findAllSubmitted();
+        List<SalarySlip> matched = SalarySlipHelper.getMatched(salarySlipUpdateDTO.getSalaryComponent(), salarySlipUpdateDTO.getCondition(), salarySlips);
+
+        if(matched.isEmpty())
+            throw new RuntimeException("Nothing Salary Slip found!");
+
+        try {
+            for (SalarySlip salarySlip : matched) {
+                SalaryStructureAssignement structureAssignment = salStructureService
+                        .findBySalarySlipIdAndEndDate(
+                                salarySlip.getEmployeeId(),
+                                salarySlip.getSalaryStructure(),
+                                salarySlip.getEndDate()
+                        );
+
+                if (structureAssignment == null){
+                    throw new SalaryStructureAssignmentNotFound(
+                            salarySlip.getEmployeeId(),
+                            salarySlip.getSalaryStructure(),
+                            salarySlip.getEndDate()
+                    );
+                }
+
+                if (salStructureService.cancel(structureAssignment.getName())){
+                    salStructureService.delete(structureAssignment.getName());
+                    double newBase = SalarySlipHelper.getNewBase(structureAssignment.getBase(), salarySlipUpdateDTO.getPercentage());
+                    structureAssignment.setName(null);
+                    structureAssignment.setBase(newBase);
+                    salStructureService.save(structureAssignment);
+
+                    this.cancel(salarySlip.getName());
+                    this.delete(salarySlip.getName());
+                    salarySlip.setName(null);
+                    this.save(salarySlip);
+                }
+            }
+        } catch (SalaryStructureAssignmentNotFound | FrappeApiException e) {
+            throw new RuntimeException(e);
+        }
+
+        return true;
+    }
 
     @Override
     public List<SalaryDetail> getSalaryDetail(String salarySlipName) {
@@ -373,7 +497,7 @@ public class SalarySlipServiceImpl implements SalarySlipService {
     }
 
 
-    private List<SalarySlip> getSalarySlipsByDate(Integer month, Integer year) throws JsonProcessingException {
+    private List<SalarySlip> getSalarySlipsByDate(Integer month, Integer year) {
         if (month == null || month > 12 || month < 1) {
             throw new RuntimeException("Month is null or invalid");
         }
@@ -461,8 +585,12 @@ public class SalarySlipServiceImpl implements SalarySlipService {
         return dto;
     }
 
-    public String fieldsAsString() throws JsonProcessingException {
-        return new ObjectMapper().writeValueAsString(this.fields);
+    public String fieldsAsString(){
+        try {
+            return new ObjectMapper().writeValueAsString(this.fields);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

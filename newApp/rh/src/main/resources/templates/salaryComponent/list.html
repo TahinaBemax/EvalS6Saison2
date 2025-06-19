@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}">
+</head>
+<link th:href="@{/css/salaryComponent/list.css}" rel="stylesheet">
+<title>Salary Component - List</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<header class="row bg-black my-1 p-2 align-items-center justify-content-between">
+    <h4 class="w-auto fs-4 text-white">Salary Component</h4>
+    <div class="w-auto text-end">
+        <!-- Button trigger modal -->
+        <a href="/salary-components/form" class="btn btn-primary text-white px-2 py-1">
+            <i class="bi bi-plus"></i>
+            <span class="fs-4">Add Salary Component</span>
+        </a>
+    </div>
+</header>
+
+<main>
+    <section class="p-2">
+
+        <div class="mt-2 py-2 ">
+            <div class="bg-black p-2">
+                <table class="table table-bordered" id="table-salary-component">
+                    <thead class="bg-primary-subtle">
+                    <tr>
+                        <th scope="col" class="col-actions">
+                            <input type="checkbox" name="all" class="form-check-input" id="all-checkbox"> ID
+                        </th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Abbr</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:if="${!salaryComponents.isEmpty()}" th:each="sc : ${salaryComponents}">
+                            <td th:text="${sc.getName()}"></td>
+                            <td th:text="${sc.getSalaryComponent()}"></td>
+                            <td th:text="${sc.getSalaryComponentAbbr()}"></td>
+                        </tr>
+
+                        <tr th:unless="${!salaryComponents.isEmpty()}">
+                            <td colspan="3" class="text-center text-white">Empty</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script th:src="@{/js/salaryComponent/salary-component.js}"></script>
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}">
+</head>
+<link th:href="@{/css/salaryComponent/form.css}" rel="stylesheet">
+<title>Salary Slips - List</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<!-- Header Section -->
+<div class="row p-2 bg-black align-items-center justify-content-between">
+  <h4 class="w-auto fs-5 title">Salary Component</h4>
+</div>
+
+<main>
+  <section class="p-2">
+            <div class="alert bg-white p-2 my-2" th:if="${success != null || error != null}">
+              <div class="alert alert-success" th:if="${success} != null" th:text="${success}"></div>
+              <div class="alert alert-danger" th:if="${error} != null" th:text="${error}"></div>
+            </div>
+          <div class="container bg-black p-2 rounded">
+
+            <form id="salary-slip-form" method="post" th:object="${component}" th:action="@{/salary-components}">
+              <div class="row g-3">
+                <div class="col">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text"
+                         th:field="*{name}"
+                         id="name" class="form-control">
+                  <div class="alert alert-danger" th:if="${#fields.hasErrors('name')}"></div>
+                </div>
+
+                <div class="col">
+                  <label for="abbr" class="form-label">Abbr</label>
+                  <input type="text"
+                         th:field="*{salaryComponentAbbr}"
+                         class="form-control" id="abbr" required>
+                  <div class="alert alert-danger" th:if="${#fields.hasErrors('salaryComponentAbbr')}"></div>
+                </div>
+
+                <div class="col">
+                  <label for="type" class="form-label">Type</label>
+                  <select th:field="*{type}" id="type">
+                    <option value="earning">Earning</option>
+                    <option value="deduction">Deduction</option>
+                  </select>
+
+                  <div class="alert alert-danger" th:if="${#fields.hasErrors('type')}"></div>
+                </div>
+
+                <div class="col">
+                  <label for="description" class="form-label">Description</label>
+                  <textarea th:field="*{description}"
+                            id="description" class="form-text"></textarea>
+                </div>
+
+                <div class="col">
+                  <input type="text"
+                         th:field="*{dependsOnPaymentDays}"
+                         id="depends-on-payment-days" class="form-check">
+                  <label for="depends-on-payment-days" class="form-label">Depends on Payment Days</label>
+                </div>
+
+                <div class="col">
+                  <input type="text"
+                         th:field="*{isTaxApplicable}"
+                         id="is-tax-applicable" class="form-check">
+                  <label for="is-tax-applicable" class="form-label">is Tax Applicable</label>
+                </div>
+
+                <div class="col">
+                  <input type="text"
+                         th:field="*{deductFullTaxOnSelectedPayrollDate}"
+                         id="deduct-Full-Tax-On-Selected-Payroll-Date" class="form-check">
+                  <label for="deduct-Full-Tax-On-Selected-Payroll-Date" class="form-label">Deduct Full Tax On Selected Payroll Date</label>
+                </div>
+
+                <div class="col">
+                  <input type="text"
+                         th:field="*{roundToTheNearestInteger}"
+                         id="roundToTheNearestInteger" class="form-check">
+                  <label for="roundToTheNearestInteger" class="form-label">Round To The Nearest Integer</label>
+                </div>
+
+                <div class="col">
+                  <input type="text"
+                         th:field="*{statisticalComponent}"
+                         id="statistical-component" class="form-check">
+                  <label for="statistical-component" class="form-label">Statistical Component</label>
+                </div>
+
+                <div class="col">
+                  <input type="text"
+                         th:field="*{doNotIncludeInTotal}"
+                         id="doNotIncludeInTotal" class="form-check">
+                  <label for="doNotIncludeInTotal" class="form-label">Do Not Include In Total</label>
+                </div>
+
+                <div class="col">
+                  <input type="text"
+                         th:field="*{disabled}"
+                         id="disabled" class="form-check">
+                  <label for="disabled" class="form-label">Disabled</label>
+                </div>
+              </div>
+
+              <div class="companies">
+                <h5>Accounts</h5>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>No</td>
+                      <td>Company</td>
+                      <td>Account</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  </tbody>
+                </table>
+
+                <button class="btn">Add row</button>
+              </div>
+
+              <div class="row g-3">
+                <div class="col">
+                  <label for="condition" class="form-label">Condition</label>
+                  <textarea th:field="*{condition}"
+                            id="condition" class="form-text"></textarea>
+                </div>
+
+                <div class="col">
+                  <input type="number" step="any"
+                         th:field="*{amount}"
+                         id="amount" class="form-check">
+                  <label for="amount" class="form-label">Amount</label>
+                </div>
+
+                <div class="col">
+                  <input type="text"
+                         th:field="*{amountBasedOnFormula}"
+                         id="amountBasedOnFormula" class="form-check">
+                  <label for="amountBasedOnFormula" class="form-label">Amount Based On Formula</label>
+                </div>
+              </div>
+
+              <div class="btn-container my-3">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="save-salary-slip">Save</button>
+              </div>
+            </form>
+          </div>
+  </section>
+</main>
+
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

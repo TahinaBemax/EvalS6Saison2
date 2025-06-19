@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}">
+</head>
+<link th:href="@{/css/salaryComponent/form.css}" rel="stylesheet">
+<title>Salary Slip - Update</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<!-- Header Section -->
+<div class="row p-2 bg-black align-items-center justify-content-between">
+    <h4 class="w-auto fs-5 title text-white">Salary Slip</h4>
+</div>
+
+<main>
+    <section class="p-2">
+        <div class="alert bg-white p-2 my-2" th:if="${success != null || error != null}">
+            <div class="alert alert-success" th:if="${success} != null" th:text="${success}"></div>
+            <div class="alert alert-danger" th:if="${error} != null" th:text="${error}"></div>
+        </div>
+
+        <div class="bg-black p-2 rounded">
+            <h4 class="text-white mb-2">Batch Update - Salary Slip</h4>
+
+            <form id="salary-slip-form" method="post" th:object="${salarySlip}" th:action="@{/salary-slips/update}">
+                <div class="row g-3">
+                    <div class="col">
+                        <label for="type" class="form-label">Salary Component</label>
+                        <select th:field="*{salaryComponent}" id="type" class="form-select">
+                            <option value="">Choose...</option>
+                            <option th:each="component : ${salaryComponents}"
+                                    th:text="${component.getSalaryComponent()}"
+                                    th:value="${component.getName()}"></option>
+                        </select>
+
+                        <div class="alert alert-danger"
+                             th:if="${#fields.hasErrors('salaryComponent')}"
+                             th:text="*{salaryComponent}"
+                        ></div>
+                    </div>
+
+                    <div class="col">
+                        <label for="condition" class="form-label">Condition</label>
+                        <input type="text"
+                               th:field="*{condition}"
+                               id="condition" class="form-control">
+                        <div class="alert alert-danger"
+                             th:if="${#fields.hasErrors('condition')}"
+                             th:text="*{condition}"
+                        ></div>
+                    </div>
+
+                    <div class="col">
+                        <label for="percentage" class="form-label">Percentage</label>
+                        <input type="number" id="percentage" class="form-control"
+                               th:field="*{percentage}">
+                        <div class="alert alert-danger"
+                             th:if="${#fields.hasErrors('percentage')}"
+                             th:text="*{percentage}"
+                        ></div>
+                    </div>
+                </div>
+
+                <div class="btn-container my-3">
+                    <a href="/salary-slips" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+</body>
+</html>

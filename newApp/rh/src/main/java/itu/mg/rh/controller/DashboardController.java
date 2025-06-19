@@ -1,6 +1,5 @@
 package itu.mg.rh.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import itu.mg.rh.components.SessionManager;
 import itu.mg.rh.dto.ApiResponse;
 import itu.mg.rh.dto.TotalSalarySlipPerMonth;
@@ -61,7 +60,7 @@ public class DashboardController extends MainController{
         }
 
         try {
-            List<SalarySlip> salarySlipsByMonth = salarySlipService.findSalaryEmployeeDetails(month, year);
+            List<SalarySlip> salarySlipsByMonth = salarySlipService.findAllWithDetails(month, year);
 
             model.addAttribute("details", salarySlipsByMonth);
         } catch (Exception e) {
@@ -69,30 +68,6 @@ public class DashboardController extends MainController{
         }
 
         return "dashboard/detail-per-employee";
-    }
-
-    @GetMapping("salary-slips/details")
-    @ResponseBody
-    public ResponseEntity<?> getSalarySlipWithSalaryDetais(
-            @RequestParam(name = "month", required = false) Integer month)
-    {
-        if (!this.isAuthentified()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("You need to login to get access to this resource.");
-        }
-
-        try {
-            List<SalarySlip> salarySlipsByMonth = salarySlipService.findSalaryEmployeeDetails(month, null);
-
-            return ResponseEntity.ok(salarySlipsByMonth);
-        } catch (FrappeApiException e){
-            return ResponseEntity
-                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new ApiResponse<>(null, "An error occured when fetching salary Slip", "error", e.getErrorResponse().getServerMessages()));
-        } catch (Exception e) {
-            return ResponseEntity
-                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new ApiResponse<>(null, "Internal Server error", "error", List.of(e.getLocalizedMessage())));
-        }
     }
 
     @GetMapping("salary-slips/total-per-month")

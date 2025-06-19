@@ -44,6 +44,38 @@ public class SalaryStructureAssignmentServiceImpl implements SalaryStructureAssi
     }
 
     @Override
+    public SalaryStructureAssignement findBySalarySlipIdAndEndDate(String employee, String salaryStructure, LocalDate endDate) {
+        String filters = String.format("[[\"employee\", \"=\", \"%s\"], [\"salary_structure\", \"=\" , \"%s\"], [\"from_date\", \"<=\", \"%s\"]]",
+                employee, salaryStructure, endDate.toString());
+
+        String url = String.format("%s/api/resource/Salary Structure Assignment?filters=%s&fields=%s",
+                mainService.getErpNextUrl(), filters, this.fieldsAsString());
+
+        HttpHeaders headers = mainService.getHeaders();
+        HttpEntity<?> requestEntity = new HttpEntity<>(headers);
+
+        try {
+            ResponseEntity<Map> response = mainService.getRestTemplate().exchange(
+                    url,
+                    HttpMethod.GET,
+                    requestEntity,
+                    Map.class
+            );
+
+            Map data = (Map) response.getBody();
+            return ((List<Map>) data.get("data"))
+                    .stream()
+                    .map(this::mapToSalaryStructureAssignment)
+                    .findFirst()
+                    .orElseThrow();
+        } catch (RestClientException e) {
+            logger.error(e.getLocalizedMessage());
+            RestClientExceptionHandler.handleError(e);
+        }
+        return null;
+    }
+
+    @Override
     public boolean saveSalaryStructureAssignment(List<SalaryStructureAssignmentExportDTO> salaryStructureAssignments) {
         try {
             // Prepare headers
@@ -72,7 +104,7 @@ public class SalaryStructureAssignmentServiceImpl implements SalaryStructureAssi
     }
 
     @Override
-    public boolean save(SalaryStructureAssignement salaryStructureAssignment) {
+    public boolean save(SalaryStructureAssignement salaryStructureAssignment) throws FrappeApiException {
         try {
             // Prepare headers
             HttpHeaders headers = mainService.getHeaders();
@@ -90,13 +122,12 @@ public class SalaryStructureAssignmentServiceImpl implements SalaryStructureAssi
 
             return (response.getStatusCode() == HttpStatus.OK) ;
         } catch (RestClientException e) {
-            RestClientExceptionHandler.handleError(e);
+            throw RestClientExceptionHandler.handleError(e);
         }
-        return false;
     }
 
     @Override
-    public boolean saveAll(SalaryDTO salaryDTO) {
+    public boolean saveAll(SalaryDTO salaryDTO) throws FrappeApiException {
         List<SalaryStructureAssignement> salaries = prepareData(salaryDTO);
 
         try {
@@ -138,10 +169,11 @@ public class SalaryStructureAssignmentServiceImpl implements SalaryStructureAssi
     @Override
     public boolean delete(String name) {
         try {
+            if (name == null)
+                throw new RuntimeException("Salary Structure Assignment is null");
+
             // Prepare headers
             HttpHeaders headers = mainService.getHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-
             // Make API call to Frappe
             HttpEntity<?> requestEntity = new HttpEntity<>(headers);
 
@@ -154,9 +186,8 @@ public class SalaryStructureAssignmentServiceImpl implements SalaryStructureAssi
 
             return (response.getStatusCode() == HttpStatus.OK) ;
         } catch (RestClientException e) {
-            RestClientExceptionHandler.handleError(e);
+            throw RestClientExceptionHandler.handleError(e);
         }
-        return false;
     }
 
     @Override

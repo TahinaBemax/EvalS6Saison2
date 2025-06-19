@@ -33,7 +33,7 @@
               <ul class='salary-detail-container'>
                 <li th:each="earning : ${detail.salaryDetailEarnings}">
                   <span th:text="${earning.salaryComponent}"></span>
-                  <span th:text="${earning.amount}"></span>
+                  <span th:text="${#numbers.formatDecimal(earning.amount, 1, 'COMMA', 2, 'POINT')}"></span>
                 </li>
               </ul>
             </td>
