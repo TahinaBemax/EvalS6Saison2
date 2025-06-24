@@ -3,6 +3,7 @@ package itu.mg.rh.services.impl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import itu.mg.rh.csv.dto.export.SalaryStructureExportDTO;
+import itu.mg.rh.dto.SalaryStructureFormDto;
 import itu.mg.rh.models.SalaryStructure;
 import itu.mg.rh.models.SalaryStructureAssignement;
 import itu.mg.rh.services.MainService;
@@ -140,6 +141,11 @@ public class SalaryStructureServiceImpl implements SalaryStructureService {
             log.error(e.getLocalizedMessage());
             RestClientExceptionHandler.handleError(e);
         }
+        return false;
+    }
+
+    @Override
+    public boolean save(SalaryStructureFormDto salaryStructure) {
         return false;
     }
 

@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/employees")
@@ -29,8 +30,6 @@ public class EmployeeController extends MainController{
         this.employeeService = employeeService;
         this.companyService = companyService;
     }
-
-
 
     @GetMapping()
     public String employeePage(Model model) {
@@ -47,7 +46,8 @@ public class EmployeeController extends MainController{
     @ResponseBody
     public ResponseEntity<?> filterEmployees(
             @RequestParam(required = false) String fullName,
-            @RequestParam(required = false) String company) {
+            @RequestParam(required = false) String company)
+    {
         if (!this.isAuthentified()) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("You need to login to get access to this resource.");
         }

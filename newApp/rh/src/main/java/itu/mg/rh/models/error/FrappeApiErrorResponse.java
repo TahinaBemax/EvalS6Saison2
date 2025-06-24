@@ -70,7 +70,7 @@ public class FrappeApiErrorResponse {
     public String serverMessageToString(){
         StringBuilder messages = new StringBuilder();
         for (ServerMessage serverMessage : getServerMessages()) {
-            messages.append(serverMessage.getMessage()).append("\\r\\n");
+            messages.append(serverMessage.getMessage()).append("<br>");
         }
 
         return messages.toString();

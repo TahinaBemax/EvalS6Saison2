@@ -1,6 +1,7 @@
 package itu.mg.rh.services;
 
 import itu.mg.rh.csv.dto.export.SalaryStructureExportDTO;
+import itu.mg.rh.dto.SalaryStructureFormDto;
 import itu.mg.rh.models.SalaryStructure;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public interface SalaryStructureService {
     List<SalaryStructure> findAll();
 
     boolean save(SalaryStructure salaryStructure);
+    boolean save(SalaryStructureFormDto salaryStructure);
 
     boolean delete(String name);
 

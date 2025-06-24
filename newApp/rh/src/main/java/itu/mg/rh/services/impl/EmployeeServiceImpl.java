@@ -14,6 +14,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 
@@ -29,6 +30,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     private String[] employeeFields;
 
     @Autowired
+    private JdbcTemplate jdbcTemplate;
+
+    @Autowired
     public EmployeeServiceImpl(MainService mainService) {
         this.mainService = mainService;
         employeeFields = new String[]{
@@ -37,6 +41,12 @@ public class EmployeeServiceImpl implements EmployeeService {
                 "department", "designation", "reports_to",
                 "employment_type", "grade", "name"
         };
+    }
+
+    @Override
+    public List<Map<String, Object>> getAll() {
+        String sql = "SELECT employee_name FROM tabEmployee";
+        return jdbcTemplate.queryForList(sql);
     }
 
     @Override

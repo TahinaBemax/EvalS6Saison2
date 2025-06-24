@@ -9,98 +9,117 @@
 <div th:replace="~{fragments/navbar :: navbar}"></div>
 <!-- Header Section -->
 <div class="row p-2 bg-black align-items-center justify-content-between">
-  <h4 class="w-auto fs-5 title">Salary Component</h4>
+  <h4 class="w-auto fs-5 text-white">Salary Component - Form</h4>
 </div>
 
 <main>
   <section class="p-2">
+          <div class="bg-black p-2 rounded">
             <div class="alert bg-white p-2 my-2" th:if="${success != null || error != null}">
               <div class="alert alert-success" th:if="${success} != null" th:text="${success}"></div>
-              <div class="alert alert-danger" th:if="${error} != null" th:text="${error}"></div>
+              <div class="alert alert-danger" th:if="${error} != null" th:utext="${error}"></div>
             </div>
-          <div class="container bg-black p-2 rounded">
 
-            <form id="salary-slip-form" method="post" th:object="${component}" th:action="@{/salary-components}">
-              <div class="row g-3">
+            <form id="salary-slip-form" class="p-2" method="post" th:object="${component}" th:action="@{/salary-components}">
+              <div class="row">
                 <div class="col">
-                  <label for="name" class="form-label">Name</label>
-                  <input type="text"
-                         th:field="*{name}"
-                         id="name" class="form-control">
-                  <div class="alert alert-danger" th:if="${#fields.hasErrors('name')}"></div>
+                  <div class="row">
+                    <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
+                    <input type="text" id="name" class="form-control"
+                           th:field="*{name}">
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('name')}"></div>
+                  </div>
+
+                  <div class="row gap-2">
+                    <label for="abbr" class="form-label">Abbr <span class="text-danger">*</span></label>
+                    <input type="text"
+                           th:field="*{salaryComponentAbbr}"
+                           class="form-control" id="abbr" required>
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('salaryComponentAbbr')}"></div>
+                  </div>
+
+                  <div class="row gap-2">
+                    <label for="type" class="form-label">Type <span class="text-danger">*</span></label>
+                    <select th:field="*{type}" id="type" class="form-select">
+                      <option value="Earning">Earning</option>
+                      <option value="Deduction">Deduction</option>
+                    </select>
+
+                    <div class="alert alert-danger" th:if="${#fields.hasErrors('type')}"></div>
+                  </div>
+
+                  <div class="row gap-2">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea th:field="*{description}"
+                              id="description" class="form-text"></textarea>
+                  </div>
                 </div>
 
                 <div class="col">
-                  <label for="abbr" class="form-label">Abbr</label>
-                  <input type="text"
-                         th:field="*{salaryComponentAbbr}"
-                         class="form-control" id="abbr" required>
-                  <div class="alert alert-danger" th:if="${#fields.hasErrors('salaryComponentAbbr')}"></div>
-                </div>
+                  <div class="row">
+                    <label for="depends-on-payment-days" class="form-label">Depends on Payment Days</label>
+                    <select class="form-select" id="depends-on-payment-days" th:field="*{dependsOnPaymentDays}">
+                      <option value="1" selected>Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                  </div>
 
-                <div class="col">
-                  <label for="type" class="form-label">Type</label>
-                  <select th:field="*{type}" id="type">
-                    <option value="earning">Earning</option>
-                    <option value="deduction">Deduction</option>
-                  </select>
+                  <div class="row">
+                    <label for="is-tax-applicable" class="form-label">is Tax Applicable</label>
+                    <select class="form-select" id="is-tax-applicable" th:field="*{isTaxApplicable}">
+                      <option value="1" selected>Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                  </div>
 
-                  <div class="alert alert-danger" th:if="${#fields.hasErrors('type')}"></div>
-                </div>
+                  <div class="row">
+                    <label for="deduct-Full-Tax-On-Selected-Payroll-Date" class="form-label">Deduct Full Tax On Selected Payroll Date</label>
+                    <select class="form-select" id="deduct-Full-Tax-On-Selected-Payroll-Date"
+                            th:field="*{deductFullTaxOnSelectedPayrollDate}">
+                      <option value="0">No</option>
+                      <option value="1">Yes</option>
+                    </select>
+                  </div>
 
-                <div class="col">
-                  <label for="description" class="form-label">Description</label>
-                  <textarea th:field="*{description}"
-                            id="description" class="form-text"></textarea>
-                </div>
+                  <div class="row">
+                    <label for="roundToTheNearestInteger" class="form-label">Round To The Nearest Integer</label>
+                    <select class="form-select" id="roundToTheNearestInteger" th:field="*{roundToTheNearestInteger}">
+                      <option value="0">No</option>
+                      <option value="1">Yes</option>
+                    </select>
+                  </div>
 
-                <div class="col">
-                  <input type="text"
-                         th:field="*{dependsOnPaymentDays}"
-                         id="depends-on-payment-days" class="form-check">
-                  <label for="depends-on-payment-days" class="form-label">Depends on Payment Days</label>
-                </div>
+                  <div class="row">
+                    <label for="statistical-component" class="form-label">Statistical Component</label>
+                    <select class="form-select" id="statistical-component" th:field="*{statisticalComponent}">
+                      <option value="0">No</option>
+                      <option value="1">Yes</option>
+                    </select>
+                  </div>
 
-                <div class="col">
-                  <input type="text"
-                         th:field="*{isTaxApplicable}"
-                         id="is-tax-applicable" class="form-check">
-                  <label for="is-tax-applicable" class="form-label">is Tax Applicable</label>
-                </div>
+                  <div class="row">
+                    <label for="doNotIncludeInTotal" class="form-label">Do Not Include In Total</label>
+                    <select class="form-select" id="doNotIncludeInTotal" th:field="*{doNotIncludeInTotal}">
+                      <option value="0">No</option>
+                      <option value="1">Yes</option>
+                    </select>
+                  </div>
 
-                <div class="col">
-                  <input type="text"
-                         th:field="*{deductFullTaxOnSelectedPayrollDate}"
-                         id="deduct-Full-Tax-On-Selected-Payroll-Date" class="form-check">
-                  <label for="deduct-Full-Tax-On-Selected-Payroll-Date" class="form-label">Deduct Full Tax On Selected Payroll Date</label>
-                </div>
+                  <div class="row">
+                    <label for="removeIfZero" class="form-label">Remove if Zero</label>
+                    <select class="form-select" id="removeIfZero" th:field="*{removeIfZeroValued}">
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                  </div>
 
-                <div class="col">
-                  <input type="text"
-                         th:field="*{roundToTheNearestInteger}"
-                         id="roundToTheNearestInteger" class="form-check">
-                  <label for="roundToTheNearestInteger" class="form-label">Round To The Nearest Integer</label>
-                </div>
-
-                <div class="col">
-                  <input type="text"
-                         th:field="*{statisticalComponent}"
-                         id="statistical-component" class="form-check">
-                  <label for="statistical-component" class="form-label">Statistical Component</label>
-                </div>
-
-                <div class="col">
-                  <input type="text"
-                         th:field="*{doNotIncludeInTotal}"
-                         id="doNotIncludeInTotal" class="form-check">
-                  <label for="doNotIncludeInTotal" class="form-label">Do Not Include In Total</label>
-                </div>
-
-                <div class="col">
-                  <input type="text"
-                         th:field="*{disabled}"
-                         id="disabled" class="form-check">
-                  <label for="disabled" class="form-label">Disabled</label>
+                  <div class="row">
+                    <label for="disabled" class="form-label">Disabled</label>
+                    <select class="form-select" id="disabled" th:field="*{disabled}">
+                      <option value="0">No</option>
+                      <option value="1">Yes</option>
+                    </select>
+                  </div>
                 </div>
               </div>
 
@@ -127,29 +146,35 @@
               </div>
 
               <div class="row g-3">
-                <div class="col">
+                <div class="col-12">
                   <label for="condition" class="form-label">Condition</label>
                   <textarea th:field="*{condition}"
                             id="condition" class="form-text"></textarea>
                 </div>
 
-                <div class="col">
-                  <input type="number" step="any"
-                         th:field="*{amount}"
-                         id="amount" class="form-check">
+                <div class="col-12">
                   <label for="amount" class="form-label">Amount</label>
+                  <input type="number" step="any" id="amount" class="form-control"
+                         th:field="*{amount}">
                 </div>
 
-                <div class="col">
-                  <input type="text"
-                         th:field="*{amountBasedOnFormula}"
-                         id="amountBasedOnFormula" class="form-check">
+                <div class="col-12">
                   <label for="amountBasedOnFormula" class="form-label">Amount Based On Formula</label>
+                  <select class="form-select" id="amountBasedOnFormula" th:field="*{amountBasedOnFormula}">
+                    <option value="1">Yes</option>
+                    <option value="0" selected>No</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label for="formula" class="form-label">Formula</label>
+                  <textarea th:field="*{formula}"
+                            id="formula" class="form-text"></textarea>
                 </div>
               </div>
 
               <div class="btn-container my-3">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="/salary-components" class="btn btn-secondary">Cancel</a>
                 <button type="submit" class="btn btn-primary" id="save-salary-slip">Save</button>
               </div>
             </form>

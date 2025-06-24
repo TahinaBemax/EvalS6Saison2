@@ -9,10 +9,7 @@ import itu.mg.rh.utils.RestClientExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 
@@ -162,6 +159,7 @@ public class SalaryComponentServiceImpl implements SalaryComponentService {
 
         String url = String.format("%s/api/resource/Salary Component", this.mainService.getErpNextUrl());
         HttpHeaders headers = mainService.getHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
         Map<String, Object> body = this.convertSalaryComponentToMap(salaryComponent);
 
         HttpEntity<Map> requestEntity = new HttpEntity<>(body, headers);
@@ -175,9 +173,8 @@ public class SalaryComponentServiceImpl implements SalaryComponentService {
             return response.getStatusCode().is2xxSuccessful();
         } catch (RestClientException e) {
             logger.error(e.getLocalizedMessage());
-            RestClientExceptionHandler.handleError(e);
+            throw RestClientExceptionHandler.handleError(e);
         }
-        return false;
     }
 
     private SalaryComponent convertMapToSalaryComponent(Map data) {
@@ -203,13 +200,26 @@ public class SalaryComponentServiceImpl implements SalaryComponentService {
     private Map<String, Object> convertSalaryComponentToMap(SalaryComponent data) {
         Map<String, Object> component = new HashMap<>();
         component.put("name", data.getName());
+        component.put("salary_component", data.getName());
+        component.put("salary_component_abbr", data.getSalaryComponentAbbr());
         component.put("type", data.getType());
         component.put("description", data.getDescription());
+        component.put("condition", data.getCondition());
+        component.put("depends_on_payment_days", data.getDependsOnPaymentDays());
         component.put("is_tax_applicable", data.getIsTaxApplicable());
-        component.put("is_flexible_benefit", data.getIsFlexibleBenefit());
+        component.put("deduct_full_tax_on_selected_payroll_date", data.getDeductFullTaxOnSelectedPayrollDate());
+        component.put("variable_based_on_taxable_salary", data.getVariableBasedOnTaxableSalary());
+        component.put("is_income_tax_component", data.getIsIncomeTaxComponent());
+        component.put("exempted_from_income_tax", data.getExemptedFromIncomeTax());
+        component.put("round_to_the_nearest_integer", data.getRoundToTheNearestInteger());
         component.put("statistical_component", data.getStatisticalComponent());
         component.put("do_not_include_in_total", data.getDoNotIncludeInTotal());
+        component.put("remove_if_zero_valued", data.getRemoveIfZeroValued());
         component.put("disabled", data.getDisabled());
+        component.put("amount", data.getAmount());
+        component.put("amount_based_on_formula", data.getAmountBasedOnFormula());
+        component.put("formula", data.getFormula());
+        component.put("is_flexible_benefit", data.getIsFlexibleBenefit());
         return component;
     }
 

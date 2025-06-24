@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.web.client.RestClientException;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -16,6 +17,15 @@ public class ApiResponse<T> {
     String message;
     String status;
     List<T> errors;
+    LocalDateTime at;
+
+    public ApiResponse(List<T> data, String message, String status, List<T> errors) {
+        this.data = data;
+        this.message = message;
+        this.status = status;
+        this.errors = errors;
+        this.at = LocalDateTime.now();
+    }
 
     public static ApiResponse parseJsonErrorToApiResponse(RestClientException e) {
         final ObjectMapper objectMapper = new ObjectMapper();

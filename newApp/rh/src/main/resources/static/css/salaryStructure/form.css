@@ -1,0 +1,79 @@
+.btn-group > button.active {
+    background: #939191;
+    color: white;
+}
+
+#salary-structure-form > div {
+    display: none;
+}
+
+#salary-structure-form > div.active {
+    display: block;
+}
+
+.details  .row{
+    margin: 10px 0;
+}
+
+
+.details > .mendatory-detail > .row > .col,
+.account > .row > .col {
+    display: flex;
+    justify-content: space-between ;
+}
+
+.details .row .col {
+    align-items: end;
+}
+
+.details > .mendatory-detail > .row > .col > label,
+.account > .row > .col > label {
+    width: auto !important;
+}
+
+.details > .mendatory-detail > .row > .col > input.form-control,
+.account > .row > .col > input.form-control{
+    width: 75% !important;
+}
+
+input.form-control,
+select.form-select {
+    padding: 2px 8px;
+    background: rgb(252, 239, 239);
+}
+
+
+/* TABLE */
+.table {
+    border-radius: 5px;
+}
+
+.table > thead > tr th {
+    font-weight: 600;
+    font-size: 0.8rem;
+    color: rgb(82, 80, 80);
+    padding: 6px;
+    vertical-align: top;
+}
+
+.table > tbody > tr > td {
+    padding: 3px;
+}
+
+.table tr > .checkbox{
+    /*width: 40%; */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*display: inline-block; */
+}
+
+/* */
+
+/* POPUP */
+#componentList {
+    list-style: none;
+    padding: 0;
+    color: #000;
+    cursor: pointer;
+}

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}">
+</head>
+<link th:href="@{/css/salaryStructure/form.css}" rel="stylesheet">
+<title>Salary Structure - Form</title>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<!-- Header Section -->
+<div class="row p-2 bg-black align-items-center justify-content-between">
+    <h4 class="w-auto fs-5 title text-white">Salary Structure Form</h4>
+</div>
+
+<main>
+    <section class="p-2">
+        <div class="alert bg-white p-2 my-2" th:if="${success != null || error != null}">
+            <div class="alert alert-success" th:if="${success} != null" th:text="${success}"></div>
+            <div class="alert alert-danger" th:if="${error} != null" th:text="${error}"></div>
+        </div>
+
+        <div class="bg-black p-2 rounded">
+            <form id="salary-structure-form" action="" method="post">
+                <header class="d-flex justify-content-between align-items-center">
+                    <h4 class="w-auto text-white">Salary Structure</h4>
+                    <button type="submit" id="submitBtn" class="btn btn-primary">Save</button>
+                </header>
+                <nav class="btn-group mb-3">
+                    <button type="button" class="btn btn-outline-secondary active text-white" id="detail-btn">Details</button>
+                    <button type="button" class="btn btn-outline-secondary text-white" id="earning-deduction-btn">Earnings & Deduction</button>
+                    <button type="button" class="btn btn-outline-secondary text-white" id="account-btn">Account</button>
+                </nav>
+
+                <div class="input-container details active">
+                    <div class="mendatory-detail">
+                        <div class="row gap-2">
+                            <div class="col">
+                                <label for="name" class="form-label">
+                                    Name
+                                    <span class="text-danger">*</span>
+                                </label>
+
+                                <input type="text" id="name" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="is-active" class="form-label">
+                                    Is Active
+                                    <span class="text-danger">*</span>
+                                </label>
+
+                                <input type="text" id="is-active" value="Yes" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row gap-2">
+                            <div class="col">
+                                <label for="company" class="form-label">
+                                    Company
+                                    <span class="text-danger">*</span>
+                                </label>
+
+                                <input type="text" id="company" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="currency" class="form-label">
+                                    Currency
+                                    <span class="text-danger">*</span>
+                                </label>
+
+                                <input type="text" id="currency" value="EUR" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row gap-2">
+                            <div class="col-6">
+                                <label for="letter-head" class="form-label">Letter Head</label>
+                                <input type="text" id="letter-head" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="">
+                        <div class="row gap-2">
+                            <div class="col">
+                                <label for="leave-encashment" class="form-label">Leave Encashment Amount Per Day (EUR)</label>
+                                <input type="text" id="leave-encashment" class="form-control">
+                            </div>
+                            <div class="col align-self-end">
+                                <input type="checkbox" id="based-on-timesheet" class="form-check-inline">
+                                <label for="based-on-timesheet" class="form-check-label text-white">Salary Slip Based on Timesheet</label>
+                            </div>
+                        </div>
+
+                        <div class="row gap-2">
+                            <div class="col">
+                                <label for="max-benefit" class="form-label">Max Benefits (EUR)</label>
+                                <input type="text" id="max-benefit" class="form-control">
+                            </div>
+                            <div class="col">
+                                <label for="payroll-frequency" class="form-label">
+                                    Payroll Frequency
+                                    <span class="text-danger">*</span>
+                                </label>
+                                <select class="form-select" id="payroll-frequency" name="payrollFrequency">
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Forthnigthly">Forthnigthly</option>
+                                    <option value="Bimonthly">Bimonthly</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Daily">Daily</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="input-container earning-deduction">
+                    <div id="earning" class="my-4">
+                        <h6 class="text-white">Earnings</h6>
+                        <table class="table table-bordered" id="earning-table">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>No</th>
+                                <th>Component</th>
+                                <th>Abbr</th>
+                                <th>Amount(EUR)</th>
+                                <th class="checkbox">Dependes On Payment Days</th>
+                                <th class="checkbox">Is tax Applicable</th>
+                                <th class="checkbox">Amount Based On Formula</th>
+                                <th>Formula</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="form-check-input delete-checkbox"></td>
+                                <td>1</td>
+                                <td class="position-relative">
+                                    <input type="text" name="name" class="form-control">
+                                </td>
+                                <td>
+                                    <input type="text" name="abbr" class="form-control">
+                                </td>
+                                <td>
+                                    <input type="text" name="amount" class="form-control">
+                                </td>
+                                <td class="checkbox">
+                                    <input type="checkbox" name="depedendOnPaymentDays" class="form-check">
+                                </td>
+                                <td class="checkbox">
+                                    <input type="checkbox" name="isTaxApplicable" class="form-check">
+                                </td>
+                                <td class="checkbox">
+                                    <input type="checkbox" name="amountBasedOnFormula" class="form-check">
+                                </td>
+                                <td>
+                                    <input type="text" name="formula" class="form-control">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <div>
+                            <button type="button" class="rounded-2 py-1 fs-6" id="add-row-earning">Add Row</button>
+                            <button type="button" class="px-2 py-1 rounded-2 fs-6 bg-danger border-0 text-white" id="delete-row-earning">Delete Row</button>
+                        </div>
+                    </div>
+
+                    <div id="deduction" class="my-4">
+                        <h6 class="text-white">Deduction</h6>
+                        <table class="table table-bordered" id="deduction-table">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>No</th>
+                                <th>Component</th>
+                                <th>Abbr</th>
+                                <th>Amount(EUR)</th>
+                                <th class="checkbox">Dependes On Payment Days</th>
+                                <th class="checkbox">Is tax Applicable</th>
+                                <th>Formula</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><input type="checkbox" class="form-check-input delete-checkbox"></td>
+                                <td>1</td>
+                                <td class="position-relative">
+                                    <input type="text" name="name" class="form-control">
+                                </td>
+                                <td>
+                                    <input type="text" name="abbr" class="form-control">
+                                </td>
+                                <td>
+                                    <input type="text" name="amount" class="form-control">
+                                </td>
+                                <td class="checkbox">
+                                    <input type="checkbox" name="depedendOnPaymentDays" class="form-check">
+                                </td>
+                                <td class="checkbox">
+                                    <input type="checkbox" name="isTaxApplicable" class="form-check">
+                                </td>
+                                <td class="checkbox">
+                                    <input type="checkbox" name="amountBasedOnFormula" class="form-check">
+                                </td>
+                                <td>
+                                    <input type="text" name="formula" class="form-control">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div>
+                            <button type="button" class="rounded-2 py-1 fs-6" id="add-row-deduction">Add Row</button>
+                            <button type="button" class="px-2 py-1 rounded-2 fs-6 bg-danger border-0 text-white" id="delete-row-deduction">Delete Row</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-container account">
+                    <div class="row gap-2">
+                        <div class="col">
+                            <label class="form-label text-white" for="modeOfPayment">Mode Of Payment</label>
+                            <input type="text" name="" id="modeOfPayment" class="form-control" value="Cash">
+                        </div>
+                        <div class="col">
+                            <label class="form-label text-white" for="paymentAccount">Payment Account</label>
+                            <input type="text" id="paymentAccount" class="form-control" value="Cash - ">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+
+<footer th:insert="~{fragments/footer :: footer}"></footer>
+
+<script th:src="@{/js/salaryStructure/form.js}"></script>
+</body>
+</html>

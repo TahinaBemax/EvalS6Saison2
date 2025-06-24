@@ -15,6 +15,6 @@ public class FrappeApiException extends RuntimeException {
 
     public String getMessages(){
         String message = errorResponse.getExceptionType();
-        return message + "\r\n" + errorResponse.serverMessageToString();
+        return message + ".<br> " + errorResponse.serverMessageToString();
     }
 }

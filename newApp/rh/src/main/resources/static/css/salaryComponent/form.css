@@ -1,0 +1,18 @@
+#salary-slip-form > .row > .col >.row .form-label {
+    width: 40% !important;
+}
+
+#salary-slip-form > .row > .col >.row .form-control {
+    width: 55% !important;
+    padding: 0.1rem 0.2rem;
+}
+
+#salary-slip-form > .row > .col >.row .form-select {
+    width: 20% !important;
+    padding: 0.1rem 0.2rem;
+}
+
+#salary-slip-form > .row > .col > .row {
+    justify-content: space-between;
+    margin-bottom: 10px;
+}

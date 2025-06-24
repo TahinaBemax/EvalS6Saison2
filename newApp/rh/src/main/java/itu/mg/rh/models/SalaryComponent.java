@@ -1,17 +1,26 @@
 package itu.mg.rh.models;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
 public class SalaryComponent {
+    @NotNull
     String name;
-    int docstatus;
-    int idx;
+    @NotNull
     String salaryComponent;
+    @NotNull
     String salaryComponentAbbr;
+    @NotNull
     String type;
     int dependsOnPaymentDays;
     int isTaxApplicable;
+    double amount;
+    int amountBasedOnFormula;
+    String formula;
+
+    int docstatus;
+    int idx;
     int deductFullTaxOnSelectedPayrollDate;
     int variableBasedOnTaxableSalary;
     int isIncomeTaxComponent;
@@ -23,8 +32,5 @@ public class SalaryComponent {
     int disabled;
     String condition;
     String description;
-    double amount;
-    int amountBasedOnFormula;
-    String formula;
     int isFlexibleBenefit;
 }
