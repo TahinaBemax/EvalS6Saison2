@@ -388,3 +388,9 @@ Form Dict: {'amount': 0.0, 'deduct_full_tax_on_selected_payroll_date': 0, 'amoun
 2025-06-20 21:08:08,224 ERROR frappe New Exception collected in error log
 Site: itu.erpnext
 Form Dict: {'amount': 0.0, 'deduct_full_tax_on_selected_payroll_date': 0, 'amount_based_on_formula': 0, 'is_flexible_benefit': 0, 'round_to_the_nearest_integer': 0, 'description': '', 'depends_on_payment_days': 1, 'remove_if_zero_valued': 1, 'is_income_tax_component': 0, 'statistical_component': 0, 'salary_component': 'Test', 'type': 'earning', 'salary_component_abbr': 'T', 'exempted_from_income_tax': 0, 'condition': '', 'do_not_include_in_total': 0, 'is_tax_applicable': 1, 'name': 'Test', 'formula': '', 'disabled': 0, 'variable_based_on_taxable_salary': 0}
+2025-06-24 21:27:06,933 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'is_active', 'company', 'total_earning', 'total_deduction', 'net_pay', 'letter_head', 'is_default', 'currency', 'payroll_frequency', 'salary_component', 'mode_of_payment', 'payment_account', 'salary_slip_base_on_timesheet', 'docstatus'], 'limit_page_length': 20}
+2025-06-24 21:27:06,934 ERROR frappe New Exception collected in error log
+Site: itu.erpnext
+Form Dict: {'fields': ['name', 'is_active', 'company', 'total_earning', 'total_deduction', 'net_pay', 'letter_head', 'is_default', 'currency', 'payroll_frequency', 'salary_component', 'mode_of_payment', 'payment_account', 'salary_slip_base_on_timesheet', 'docstatus'], 'limit_page_length': 20}

@@ -43,3 +43,13 @@
 2025-06-24 17:04:02,153 ERROR scheduler Skipped queueing erpnext.projects.doctype.project.project.collect_project_status because it was found in queue for itu.erpnext
 2025-06-24 17:04:02,267 ERROR scheduler Skipped queueing frappe.oauth.delete_oauth2_data because it was found in queue for itu.erpnext
 2025-06-24 17:04:02,345 ERROR scheduler Skipped queueing frappe.monitor.flush because it was found in queue for itu.erpnext
+2025-06-24 20:28:00,582 ERROR scheduler Skipped queueing hrms.hr.doctype.shift_type.shift_type.process_auto_attendance_for_all_shifts because it was found in queue for itu.erpnext
+2025-06-24 20:28:00,811 ERROR scheduler Skipped queueing frappe.email.doctype.email_account.email_account.notify_unreplied because it was found in queue for itu.erpnext
+2025-06-24 20:28:00,849 ERROR scheduler Skipped queueing erpnext.projects.doctype.project.project.hourly_reminder because it was found in queue for itu.erpnext
+2025-06-24 20:28:00,879 ERROR scheduler Skipped queueing erpnext.projects.doctype.project.project.project_status_update_reminder because it was found in queue for itu.erpnext
+2025-06-24 20:28:00,922 ERROR scheduler Skipped queueing hrms.hr.doctype.shift_type.shift_type.update_last_sync_of_checkin because it was found in queue for itu.erpnext
+2025-06-24 20:28:00,951 ERROR scheduler Skipped queueing erpnext.utilities.bulk_transaction.retry because it was found in queue for itu.erpnext
+2025-06-24 20:28:00,984 ERROR scheduler Skipped queueing erpnext.accounts.doctype.gl_entry.gl_entry.rename_gle_sle_docs because it was found in queue for itu.erpnext
+2025-06-24 20:28:01,011 ERROR scheduler Skipped queueing erpnext.stock.doctype.repost_item_valuation.repost_item_valuation.repost_entries because it was found in queue for itu.erpnext
+2025-06-24 20:28:01,050 ERROR scheduler Skipped queueing hrms.hr.doctype.daily_work_summary_group.daily_work_summary_group.trigger_emails because it was found in queue for itu.erpnext
+2025-06-24 20:28:01,080 ERROR scheduler Skipped queueing hrms.hr.doctype.shift_schedule_assignment.shift_schedule_assignment.process_auto_shift_creation because it was found in queue for itu.erpnext

@@ -222,8 +222,9 @@ $(document).ready(function () {
                 hideLoading();
             },
             error: (jqXHR, textStatus, errorThrown) => {
-                alert("Internal Server error!");
-                console.error(jqXHR)
+                const response = JSON.parse(jqXHR.responseText)
+                alert(response.message);
+                console.error(response)
             }
         })
     }
@@ -252,7 +253,7 @@ $(document).ready(function () {
     /* FORM DATA PREPARATION */
     function data(){
         return {
-            name: $("details #name").val(),
+            name: $(".details #name").val(),
             company: $("#company").val(),
             isActive: $("#is-active").val(),
             currency: $("#currency").val(),
@@ -261,7 +262,7 @@ $(document).ready(function () {
             leaveEncashment: $("#leave-encashment").val(),
             modeOfPayment: $("#modeOfPayment").val(),
             paymentAccount:$("#paymentAccount").val(),
-            salarySlipBasedOnTimesheet: $("#based-on-timesheet").val(),
+            salarySlipBasedOnTimesheet: $("#based-on-timesheet").prop("checked"),
             earnings: earningsData(),
             deductions: deductionsData()
         }

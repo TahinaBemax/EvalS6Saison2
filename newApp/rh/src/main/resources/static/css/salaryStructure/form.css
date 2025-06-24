@@ -74,6 +74,9 @@ select.form-select {
 #componentList {
     list-style: none;
     padding: 0;
-    color: #000;
+}
+
+#componentList li {
     cursor: pointer;
+    color: #000;
 }
